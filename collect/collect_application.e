@@ -100,9 +100,9 @@ feature {NONE} -- Initialization
 
 			read_credentials
 			if attached username and attached password then
-				debug log_display ("Credentials read", log_information, true) end
+				log_display ("Credentials read", log_information, true)
 			else
-				debug log_display ("Critical failure, dying.", log_emergency, true) end
+				log_display ("Critical failure, dying.", log_emergency, true)
 				die(sigabrt)
 			end
 
@@ -142,14 +142,11 @@ feature {NONE} -- Initialization
 					log_display ("FATAL error: unable to login", log_critical, true)
 					die(0)
 				else
---					is_logged_in := true
-					debug
-						log_display ("logged in with token " +
-						             token.id +
-						             " expiring upon " +
-						             token.expiry.formatted_out (default_date_time_format),
-						             log_information, true)
-					end
+					log_display ("logged in with token " +
+					             token.id +
+					             " expiring upon " +
+					             token.expiry.formatted_out (default_date_time_format),
+					             log_information, true)
 				end
 			end
 		end
@@ -343,9 +340,9 @@ feature -- Credentials
 
 			read_cfg
 			if attached username and attached password then
-				debug log_display ("Credentials OK", log_alert, true) end
+				log_display ("Credentials OK", log_alert, true)
 			else
-				debug log_display ("Unable to read credentials", log_alert, true) end
+				log_display ("Unable to read credentials", log_alert, true)
 			end
 		end
 
@@ -377,7 +374,7 @@ feature -- Logging
 			file_logger.enable_debug_log_level
 			if attached logger as l_logger then
 				l_logger.register_log_writer (file_logger)
-				debug log_display ("Log system initialized", log_information, true) end
+				log_display ("Log system initialized", log_information, true)
 			end
 		end
 
@@ -479,10 +476,10 @@ feature -- Basic operations
 			-- Reset `json_parser'
 		do
 			if not json_parser.is_valid then
-				debug log_display ("Resetting JSON parser", log_warning, true) end
+				log_display ("Resetting JSON parser", log_warning, true)
 				json_parser.reset_reader
 				json_parser.reset
-				debug log_display ("JSON parser OK", log_warning, true) end
+				log_display ("JSON parser OK", log_warning, true)
 			end
 		end
 
@@ -543,7 +540,7 @@ feature -- Basic operations
 					-- Message id
 
 		do
-			debug log_display ("Entering execute ...", log_debug, true) end
+			log_display ("Entering execute ...", log_debug, true)
 			create request.make (req.content_length_value.to_integer_32)
 			create response.make_empty
 			create current_time.make_now
@@ -551,92 +548,80 @@ feature -- Basic operations
 			up_time := current_time.relative_duration (start_time)
 
 			if attached up_time as l_up_time then
-				debug
-					log_display("UP TIME: " +
-									l_up_time.day.out + ":" +
-									format_integer.formatted (l_up_time.hour) + ":" +
-									format_integer.formatted (l_up_time.minute) + ":" +
-									format_integer.formatted (l_up_time.second), log_information, true)
-				end
+				log_display("UP TIME: " +
+								l_up_time.day.out + ":" +
+								format_integer.formatted (l_up_time.hour) + ":" +
+								format_integer.formatted (l_up_time.minute) + ":" +
+								format_integer.formatted (l_up_time.second), log_information, true)
 			end
 
-			debug log_display ("Checking UTC settings ...", log_debug, true) end
+			log_display ("Checking UTC settings ...", log_debug, true)
 			if is_utc_set then
-				debug log_display ("time_offset     : " + one_hour.hour.out, log_debug, true) end
+				log_display ("time_offset     : " + one_hour.hour.out, log_debug, true)
 				current_time := current_time + one_hour
 			end
 
 			token_expired := is_token_expired (current_time)
 
-			debug
-				log_display ("is logged in    : " + is_logged_in.out, log_debug, true)
-				log_display ("token id        : " + token.id, log_debug, true)
-				log_display ("token expiry    : " + token.expiry.formatted_out (default_date_time_format), log_debug, true)
-				log_display ("current time    : " + current_time.formatted_out (default_date_time_format), log_debug, true)
-				log_display ("is token expired: " + token_expired.out, log_debug, true)
-			end
+			log_display ("is logged in    : " + is_logged_in.out, log_debug, true)
+			log_display ("token id        : " + token.id, log_debug, true)
+			log_display ("token expiry    : " + token.expiry.formatted_out (default_date_time_format), log_debug, true)
+			log_display ("current time    : " + current_time.formatted_out (default_date_time_format), log_debug, true)
+			log_display ("is token expired: " + token_expired.out, log_debug, true)
 
-			debug log_display ("Checking token expiration ...", log_debug, true) end
+			log_display ("Checking token expiration ...", log_debug, true)
 			if token_expired then
 				sleep (500000000)
 				login_response.reset
 				is_logged_in := do_login
 				if not is_logged_in then
 					log_display("Unable to login", log_error, true)
-					debug
-						log_display ("Outcome   : " + login_response.outcome.out, log_information, true)
-						log_display ("Message   : " + login_response.message, log_information, true)
-					end
+					log_display ("Outcome   : " + login_response.outcome.out, log_information, true)
+					log_display ("Message   : " + login_response.message, log_information, true)
 				else
-					debug
-						log_display ("logged in with new token " +
-						             token.id +
-						             " expiring upon " +
-						             token.expiry.formatted_out (default_date_time_format),
-						             log_information, true)
-					end
+					log_display ("logged in with new token " +
+					             token.id +
+					             " expiring upon " +
+					             token.expiry.formatted_out (default_date_time_format),
+					             log_information, true)
 				end
 				sleep (500 * 1000000)
 			end
 
 			if is_logged_in then
 				-- read json input
-				debug log_display ("Reading JSON input ...", log_debug, true) end
+				log_display ("Reading JSON input ...", log_debug, true)
 				received_bytes := req.input.read_to_string (request, 1, req.content_length_value.to_integer_32)
-				debug log_display ("Received " + received_bytes.out + " bytes", log_debug, true) end
+				log_display ("Received " + received_bytes.out + " bytes", log_debug, true)
 
 				if attached request as l_req then
 					if not check_json_message (l_req) then
-						debug
-							log_display ("CONTROL character(s) received: not a valid JSON message", log_warning, true)
-							log_display ("DISCARD message", log_warning, true)
-						end
+						log_display ("CONTROL character(s) received: not a valid JSON message", log_warning, true)
+						log_display ("DISCARD message", log_warning, true)
 						raise ("CONTROL character(s) received: raise")
 					else
 						if not l_req.is_valid_as_string_8 then
-							debug
-								log_display ("ERROR: not a text message", log_warning, true)
+							log_display ("ERROR: not a text message", log_warning, true)
 
-								log_string := "********** BAD REQUEST "
-								log_string.append (l_req)
+							log_string := "********** BAD REQUEST "
+							log_string.append (l_req)
+							log_string.append (" ")
+							log_string.append (req.remote_addr)
+							log_string.append (" ")
+							if attached req.remote_host as l_remote_host then
+								log_string.append (l_remote_host)
 								log_string.append (" ")
-								log_string.append (req.remote_addr)
-								log_string.append (" ")
-								if attached req.remote_host as l_remote_host then
-									log_string.append (l_remote_host)
-									log_string.append (" ")
-								end
-								log_string.append (req.request_uri)
-								if attached req.request_time as l_request_time then
-									log_string.append (l_request_time.formatted_out (default_date_time_format))
-								end
-								log_display (log_string, log_alert, true)
 							end
+							log_string.append (req.request_uri)
+							if attached req.request_time as l_request_time then
+								log_string.append (l_request_time.formatted_out (default_date_time_format))
+							end
+							log_display (log_string, log_alert, true)
 
 							l_req.fill_character (null_char)
 							l_req.wipe_out
 						else
-							debug log_display(" <<< " + l_req, log_debug, true) end
+							log_display(" <<< " + l_req, log_debug, true)
 							-- parse the message header
 							msg_id := parse_header (l_req)
 							if msg_id = 0 then
@@ -644,32 +629,10 @@ feature -- Basic operations
 								error_message := {ERROR_CODES}.msg_invalid_json
 								reset_json_parser
 							end
-							debug
-								log_display ("Received message id: " + msg_id.out, log_debug, true)
-								log_display ("Checking message type ...", log_debug, true)
-							end
---							if msg_id = {REQUEST_I}.login_request_id then
---								req_obj := create {LOGIN_REQUEST}.make
---								if attached req_obj as myreq then
---									myreq.from_json (request, json_parser)
---									res_obj := do_post (myreq)
---									if attached res_obj as myres then
---										response := myres.to_json
---									end
---								end
---							elseif msg_id = {REQUEST_I}.logout_request_id then
---								req_obj := create {LOGOUT_REQUEST}.make
---								if attached req_obj as myreq then
---									myreq.from_json (request, json_parser)
---									res_obj := do_post (myreq)
---									if attached res_obj as myres then
---										response := myres.to_json
---									end
---								end
---							else
+							log_display ("Received message id: " + msg_id.out, log_debug, true)
+							log_display ("Checking message type ...", log_debug, true)
 							inspect
 								msg_id
-							--if msg_id = {REQUEST_I}.station_status_list_request_id then
 							when {REQUEST_I}.station_status_list_request_id then
 								req_obj := create {STATION_STATUS_LIST_REQUEST}.make
 								if attached req_obj as myreq then
@@ -678,16 +641,13 @@ feature -- Basic operations
 									res_obj := do_post (myreq)
 									if attached res_obj as myres then
 										response := myres.to_json
-										debug
-											log_display("Sent message id: " + myres.id.out + " Station status list", log_information, true)
-											log_display("Message outcome: " + myres.outcome.out, log_information, true)
-											if attached myres.message as l_message then
-												log_display("Message message: " + l_message, log_information, true)
-											end
+										log_display("Sent message id: " + myres.id.out + " Station status list", log_information, true)
+										log_display("Message outcome: " + myres.outcome.out, log_information, true)
+										if attached myres.message as l_message then
+											log_display("Message message: " + l_message, log_information, true)
 										end
 									end
 								end
-							--elseif msg_id = {REQUEST_I}.station_types_list_request_id then
 							when {REQUEST_I}.station_types_list_request_id then
 								req_obj := create {STATION_TYPES_LIST_REQUEST}.make
 								if attached req_obj as myreq then
@@ -696,16 +656,13 @@ feature -- Basic operations
 									res_obj := do_post (myreq)
 									if attached res_obj as myres then
 										response := myres.to_json
-										debug
-											log_display("Sent message id: " + myres.id.out + " Station types list", log_information, true)
-											log_display("Message outcome: " + myres.outcome.out, log_information, true)
-											if attached myres.message as l_message then
-												log_display("Message message: " + l_message, log_information, true)
-											end
+										log_display("Sent message id: " + myres.id.out + " Station types list", log_information, true)
+										log_display("Message outcome: " + myres.outcome.out, log_information, true)
+										if attached myres.message as l_message then
+											log_display("Message message: " + l_message, log_information, true)
 										end
 									end
 								end
-							--elseif msg_id = {REQUEST_I}.province_list_request_id then
 							when {REQUEST_I}.province_list_request_id then
 								req_obj := create {PROVINCE_LIST_REQUEST}.make
 								if attached req_obj as myreq then
@@ -714,16 +671,13 @@ feature -- Basic operations
 									res_obj := do_post (myreq)
 									if attached res_obj as myres then
 										response := myres.to_json
-										debug
-											log_display("Sent message id: " + myres.id.out + " Province list", log_information, true)
-											log_display("Message outcome: " + myres.outcome.out, log_information, true)
-											if attached myres.message as l_message then
-												log_display("Message message: " + l_message, log_information, true)
-											end
+										log_display("Sent message id: " + myres.id.out + " Province list", log_information, true)
+										log_display("Message outcome: " + myres.outcome.out, log_information, true)
+										if attached myres.message as l_message then
+											log_display("Message message: " + l_message, log_information, true)
 										end
 									end
 								end
-							--elseif msg_id = {REQUEST_I}.municipality_list_request_id then
 							when {REQUEST_I}.municipality_list_request_id then
 								req_obj := create {MUNICIPALITY_LIST_REQUEST}.make
 								if attached req_obj as myreq then
@@ -732,16 +686,13 @@ feature -- Basic operations
 									res_obj := do_post (myreq)
 									if attached res_obj as myres then
 										response := myres.to_json
-										debug
-											log_display("Sent message id: " + myres.id.out + " Municipality list", log_information, true)
-											log_display("Message outcome: " + myres.outcome.out, log_information, true)
-											if attached myres.message as l_message then
-												log_display("Message message: " + l_message, log_information, true)
-											end
+										log_display("Sent message id: " + myres.id.out + " Municipality list", log_information, true)
+										log_display("Message outcome: " + myres.outcome.out, log_information, true)
+										if attached myres.message as l_message then
+											log_display("Message message: " + l_message, log_information, true)
 										end
 									end
 								end
-							--elseif msg_id = {REQUEST_I}.station_list_request_id then
 							when {REQUEST_I}.station_list_request_id then
 								req_obj := create {STATION_LIST_REQUEST}.make
 								if attached req_obj as myreq then
@@ -750,16 +701,13 @@ feature -- Basic operations
 									res_obj := do_post (myreq)
 									if attached res_obj as myres then
 										response := myres.to_json
-										debug
-											log_display("Sent message id: " + myres.id.out + " Station list", log_information, true)
-											log_display("Message outcome: " + myres.outcome.out, log_information, true)
-											if attached myres.message as l_message then
-												log_display("Message message: " + l_message, log_information, true)
-											end
+										log_display("Sent message id: " + myres.id.out + " Station list", log_information, true)
+										log_display("Message outcome: " + myres.outcome.out, log_information, true)
+										if attached myres.message as l_message then
+											log_display("Message message: " + l_message, log_information, true)
 										end
 									end
 								end
-							--elseif msg_id = {REQUEST_I}.sensor_type_list_request_id then
 							when {REQUEST_I}.sensor_type_list_request_id then
 								req_obj := create {SENSOR_TYPE_LIST_REQUEST}.make
 								if attached req_obj as myreq then
@@ -768,16 +716,13 @@ feature -- Basic operations
 									res_obj := do_post (myreq)
 									if attached res_obj as myres then
 										response := myres.to_json
-										debug
-											log_display("Sent message id: " + myres.id.out + " Sensor types list", log_information, true)
-											log_display("Message outcome: " + myres.outcome.out, log_information, true)
-											if attached myres.message as l_message then
-												log_display("Message message: " + l_message, log_information, true)
-											end
+										log_display("Sent message id: " + myres.id.out + " Sensor types list", log_information, true)
+										log_display("Message outcome: " + myres.outcome.out, log_information, true)
+										if attached myres.message as l_message then
+											log_display("Message message: " + l_message, log_information, true)
 										end
 									end
 								end
-							--elseif msg_id = {REQUEST_I}.sensor_list_request_id then
 							when {REQUEST_I}.sensor_list_request_id then
 								req_obj := create {SENSOR_LIST_REQUEST}.make
 								if attached req_obj as myreq then
@@ -786,16 +731,13 @@ feature -- Basic operations
 									res_obj := do_post (myreq)
 									if attached res_obj as myres then
 										response := myres.to_json
-										debug
-											log_display("Sent message id: " + myres.id.out + " Sensor list", log_information, true)
-											log_display("Message outcome: " + myres.outcome.out, log_information, true)
-											if attached myres.message as l_message then
-												log_display("Message message: " + l_message, log_information, true)
-											end
+										log_display("Sent message id: " + myres.id.out + " Sensor list", log_information, true)
+										log_display("Message outcome: " + myres.outcome.out, log_information, true)
+										if attached myres.message as l_message then
+											log_display("Message message: " + l_message, log_information, true)
 										end
 									end
 								end
-							--elseif msg_id = {REQUEST_I}.realtime_data_request_id then
 							when {REQUEST_I}.realtime_data_request_id then
 								req_obj := create {REALTIME_DATA_REQUEST}.make
 								if attached req_obj as myreq then
@@ -804,16 +746,13 @@ feature -- Basic operations
 									res_obj := do_post (myreq)
 									if attached res_obj as myres then
 										response := myres.to_json
-										debug
-											log_display("Sent message id: " + myres.id.out + " Realtime data", log_information, true)
-											log_display("Message outcome: " + myres.outcome.out, log_information, true)
-											if attached myres.message as l_message then
-												log_display("Message message: " + l_message, log_information, true)
-											end
+										log_display("Sent message id: " + myres.id.out + " Realtime data", log_information, true)
+										log_display("Message outcome: " + myres.outcome.out, log_information, true)
+										if attached myres.message as l_message then
+											log_display("Message message: " + l_message, log_information, true)
 										end
 									end
 								end
-							--elseif msg_id = {REQUEST_I}.query_token_request_id then
 							when {REQUEST_I}.query_token_request_id then
 								req_obj := create {QUERY_TOKEN_REQUEST}.make
 								if attached req_obj as myreq then
@@ -821,16 +760,13 @@ feature -- Basic operations
 									res_obj := create {QUERY_TOKEN_RESPONSE}.make_from_token (token)
 									if attached res_obj as myres then
 										response := myres.to_json
-										debug
-											log_display("Sent message id: " + myres.id.out + " Query token", log_information, true)
-											log_display("Message outcome: " + myres.outcome.out, log_information, true)
-											if attached myres.message as l_message then
-												log_display("Message message: " + l_message, log_information, true)
-											end
+										log_display("Sent message id: " + myres.id.out + " Query token", log_information, true)
+										log_display("Message outcome: " + myres.outcome.out, log_information, true)
+										if attached myres.message as l_message then
+											log_display("Message message: " + l_message, log_information, true)
 										end
 									end
 								end
-							--elseif msg_id = {REQUEST_I}.standard_data_request_id then
 							when {REQUEST_I}.standard_data_request_id then
 								req_obj := create {STANDARD_DATA_REQUEST}.make
 								if attached req_obj as myreq then
@@ -839,45 +775,43 @@ feature -- Basic operations
 									res_obj := do_post (myreq)
 									if attached res_obj as myres then
 										response := myres.to_json
-										debug
-											log_display("Sent message id: " + myres.id.out + " Realtime data", log_information, true)
-											log_display("Message outcome: " + myres.outcome.out, log_information, true)
-											if attached myres.message as l_message then
-												log_display("Message message: " + l_message, log_information, true)
-											end
+										log_display("Sent message id: " + myres.id.out + " Realtime data", log_information, true)
+										log_display("Message outcome: " + myres.outcome.out, log_information, true)
+										if attached myres.message as l_message then
+											log_display("Message message: " + l_message, log_information, true)
 										end
 									end
 								end
 							else
-								debug log_display ("UNKNOWN message", log_information, true) end
+								log_display ("UNKNOWN message", log_information, true)
 							end
 						end
 					end
 				else
-					debug log_display ("JSON request NOT ATTACHED", log_warning, true) end
+					log_display ("JSON request NOT ATTACHED", log_warning, true)
 				end
 
 				if msg_id = 0 then
 					res.put_header ({HTTP_STATUS_CODE}.bad_request, <<["Content-Type", "text/json"], ["Content-Length", response.count.out]>>)
-					debug log_display ("Returned HTTP status code: " + {HTTP_STATUS_CODE}.bad_request.out + " Content-Length: " + response.count.out, log_error, true) end
+					log_display ("Returned HTTP status code: " + {HTTP_STATUS_CODE}.bad_request.out + " Content-Length: " + response.count.out, log_error, true)
 				else
 					res.put_header ({HTTP_STATUS_CODE}.ok, <<["Content-Type", "text/json"], ["Content-Length", response.count.out]>>)
-					debug log_display ("Returned HTTP status code: " + {HTTP_STATUS_CODE}.ok.out, log_debug, true) end
+					log_display ("Returned HTTP status code: " + {HTTP_STATUS_CODE}.ok.out, log_debug, true)
 				end
 				res.put_string (response)
-				debug log_display (" >>> " + response, log_information, true) end
+				log_display (" >>> " + response, log_information, true)
 
 				msg_number := msg_number + 1
-				debug log_display ("%T Managed message number " + msg_number.out, log_notice, true) end
+				log_display ("%T Managed message number " + msg_number.out, log_notice, true)
 
-				debug log_display ("Checking message number ...", log_debug, true) end
+				log_display ("Checking message number ...", log_debug, true)
 
 				if msg_number = {INTEGER}.max_value - 1 then
 					msg_number := 1
-					debug log_display ("Reset message counter to 1", log_notice, true) end
+					log_display ("Reset message counter to 1", log_notice, true)
 				end
 
-				debug log_display ("Message number checked", log_debug, true) end
+				log_display ("Message number checked", log_debug, true)
 
 				if (msg_number \\ gc_monitoring_message_number) = 0 then
 					log_gc_parameters
@@ -889,10 +823,10 @@ feature -- Basic operations
 			error_code    := success
 			error_message := ""
 
-			debug log_display ("Exiting execute ...", log_debug, true) end
+			log_display ("Exiting execute ...", log_debug, true)
 
 		rescue
-			debug log_display ("EXCEPTION raised", log_error, true) end
+			log_display ("EXCEPTION raised", log_error, true)
 			log_gc_parameters
 			handle_signals
 			reset_json_parser
@@ -1177,7 +1111,7 @@ feature {NONE} -- Network IO
 			Result    := a_request.init_response
 			l_xml_str := post (a_request)
 
-			debug log_display(" <<< " + l_xml_str, log_debug, true) end
+			log_display(" <<< " + l_xml_str, log_debug, true)
 
 			if attached Result as l_result then
 				if error_code = 0 then
@@ -1249,32 +1183,21 @@ feature {NONE} -- Login management
 				login_request.set_password (l_password)
 
 				l_xml_str := post (login_request)
-				debug log_display("do_login_response: " + l_xml_str, log_debug, true) end
+				log_display("do_login_response: " + l_xml_str, log_debug, true)
 				login_response.from_xml (l_xml_str, xml_parser)
-				debug
-					log_display("login outcome: " + login_response.outcome.out, log_debug, true)
-					log_display("login message: " + login_response.message,     log_debug, true)
-				end
+				log_display("login outcome: " + login_response.outcome.out, log_debug, true)
+				log_display("login message: " + login_response.message,     log_debug, true)
 
 				if login_response.outcome = success then
 					token.set_id (login_response.token.id)
 					token.set_expiry (login_response.token.expiry)
 					if token.id.count > 0 then
-						--is_logged_in := true
 						Result := true
 						-- save token to text file
 						save_last_token
---					else
---						is_logged_in := false
 					end
---				else
---					is_logged_in := false
 				end
---			else
---				is_logged_in := False
 			end
-
---			Result := is_logged_in
 		end
 
 	do_logout: BOOLEAN
@@ -1286,11 +1209,9 @@ feature {NONE} -- Login management
 				logout_request.set_token_id (token.id)
 
 				l_xml_str := post (logout_request)
-				debug
-					log_display("do_logout response " + l_xml_str, log_debug, true)
-					log_display("login outcome: " + logout_response.outcome.out, log_debug, true)
-					log_display("login message: " + logout_response.message,     log_debug, true)
-				end
+				log_display("do_logout response " + l_xml_str, log_debug, true)
+				log_display("login outcome: " + logout_response.outcome.out, log_debug, true)
+				log_display("login message: " + logout_response.message,     log_debug, true)
 
 				logout_response.from_xml (l_xml_str, xml_parser)
 
