@@ -311,15 +311,11 @@ feature -- Credentials
 				cfg_file.open_read
 
 				cfg_file.read_line
-				--username := cfg_file.last_string
 				set_username (cfg_file.last_string)
 				cfg_file.read_line
-				--password := cfg_file.last_string
 				set_password (cfg_file.last_string)
 
 				cfg_file.close
-
-				--Result := true
 			end
 		rescue
 			cfg_file.close
