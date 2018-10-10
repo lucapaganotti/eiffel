@@ -15,7 +15,7 @@ create
 
 feature {NONE}
 
-	make (a_callback: PGTHREADLOCK_T_CALLBACK) is
+	make (a_callback: PGTHREADLOCK_T_CALLBACK)
 		require
 			a_callback_not_void: a_callback /= Void
 		do
@@ -27,16 +27,16 @@ feature {ANY}
 
 	callback: PGTHREADLOCK_T_CALLBACK
 
-	c_dispatcher: POINTER is
+	c_dispatcher: POINTER
 		do
 			Result := get_pgthreadlock_t_stub_external
 		end
 
 feature {NONE} -- Implementation
 
-	frozen on_callback (a_acquire: INTEGER) is 
+	frozen on_callback (a_acquire: INTEGER)
 		do
-			callback.on_callback (a_acquire) 
+			callback.on_callback (a_acquire)
 		end
 
 invariant

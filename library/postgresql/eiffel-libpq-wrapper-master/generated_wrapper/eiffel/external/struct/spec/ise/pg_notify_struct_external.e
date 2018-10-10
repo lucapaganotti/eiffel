@@ -5,14 +5,14 @@ class PG_NOTIFY_STRUCT_EXTERNAL
 
 feature {NONE} -- Implementation
 
-	sizeof_external: INTEGER is
+	sizeof_external: INTEGER
 		external
 			"C [macro <my_postgres.h>]: EIF_INTEGER"
 		alias
 			"sizeof(struct pgNotify)"
 		end
 
-	get_relname_external (an_item: POINTER): POINTER is
+	get_relname_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -21,7 +21,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgNotify_member_get_relname"
 		end
 
-	set_relname_external (an_item: POINTER; a_value: POINTER) is
+	set_relname_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -32,7 +32,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_relname_external (an_item)
 		end
 
-	get_be_pid_external (an_item: POINTER): INTEGER is
+	get_be_pid_external (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -41,7 +41,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgNotify_member_get_be_pid"
 		end
 
-	set_be_pid_external (an_item: POINTER; a_value: INTEGER) is
+	set_be_pid_external (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -52,7 +52,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_be_pid_external (an_item)
 		end
 
-	get_extra_external (an_item: POINTER): POINTER is
+	get_extra_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -61,7 +61,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgNotify_member_get_extra"
 		end
 
-	set_extra_external (an_item: POINTER; a_value: POINTER) is
+	set_extra_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -72,7 +72,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_extra_external (an_item)
 		end
 
-	get_next_external (an_item: POINTER): POINTER is
+	get_next_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -81,7 +81,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgNotify_member_get_next"
 		end
 
-	set_next_external (an_item: POINTER; a_value: POINTER) is
+	set_next_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external

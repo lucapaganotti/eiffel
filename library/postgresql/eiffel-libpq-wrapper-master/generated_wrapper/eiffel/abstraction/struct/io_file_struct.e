@@ -20,7 +20,7 @@ create
 
 feature {ANY} -- Access
 
-	sizeof: INTEGER is
+	sizeof: INTEGER
 		do
 			Result := sizeof_external
 		end

@@ -58,7 +58,7 @@ feature {NONE} -- Initialization
 			create sensors.make (0)
 
 			create now.make_now
-			create one_month.make (0, 0, -30, 0, 0, 0)
+			create one_month.make (0, 0, -14, 0, 0, 0)
 			create one_week.make (0, 0, -7, 0, 0, 0)
 			create one_day.make (0, 0, 0, -24, 0, 0)
 			create one_hour.make (0, 0, 0, 1, 0, 0)

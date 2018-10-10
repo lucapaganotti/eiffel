@@ -5,14 +5,14 @@ class PQCONNINFO_OPTION_STRUCT_EXTERNAL
 
 feature {NONE} -- Implementation
 
-	sizeof_external: INTEGER is
+	sizeof_external: INTEGER
 		external
 			"C [macro <my_postgres.h>]: EIF_INTEGER"
 		alias
 			"sizeof(struct _PQconninfoOption)"
 		end
 
-	get_keyword_external (an_item: POINTER): POINTER is
+	get_keyword_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -21,7 +21,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQconninfoOption_member_get_keyword"
 		end
 
-	set_keyword_external (an_item: POINTER; a_value: POINTER) is
+	set_keyword_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -32,7 +32,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_keyword_external (an_item)
 		end
 
-	get_envvar_external (an_item: POINTER): POINTER is
+	get_envvar_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -41,7 +41,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQconninfoOption_member_get_envvar"
 		end
 
-	set_envvar_external (an_item: POINTER; a_value: POINTER) is
+	set_envvar_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -52,7 +52,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_envvar_external (an_item)
 		end
 
-	get_compiled_external (an_item: POINTER): POINTER is
+	get_compiled_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -61,7 +61,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQconninfoOption_member_get_compiled"
 		end
 
-	set_compiled_external (an_item: POINTER; a_value: POINTER) is
+	set_compiled_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -72,7 +72,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_compiled_external (an_item)
 		end
 
-	get_val_external (an_item: POINTER): POINTER is
+	get_val_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -81,7 +81,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQconninfoOption_member_get_val"
 		end
 
-	set_val_external (an_item: POINTER; a_value: POINTER) is
+	set_val_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -92,7 +92,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_val_external (an_item)
 		end
 
-	get_label_external (an_item: POINTER): POINTER is
+	get_label_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -101,7 +101,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQconninfoOption_member_get_label"
 		end
 
-	set_label_external (an_item: POINTER; a_value: POINTER) is
+	set_label_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -112,7 +112,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_label_external (an_item)
 		end
 
-	get_dispchar_external (an_item: POINTER): POINTER is
+	get_dispchar_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -121,7 +121,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQconninfoOption_member_get_dispchar"
 		end
 
-	set_dispchar_external (an_item: POINTER; a_value: POINTER) is
+	set_dispchar_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -132,7 +132,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_dispchar_external (an_item)
 		end
 
-	get_dispsize_external (an_item: POINTER): INTEGER is
+	get_dispsize_external (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -141,7 +141,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQconninfoOption_member_get_dispsize"
 		end
 
-	set_dispsize_external (an_item: POINTER; a_value: INTEGER) is
+	set_dispsize_external (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external

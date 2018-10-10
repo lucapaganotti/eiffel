@@ -7,7 +7,7 @@ inherit
 	LIBPQ_FE_FUNCTIONS_EXTERNAL
 
 feature
-	pqconnect_start (conninfo: STRING): POINTER is
+	pqconnect_start (conninfo: STRING): POINTER
 		local
 			conninfo_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -15,13 +15,13 @@ feature
 			Result := pqconnect_start_external (conninfo_c_string.item)
 		end
 
-	pqconnect_poll (conn: POINTER): INTEGER is
+	pqconnect_poll (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqconnect_poll_external (conn)
 		end
 
-	pqconnectdb (conninfo: STRING): POINTER is
+	pqconnectdb (conninfo: STRING): POINTER
 		local
 			conninfo_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -29,7 +29,7 @@ feature
 			Result := pqconnectdb_external (conninfo_c_string.item)
 		end
 
-	pqsetdb_login (pghost: STRING; pgport: STRING; pgoptions: STRING; pgtty: STRING; dbname: STRING; login: STRING; pwd: STRING): POINTER is
+	pqsetdb_login (pghost: STRING; pgport: STRING; pgoptions: STRING; pgtty: STRING; dbname: STRING; login: STRING; pwd: STRING): POINTER
 		local
 			pghost_c_string: EWG_ZERO_TERMINATED_STRING
 			pgport_c_string: EWG_ZERO_TERMINATED_STRING
@@ -49,19 +49,19 @@ feature
 			Result := pqsetdb_login_external (pghost_c_string.item, pgport_c_string.item, pgoptions_c_string.item, pgtty_c_string.item, dbname_c_string.item, login_c_string.item, pwd_c_string.item)
 		end
 
-	pqfinish (conn: POINTER) is
+	pqfinish (conn: POINTER)
 		local
 		do
 			pqfinish_external (conn)
 		end
 
-	pqconndefaults: POINTER is
+	pqconndefaults: POINTER
 		local
 		do
 			Result := pqconndefaults_external
 		end
 
-	pqconninfo_parse (conninfo: STRING; errmsg: POINTER): POINTER is
+	pqconninfo_parse (conninfo: STRING; errmsg: POINTER): POINTER
 		local
 			conninfo_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -69,43 +69,43 @@ feature
 			Result := pqconninfo_parse_external (conninfo_c_string.item, errmsg)
 		end
 
-	pqconninfo_free (connoptions: POINTER) is
+	pqconninfo_free (connoptions: POINTER)
 		local
 		do
 			pqconninfo_free_external (connoptions)
 		end
 
-	pqreset_start (conn: POINTER): INTEGER is
+	pqreset_start (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqreset_start_external (conn)
 		end
 
-	pqreset_poll (conn: POINTER): INTEGER is
+	pqreset_poll (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqreset_poll_external (conn)
 		end
 
-	pqreset (conn: POINTER) is
+	pqreset (conn: POINTER)
 		local
 		do
 			pqreset_external (conn)
 		end
 
-	pqget_cancel (conn: POINTER): POINTER is
+	pqget_cancel (conn: POINTER): POINTER
 		local
 		do
 			Result := pqget_cancel_external (conn)
 		end
 
-	pqfree_cancel (cancel: POINTER) is
+	pqfree_cancel (cancel: POINTER)
 		local
 		do
 			pqfree_cancel_external (cancel)
 		end
 
-	pqcancel (cancel: POINTER; errbuf: STRING; errbufsize: INTEGER): INTEGER is
+	pqcancel (cancel: POINTER; errbuf: STRING; errbufsize: INTEGER): INTEGER
 		local
 			errbuf_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -113,67 +113,67 @@ feature
 			Result := pqcancel_external (cancel, errbuf_c_string.item, errbufsize)
 		end
 
-	pqrequest_cancel (conn: POINTER): INTEGER is
+	pqrequest_cancel (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqrequest_cancel_external (conn)
 		end
 
-	pqdb (conn: POINTER): POINTER is
+	pqdb (conn: POINTER): POINTER
 		local
 		do
 			Result := pqdb_external (conn)
 		end
 
-	pquser (conn: POINTER): POINTER is
+	pquser (conn: POINTER): POINTER
 		local
 		do
 			Result := pquser_external (conn)
 		end
 
-	pqpass (conn: POINTER): POINTER is
+	pqpass (conn: POINTER): POINTER
 		local
 		do
 			Result := pqpass_external (conn)
 		end
 
-	pqhost (conn: POINTER): POINTER is
+	pqhost (conn: POINTER): POINTER
 		local
 		do
 			Result := pqhost_external (conn)
 		end
 
-	pqport (conn: POINTER): POINTER is
+	pqport (conn: POINTER): POINTER
 		local
 		do
 			Result := pqport_external (conn)
 		end
 
-	pqtty (conn: POINTER): POINTER is
+	pqtty (conn: POINTER): POINTER
 		local
 		do
 			Result := pqtty_external (conn)
 		end
 
-	pqoptions (conn: POINTER): POINTER is
+	pqoptions (conn: POINTER): POINTER
 		local
 		do
 			Result := pqoptions_external (conn)
 		end
 
-	pqstatus (conn: POINTER): INTEGER is
+	pqstatus (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqstatus_external (conn)
 		end
 
-	pqtransaction_status (conn: POINTER): INTEGER is
+	pqtransaction_status (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqtransaction_status_external (conn)
 		end
 
-	pqparameter_status (conn: POINTER; paramname: STRING): POINTER is
+	pqparameter_status (conn: POINTER; paramname: STRING): POINTER
 		local
 			paramname_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -181,55 +181,55 @@ feature
 			Result := pqparameter_status_external (conn, paramname_c_string.item)
 		end
 
-	pqprotocol_version (conn: POINTER): INTEGER is
+	pqprotocol_version (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqprotocol_version_external (conn)
 		end
 
-	pqserver_version (conn: POINTER): INTEGER is
+	pqserver_version (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqserver_version_external (conn)
 		end
 
-	pqerror_message (conn: POINTER): POINTER is
+	pqerror_message (conn: POINTER): POINTER
 		local
 		do
 			Result := pqerror_message_external (conn)
 		end
 
-	pqsocket (conn: POINTER): INTEGER is
+	pqsocket (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqsocket_external (conn)
 		end
 
-	pqbackend_pid (conn: POINTER): INTEGER is
+	pqbackend_pid (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqbackend_pid_external (conn)
 		end
 
-	pqconnection_needs_password (conn: POINTER): INTEGER is
+	pqconnection_needs_password (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqconnection_needs_password_external (conn)
 		end
 
-	pqconnection_used_password (conn: POINTER): INTEGER is
+	pqconnection_used_password (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqconnection_used_password_external (conn)
 		end
 
-	pqclient_encoding (conn: POINTER): INTEGER is
+	pqclient_encoding (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqclient_encoding_external (conn)
 		end
 
-	pqset_client_encoding (conn: POINTER; encoding: STRING): INTEGER is
+	pqset_client_encoding (conn: POINTER; encoding: STRING): INTEGER
 		local
 			encoding_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -237,61 +237,61 @@ feature
 			Result := pqset_client_encoding_external (conn, encoding_c_string.item)
 		end
 
-	pqgetssl (conn: POINTER): POINTER is
+	pqgetssl (conn: POINTER): POINTER
 		local
 		do
 			Result := pqgetssl_external (conn)
 		end
 
-	pqinit_ssl (do_init: INTEGER) is
+	pqinit_ssl (do_init: INTEGER)
 		local
 		do
 			pqinit_ssl_external (do_init)
 		end
 
-	pqinit_open_ssl (do_ssl: INTEGER; do_crypto: INTEGER) is
+	pqinit_open_ssl (do_ssl: INTEGER; do_crypto: INTEGER)
 		local
 		do
 			pqinit_open_ssl_external (do_ssl, do_crypto)
 		end
 
-	pqset_error_verbosity (conn: POINTER; verbosity: INTEGER): INTEGER is
+	pqset_error_verbosity (conn: POINTER; verbosity: INTEGER): INTEGER
 		local
 		do
 			Result := pqset_error_verbosity_external (conn, verbosity)
 		end
 
-	pqtrace (conn: POINTER; debug_port: POINTER) is
+	pqtrace (conn: POINTER; debug_port: POINTER)
 		local
 		do
 			pqtrace_external (conn, debug_port)
 		end
 
-	pquntrace (conn: POINTER) is
+	pquntrace (conn: POINTER)
 		local
 		do
 			pquntrace_external (conn)
 		end
 
-	pqset_notice_receiver (conn: POINTER; proc: POINTER; arg: POINTER): POINTER is
+	pqset_notice_receiver (conn: POINTER; proc: POINTER; arg: POINTER): POINTER
 		local
 		do
 			Result := pqset_notice_receiver_external (conn, proc, arg)
 		end
 
-	pqset_notice_processor (conn: POINTER; proc: POINTER; arg: POINTER): POINTER is
+	pqset_notice_processor (conn: POINTER; proc: POINTER; arg: POINTER): POINTER
 		local
 		do
 			Result := pqset_notice_processor_external (conn, proc, arg)
 		end
 
-	pqregister_thread_lock (newhandler: POINTER): POINTER is
+	pqregister_thread_lock (newhandler: POINTER): POINTER
 		local
 		do
 			Result := pqregister_thread_lock_external (newhandler)
 		end
 
-	pqexec (conn: POINTER; query: STRING): POINTER is
+	pqexec (conn: POINTER; query: STRING): POINTER
 		local
 			query_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -299,7 +299,7 @@ feature
 			Result := pqexec_external (conn, query_c_string.item)
 		end
 
-	pqexec_params (conn: POINTER; command: STRING; nparams: INTEGER; paramtypes: POINTER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): POINTER is
+	pqexec_params (conn: POINTER; command: STRING; nparams: INTEGER; paramtypes: POINTER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): POINTER
 		local
 			command_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -307,7 +307,7 @@ feature
 			Result := pqexec_params_external (conn, command_c_string.item, nparams, paramtypes, paramvalues, paramlengths, paramformats, resultformat)
 		end
 
-	pqprepare (conn: POINTER; stmtname: STRING; query: STRING; nparams: INTEGER; paramtypes: POINTER): POINTER is
+	pqprepare (conn: POINTER; stmtname: STRING; query: STRING; nparams: INTEGER; paramtypes: POINTER): POINTER
 		local
 			stmtname_c_string: EWG_ZERO_TERMINATED_STRING
 			query_c_string: EWG_ZERO_TERMINATED_STRING
@@ -317,7 +317,7 @@ feature
 			Result := pqprepare_external (conn, stmtname_c_string.item, query_c_string.item, nparams, paramtypes)
 		end
 
-	pqexec_prepared (conn: POINTER; stmtname: STRING; nparams: INTEGER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): POINTER is
+	pqexec_prepared (conn: POINTER; stmtname: STRING; nparams: INTEGER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): POINTER
 		local
 			stmtname_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -325,7 +325,7 @@ feature
 			Result := pqexec_prepared_external (conn, stmtname_c_string.item, nparams, paramvalues, paramlengths, paramformats, resultformat)
 		end
 
-	pqsend_query (conn: POINTER; query: STRING): INTEGER is
+	pqsend_query (conn: POINTER; query: STRING): INTEGER
 		local
 			query_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -333,7 +333,7 @@ feature
 			Result := pqsend_query_external (conn, query_c_string.item)
 		end
 
-	pqsend_query_params (conn: POINTER; command: STRING; nparams: INTEGER; paramtypes: POINTER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): INTEGER is
+	pqsend_query_params (conn: POINTER; command: STRING; nparams: INTEGER; paramtypes: POINTER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): INTEGER
 		local
 			command_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -341,7 +341,7 @@ feature
 			Result := pqsend_query_params_external (conn, command_c_string.item, nparams, paramtypes, paramvalues, paramlengths, paramformats, resultformat)
 		end
 
-	pqsend_prepare (conn: POINTER; stmtname: STRING; query: STRING; nparams: INTEGER; paramtypes: POINTER): INTEGER is
+	pqsend_prepare (conn: POINTER; stmtname: STRING; query: STRING; nparams: INTEGER; paramtypes: POINTER): INTEGER
 		local
 			stmtname_c_string: EWG_ZERO_TERMINATED_STRING
 			query_c_string: EWG_ZERO_TERMINATED_STRING
@@ -351,7 +351,7 @@ feature
 			Result := pqsend_prepare_external (conn, stmtname_c_string.item, query_c_string.item, nparams, paramtypes)
 		end
 
-	pqsend_query_prepared (conn: POINTER; stmtname: STRING; nparams: INTEGER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): INTEGER is
+	pqsend_query_prepared (conn: POINTER; stmtname: STRING; nparams: INTEGER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): INTEGER
 		local
 			stmtname_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -359,31 +359,31 @@ feature
 			Result := pqsend_query_prepared_external (conn, stmtname_c_string.item, nparams, paramvalues, paramlengths, paramformats, resultformat)
 		end
 
-	pqget_result (conn: POINTER): POINTER is
+	pqget_result (conn: POINTER): POINTER
 		local
 		do
 			Result := pqget_result_external (conn)
 		end
 
-	pqis_busy (conn: POINTER): INTEGER is
+	pqis_busy (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqis_busy_external (conn)
 		end
 
-	pqconsume_input (conn: POINTER): INTEGER is
+	pqconsume_input (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqconsume_input_external (conn)
 		end
 
-	pqnotifies (conn: POINTER): POINTER is
+	pqnotifies (conn: POINTER): POINTER
 		local
 		do
 			Result := pqnotifies_external (conn)
 		end
 
-	pqput_copy_data (conn: POINTER; buffer: STRING; nbytes: INTEGER): INTEGER is
+	pqput_copy_data (conn: POINTER; buffer: STRING; nbytes: INTEGER): INTEGER
 		local
 			buffer_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -391,7 +391,7 @@ feature
 			Result := pqput_copy_data_external (conn, buffer_c_string.item, nbytes)
 		end
 
-	pqput_copy_end (conn: POINTER; errormsg: STRING): INTEGER is
+	pqput_copy_end (conn: POINTER; errormsg: STRING): INTEGER
 		local
 			errormsg_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -399,13 +399,13 @@ feature
 			Result := pqput_copy_end_external (conn, errormsg_c_string.item)
 		end
 
-	pqget_copy_data (conn: POINTER; buffer: POINTER; async: INTEGER): INTEGER is
+	pqget_copy_data (conn: POINTER; buffer: POINTER; async: INTEGER): INTEGER
 		local
 		do
 			Result := pqget_copy_data_external (conn, buffer, async)
 		end
 
-	pqgetline (conn: POINTER; a_string: STRING; length: INTEGER): INTEGER is
+	pqgetline (conn: POINTER; a_string: STRING; length: INTEGER): INTEGER
 		local
 			a_string_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -413,7 +413,7 @@ feature
 			Result := pqgetline_external (conn, a_string_c_string.item, length)
 		end
 
-	pqputline (conn: POINTER; a_string: STRING): INTEGER is
+	pqputline (conn: POINTER; a_string: STRING): INTEGER
 		local
 			a_string_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -421,7 +421,7 @@ feature
 			Result := pqputline_external (conn, a_string_c_string.item)
 		end
 
-	pqgetline_async (conn: POINTER; buffer: STRING; bufsize: INTEGER): INTEGER is
+	pqgetline_async (conn: POINTER; buffer: STRING; bufsize: INTEGER): INTEGER
 		local
 			buffer_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -429,7 +429,7 @@ feature
 			Result := pqgetline_async_external (conn, buffer_c_string.item, bufsize)
 		end
 
-	pqputnbytes (conn: POINTER; buffer: STRING; nbytes: INTEGER): INTEGER is
+	pqputnbytes (conn: POINTER; buffer: STRING; nbytes: INTEGER): INTEGER
 		local
 			buffer_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -437,91 +437,91 @@ feature
 			Result := pqputnbytes_external (conn, buffer_c_string.item, nbytes)
 		end
 
-	pqendcopy (conn: POINTER): INTEGER is
+	pqendcopy (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqendcopy_external (conn)
 		end
 
-	pqsetnonblocking (conn: POINTER; arg: INTEGER): INTEGER is
+	pqsetnonblocking (conn: POINTER; arg: INTEGER): INTEGER
 		local
 		do
 			Result := pqsetnonblocking_external (conn, arg)
 		end
 
-	pqisnonblocking (conn: POINTER): INTEGER is
+	pqisnonblocking (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqisnonblocking_external (conn)
 		end
 
-	pqisthreadsafe: INTEGER is
+	pqisthreadsafe: INTEGER
 		local
 		do
 			Result := pqisthreadsafe_external
 		end
 
-	pqflush (conn: POINTER): INTEGER is
+	pqflush (conn: POINTER): INTEGER
 		local
 		do
 			Result := pqflush_external (conn)
 		end
 
-	pqfn (conn: POINTER; fnid: INTEGER; result_buf: POINTER; result_len: POINTER; result_is_int: INTEGER; args: POINTER; nargs: INTEGER): POINTER is
+	pqfn (conn: POINTER; fnid: INTEGER; result_buf: POINTER; result_len: POINTER; result_is_int: INTEGER; args: POINTER; nargs: INTEGER): POINTER
 		local
 		do
 			Result := pqfn_external (conn, fnid, result_buf, result_len, result_is_int, args, nargs)
 		end
 
-	pqresult_status (res: POINTER): INTEGER is
+	pqresult_status (res: POINTER): INTEGER
 		local
 		do
 			Result := pqresult_status_external (res)
 		end
 
-	pqres_status (status: INTEGER): POINTER is
+	pqres_status (status: INTEGER): POINTER
 		local
 		do
 			Result := pqres_status_external (status)
 		end
 
-	pqresult_error_message (res: POINTER): POINTER is
+	pqresult_error_message (res: POINTER): POINTER
 		local
 		do
 			Result := pqresult_error_message_external (res)
 		end
 
-	pqresult_error_field (res: POINTER; fieldcode: INTEGER): POINTER is
+	pqresult_error_field (res: POINTER; fieldcode: INTEGER): POINTER
 		local
 		do
 			Result := pqresult_error_field_external (res, fieldcode)
 		end
 
-	pqntuples (res: POINTER): INTEGER is
+	pqntuples (res: POINTER): INTEGER
 		local
 		do
 			Result := pqntuples_external (res)
 		end
 
-	pqnfields (res: POINTER): INTEGER is
+	pqnfields (res: POINTER): INTEGER
 		local
 		do
 			Result := pqnfields_external (res)
 		end
 
-	pqbinary_tuples (res: POINTER): INTEGER is
+	pqbinary_tuples (res: POINTER): INTEGER
 		local
 		do
 			Result := pqbinary_tuples_external (res)
 		end
 
-	pqfname (res: POINTER; field_num: INTEGER): POINTER is
+	pqfname (res: POINTER; field_num: INTEGER): POINTER
 		local
 		do
 			Result := pqfname_external (res, field_num)
 		end
 
-	pqfnumber (res: POINTER; field_name: STRING): INTEGER is
+	pqfnumber (res: POINTER; field_name: STRING): INTEGER
 		local
 			field_name_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -529,97 +529,97 @@ feature
 			Result := pqfnumber_external (res, field_name_c_string.item)
 		end
 
-	pqftable (res: POINTER; field_num: INTEGER): INTEGER is
+	pqftable (res: POINTER; field_num: INTEGER): INTEGER
 		local
 		do
 			Result := pqftable_external (res, field_num)
 		end
 
-	pqftablecol (res: POINTER; field_num: INTEGER): INTEGER is
+	pqftablecol (res: POINTER; field_num: INTEGER): INTEGER
 		local
 		do
 			Result := pqftablecol_external (res, field_num)
 		end
 
-	pqfformat (res: POINTER; field_num: INTEGER): INTEGER is
+	pqfformat (res: POINTER; field_num: INTEGER): INTEGER
 		local
 		do
 			Result := pqfformat_external (res, field_num)
 		end
 
-	pqftype (res: POINTER; field_num: INTEGER): INTEGER is
+	pqftype (res: POINTER; field_num: INTEGER): INTEGER
 		local
 		do
 			Result := pqftype_external (res, field_num)
 		end
 
-	pqfsize (res: POINTER; field_num: INTEGER): INTEGER is
+	pqfsize (res: POINTER; field_num: INTEGER): INTEGER
 		local
 		do
 			Result := pqfsize_external (res, field_num)
 		end
 
-	pqfmod (res: POINTER; field_num: INTEGER): INTEGER is
+	pqfmod (res: POINTER; field_num: INTEGER): INTEGER
 		local
 		do
 			Result := pqfmod_external (res, field_num)
 		end
 
-	pqcmd_status (res: POINTER): POINTER is
+	pqcmd_status (res: POINTER): POINTER
 		local
 		do
 			Result := pqcmd_status_external (res)
 		end
 
-	pqoid_status (res: POINTER): POINTER is
+	pqoid_status (res: POINTER): POINTER
 		local
 		do
 			Result := pqoid_status_external (res)
 		end
 
-	pqoid_value (res: POINTER): INTEGER is
+	pqoid_value (res: POINTER): INTEGER
 		local
 		do
 			Result := pqoid_value_external (res)
 		end
 
-	pqcmd_tuples (res: POINTER): POINTER is
+	pqcmd_tuples (res: POINTER): POINTER
 		local
 		do
 			Result := pqcmd_tuples_external (res)
 		end
 
-	pqgetvalue (res: POINTER; tup_num: INTEGER; field_num: INTEGER): POINTER is
+	pqgetvalue (res: POINTER; tup_num: INTEGER; field_num: INTEGER): POINTER
 		local
 		do
 			Result := pqgetvalue_external (res, tup_num, field_num)
 		end
 
-	pqgetlength (res: POINTER; tup_num: INTEGER; field_num: INTEGER): INTEGER is
+	pqgetlength (res: POINTER; tup_num: INTEGER; field_num: INTEGER): INTEGER
 		local
 		do
 			Result := pqgetlength_external (res, tup_num, field_num)
 		end
 
-	pqgetisnull (res: POINTER; tup_num: INTEGER; field_num: INTEGER): INTEGER is
+	pqgetisnull (res: POINTER; tup_num: INTEGER; field_num: INTEGER): INTEGER
 		local
 		do
 			Result := pqgetisnull_external (res, tup_num, field_num)
 		end
 
-	pqnparams (res: POINTER): INTEGER is
+	pqnparams (res: POINTER): INTEGER
 		local
 		do
 			Result := pqnparams_external (res)
 		end
 
-	pqparamtype (res: POINTER; param_num: INTEGER): INTEGER is
+	pqparamtype (res: POINTER; param_num: INTEGER): INTEGER
 		local
 		do
 			Result := pqparamtype_external (res, param_num)
 		end
 
-	pqdescribe_prepared (conn: POINTER; stmt: STRING): POINTER is
+	pqdescribe_prepared (conn: POINTER; stmt: STRING): POINTER
 		local
 			stmt_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -627,7 +627,7 @@ feature
 			Result := pqdescribe_prepared_external (conn, stmt_c_string.item)
 		end
 
-	pqdescribe_portal (conn: POINTER; portal: STRING): POINTER is
+	pqdescribe_portal (conn: POINTER; portal: STRING): POINTER
 		local
 			portal_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -635,7 +635,7 @@ feature
 			Result := pqdescribe_portal_external (conn, portal_c_string.item)
 		end
 
-	pqsend_describe_prepared (conn: POINTER; stmt: STRING): INTEGER is
+	pqsend_describe_prepared (conn: POINTER; stmt: STRING): INTEGER
 		local
 			stmt_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -643,7 +643,7 @@ feature
 			Result := pqsend_describe_prepared_external (conn, stmt_c_string.item)
 		end
 
-	pqsend_describe_portal (conn: POINTER; portal: STRING): INTEGER is
+	pqsend_describe_portal (conn: POINTER; portal: STRING): INTEGER
 		local
 			portal_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -651,43 +651,43 @@ feature
 			Result := pqsend_describe_portal_external (conn, portal_c_string.item)
 		end
 
-	pqclear (res: POINTER) is
+	pqclear (res: POINTER)
 		local
 		do
 			pqclear_external (res)
 		end
 
-	pqfreemem (ptr: POINTER) is
+	pqfreemem (ptr: POINTER)
 		local
 		do
 			pqfreemem_external (ptr)
 		end
 
-	pqmake_empty_pgresult (conn: POINTER; status: INTEGER): POINTER is
+	pqmake_empty_pgresult (conn: POINTER; status: INTEGER): POINTER
 		local
 		do
 			Result := pqmake_empty_pgresult_external (conn, status)
 		end
 
-	pqcopy_result (src: POINTER; flags: INTEGER): POINTER is
+	pqcopy_result (src: POINTER; flags: INTEGER): POINTER
 		local
 		do
 			Result := pqcopy_result_external (src, flags)
 		end
 
-	pqset_result_attrs (res: POINTER; numattributes: INTEGER; attdescs: POINTER): INTEGER is
+	pqset_result_attrs (res: POINTER; numattributes: INTEGER; attdescs: POINTER): INTEGER
 		local
 		do
 			Result := pqset_result_attrs_external (res, numattributes, attdescs)
 		end
 
-	pqresult_alloc (res: POINTER; nbytes: INTEGER): POINTER is
+	pqresult_alloc (res: POINTER; nbytes: INTEGER): POINTER
 		local
 		do
 			Result := pqresult_alloc_external (res, nbytes)
 		end
 
-	pqsetvalue (res: POINTER; tup_num: INTEGER; field_num: INTEGER; value: STRING; len: INTEGER): INTEGER is
+	pqsetvalue (res: POINTER; tup_num: INTEGER; field_num: INTEGER; value: STRING; len: INTEGER): INTEGER
 		local
 			value_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -695,7 +695,7 @@ feature
 			Result := pqsetvalue_external (res, tup_num, field_num, value_c_string.item, len)
 		end
 
-	pqescape_string_conn (conn: POINTER; to: STRING; a_from: STRING; length: INTEGER; error: POINTER): INTEGER is
+	pqescape_string_conn (conn: POINTER; to: STRING; a_from: STRING; length: INTEGER; error: POINTER): INTEGER
 		local
 			to_c_string: EWG_ZERO_TERMINATED_STRING
 			a_from_c_string: EWG_ZERO_TERMINATED_STRING
@@ -705,7 +705,7 @@ feature
 			Result := pqescape_string_conn_external (conn, to_c_string.item, a_from_c_string.item, length, error)
 		end
 
-	pqescape_bytea_conn (conn: POINTER; a_from: STRING; from_length: INTEGER; to_length: POINTER): POINTER is
+	pqescape_bytea_conn (conn: POINTER; a_from: STRING; from_length: INTEGER; to_length: POINTER): POINTER
 		local
 			a_from_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -713,7 +713,7 @@ feature
 			Result := pqescape_bytea_conn_external (conn, a_from_c_string.item, from_length, to_length)
 		end
 
-	pqunescape_bytea (strtext: STRING; retbuflen: POINTER): POINTER is
+	pqunescape_bytea (strtext: STRING; retbuflen: POINTER): POINTER
 		local
 			strtext_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -721,7 +721,7 @@ feature
 			Result := pqunescape_bytea_external (strtext_c_string.item, retbuflen)
 		end
 
-	pqescape_string (to: STRING; a_from: STRING; length: INTEGER): INTEGER is
+	pqescape_string (to: STRING; a_from: STRING; length: INTEGER): INTEGER
 		local
 			to_c_string: EWG_ZERO_TERMINATED_STRING
 			a_from_c_string: EWG_ZERO_TERMINATED_STRING
@@ -731,7 +731,7 @@ feature
 			Result := pqescape_string_external (to_c_string.item, a_from_c_string.item, length)
 		end
 
-	pqescape_bytea (a_from: STRING; from_length: INTEGER; to_length: POINTER): POINTER is
+	pqescape_bytea (a_from: STRING; from_length: INTEGER; to_length: POINTER): POINTER
 		local
 			a_from_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -739,13 +739,13 @@ feature
 			Result := pqescape_bytea_external (a_from_c_string.item, from_length, to_length)
 		end
 
-	pqprint (fout: POINTER; res: POINTER; ps: POINTER) is
+	pqprint (fout: POINTER; res: POINTER; ps: POINTER)
 		local
 		do
 			pqprint_external (fout, res, ps)
 		end
 
-	pqdisplay_tuples (res: POINTER; fp: POINTER; fillalign: INTEGER; fieldsep: STRING; printheader: INTEGER; quiet: INTEGER) is
+	pqdisplay_tuples (res: POINTER; fp: POINTER; fillalign: INTEGER; fieldsep: STRING; printheader: INTEGER; quiet: INTEGER)
 		local
 			fieldsep_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -753,13 +753,13 @@ feature
 			pqdisplay_tuples_external (res, fp, fillalign, fieldsep_c_string.item, printheader, quiet)
 		end
 
-	pqprint_tuples (res: POINTER; fout: POINTER; printattname: INTEGER; terseoutput: INTEGER; width: INTEGER) is
+	pqprint_tuples (res: POINTER; fout: POINTER; printattname: INTEGER; terseoutput: INTEGER; width: INTEGER)
 		local
 		do
 			pqprint_tuples_external (res, fout, printattname, terseoutput, width)
 		end
 
-	pqmblen (s: STRING; encoding: INTEGER): INTEGER is
+	pqmblen (s: STRING; encoding: INTEGER): INTEGER
 		local
 			s_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -767,7 +767,7 @@ feature
 			Result := pqmblen_external (s_c_string.item, encoding)
 		end
 
-	pqdsplen (s: STRING; encoding: INTEGER): INTEGER is
+	pqdsplen (s: STRING; encoding: INTEGER): INTEGER
 		local
 			s_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -775,13 +775,13 @@ feature
 			Result := pqdsplen_external (s_c_string.item, encoding)
 		end
 
-	pqenv2encoding: INTEGER is
+	pqenv2encoding: INTEGER
 		local
 		do
 			Result := pqenv2encoding_external
 		end
 
-	pqencrypt_password (passwd: STRING; user: STRING): POINTER is
+	pqencrypt_password (passwd: STRING; user: STRING): POINTER
 		local
 			passwd_c_string: EWG_ZERO_TERMINATED_STRING
 			user_c_string: EWG_ZERO_TERMINATED_STRING
@@ -791,7 +791,7 @@ feature
 			Result := pqencrypt_password_external (passwd_c_string.item, user_c_string.item)
 		end
 
-	pg_char_to_encoding (name: STRING): INTEGER is
+	pg_char_to_encoding (name: STRING): INTEGER
 		local
 			name_c_string: EWG_ZERO_TERMINATED_STRING
 		do
@@ -799,13 +799,13 @@ feature
 			Result := pg_char_to_encoding_external (name_c_string.item)
 		end
 
-	pg_encoding_to_char (encoding: INTEGER): POINTER is
+	pg_encoding_to_char (encoding: INTEGER): POINTER
 		local
 		do
 			Result := pg_encoding_to_char_external (encoding)
 		end
 
-	pg_valid_server_encoding_id (encoding: INTEGER): INTEGER is
+	pg_valid_server_encoding_id (encoding: INTEGER): INTEGER
 		local
 		do
 			Result := pg_valid_server_encoding_id_external (encoding)

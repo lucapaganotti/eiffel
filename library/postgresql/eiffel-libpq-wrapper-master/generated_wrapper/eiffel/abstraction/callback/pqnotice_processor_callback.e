@@ -4,7 +4,7 @@ deferred class PQNOTICE_PROCESSOR_CALLBACK
 
 feature {PQNOTICE_PROCESSOR_DISPATCHER}
 
-	on_callback (a_arg: POINTER; a_message: POINTER) is 
+	on_callback (a_arg: POINTER; a_message: POINTER)
 		deferred
 		end
 

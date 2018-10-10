@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-16-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-16-0 http://www.eiffel.com/developers/xml/configuration-1-16-0.xsd" name="postgresql" uuid="142C08E4-B09E-4A2A-8C3E-2A3ABEFAC0F9" library_target="postgresql">
+	<target name="postgresql">
+		<root all_classes="true"/>
+		<file_rule>
+			<exclude>/*/se</exclude>
+			<exclude>/*/ve</exclude>
+			<exclude>/CVS$</exclude>
+			<exclude>/EIFGENs$</exclude>
+			<exclude>/\.git$</exclude>
+			<exclude>/\.svn$</exclude>
+		</file_rule>
+		<option warning="true">
+			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
+		</option>
+		<setting name="console_application" value="true"/>
+		<capability>
+			<catcall_detection support="none"/>
+			<concurrency support="scoop"/>
+			<void_safety support="all"/>
+		</capability>
+		<external_include location="/home/buck/dev/eiffel/library/postgresql/eiffel-libpq-wrapper-master/include">
+			<description>postgresql include</description>
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>
+		</external_include>
+		<external_include location="/home/buck/dev/eiffel/library/postgresql/eiffel-libpq-wrapper-master/generated_wrapper/c/include/spec/ise">
+			<description>glue code</description>
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>
+		</external_include>
+		<external_object location="/home/buck/dev/eiffel/library/postgresql/eiffel-libpq-wrapper-master/postgres_c_eiffel_glue_library_ise_gcc.a">
+			<description>glue code library</description>
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>
+		</external_object>
+		<external_linker_flag value="-lpq">
+			<description>postgresql library</description>
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>
+		</external_linker_flag>
+		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
+		<library name="gobo_kernel" location="$ISE_LIBRARY\library\gobo\gobo_kernel.ecf"/>
+		<cluster name="postgresql" location=".\" recursive="true">
+			<file_rule>
+				<exclude>^ewg$</exclude>
+			</file_rule>
+			<file_rule>
+				<exclude>^ewg$</exclude>
+			</file_rule>
+		</cluster>
+	</target>
+</system>

@@ -3,14 +3,14 @@
 class LIBPQ_FE_FUNCTIONS_EXTERNAL
 
 feature
-	pqconnect_start_external (conninfo: POINTER): POINTER is
+	pqconnect_start_external (conninfo: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (char const*):PGconn*"
 		alias
 			"ewg_function_macro_PQconnectStart"
 		end
 
-	pqconnect_start_address_external: POINTER is
+	pqconnect_start_address_external: POINTER
 			-- Address of C function `PQconnectStart'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -18,14 +18,14 @@ feature
 			"(void*) PQconnectStart"
 		end
 
-	pqconnect_poll_external (conn: POINTER): INTEGER is
+	pqconnect_poll_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):PostgresPollingStatusType"
 		alias
 			"ewg_function_macro_PQconnectPoll"
 		end
 
-	pqconnect_poll_address_external: POINTER is
+	pqconnect_poll_address_external: POINTER
 			-- Address of C function `PQconnectPoll'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -33,14 +33,14 @@ feature
 			"(void*) PQconnectPoll"
 		end
 
-	pqconnectdb_external (conninfo: POINTER): POINTER is
+	pqconnectdb_external (conninfo: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (char const*):PGconn*"
 		alias
 			"ewg_function_macro_PQconnectdb"
 		end
 
-	pqconnectdb_address_external: POINTER is
+	pqconnectdb_address_external: POINTER
 			-- Address of C function `PQconnectdb'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -48,14 +48,14 @@ feature
 			"(void*) PQconnectdb"
 		end
 
-	pqsetdb_login_external (pghost: POINTER; pgport: POINTER; pgoptions: POINTER; pgtty: POINTER; dbname: POINTER; login: POINTER; pwd: POINTER): POINTER is
+	pqsetdb_login_external (pghost: POINTER; pgport: POINTER; pgoptions: POINTER; pgtty: POINTER; dbname: POINTER; login: POINTER; pwd: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (char const*, char const*, char const*, char const*, char const*, char const*, char const*):PGconn*"
 		alias
 			"ewg_function_macro_PQsetdbLogin"
 		end
 
-	pqsetdb_login_address_external: POINTER is
+	pqsetdb_login_address_external: POINTER
 			-- Address of C function `PQsetdbLogin'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -63,14 +63,14 @@ feature
 			"(void*) PQsetdbLogin"
 		end
 
-	pqfinish_external (conn: POINTER) is
+	pqfinish_external (conn: POINTER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*)"
 		alias
 			"ewg_function_macro_PQfinish"
 		end
 
-	pqfinish_address_external: POINTER is
+	pqfinish_address_external: POINTER
 			-- Address of C function `PQfinish'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -78,14 +78,14 @@ feature
 			"(void*) PQfinish"
 		end
 
-	pqconndefaults_external: POINTER is
+	pqconndefaults_external: POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] :PQconninfoOption*"
 		alias
 			"ewg_function_macro_PQconndefaults"
 		end
 
-	pqconndefaults_address_external: POINTER is
+	pqconndefaults_address_external: POINTER
 			-- Address of C function `PQconndefaults'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -93,14 +93,14 @@ feature
 			"(void*) PQconndefaults"
 		end
 
-	pqconninfo_parse_external (conninfo: POINTER; errmsg: POINTER): POINTER is
+	pqconninfo_parse_external (conninfo: POINTER; errmsg: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (char const*, char**):PQconninfoOption*"
 		alias
 			"ewg_function_macro_PQconninfoParse"
 		end
 
-	pqconninfo_parse_address_external: POINTER is
+	pqconninfo_parse_address_external: POINTER
 			-- Address of C function `PQconninfoParse'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -108,14 +108,14 @@ feature
 			"(void*) PQconninfoParse"
 		end
 
-	pqconninfo_free_external (connoptions: POINTER) is
+	pqconninfo_free_external (connoptions: POINTER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PQconninfoOption*)"
 		alias
 			"ewg_function_macro_PQconninfoFree"
 		end
 
-	pqconninfo_free_address_external: POINTER is
+	pqconninfo_free_address_external: POINTER
 			-- Address of C function `PQconninfoFree'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -123,14 +123,14 @@ feature
 			"(void*) PQconninfoFree"
 		end
 
-	pqreset_start_external (conn: POINTER): INTEGER is
+	pqreset_start_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):int"
 		alias
 			"ewg_function_macro_PQresetStart"
 		end
 
-	pqreset_start_address_external: POINTER is
+	pqreset_start_address_external: POINTER
 			-- Address of C function `PQresetStart'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -138,14 +138,14 @@ feature
 			"(void*) PQresetStart"
 		end
 
-	pqreset_poll_external (conn: POINTER): INTEGER is
+	pqreset_poll_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):PostgresPollingStatusType"
 		alias
 			"ewg_function_macro_PQresetPoll"
 		end
 
-	pqreset_poll_address_external: POINTER is
+	pqreset_poll_address_external: POINTER
 			-- Address of C function `PQresetPoll'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -153,14 +153,14 @@ feature
 			"(void*) PQresetPoll"
 		end
 
-	pqreset_external (conn: POINTER) is
+	pqreset_external (conn: POINTER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*)"
 		alias
 			"ewg_function_macro_PQreset"
 		end
 
-	pqreset_address_external: POINTER is
+	pqreset_address_external: POINTER
 			-- Address of C function `PQreset'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -168,14 +168,14 @@ feature
 			"(void*) PQreset"
 		end
 
-	pqget_cancel_external (conn: POINTER): POINTER is
+	pqget_cancel_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):PGcancel*"
 		alias
 			"ewg_function_macro_PQgetCancel"
 		end
 
-	pqget_cancel_address_external: POINTER is
+	pqget_cancel_address_external: POINTER
 			-- Address of C function `PQgetCancel'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -183,14 +183,14 @@ feature
 			"(void*) PQgetCancel"
 		end
 
-	pqfree_cancel_external (cancel: POINTER) is
+	pqfree_cancel_external (cancel: POINTER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGcancel*)"
 		alias
 			"ewg_function_macro_PQfreeCancel"
 		end
 
-	pqfree_cancel_address_external: POINTER is
+	pqfree_cancel_address_external: POINTER
 			-- Address of C function `PQfreeCancel'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -198,14 +198,14 @@ feature
 			"(void*) PQfreeCancel"
 		end
 
-	pqcancel_external (cancel: POINTER; errbuf: POINTER; errbufsize: INTEGER): INTEGER is
+	pqcancel_external (cancel: POINTER; errbuf: POINTER; errbufsize: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGcancel*, char*, int):int"
 		alias
 			"ewg_function_macro_PQcancel"
 		end
 
-	pqcancel_address_external: POINTER is
+	pqcancel_address_external: POINTER
 			-- Address of C function `PQcancel'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -213,14 +213,14 @@ feature
 			"(void*) PQcancel"
 		end
 
-	pqrequest_cancel_external (conn: POINTER): INTEGER is
+	pqrequest_cancel_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):int"
 		alias
 			"ewg_function_macro_PQrequestCancel"
 		end
 
-	pqrequest_cancel_address_external: POINTER is
+	pqrequest_cancel_address_external: POINTER
 			-- Address of C function `PQrequestCancel'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -228,14 +228,14 @@ feature
 			"(void*) PQrequestCancel"
 		end
 
-	pqdb_external (conn: POINTER): POINTER is
+	pqdb_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):char*"
 		alias
 			"ewg_function_macro_PQdb"
 		end
 
-	pqdb_address_external: POINTER is
+	pqdb_address_external: POINTER
 			-- Address of C function `PQdb'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -243,14 +243,14 @@ feature
 			"(void*) PQdb"
 		end
 
-	pquser_external (conn: POINTER): POINTER is
+	pquser_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):char*"
 		alias
 			"ewg_function_macro_PQuser"
 		end
 
-	pquser_address_external: POINTER is
+	pquser_address_external: POINTER
 			-- Address of C function `PQuser'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -258,14 +258,14 @@ feature
 			"(void*) PQuser"
 		end
 
-	pqpass_external (conn: POINTER): POINTER is
+	pqpass_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):char*"
 		alias
 			"ewg_function_macro_PQpass"
 		end
 
-	pqpass_address_external: POINTER is
+	pqpass_address_external: POINTER
 			-- Address of C function `PQpass'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -273,14 +273,14 @@ feature
 			"(void*) PQpass"
 		end
 
-	pqhost_external (conn: POINTER): POINTER is
+	pqhost_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):char*"
 		alias
 			"ewg_function_macro_PQhost"
 		end
 
-	pqhost_address_external: POINTER is
+	pqhost_address_external: POINTER
 			-- Address of C function `PQhost'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -288,14 +288,14 @@ feature
 			"(void*) PQhost"
 		end
 
-	pqport_external (conn: POINTER): POINTER is
+	pqport_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):char*"
 		alias
 			"ewg_function_macro_PQport"
 		end
 
-	pqport_address_external: POINTER is
+	pqport_address_external: POINTER
 			-- Address of C function `PQport'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -303,14 +303,14 @@ feature
 			"(void*) PQport"
 		end
 
-	pqtty_external (conn: POINTER): POINTER is
+	pqtty_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):char*"
 		alias
 			"ewg_function_macro_PQtty"
 		end
 
-	pqtty_address_external: POINTER is
+	pqtty_address_external: POINTER
 			-- Address of C function `PQtty'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -318,14 +318,14 @@ feature
 			"(void*) PQtty"
 		end
 
-	pqoptions_external (conn: POINTER): POINTER is
+	pqoptions_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):char*"
 		alias
 			"ewg_function_macro_PQoptions"
 		end
 
-	pqoptions_address_external: POINTER is
+	pqoptions_address_external: POINTER
 			-- Address of C function `PQoptions'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -333,14 +333,14 @@ feature
 			"(void*) PQoptions"
 		end
 
-	pqstatus_external (conn: POINTER): INTEGER is
+	pqstatus_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):ConnStatusType"
 		alias
 			"ewg_function_macro_PQstatus"
 		end
 
-	pqstatus_address_external: POINTER is
+	pqstatus_address_external: POINTER
 			-- Address of C function `PQstatus'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -348,14 +348,14 @@ feature
 			"(void*) PQstatus"
 		end
 
-	pqtransaction_status_external (conn: POINTER): INTEGER is
+	pqtransaction_status_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):PGTransactionStatusType"
 		alias
 			"ewg_function_macro_PQtransactionStatus"
 		end
 
-	pqtransaction_status_address_external: POINTER is
+	pqtransaction_status_address_external: POINTER
 			-- Address of C function `PQtransactionStatus'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -363,14 +363,14 @@ feature
 			"(void*) PQtransactionStatus"
 		end
 
-	pqparameter_status_external (conn: POINTER; paramname: POINTER): POINTER is
+	pqparameter_status_external (conn: POINTER; paramname: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*, char const*):char const*"
 		alias
 			"ewg_function_macro_PQparameterStatus"
 		end
 
-	pqparameter_status_address_external: POINTER is
+	pqparameter_status_address_external: POINTER
 			-- Address of C function `PQparameterStatus'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -378,14 +378,14 @@ feature
 			"(void*) PQparameterStatus"
 		end
 
-	pqprotocol_version_external (conn: POINTER): INTEGER is
+	pqprotocol_version_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):int"
 		alias
 			"ewg_function_macro_PQprotocolVersion"
 		end
 
-	pqprotocol_version_address_external: POINTER is
+	pqprotocol_version_address_external: POINTER
 			-- Address of C function `PQprotocolVersion'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -393,14 +393,14 @@ feature
 			"(void*) PQprotocolVersion"
 		end
 
-	pqserver_version_external (conn: POINTER): INTEGER is
+	pqserver_version_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):int"
 		alias
 			"ewg_function_macro_PQserverVersion"
 		end
 
-	pqserver_version_address_external: POINTER is
+	pqserver_version_address_external: POINTER
 			-- Address of C function `PQserverVersion'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -408,14 +408,14 @@ feature
 			"(void*) PQserverVersion"
 		end
 
-	pqerror_message_external (conn: POINTER): POINTER is
+	pqerror_message_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):char*"
 		alias
 			"ewg_function_macro_PQerrorMessage"
 		end
 
-	pqerror_message_address_external: POINTER is
+	pqerror_message_address_external: POINTER
 			-- Address of C function `PQerrorMessage'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -423,14 +423,14 @@ feature
 			"(void*) PQerrorMessage"
 		end
 
-	pqsocket_external (conn: POINTER): INTEGER is
+	pqsocket_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):int"
 		alias
 			"ewg_function_macro_PQsocket"
 		end
 
-	pqsocket_address_external: POINTER is
+	pqsocket_address_external: POINTER
 			-- Address of C function `PQsocket'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -438,14 +438,14 @@ feature
 			"(void*) PQsocket"
 		end
 
-	pqbackend_pid_external (conn: POINTER): INTEGER is
+	pqbackend_pid_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):int"
 		alias
 			"ewg_function_macro_PQbackendPID"
 		end
 
-	pqbackend_pid_address_external: POINTER is
+	pqbackend_pid_address_external: POINTER
 			-- Address of C function `PQbackendPID'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -453,14 +453,14 @@ feature
 			"(void*) PQbackendPID"
 		end
 
-	pqconnection_needs_password_external (conn: POINTER): INTEGER is
+	pqconnection_needs_password_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):int"
 		alias
 			"ewg_function_macro_PQconnectionNeedsPassword"
 		end
 
-	pqconnection_needs_password_address_external: POINTER is
+	pqconnection_needs_password_address_external: POINTER
 			-- Address of C function `PQconnectionNeedsPassword'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -468,14 +468,14 @@ feature
 			"(void*) PQconnectionNeedsPassword"
 		end
 
-	pqconnection_used_password_external (conn: POINTER): INTEGER is
+	pqconnection_used_password_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):int"
 		alias
 			"ewg_function_macro_PQconnectionUsedPassword"
 		end
 
-	pqconnection_used_password_address_external: POINTER is
+	pqconnection_used_password_address_external: POINTER
 			-- Address of C function `PQconnectionUsedPassword'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -483,14 +483,14 @@ feature
 			"(void*) PQconnectionUsedPassword"
 		end
 
-	pqclient_encoding_external (conn: POINTER): INTEGER is
+	pqclient_encoding_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):int"
 		alias
 			"ewg_function_macro_PQclientEncoding"
 		end
 
-	pqclient_encoding_address_external: POINTER is
+	pqclient_encoding_address_external: POINTER
 			-- Address of C function `PQclientEncoding'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -498,14 +498,14 @@ feature
 			"(void*) PQclientEncoding"
 		end
 
-	pqset_client_encoding_external (conn: POINTER; encoding: POINTER): INTEGER is
+	pqset_client_encoding_external (conn: POINTER; encoding: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*):int"
 		alias
 			"ewg_function_macro_PQsetClientEncoding"
 		end
 
-	pqset_client_encoding_address_external: POINTER is
+	pqset_client_encoding_address_external: POINTER
 			-- Address of C function `PQsetClientEncoding'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -513,14 +513,14 @@ feature
 			"(void*) PQsetClientEncoding"
 		end
 
-	pqgetssl_external (conn: POINTER): POINTER is
+	pqgetssl_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):void*"
 		alias
 			"ewg_function_macro_PQgetssl"
 		end
 
-	pqgetssl_address_external: POINTER is
+	pqgetssl_address_external: POINTER
 			-- Address of C function `PQgetssl'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -528,14 +528,14 @@ feature
 			"(void*) PQgetssl"
 		end
 
-	pqinit_ssl_external (do_init: INTEGER) is
+	pqinit_ssl_external (do_init: INTEGER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (int)"
 		alias
 			"ewg_function_macro_PQinitSSL"
 		end
 
-	pqinit_ssl_address_external: POINTER is
+	pqinit_ssl_address_external: POINTER
 			-- Address of C function `PQinitSSL'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -543,14 +543,14 @@ feature
 			"(void*) PQinitSSL"
 		end
 
-	pqinit_open_ssl_external (do_ssl: INTEGER; do_crypto: INTEGER) is
+	pqinit_open_ssl_external (do_ssl: INTEGER; do_crypto: INTEGER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (int, int)"
 		alias
 			"ewg_function_macro_PQinitOpenSSL"
 		end
 
-	pqinit_open_ssl_address_external: POINTER is
+	pqinit_open_ssl_address_external: POINTER
 			-- Address of C function `PQinitOpenSSL'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -558,14 +558,14 @@ feature
 			"(void*) PQinitOpenSSL"
 		end
 
-	pqset_error_verbosity_external (conn: POINTER; verbosity: INTEGER): INTEGER is
+	pqset_error_verbosity_external (conn: POINTER; verbosity: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, PGVerbosity):PGVerbosity"
 		alias
 			"ewg_function_macro_PQsetErrorVerbosity"
 		end
 
-	pqset_error_verbosity_address_external: POINTER is
+	pqset_error_verbosity_address_external: POINTER
 			-- Address of C function `PQsetErrorVerbosity'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -573,14 +573,14 @@ feature
 			"(void*) PQsetErrorVerbosity"
 		end
 
-	pqtrace_external (conn: POINTER; debug_port: POINTER) is
+	pqtrace_external (conn: POINTER; debug_port: POINTER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, FILE*)"
 		alias
 			"ewg_function_macro_PQtrace"
 		end
 
-	pqtrace_address_external: POINTER is
+	pqtrace_address_external: POINTER
 			-- Address of C function `PQtrace'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -588,14 +588,14 @@ feature
 			"(void*) PQtrace"
 		end
 
-	pquntrace_external (conn: POINTER) is
+	pquntrace_external (conn: POINTER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*)"
 		alias
 			"ewg_function_macro_PQuntrace"
 		end
 
-	pquntrace_address_external: POINTER is
+	pquntrace_address_external: POINTER
 			-- Address of C function `PQuntrace'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -603,14 +603,14 @@ feature
 			"(void*) PQuntrace"
 		end
 
-	pqset_notice_receiver_external (conn: POINTER; proc: POINTER; arg: POINTER): POINTER is
+	pqset_notice_receiver_external (conn: POINTER; proc: POINTER; arg: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, PQnoticeReceiver, void*):PQnoticeReceiver"
 		alias
 			"ewg_function_macro_PQsetNoticeReceiver"
 		end
 
-	pqset_notice_receiver_address_external: POINTER is
+	pqset_notice_receiver_address_external: POINTER
 			-- Address of C function `PQsetNoticeReceiver'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -618,14 +618,14 @@ feature
 			"(void*) PQsetNoticeReceiver"
 		end
 
-	pqset_notice_processor_external (conn: POINTER; proc: POINTER; arg: POINTER): POINTER is
+	pqset_notice_processor_external (conn: POINTER; proc: POINTER; arg: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, PQnoticeProcessor, void*):PQnoticeProcessor"
 		alias
 			"ewg_function_macro_PQsetNoticeProcessor"
 		end
 
-	pqset_notice_processor_address_external: POINTER is
+	pqset_notice_processor_address_external: POINTER
 			-- Address of C function `PQsetNoticeProcessor'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -633,14 +633,14 @@ feature
 			"(void*) PQsetNoticeProcessor"
 		end
 
-	pqregister_thread_lock_external (newhandler: POINTER): POINTER is
+	pqregister_thread_lock_external (newhandler: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (pgthreadlock_t):pgthreadlock_t"
 		alias
 			"ewg_function_macro_PQregisterThreadLock"
 		end
 
-	pqregister_thread_lock_address_external: POINTER is
+	pqregister_thread_lock_address_external: POINTER
 			-- Address of C function `PQregisterThreadLock'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -648,14 +648,14 @@ feature
 			"(void*) PQregisterThreadLock"
 		end
 
-	pqexec_external (conn: POINTER; query: POINTER): POINTER is
+	pqexec_external (conn: POINTER; query: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*):PGresult*"
 		alias
 			"ewg_function_macro_PQexec"
 		end
 
-	pqexec_address_external: POINTER is
+	pqexec_address_external: POINTER
 			-- Address of C function `PQexec'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -663,14 +663,14 @@ feature
 			"(void*) PQexec"
 		end
 
-	pqexec_params_external (conn: POINTER; command: POINTER; nparams: INTEGER; paramtypes: POINTER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): POINTER is
+	pqexec_params_external (conn: POINTER; command: POINTER; nparams: INTEGER; paramtypes: POINTER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*, int, Oid const*, char const*const *, int const*, int const*, int):PGresult*"
 		alias
 			"ewg_function_macro_PQexecParams"
 		end
 
-	pqexec_params_address_external: POINTER is
+	pqexec_params_address_external: POINTER
 			-- Address of C function `PQexecParams'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -678,14 +678,14 @@ feature
 			"(void*) PQexecParams"
 		end
 
-	pqprepare_external (conn: POINTER; stmtname: POINTER; query: POINTER; nparams: INTEGER; paramtypes: POINTER): POINTER is
+	pqprepare_external (conn: POINTER; stmtname: POINTER; query: POINTER; nparams: INTEGER; paramtypes: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*, char const*, int, Oid const*):PGresult*"
 		alias
 			"ewg_function_macro_PQprepare"
 		end
 
-	pqprepare_address_external: POINTER is
+	pqprepare_address_external: POINTER
 			-- Address of C function `PQprepare'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -693,14 +693,14 @@ feature
 			"(void*) PQprepare"
 		end
 
-	pqexec_prepared_external (conn: POINTER; stmtname: POINTER; nparams: INTEGER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): POINTER is
+	pqexec_prepared_external (conn: POINTER; stmtname: POINTER; nparams: INTEGER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*, int, char const*const *, int const*, int const*, int):PGresult*"
 		alias
 			"ewg_function_macro_PQexecPrepared"
 		end
 
-	pqexec_prepared_address_external: POINTER is
+	pqexec_prepared_address_external: POINTER
 			-- Address of C function `PQexecPrepared'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -708,14 +708,14 @@ feature
 			"(void*) PQexecPrepared"
 		end
 
-	pqsend_query_external (conn: POINTER; query: POINTER): INTEGER is
+	pqsend_query_external (conn: POINTER; query: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*):int"
 		alias
 			"ewg_function_macro_PQsendQuery"
 		end
 
-	pqsend_query_address_external: POINTER is
+	pqsend_query_address_external: POINTER
 			-- Address of C function `PQsendQuery'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -723,14 +723,14 @@ feature
 			"(void*) PQsendQuery"
 		end
 
-	pqsend_query_params_external (conn: POINTER; command: POINTER; nparams: INTEGER; paramtypes: POINTER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): INTEGER is
+	pqsend_query_params_external (conn: POINTER; command: POINTER; nparams: INTEGER; paramtypes: POINTER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*, int, Oid const*, char const*const *, int const*, int const*, int):int"
 		alias
 			"ewg_function_macro_PQsendQueryParams"
 		end
 
-	pqsend_query_params_address_external: POINTER is
+	pqsend_query_params_address_external: POINTER
 			-- Address of C function `PQsendQueryParams'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -738,14 +738,14 @@ feature
 			"(void*) PQsendQueryParams"
 		end
 
-	pqsend_prepare_external (conn: POINTER; stmtname: POINTER; query: POINTER; nparams: INTEGER; paramtypes: POINTER): INTEGER is
+	pqsend_prepare_external (conn: POINTER; stmtname: POINTER; query: POINTER; nparams: INTEGER; paramtypes: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*, char const*, int, Oid const*):int"
 		alias
 			"ewg_function_macro_PQsendPrepare"
 		end
 
-	pqsend_prepare_address_external: POINTER is
+	pqsend_prepare_address_external: POINTER
 			-- Address of C function `PQsendPrepare'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -753,14 +753,14 @@ feature
 			"(void*) PQsendPrepare"
 		end
 
-	pqsend_query_prepared_external (conn: POINTER; stmtname: POINTER; nparams: INTEGER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): INTEGER is
+	pqsend_query_prepared_external (conn: POINTER; stmtname: POINTER; nparams: INTEGER; paramvalues: POINTER; paramlengths: POINTER; paramformats: POINTER; resultformat: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*, int, char const*const *, int const*, int const*, int):int"
 		alias
 			"ewg_function_macro_PQsendQueryPrepared"
 		end
 
-	pqsend_query_prepared_address_external: POINTER is
+	pqsend_query_prepared_address_external: POINTER
 			-- Address of C function `PQsendQueryPrepared'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -768,14 +768,14 @@ feature
 			"(void*) PQsendQueryPrepared"
 		end
 
-	pqget_result_external (conn: POINTER): POINTER is
+	pqget_result_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):PGresult*"
 		alias
 			"ewg_function_macro_PQgetResult"
 		end
 
-	pqget_result_address_external: POINTER is
+	pqget_result_address_external: POINTER
 			-- Address of C function `PQgetResult'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -783,14 +783,14 @@ feature
 			"(void*) PQgetResult"
 		end
 
-	pqis_busy_external (conn: POINTER): INTEGER is
+	pqis_busy_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):int"
 		alias
 			"ewg_function_macro_PQisBusy"
 		end
 
-	pqis_busy_address_external: POINTER is
+	pqis_busy_address_external: POINTER
 			-- Address of C function `PQisBusy'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -798,14 +798,14 @@ feature
 			"(void*) PQisBusy"
 		end
 
-	pqconsume_input_external (conn: POINTER): INTEGER is
+	pqconsume_input_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):int"
 		alias
 			"ewg_function_macro_PQconsumeInput"
 		end
 
-	pqconsume_input_address_external: POINTER is
+	pqconsume_input_address_external: POINTER
 			-- Address of C function `PQconsumeInput'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -813,14 +813,14 @@ feature
 			"(void*) PQconsumeInput"
 		end
 
-	pqnotifies_external (conn: POINTER): POINTER is
+	pqnotifies_external (conn: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):PGnotify*"
 		alias
 			"ewg_function_macro_PQnotifies"
 		end
 
-	pqnotifies_address_external: POINTER is
+	pqnotifies_address_external: POINTER
 			-- Address of C function `PQnotifies'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -828,14 +828,14 @@ feature
 			"(void*) PQnotifies"
 		end
 
-	pqput_copy_data_external (conn: POINTER; buffer: POINTER; nbytes: INTEGER): INTEGER is
+	pqput_copy_data_external (conn: POINTER; buffer: POINTER; nbytes: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*, int):int"
 		alias
 			"ewg_function_macro_PQputCopyData"
 		end
 
-	pqput_copy_data_address_external: POINTER is
+	pqput_copy_data_address_external: POINTER
 			-- Address of C function `PQputCopyData'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -843,14 +843,14 @@ feature
 			"(void*) PQputCopyData"
 		end
 
-	pqput_copy_end_external (conn: POINTER; errormsg: POINTER): INTEGER is
+	pqput_copy_end_external (conn: POINTER; errormsg: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*):int"
 		alias
 			"ewg_function_macro_PQputCopyEnd"
 		end
 
-	pqput_copy_end_address_external: POINTER is
+	pqput_copy_end_address_external: POINTER
 			-- Address of C function `PQputCopyEnd'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -858,14 +858,14 @@ feature
 			"(void*) PQputCopyEnd"
 		end
 
-	pqget_copy_data_external (conn: POINTER; buffer: POINTER; async: INTEGER): INTEGER is
+	pqget_copy_data_external (conn: POINTER; buffer: POINTER; async: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char**, int):int"
 		alias
 			"ewg_function_macro_PQgetCopyData"
 		end
 
-	pqget_copy_data_address_external: POINTER is
+	pqget_copy_data_address_external: POINTER
 			-- Address of C function `PQgetCopyData'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -873,14 +873,14 @@ feature
 			"(void*) PQgetCopyData"
 		end
 
-	pqgetline_external (conn: POINTER; a_string: POINTER; length: INTEGER): INTEGER is
+	pqgetline_external (conn: POINTER; a_string: POINTER; length: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char*, int):int"
 		alias
 			"ewg_function_macro_PQgetline"
 		end
 
-	pqgetline_address_external: POINTER is
+	pqgetline_address_external: POINTER
 			-- Address of C function `PQgetline'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -888,14 +888,14 @@ feature
 			"(void*) PQgetline"
 		end
 
-	pqputline_external (conn: POINTER; a_string: POINTER): INTEGER is
+	pqputline_external (conn: POINTER; a_string: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*):int"
 		alias
 			"ewg_function_macro_PQputline"
 		end
 
-	pqputline_address_external: POINTER is
+	pqputline_address_external: POINTER
 			-- Address of C function `PQputline'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -903,14 +903,14 @@ feature
 			"(void*) PQputline"
 		end
 
-	pqgetline_async_external (conn: POINTER; buffer: POINTER; bufsize: INTEGER): INTEGER is
+	pqgetline_async_external (conn: POINTER; buffer: POINTER; bufsize: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char*, int):int"
 		alias
 			"ewg_function_macro_PQgetlineAsync"
 		end
 
-	pqgetline_async_address_external: POINTER is
+	pqgetline_async_address_external: POINTER
 			-- Address of C function `PQgetlineAsync'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -918,14 +918,14 @@ feature
 			"(void*) PQgetlineAsync"
 		end
 
-	pqputnbytes_external (conn: POINTER; buffer: POINTER; nbytes: INTEGER): INTEGER is
+	pqputnbytes_external (conn: POINTER; buffer: POINTER; nbytes: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*, int):int"
 		alias
 			"ewg_function_macro_PQputnbytes"
 		end
 
-	pqputnbytes_address_external: POINTER is
+	pqputnbytes_address_external: POINTER
 			-- Address of C function `PQputnbytes'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -933,14 +933,14 @@ feature
 			"(void*) PQputnbytes"
 		end
 
-	pqendcopy_external (conn: POINTER): INTEGER is
+	pqendcopy_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):int"
 		alias
 			"ewg_function_macro_PQendcopy"
 		end
 
-	pqendcopy_address_external: POINTER is
+	pqendcopy_address_external: POINTER
 			-- Address of C function `PQendcopy'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -948,14 +948,14 @@ feature
 			"(void*) PQendcopy"
 		end
 
-	pqsetnonblocking_external (conn: POINTER; arg: INTEGER): INTEGER is
+	pqsetnonblocking_external (conn: POINTER; arg: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, int):int"
 		alias
 			"ewg_function_macro_PQsetnonblocking"
 		end
 
-	pqsetnonblocking_address_external: POINTER is
+	pqsetnonblocking_address_external: POINTER
 			-- Address of C function `PQsetnonblocking'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -963,14 +963,14 @@ feature
 			"(void*) PQsetnonblocking"
 		end
 
-	pqisnonblocking_external (conn: POINTER): INTEGER is
+	pqisnonblocking_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn const*):int"
 		alias
 			"ewg_function_macro_PQisnonblocking"
 		end
 
-	pqisnonblocking_address_external: POINTER is
+	pqisnonblocking_address_external: POINTER
 			-- Address of C function `PQisnonblocking'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -978,14 +978,14 @@ feature
 			"(void*) PQisnonblocking"
 		end
 
-	pqisthreadsafe_external: INTEGER is
+	pqisthreadsafe_external: INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] :int"
 		alias
 			"ewg_function_macro_PQisthreadsafe"
 		end
 
-	pqisthreadsafe_address_external: POINTER is
+	pqisthreadsafe_address_external: POINTER
 			-- Address of C function `PQisthreadsafe'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -993,14 +993,14 @@ feature
 			"(void*) PQisthreadsafe"
 		end
 
-	pqflush_external (conn: POINTER): INTEGER is
+	pqflush_external (conn: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*):int"
 		alias
 			"ewg_function_macro_PQflush"
 		end
 
-	pqflush_address_external: POINTER is
+	pqflush_address_external: POINTER
 			-- Address of C function `PQflush'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1008,14 +1008,14 @@ feature
 			"(void*) PQflush"
 		end
 
-	pqfn_external (conn: POINTER; fnid: INTEGER; result_buf: POINTER; result_len: POINTER; result_is_int: INTEGER; args: POINTER; nargs: INTEGER): POINTER is
+	pqfn_external (conn: POINTER; fnid: INTEGER; result_buf: POINTER; result_len: POINTER; result_is_int: INTEGER; args: POINTER; nargs: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, int, int*, int*, int, PQArgBlock const*, int):PGresult*"
 		alias
 			"ewg_function_macro_PQfn"
 		end
 
-	pqfn_address_external: POINTER is
+	pqfn_address_external: POINTER
 			-- Address of C function `PQfn'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1023,14 +1023,14 @@ feature
 			"(void*) PQfn"
 		end
 
-	pqresult_status_external (res: POINTER): INTEGER is
+	pqresult_status_external (res: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*):ExecStatusType"
 		alias
 			"ewg_function_macro_PQresultStatus"
 		end
 
-	pqresult_status_address_external: POINTER is
+	pqresult_status_address_external: POINTER
 			-- Address of C function `PQresultStatus'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1038,14 +1038,14 @@ feature
 			"(void*) PQresultStatus"
 		end
 
-	pqres_status_external (status: INTEGER): POINTER is
+	pqres_status_external (status: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (ExecStatusType):char*"
 		alias
 			"ewg_function_macro_PQresStatus"
 		end
 
-	pqres_status_address_external: POINTER is
+	pqres_status_address_external: POINTER
 			-- Address of C function `PQresStatus'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1053,14 +1053,14 @@ feature
 			"(void*) PQresStatus"
 		end
 
-	pqresult_error_message_external (res: POINTER): POINTER is
+	pqresult_error_message_external (res: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*):char*"
 		alias
 			"ewg_function_macro_PQresultErrorMessage"
 		end
 
-	pqresult_error_message_address_external: POINTER is
+	pqresult_error_message_address_external: POINTER
 			-- Address of C function `PQresultErrorMessage'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1068,14 +1068,14 @@ feature
 			"(void*) PQresultErrorMessage"
 		end
 
-	pqresult_error_field_external (res: POINTER; fieldcode: INTEGER): POINTER is
+	pqresult_error_field_external (res: POINTER; fieldcode: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int):char*"
 		alias
 			"ewg_function_macro_PQresultErrorField"
 		end
 
-	pqresult_error_field_address_external: POINTER is
+	pqresult_error_field_address_external: POINTER
 			-- Address of C function `PQresultErrorField'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1083,14 +1083,14 @@ feature
 			"(void*) PQresultErrorField"
 		end
 
-	pqntuples_external (res: POINTER): INTEGER is
+	pqntuples_external (res: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*):int"
 		alias
 			"ewg_function_macro_PQntuples"
 		end
 
-	pqntuples_address_external: POINTER is
+	pqntuples_address_external: POINTER
 			-- Address of C function `PQntuples'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1098,14 +1098,14 @@ feature
 			"(void*) PQntuples"
 		end
 
-	pqnfields_external (res: POINTER): INTEGER is
+	pqnfields_external (res: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*):int"
 		alias
 			"ewg_function_macro_PQnfields"
 		end
 
-	pqnfields_address_external: POINTER is
+	pqnfields_address_external: POINTER
 			-- Address of C function `PQnfields'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1113,14 +1113,14 @@ feature
 			"(void*) PQnfields"
 		end
 
-	pqbinary_tuples_external (res: POINTER): INTEGER is
+	pqbinary_tuples_external (res: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*):int"
 		alias
 			"ewg_function_macro_PQbinaryTuples"
 		end
 
-	pqbinary_tuples_address_external: POINTER is
+	pqbinary_tuples_address_external: POINTER
 			-- Address of C function `PQbinaryTuples'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1128,14 +1128,14 @@ feature
 			"(void*) PQbinaryTuples"
 		end
 
-	pqfname_external (res: POINTER; field_num: INTEGER): POINTER is
+	pqfname_external (res: POINTER; field_num: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int):char*"
 		alias
 			"ewg_function_macro_PQfname"
 		end
 
-	pqfname_address_external: POINTER is
+	pqfname_address_external: POINTER
 			-- Address of C function `PQfname'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1143,14 +1143,14 @@ feature
 			"(void*) PQfname"
 		end
 
-	pqfnumber_external (res: POINTER; field_name: POINTER): INTEGER is
+	pqfnumber_external (res: POINTER; field_name: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, char const*):int"
 		alias
 			"ewg_function_macro_PQfnumber"
 		end
 
-	pqfnumber_address_external: POINTER is
+	pqfnumber_address_external: POINTER
 			-- Address of C function `PQfnumber'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1158,14 +1158,14 @@ feature
 			"(void*) PQfnumber"
 		end
 
-	pqftable_external (res: POINTER; field_num: INTEGER): INTEGER is
+	pqftable_external (res: POINTER; field_num: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int):Oid"
 		alias
 			"ewg_function_macro_PQftable"
 		end
 
-	pqftable_address_external: POINTER is
+	pqftable_address_external: POINTER
 			-- Address of C function `PQftable'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1173,14 +1173,14 @@ feature
 			"(void*) PQftable"
 		end
 
-	pqftablecol_external (res: POINTER; field_num: INTEGER): INTEGER is
+	pqftablecol_external (res: POINTER; field_num: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int):int"
 		alias
 			"ewg_function_macro_PQftablecol"
 		end
 
-	pqftablecol_address_external: POINTER is
+	pqftablecol_address_external: POINTER
 			-- Address of C function `PQftablecol'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1188,14 +1188,14 @@ feature
 			"(void*) PQftablecol"
 		end
 
-	pqfformat_external (res: POINTER; field_num: INTEGER): INTEGER is
+	pqfformat_external (res: POINTER; field_num: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int):int"
 		alias
 			"ewg_function_macro_PQfformat"
 		end
 
-	pqfformat_address_external: POINTER is
+	pqfformat_address_external: POINTER
 			-- Address of C function `PQfformat'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1203,14 +1203,14 @@ feature
 			"(void*) PQfformat"
 		end
 
-	pqftype_external (res: POINTER; field_num: INTEGER): INTEGER is
+	pqftype_external (res: POINTER; field_num: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int):Oid"
 		alias
 			"ewg_function_macro_PQftype"
 		end
 
-	pqftype_address_external: POINTER is
+	pqftype_address_external: POINTER
 			-- Address of C function `PQftype'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1218,14 +1218,14 @@ feature
 			"(void*) PQftype"
 		end
 
-	pqfsize_external (res: POINTER; field_num: INTEGER): INTEGER is
+	pqfsize_external (res: POINTER; field_num: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int):int"
 		alias
 			"ewg_function_macro_PQfsize"
 		end
 
-	pqfsize_address_external: POINTER is
+	pqfsize_address_external: POINTER
 			-- Address of C function `PQfsize'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1233,14 +1233,14 @@ feature
 			"(void*) PQfsize"
 		end
 
-	pqfmod_external (res: POINTER; field_num: INTEGER): INTEGER is
+	pqfmod_external (res: POINTER; field_num: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int):int"
 		alias
 			"ewg_function_macro_PQfmod"
 		end
 
-	pqfmod_address_external: POINTER is
+	pqfmod_address_external: POINTER
 			-- Address of C function `PQfmod'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1248,14 +1248,14 @@ feature
 			"(void*) PQfmod"
 		end
 
-	pqcmd_status_external (res: POINTER): POINTER is
+	pqcmd_status_external (res: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult*):char*"
 		alias
 			"ewg_function_macro_PQcmdStatus"
 		end
 
-	pqcmd_status_address_external: POINTER is
+	pqcmd_status_address_external: POINTER
 			-- Address of C function `PQcmdStatus'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1263,14 +1263,14 @@ feature
 			"(void*) PQcmdStatus"
 		end
 
-	pqoid_status_external (res: POINTER): POINTER is
+	pqoid_status_external (res: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*):char*"
 		alias
 			"ewg_function_macro_PQoidStatus"
 		end
 
-	pqoid_status_address_external: POINTER is
+	pqoid_status_address_external: POINTER
 			-- Address of C function `PQoidStatus'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1278,14 +1278,14 @@ feature
 			"(void*) PQoidStatus"
 		end
 
-	pqoid_value_external (res: POINTER): INTEGER is
+	pqoid_value_external (res: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*):Oid"
 		alias
 			"ewg_function_macro_PQoidValue"
 		end
 
-	pqoid_value_address_external: POINTER is
+	pqoid_value_address_external: POINTER
 			-- Address of C function `PQoidValue'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1293,14 +1293,14 @@ feature
 			"(void*) PQoidValue"
 		end
 
-	pqcmd_tuples_external (res: POINTER): POINTER is
+	pqcmd_tuples_external (res: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult*):char*"
 		alias
 			"ewg_function_macro_PQcmdTuples"
 		end
 
-	pqcmd_tuples_address_external: POINTER is
+	pqcmd_tuples_address_external: POINTER
 			-- Address of C function `PQcmdTuples'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1308,14 +1308,14 @@ feature
 			"(void*) PQcmdTuples"
 		end
 
-	pqgetvalue_external (res: POINTER; tup_num: INTEGER; field_num: INTEGER): POINTER is
+	pqgetvalue_external (res: POINTER; tup_num: INTEGER; field_num: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int, int):char*"
 		alias
 			"ewg_function_macro_PQgetvalue"
 		end
 
-	pqgetvalue_address_external: POINTER is
+	pqgetvalue_address_external: POINTER
 			-- Address of C function `PQgetvalue'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1323,14 +1323,14 @@ feature
 			"(void*) PQgetvalue"
 		end
 
-	pqgetlength_external (res: POINTER; tup_num: INTEGER; field_num: INTEGER): INTEGER is
+	pqgetlength_external (res: POINTER; tup_num: INTEGER; field_num: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int, int):int"
 		alias
 			"ewg_function_macro_PQgetlength"
 		end
 
-	pqgetlength_address_external: POINTER is
+	pqgetlength_address_external: POINTER
 			-- Address of C function `PQgetlength'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1338,14 +1338,14 @@ feature
 			"(void*) PQgetlength"
 		end
 
-	pqgetisnull_external (res: POINTER; tup_num: INTEGER; field_num: INTEGER): INTEGER is
+	pqgetisnull_external (res: POINTER; tup_num: INTEGER; field_num: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int, int):int"
 		alias
 			"ewg_function_macro_PQgetisnull"
 		end
 
-	pqgetisnull_address_external: POINTER is
+	pqgetisnull_address_external: POINTER
 			-- Address of C function `PQgetisnull'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1353,14 +1353,14 @@ feature
 			"(void*) PQgetisnull"
 		end
 
-	pqnparams_external (res: POINTER): INTEGER is
+	pqnparams_external (res: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*):int"
 		alias
 			"ewg_function_macro_PQnparams"
 		end
 
-	pqnparams_address_external: POINTER is
+	pqnparams_address_external: POINTER
 			-- Address of C function `PQnparams'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1368,14 +1368,14 @@ feature
 			"(void*) PQnparams"
 		end
 
-	pqparamtype_external (res: POINTER; param_num: INTEGER): INTEGER is
+	pqparamtype_external (res: POINTER; param_num: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int):Oid"
 		alias
 			"ewg_function_macro_PQparamtype"
 		end
 
-	pqparamtype_address_external: POINTER is
+	pqparamtype_address_external: POINTER
 			-- Address of C function `PQparamtype'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1383,14 +1383,14 @@ feature
 			"(void*) PQparamtype"
 		end
 
-	pqdescribe_prepared_external (conn: POINTER; stmt: POINTER): POINTER is
+	pqdescribe_prepared_external (conn: POINTER; stmt: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*):PGresult*"
 		alias
 			"ewg_function_macro_PQdescribePrepared"
 		end
 
-	pqdescribe_prepared_address_external: POINTER is
+	pqdescribe_prepared_address_external: POINTER
 			-- Address of C function `PQdescribePrepared'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1398,14 +1398,14 @@ feature
 			"(void*) PQdescribePrepared"
 		end
 
-	pqdescribe_portal_external (conn: POINTER; portal: POINTER): POINTER is
+	pqdescribe_portal_external (conn: POINTER; portal: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*):PGresult*"
 		alias
 			"ewg_function_macro_PQdescribePortal"
 		end
 
-	pqdescribe_portal_address_external: POINTER is
+	pqdescribe_portal_address_external: POINTER
 			-- Address of C function `PQdescribePortal'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1413,14 +1413,14 @@ feature
 			"(void*) PQdescribePortal"
 		end
 
-	pqsend_describe_prepared_external (conn: POINTER; stmt: POINTER): INTEGER is
+	pqsend_describe_prepared_external (conn: POINTER; stmt: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*):int"
 		alias
 			"ewg_function_macro_PQsendDescribePrepared"
 		end
 
-	pqsend_describe_prepared_address_external: POINTER is
+	pqsend_describe_prepared_address_external: POINTER
 			-- Address of C function `PQsendDescribePrepared'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1428,14 +1428,14 @@ feature
 			"(void*) PQsendDescribePrepared"
 		end
 
-	pqsend_describe_portal_external (conn: POINTER; portal: POINTER): INTEGER is
+	pqsend_describe_portal_external (conn: POINTER; portal: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char const*):int"
 		alias
 			"ewg_function_macro_PQsendDescribePortal"
 		end
 
-	pqsend_describe_portal_address_external: POINTER is
+	pqsend_describe_portal_address_external: POINTER
 			-- Address of C function `PQsendDescribePortal'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1443,14 +1443,14 @@ feature
 			"(void*) PQsendDescribePortal"
 		end
 
-	pqclear_external (res: POINTER) is
+	pqclear_external (res: POINTER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult*)"
 		alias
 			"ewg_function_macro_PQclear"
 		end
 
-	pqclear_address_external: POINTER is
+	pqclear_address_external: POINTER
 			-- Address of C function `PQclear'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1458,14 +1458,14 @@ feature
 			"(void*) PQclear"
 		end
 
-	pqfreemem_external (ptr: POINTER) is
+	pqfreemem_external (ptr: POINTER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (void*)"
 		alias
 			"ewg_function_macro_PQfreemem"
 		end
 
-	pqfreemem_address_external: POINTER is
+	pqfreemem_address_external: POINTER
 			-- Address of C function `PQfreemem'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1473,14 +1473,14 @@ feature
 			"(void*) PQfreemem"
 		end
 
-	pqmake_empty_pgresult_external (conn: POINTER; status: INTEGER): POINTER is
+	pqmake_empty_pgresult_external (conn: POINTER; status: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, ExecStatusType):PGresult*"
 		alias
 			"ewg_function_macro_PQmakeEmptyPGresult"
 		end
 
-	pqmake_empty_pgresult_address_external: POINTER is
+	pqmake_empty_pgresult_address_external: POINTER
 			-- Address of C function `PQmakeEmptyPGresult'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1488,14 +1488,14 @@ feature
 			"(void*) PQmakeEmptyPGresult"
 		end
 
-	pqcopy_result_external (src: POINTER; flags: INTEGER): POINTER is
+	pqcopy_result_external (src: POINTER; flags: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, int):PGresult*"
 		alias
 			"ewg_function_macro_PQcopyResult"
 		end
 
-	pqcopy_result_address_external: POINTER is
+	pqcopy_result_address_external: POINTER
 			-- Address of C function `PQcopyResult'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1503,14 +1503,14 @@ feature
 			"(void*) PQcopyResult"
 		end
 
-	pqset_result_attrs_external (res: POINTER; numattributes: INTEGER; attdescs: POINTER): INTEGER is
+	pqset_result_attrs_external (res: POINTER; numattributes: INTEGER; attdescs: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult*, int, PGresAttDesc*):int"
 		alias
 			"ewg_function_macro_PQsetResultAttrs"
 		end
 
-	pqset_result_attrs_address_external: POINTER is
+	pqset_result_attrs_address_external: POINTER
 			-- Address of C function `PQsetResultAttrs'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1518,14 +1518,14 @@ feature
 			"(void*) PQsetResultAttrs"
 		end
 
-	pqresult_alloc_external (res: POINTER; nbytes: INTEGER): POINTER is
+	pqresult_alloc_external (res: POINTER; nbytes: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult*, size_t):void*"
 		alias
 			"ewg_function_macro_PQresultAlloc"
 		end
 
-	pqresult_alloc_address_external: POINTER is
+	pqresult_alloc_address_external: POINTER
 			-- Address of C function `PQresultAlloc'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1533,14 +1533,14 @@ feature
 			"(void*) PQresultAlloc"
 		end
 
-	pqsetvalue_external (res: POINTER; tup_num: INTEGER; field_num: INTEGER; value: POINTER; len: INTEGER): INTEGER is
+	pqsetvalue_external (res: POINTER; tup_num: INTEGER; field_num: INTEGER; value: POINTER; len: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult*, int, int, char*, int):int"
 		alias
 			"ewg_function_macro_PQsetvalue"
 		end
 
-	pqsetvalue_address_external: POINTER is
+	pqsetvalue_address_external: POINTER
 			-- Address of C function `PQsetvalue'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1548,14 +1548,14 @@ feature
 			"(void*) PQsetvalue"
 		end
 
-	pqescape_string_conn_external (conn: POINTER; to: POINTER; a_from: POINTER; length: INTEGER; error: POINTER): INTEGER is
+	pqescape_string_conn_external (conn: POINTER; to: POINTER; a_from: POINTER; length: INTEGER; error: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, char*, char const*, size_t, int*):size_t"
 		alias
 			"ewg_function_macro_PQescapeStringConn"
 		end
 
-	pqescape_string_conn_address_external: POINTER is
+	pqescape_string_conn_address_external: POINTER
 			-- Address of C function `PQescapeStringConn'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1563,14 +1563,14 @@ feature
 			"(void*) PQescapeStringConn"
 		end
 
-	pqescape_bytea_conn_external (conn: POINTER; a_from: POINTER; from_length: INTEGER; to_length: POINTER): POINTER is
+	pqescape_bytea_conn_external (conn: POINTER; a_from: POINTER; from_length: INTEGER; to_length: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGconn*, unsigned char const*, size_t, size_t*):unsigned char*"
 		alias
 			"ewg_function_macro_PQescapeByteaConn"
 		end
 
-	pqescape_bytea_conn_address_external: POINTER is
+	pqescape_bytea_conn_address_external: POINTER
 			-- Address of C function `PQescapeByteaConn'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1578,14 +1578,14 @@ feature
 			"(void*) PQescapeByteaConn"
 		end
 
-	pqunescape_bytea_external (strtext: POINTER; retbuflen: POINTER): POINTER is
+	pqunescape_bytea_external (strtext: POINTER; retbuflen: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (unsigned char const*, size_t*):unsigned char*"
 		alias
 			"ewg_function_macro_PQunescapeBytea"
 		end
 
-	pqunescape_bytea_address_external: POINTER is
+	pqunescape_bytea_address_external: POINTER
 			-- Address of C function `PQunescapeBytea'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1593,14 +1593,14 @@ feature
 			"(void*) PQunescapeBytea"
 		end
 
-	pqescape_string_external (to: POINTER; a_from: POINTER; length: INTEGER): INTEGER is
+	pqescape_string_external (to: POINTER; a_from: POINTER; length: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (char*, char const*, size_t):size_t"
 		alias
 			"ewg_function_macro_PQescapeString"
 		end
 
-	pqescape_string_address_external: POINTER is
+	pqescape_string_address_external: POINTER
 			-- Address of C function `PQescapeString'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1608,14 +1608,14 @@ feature
 			"(void*) PQescapeString"
 		end
 
-	pqescape_bytea_external (a_from: POINTER; from_length: INTEGER; to_length: POINTER): POINTER is
+	pqescape_bytea_external (a_from: POINTER; from_length: INTEGER; to_length: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (unsigned char const*, size_t, size_t*):unsigned char*"
 		alias
 			"ewg_function_macro_PQescapeBytea"
 		end
 
-	pqescape_bytea_address_external: POINTER is
+	pqescape_bytea_address_external: POINTER
 			-- Address of C function `PQescapeBytea'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1623,14 +1623,14 @@ feature
 			"(void*) PQescapeBytea"
 		end
 
-	pqprint_external (fout: POINTER; res: POINTER; ps: POINTER) is
+	pqprint_external (fout: POINTER; res: POINTER; ps: POINTER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (FILE*, PGresult const*, PQprintOpt const*)"
 		alias
 			"ewg_function_macro_PQprint"
 		end
 
-	pqprint_address_external: POINTER is
+	pqprint_address_external: POINTER
 			-- Address of C function `PQprint'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1638,14 +1638,14 @@ feature
 			"(void*) PQprint"
 		end
 
-	pqdisplay_tuples_external (res: POINTER; fp: POINTER; fillalign: INTEGER; fieldsep: POINTER; printheader: INTEGER; quiet: INTEGER) is
+	pqdisplay_tuples_external (res: POINTER; fp: POINTER; fillalign: INTEGER; fieldsep: POINTER; printheader: INTEGER; quiet: INTEGER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, FILE*, int, char const*, int, int)"
 		alias
 			"ewg_function_macro_PQdisplayTuples"
 		end
 
-	pqdisplay_tuples_address_external: POINTER is
+	pqdisplay_tuples_address_external: POINTER
 			-- Address of C function `PQdisplayTuples'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1653,14 +1653,14 @@ feature
 			"(void*) PQdisplayTuples"
 		end
 
-	pqprint_tuples_external (res: POINTER; fout: POINTER; printattname: INTEGER; terseoutput: INTEGER; width: INTEGER) is
+	pqprint_tuples_external (res: POINTER; fout: POINTER; printattname: INTEGER; terseoutput: INTEGER; width: INTEGER)
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (PGresult const*, FILE*, int, int, int)"
 		alias
 			"ewg_function_macro_PQprintTuples"
 		end
 
-	pqprint_tuples_address_external: POINTER is
+	pqprint_tuples_address_external: POINTER
 			-- Address of C function `PQprintTuples'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1668,14 +1668,14 @@ feature
 			"(void*) PQprintTuples"
 		end
 
-	pqmblen_external (s: POINTER; encoding: INTEGER): INTEGER is
+	pqmblen_external (s: POINTER; encoding: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (char const*, int):int"
 		alias
 			"ewg_function_macro_PQmblen"
 		end
 
-	pqmblen_address_external: POINTER is
+	pqmblen_address_external: POINTER
 			-- Address of C function `PQmblen'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1683,14 +1683,14 @@ feature
 			"(void*) PQmblen"
 		end
 
-	pqdsplen_external (s: POINTER; encoding: INTEGER): INTEGER is
+	pqdsplen_external (s: POINTER; encoding: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (char const*, int):int"
 		alias
 			"ewg_function_macro_PQdsplen"
 		end
 
-	pqdsplen_address_external: POINTER is
+	pqdsplen_address_external: POINTER
 			-- Address of C function `PQdsplen'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1698,14 +1698,14 @@ feature
 			"(void*) PQdsplen"
 		end
 
-	pqenv2encoding_external: INTEGER is
+	pqenv2encoding_external: INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] :int"
 		alias
 			"ewg_function_macro_PQenv2encoding"
 		end
 
-	pqenv2encoding_address_external: POINTER is
+	pqenv2encoding_address_external: POINTER
 			-- Address of C function `PQenv2encoding'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1713,14 +1713,14 @@ feature
 			"(void*) PQenv2encoding"
 		end
 
-	pqencrypt_password_external (passwd: POINTER; user: POINTER): POINTER is
+	pqencrypt_password_external (passwd: POINTER; user: POINTER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (char const*, char const*):char*"
 		alias
 			"ewg_function_macro_PQencryptPassword"
 		end
 
-	pqencrypt_password_address_external: POINTER is
+	pqencrypt_password_address_external: POINTER
 			-- Address of C function `PQencryptPassword'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1728,14 +1728,14 @@ feature
 			"(void*) PQencryptPassword"
 		end
 
-	pg_char_to_encoding_external (name: POINTER): INTEGER is
+	pg_char_to_encoding_external (name: POINTER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (char const*):int"
 		alias
 			"ewg_function_macro_pg_char_to_encoding"
 		end
 
-	pg_char_to_encoding_address_external: POINTER is
+	pg_char_to_encoding_address_external: POINTER
 			-- Address of C function `pg_char_to_encoding'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1743,14 +1743,14 @@ feature
 			"(void*) pg_char_to_encoding"
 		end
 
-	pg_encoding_to_char_external (encoding: INTEGER): POINTER is
+	pg_encoding_to_char_external (encoding: INTEGER): POINTER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (int):char const*"
 		alias
 			"ewg_function_macro_pg_encoding_to_char"
 		end
 
-	pg_encoding_to_char_address_external: POINTER is
+	pg_encoding_to_char_address_external: POINTER
 			-- Address of C function `pg_encoding_to_char'
 		external
 			"C [macro <my_postgres.h>]: void*"
@@ -1758,14 +1758,14 @@ feature
 			"(void*) pg_encoding_to_char"
 		end
 
-	pg_valid_server_encoding_id_external (encoding: INTEGER): INTEGER is
+	pg_valid_server_encoding_id_external (encoding: INTEGER): INTEGER
 		external
 			"C [macro <ewg_postgres_function_c_glue_code.h>] (int):int"
 		alias
 			"ewg_function_macro_pg_valid_server_encoding_id"
 		end
 
-	pg_valid_server_encoding_id_address_external: POINTER is
+	pg_valid_server_encoding_id_address_external: POINTER
 			-- Address of C function `pg_valid_server_encoding_id'
 		external
 			"C [macro <my_postgres.h>]: void*"

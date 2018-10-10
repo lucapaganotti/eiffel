@@ -20,14 +20,14 @@ create
 
 feature {ANY} -- Access
 
-	sizeof: INTEGER is
+	sizeof: INTEGER
 		do
 			Result := sizeof_external
 		end
 
 feature {ANY} -- Member Access
 
-	name: POINTER is
+	name: POINTER
 			-- Access member `name'
 		require
 			exists: exists
@@ -37,7 +37,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_name_external (item)
 		end
 
-	set_name (a_value: POINTER) is
+	set_name (a_value: POINTER)
 			-- Set member `name'
 		require
 			exists: exists
@@ -47,7 +47,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = name
 		end
 
-	tableid: INTEGER is
+	tableid: INTEGER
 			-- Access member `tableid'
 		require
 			exists: exists
@@ -57,7 +57,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_tableid_external (item)
 		end
 
-	set_tableid (a_value: INTEGER) is
+	set_tableid (a_value: INTEGER)
 			-- Set member `tableid'
 		require
 			exists: exists
@@ -67,7 +67,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = tableid
 		end
 
-	columnid: INTEGER is
+	columnid: INTEGER
 			-- Access member `columnid'
 		require
 			exists: exists
@@ -77,7 +77,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_columnid_external (item)
 		end
 
-	set_columnid (a_value: INTEGER) is
+	set_columnid (a_value: INTEGER)
 			-- Set member `columnid'
 		require
 			exists: exists
@@ -87,7 +87,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = columnid
 		end
 
-	format: INTEGER is
+	format: INTEGER
 			-- Access member `format'
 		require
 			exists: exists
@@ -97,7 +97,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_format_external (item)
 		end
 
-	set_format (a_value: INTEGER) is
+	set_format (a_value: INTEGER)
 			-- Set member `format'
 		require
 			exists: exists
@@ -107,7 +107,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = format
 		end
 
-	typid: INTEGER is
+	typid: INTEGER
 			-- Access member `typid'
 		require
 			exists: exists
@@ -117,7 +117,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_typid_external (item)
 		end
 
-	set_typid (a_value: INTEGER) is
+	set_typid (a_value: INTEGER)
 			-- Set member `typid'
 		require
 			exists: exists
@@ -127,7 +127,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = typid
 		end
 
-	typlen: INTEGER is
+	typlen: INTEGER
 			-- Access member `typlen'
 		require
 			exists: exists
@@ -137,7 +137,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_typlen_external (item)
 		end
 
-	set_typlen (a_value: INTEGER) is
+	set_typlen (a_value: INTEGER)
 			-- Set member `typlen'
 		require
 			exists: exists
@@ -147,7 +147,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = typlen
 		end
 
-	atttypmod: INTEGER is
+	atttypmod: INTEGER
 			-- Access member `atttypmod'
 		require
 			exists: exists
@@ -157,7 +157,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_atttypmod_external (item)
 		end
 
-	set_atttypmod (a_value: INTEGER) is
+	set_atttypmod (a_value: INTEGER)
 			-- Set member `atttypmod'
 		require
 			exists: exists

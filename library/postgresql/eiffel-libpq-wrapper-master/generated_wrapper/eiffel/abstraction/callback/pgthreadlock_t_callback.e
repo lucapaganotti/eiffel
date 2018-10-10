@@ -4,7 +4,7 @@ deferred class PGTHREADLOCK_T_CALLBACK
 
 feature {PGTHREADLOCK_T_DISPATCHER}
 
-	on_callback (a_acquire: INTEGER) is 
+	on_callback (a_acquire: INTEGER)
 		deferred
 		end
 
