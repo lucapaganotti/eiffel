@@ -20,14 +20,14 @@ create
 
 feature {ANY} -- Access
 
-	sizeof: INTEGER is
+	sizeof: INTEGER
 		do
 			Result := sizeof_external
 		end
 
 feature {ANY} -- Member Access
 
-	len: INTEGER is
+	len: INTEGER
 			-- Access member `len'
 		require
 			exists: exists
@@ -37,7 +37,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_len_external (item)
 		end
 
-	set_len (a_value: INTEGER) is
+	set_len (a_value: INTEGER)
 			-- Set member `len'
 		require
 			exists: exists
@@ -47,7 +47,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = len
 		end
 
-	isint: INTEGER is
+	isint: INTEGER
 			-- Access member `isint'
 		require
 			exists: exists
@@ -57,7 +57,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_isint_external (item)
 		end
 
-	set_isint (a_value: INTEGER) is
+	set_isint (a_value: INTEGER)
 			-- Set member `isint'
 		require
 			exists: exists

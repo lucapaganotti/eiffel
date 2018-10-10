@@ -15,7 +15,7 @@ create
 
 feature {NONE}
 
-	make (a_callback: PQNOTICE_PROCESSOR_CALLBACK) is
+	make (a_callback: PQNOTICE_PROCESSOR_CALLBACK)
 		require
 			a_callback_not_void: a_callback /= Void
 		do
@@ -27,16 +27,16 @@ feature {ANY}
 
 	callback: PQNOTICE_PROCESSOR_CALLBACK
 
-	c_dispatcher: POINTER is
+	c_dispatcher: POINTER
 		do
 			Result := get_pqnotice_processor_stub_external
 		end
 
 feature {NONE} -- Implementation
 
-	frozen on_callback (a_arg: POINTER; a_message: POINTER) is 
+	frozen on_callback (a_arg: POINTER; a_message: POINTER)
 		do
-			callback.on_callback (a_arg, a_message) 
+			callback.on_callback (a_arg, a_message)
 		end
 
 invariant

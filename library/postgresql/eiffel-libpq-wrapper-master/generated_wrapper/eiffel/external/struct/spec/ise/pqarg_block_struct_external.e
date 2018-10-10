@@ -5,14 +5,14 @@ class PQARG_BLOCK_STRUCT_EXTERNAL
 
 feature {NONE} -- Implementation
 
-	sizeof_external: INTEGER is
+	sizeof_external: INTEGER
 		external
 			"C [macro <my_postgres.h>]: EIF_INTEGER"
 		alias
 			"sizeof(PQArgBlock)"
 		end
 
-	get_len_external (an_item: POINTER): INTEGER is
+	get_len_external (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -21,7 +21,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_PQArgBlock_member_get_len"
 		end
 
-	set_len_external (an_item: POINTER; a_value: INTEGER) is
+	set_len_external (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -32,7 +32,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_len_external (an_item)
 		end
 
-	get_isint_external (an_item: POINTER): INTEGER is
+	get_isint_external (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -41,7 +41,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_PQArgBlock_member_get_isint"
 		end
 
-	set_isint_external (an_item: POINTER; a_value: INTEGER) is
+	set_isint_external (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external

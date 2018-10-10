@@ -20,14 +20,14 @@ create
 
 feature {ANY} -- Access
 
-	sizeof: INTEGER is
+	sizeof: INTEGER
 		do
 			Result := sizeof_external
 		end
 
 feature {ANY} -- Member Access
 
-	keyword: POINTER is
+	keyword: POINTER
 			-- Access member `keyword'
 		require
 			exists: exists
@@ -37,7 +37,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_keyword_external (item)
 		end
 
-	set_keyword (a_value: POINTER) is
+	set_keyword (a_value: POINTER)
 			-- Set member `keyword'
 		require
 			exists: exists
@@ -47,7 +47,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = keyword
 		end
 
-	envvar: POINTER is
+	envvar: POINTER
 			-- Access member `envvar'
 		require
 			exists: exists
@@ -57,7 +57,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_envvar_external (item)
 		end
 
-	set_envvar (a_value: POINTER) is
+	set_envvar (a_value: POINTER)
 			-- Set member `envvar'
 		require
 			exists: exists
@@ -67,7 +67,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = envvar
 		end
 
-	compiled: POINTER is
+	compiled: POINTER
 			-- Access member `compiled'
 		require
 			exists: exists
@@ -77,7 +77,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_compiled_external (item)
 		end
 
-	set_compiled (a_value: POINTER) is
+	set_compiled (a_value: POINTER)
 			-- Set member `compiled'
 		require
 			exists: exists
@@ -87,7 +87,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = compiled
 		end
 
-	val: POINTER is
+	val: POINTER
 			-- Access member `val'
 		require
 			exists: exists
@@ -97,7 +97,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_val_external (item)
 		end
 
-	set_val (a_value: POINTER) is
+	set_val (a_value: POINTER)
 			-- Set member `val'
 		require
 			exists: exists
@@ -107,7 +107,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = val
 		end
 
-	label: POINTER is
+	label: POINTER
 			-- Access member `label'
 		require
 			exists: exists
@@ -117,7 +117,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_label_external (item)
 		end
 
-	set_label (a_value: POINTER) is
+	set_label (a_value: POINTER)
 			-- Set member `label'
 		require
 			exists: exists
@@ -127,7 +127,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = label
 		end
 
-	dispchar: POINTER is
+	dispchar: POINTER
 			-- Access member `dispchar'
 		require
 			exists: exists
@@ -137,7 +137,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_dispchar_external (item)
 		end
 
-	set_dispchar (a_value: POINTER) is
+	set_dispchar (a_value: POINTER)
 			-- Set member `dispchar'
 		require
 			exists: exists
@@ -147,7 +147,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = dispchar
 		end
 
-	dispsize: INTEGER is
+	dispsize: INTEGER
 			-- Access member `dispsize'
 		require
 			exists: exists
@@ -157,7 +157,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_dispsize_external (item)
 		end
 
-	set_dispsize (a_value: INTEGER) is
+	set_dispsize (a_value: INTEGER)
 			-- Set member `dispsize'
 		require
 			exists: exists

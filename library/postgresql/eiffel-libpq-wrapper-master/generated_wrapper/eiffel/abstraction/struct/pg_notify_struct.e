@@ -20,14 +20,14 @@ create
 
 feature {ANY} -- Access
 
-	sizeof: INTEGER is
+	sizeof: INTEGER
 		do
 			Result := sizeof_external
 		end
 
 feature {ANY} -- Member Access
 
-	relname: POINTER is
+	relname: POINTER
 			-- Access member `relname'
 		require
 			exists: exists
@@ -37,7 +37,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_relname_external (item)
 		end
 
-	set_relname (a_value: POINTER) is
+	set_relname (a_value: POINTER)
 			-- Set member `relname'
 		require
 			exists: exists
@@ -47,7 +47,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = relname
 		end
 
-	be_pid: INTEGER is
+	be_pid: INTEGER
 			-- Access member `be_pid'
 		require
 			exists: exists
@@ -57,7 +57,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_be_pid_external (item)
 		end
 
-	set_be_pid (a_value: INTEGER) is
+	set_be_pid (a_value: INTEGER)
 			-- Set member `be_pid'
 		require
 			exists: exists
@@ -67,7 +67,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = be_pid
 		end
 
-	extra: POINTER is
+	extra: POINTER
 			-- Access member `extra'
 		require
 			exists: exists
@@ -77,7 +77,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_extra_external (item)
 		end
 
-	set_extra (a_value: POINTER) is
+	set_extra (a_value: POINTER)
 			-- Set member `extra'
 		require
 			exists: exists
@@ -87,7 +87,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = extra
 		end
 
-	next_struct: PG_NOTIFY_STRUCT is
+	next_struct: PG_NOTIFY_STRUCT
 			-- Access member `next'
 		require
 			exists: exists
@@ -98,7 +98,7 @@ feature {ANY} -- Member Access
 			result_has_correct_item: Result.item = next
 		end
 
-	set_next_struct (a_value: PG_NOTIFY_STRUCT) is
+	set_next_struct (a_value: PG_NOTIFY_STRUCT)
 			-- Set member `next'
 		require
 			a_value_not_void: a_value /= Void
@@ -109,7 +109,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value.item = next
 		end
 
-	next: POINTER is
+	next: POINTER
 			-- Access member `next'
 		require
 			exists: exists
@@ -119,7 +119,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_next_external (item)
 		end
 
-	set_next (a_value: POINTER) is
+	set_next (a_value: POINTER)
 			-- Set member `next'
 		require
 			exists: exists

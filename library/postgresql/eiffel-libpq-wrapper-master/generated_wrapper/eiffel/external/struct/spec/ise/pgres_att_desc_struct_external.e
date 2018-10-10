@@ -5,14 +5,14 @@ class PGRES_ATT_DESC_STRUCT_EXTERNAL
 
 feature {NONE} -- Implementation
 
-	sizeof_external: INTEGER is
+	sizeof_external: INTEGER
 		external
 			"C [macro <my_postgres.h>]: EIF_INTEGER"
 		alias
 			"sizeof(struct pgresAttDesc)"
 		end
 
-	get_name_external (an_item: POINTER): POINTER is
+	get_name_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -21,7 +21,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgresAttDesc_member_get_name"
 		end
 
-	set_name_external (an_item: POINTER; a_value: POINTER) is
+	set_name_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -32,7 +32,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_name_external (an_item)
 		end
 
-	get_tableid_external (an_item: POINTER): INTEGER is
+	get_tableid_external (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -41,7 +41,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgresAttDesc_member_get_tableid"
 		end
 
-	set_tableid_external (an_item: POINTER; a_value: INTEGER) is
+	set_tableid_external (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -52,7 +52,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_tableid_external (an_item)
 		end
 
-	get_columnid_external (an_item: POINTER): INTEGER is
+	get_columnid_external (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -61,7 +61,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgresAttDesc_member_get_columnid"
 		end
 
-	set_columnid_external (an_item: POINTER; a_value: INTEGER) is
+	set_columnid_external (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -72,7 +72,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_columnid_external (an_item)
 		end
 
-	get_format_external (an_item: POINTER): INTEGER is
+	get_format_external (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -81,7 +81,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgresAttDesc_member_get_format"
 		end
 
-	set_format_external (an_item: POINTER; a_value: INTEGER) is
+	set_format_external (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -92,7 +92,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_format_external (an_item)
 		end
 
-	get_typid_external (an_item: POINTER): INTEGER is
+	get_typid_external (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -101,7 +101,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgresAttDesc_member_get_typid"
 		end
 
-	set_typid_external (an_item: POINTER; a_value: INTEGER) is
+	set_typid_external (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -112,7 +112,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_typid_external (an_item)
 		end
 
-	get_typlen_external (an_item: POINTER): INTEGER is
+	get_typlen_external (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -121,7 +121,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgresAttDesc_member_get_typlen"
 		end
 
-	set_typlen_external (an_item: POINTER; a_value: INTEGER) is
+	set_typlen_external (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -132,7 +132,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_typlen_external (an_item)
 		end
 
-	get_atttypmod_external (an_item: POINTER): INTEGER is
+	get_atttypmod_external (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -141,7 +141,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct_pgresAttDesc_member_get_atttypmod"
 		end
 
-	set_atttypmod_external (an_item: POINTER; a_value: INTEGER) is
+	set_atttypmod_external (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external

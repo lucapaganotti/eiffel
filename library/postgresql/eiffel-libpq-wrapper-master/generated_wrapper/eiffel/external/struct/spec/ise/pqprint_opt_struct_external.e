@@ -5,14 +5,14 @@ class PQPRINT_OPT_STRUCT_EXTERNAL
 
 feature {NONE} -- Implementation
 
-	sizeof_external: INTEGER is
+	sizeof_external: INTEGER
 		external
 			"C [macro <my_postgres.h>]: EIF_INTEGER"
 		alias
 			"sizeof(struct _PQprintOpt)"
 		end
 
-	get_header_external (an_item: POINTER): CHARACTER is
+	get_header_external (an_item: POINTER): CHARACTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -21,7 +21,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQprintOpt_member_get_header"
 		end
 
-	set_header_external (an_item: POINTER; a_value: CHARACTER) is
+	set_header_external (an_item: POINTER; a_value: CHARACTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -32,7 +32,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_header_external (an_item)
 		end
 
-	get_align_external (an_item: POINTER): CHARACTER is
+	get_align_external (an_item: POINTER): CHARACTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -41,7 +41,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQprintOpt_member_get_align"
 		end
 
-	set_align_external (an_item: POINTER; a_value: CHARACTER) is
+	set_align_external (an_item: POINTER; a_value: CHARACTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -52,7 +52,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_align_external (an_item)
 		end
 
-	get_standard_external (an_item: POINTER): CHARACTER is
+	get_standard_external (an_item: POINTER): CHARACTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -61,7 +61,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQprintOpt_member_get_standard"
 		end
 
-	set_standard_external (an_item: POINTER; a_value: CHARACTER) is
+	set_standard_external (an_item: POINTER; a_value: CHARACTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -72,7 +72,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_standard_external (an_item)
 		end
 
-	get_html3_external (an_item: POINTER): CHARACTER is
+	get_html3_external (an_item: POINTER): CHARACTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -81,7 +81,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQprintOpt_member_get_html3"
 		end
 
-	set_html3_external (an_item: POINTER; a_value: CHARACTER) is
+	set_html3_external (an_item: POINTER; a_value: CHARACTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -92,7 +92,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_html3_external (an_item)
 		end
 
-	get_a_expanded_external (an_item: POINTER): CHARACTER is
+	get_a_expanded_external (an_item: POINTER): CHARACTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -101,7 +101,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQprintOpt_member_get_expanded"
 		end
 
-	set_a_expanded_external (an_item: POINTER; a_value: CHARACTER) is
+	set_a_expanded_external (an_item: POINTER; a_value: CHARACTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -112,7 +112,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_a_expanded_external (an_item)
 		end
 
-	get_pager_external (an_item: POINTER): CHARACTER is
+	get_pager_external (an_item: POINTER): CHARACTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -121,7 +121,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQprintOpt_member_get_pager"
 		end
 
-	set_pager_external (an_item: POINTER; a_value: CHARACTER) is
+	set_pager_external (an_item: POINTER; a_value: CHARACTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -132,7 +132,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_pager_external (an_item)
 		end
 
-	get_fieldsep_external (an_item: POINTER): POINTER is
+	get_fieldsep_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -141,7 +141,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQprintOpt_member_get_fieldSep"
 		end
 
-	set_fieldsep_external (an_item: POINTER; a_value: POINTER) is
+	set_fieldsep_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -152,7 +152,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_fieldsep_external (an_item)
 		end
 
-	get_tableopt_external (an_item: POINTER): POINTER is
+	get_tableopt_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -161,7 +161,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQprintOpt_member_get_tableOpt"
 		end
 
-	set_tableopt_external (an_item: POINTER; a_value: POINTER) is
+	set_tableopt_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -172,7 +172,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_tableopt_external (an_item)
 		end
 
-	get_caption_external (an_item: POINTER): POINTER is
+	get_caption_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -181,7 +181,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQprintOpt_member_get_caption"
 		end
 
-	set_caption_external (an_item: POINTER; a_value: POINTER) is
+	set_caption_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -192,7 +192,7 @@ feature {NONE} -- Implementation
 			a_value_set: a_value = get_caption_external (an_item)
 		end
 
-	get_fieldname_external (an_item: POINTER): POINTER is
+	get_fieldname_external (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -201,7 +201,7 @@ feature {NONE} -- Implementation
 			"ewg_struct_macro_struct__PQprintOpt_member_get_fieldName"
 		end
 
-	set_fieldname_external (an_item: POINTER; a_value: POINTER) is
+	set_fieldname_external (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external

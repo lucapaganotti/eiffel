@@ -3,62 +3,62 @@ class EXEC_STATUS_TYPE_ENUM_EXTERNAL
 
 feature {ANY}
 
-	is_valid_enum (a_value: INTEGER): BOOLEAN is
+	is_valid_enum (a_value: INTEGER): BOOLEAN
 			-- Is `a_value' a valid integer code for this enum ?
 		do
 			Result := a_value = pgres_empty_query or a_value = pgres_command_ok or a_value = pgres_tuples_ok or a_value = pgres_copy_out or a_value = pgres_copy_in or a_value = pgres_bad_response or a_value = pgres_nonfatal_error or a_value = pgres_fatal_error
 		end
 
-	pgres_empty_query: INTEGER is
+	pgres_empty_query: INTEGER
 		external
 			"C macro use <my_postgres.h>"
 		alias
 			"PGRES_EMPTY_QUERY"
 		end
 
-	pgres_command_ok: INTEGER is
+	pgres_command_ok: INTEGER
 		external
 			"C macro use <my_postgres.h>"
 		alias
 			"PGRES_COMMAND_OK"
 		end
 
-	pgres_tuples_ok: INTEGER is
+	pgres_tuples_ok: INTEGER
 		external
 			"C macro use <my_postgres.h>"
 		alias
 			"PGRES_TUPLES_OK"
 		end
 
-	pgres_copy_out: INTEGER is
+	pgres_copy_out: INTEGER
 		external
 			"C macro use <my_postgres.h>"
 		alias
 			"PGRES_COPY_OUT"
 		end
 
-	pgres_copy_in: INTEGER is
+	pgres_copy_in: INTEGER
 		external
 			"C macro use <my_postgres.h>"
 		alias
 			"PGRES_COPY_IN"
 		end
 
-	pgres_bad_response: INTEGER is
+	pgres_bad_response: INTEGER
 		external
 			"C macro use <my_postgres.h>"
 		alias
 			"PGRES_BAD_RESPONSE"
 		end
 
-	pgres_nonfatal_error: INTEGER is
+	pgres_nonfatal_error: INTEGER
 		external
 			"C macro use <my_postgres.h>"
 		alias
 			"PGRES_NONFATAL_ERROR"
 		end
 
-	pgres_fatal_error: INTEGER is
+	pgres_fatal_error: INTEGER
 		external
 			"C macro use <my_postgres.h>"
 		alias

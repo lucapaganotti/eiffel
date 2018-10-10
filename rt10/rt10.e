@@ -58,7 +58,7 @@ feature {NONE} -- Initialization
 			create sensors.make (0)
 
 			create now.make_now
-			create one_month.make (0, 0, -30, 0, 0, 0)
+			create one_month.make (0, 0, -14, 0, 0, 0)
 			create one_week.make (0, 0, -7, 0, 0, 0)
 			create one_day.make (0, 0, 0, -24, 0, 0)
 			create one_hour.make (0, 0, 0, 1, 0, 0)
@@ -860,6 +860,7 @@ feature -- Operations
 			l_date := now + one_month
 			l_query := "delete from METEO.M_Osservazioni_TR where Data_e_ora < '" + l_date.formatted_out (default_date_time_format) + "';"
 			session_control.begin
+			modification.set_query (l_query)
 
 			if modification.is_ok then
 				if modification.is_executable then

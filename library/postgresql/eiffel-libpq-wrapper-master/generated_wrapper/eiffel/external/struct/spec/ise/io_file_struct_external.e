@@ -5,7 +5,7 @@ class IO_FILE_STRUCT_EXTERNAL
 
 feature {NONE} -- Implementation
 
-	sizeof_external: INTEGER is
+	sizeof_external: INTEGER
 		do
 			check
 				size_not_known: False

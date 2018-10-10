@@ -66,5 +66,6 @@
   <option name="header" value="/home/buck/dev/eiffel/library/postgresql/eiffel-libpq-wrapper-master/generated_wrapper/c/include"/>
   <option name="header" value="/home/buck/dev/eiffel/library/postgresql/eiffel-libpq-wrapper-master/generated_wrapper/c/include/spec/ise"/>
   <option name="link" value="-lpq"/>
+  <option name="link" value="-L/usr/lib/x86_64-linux-gnu"/>
 
 </library>

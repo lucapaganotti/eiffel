@@ -20,14 +20,14 @@ create
 
 feature {ANY} -- Access
 
-	sizeof: INTEGER is
+	sizeof: INTEGER
 		do
 			Result := sizeof_external
 		end
 
 feature {ANY} -- Member Access
 
-	header: CHARACTER is
+	header: CHARACTER
 			-- Access member `header'
 		require
 			exists: exists
@@ -37,7 +37,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_header_external (item)
 		end
 
-	set_header (a_value: CHARACTER) is
+	set_header (a_value: CHARACTER)
 			-- Set member `header'
 		require
 			exists: exists
@@ -47,7 +47,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = header
 		end
 
-	align: CHARACTER is
+	align: CHARACTER
 			-- Access member `align'
 		require
 			exists: exists
@@ -57,7 +57,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_align_external (item)
 		end
 
-	set_align (a_value: CHARACTER) is
+	set_align (a_value: CHARACTER)
 			-- Set member `align'
 		require
 			exists: exists
@@ -67,7 +67,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = align
 		end
 
-	standard: CHARACTER is
+	standard: CHARACTER
 			-- Access member `standard'
 		require
 			exists: exists
@@ -77,7 +77,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_standard_external (item)
 		end
 
-	set_standard (a_value: CHARACTER) is
+	set_standard (a_value: CHARACTER)
 			-- Set member `standard'
 		require
 			exists: exists
@@ -87,7 +87,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = standard
 		end
 
-	html3: CHARACTER is
+	html3: CHARACTER
 			-- Access member `html3'
 		require
 			exists: exists
@@ -97,7 +97,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_html3_external (item)
 		end
 
-	set_html3 (a_value: CHARACTER) is
+	set_html3 (a_value: CHARACTER)
 			-- Set member `html3'
 		require
 			exists: exists
@@ -107,7 +107,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = html3
 		end
 
-	a_expanded: CHARACTER is
+	a_expanded: CHARACTER
 			-- Access member `expanded'
 		require
 			exists: exists
@@ -117,7 +117,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_a_expanded_external (item)
 		end
 
-	set_a_expanded (a_value: CHARACTER) is
+	set_a_expanded (a_value: CHARACTER)
 			-- Set member `expanded'
 		require
 			exists: exists
@@ -127,7 +127,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = a_expanded
 		end
 
-	pager: CHARACTER is
+	pager: CHARACTER
 			-- Access member `pager'
 		require
 			exists: exists
@@ -137,7 +137,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_pager_external (item)
 		end
 
-	set_pager (a_value: CHARACTER) is
+	set_pager (a_value: CHARACTER)
 			-- Set member `pager'
 		require
 			exists: exists
@@ -147,7 +147,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = pager
 		end
 
-	fieldsep: POINTER is
+	fieldsep: POINTER
 			-- Access member `fieldSep'
 		require
 			exists: exists
@@ -157,7 +157,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_fieldsep_external (item)
 		end
 
-	set_fieldsep (a_value: POINTER) is
+	set_fieldsep (a_value: POINTER)
 			-- Set member `fieldSep'
 		require
 			exists: exists
@@ -167,7 +167,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = fieldsep
 		end
 
-	tableopt: POINTER is
+	tableopt: POINTER
 			-- Access member `tableOpt'
 		require
 			exists: exists
@@ -177,7 +177,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_tableopt_external (item)
 		end
 
-	set_tableopt (a_value: POINTER) is
+	set_tableopt (a_value: POINTER)
 			-- Set member `tableOpt'
 		require
 			exists: exists
@@ -187,7 +187,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = tableopt
 		end
 
-	caption: POINTER is
+	caption: POINTER
 			-- Access member `caption'
 		require
 			exists: exists
@@ -197,7 +197,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_caption_external (item)
 		end
 
-	set_caption (a_value: POINTER) is
+	set_caption (a_value: POINTER)
 			-- Set member `caption'
 		require
 			exists: exists
@@ -207,7 +207,7 @@ feature {ANY} -- Member Access
 			a_value_set: a_value = caption
 		end
 
-	fieldname: POINTER is
+	fieldname: POINTER
 			-- Access member `fieldName'
 		require
 			exists: exists
@@ -217,7 +217,7 @@ feature {ANY} -- Member Access
 			result_correct: Result = get_fieldname_external (item)
 		end
 
-	set_fieldname (a_value: POINTER) is
+	set_fieldname (a_value: POINTER)
 			-- Set member `fieldName'
 		require
 			exists: exists
