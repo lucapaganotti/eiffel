@@ -49,7 +49,7 @@ feature {NONE} -- Initialization
 	init
 			--
 		do
-			-- syslog
+			-- syslog utility
 			open_log (app_name, log_pid, log_user)
 		end
 
