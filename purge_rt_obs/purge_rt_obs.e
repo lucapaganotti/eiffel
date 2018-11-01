@@ -240,7 +240,7 @@ feature -- Preferences
 			host_pref         := factory.new_string_preference_value  (preference_manager,  app_name + ".host",         "localhost")
 			database_pref     := factory.new_string_preference_value  (preference_manager,  app_name + ".database",     "METEO")
 			dbusr_pref        := factory.new_string_preference_value  (preference_manager,  app_name + ".dbusr",        "root")
-			dbpwd_pref        := factory.new_string_preference_value  (preference_manager,  app_name + ".dbpwd",        "chi66rone;")
+			dbpwd_pref        := factory.new_string_preference_value  (preference_manager,  app_name + ".dbpwd",        "METEO")
 			days_to_keep_pref := factory.new_integer_preference_value (preference_manager,  app_name + ".days_to_keep", 3)
 			db_host           := host_pref.value
 			db_user           := dbusr_pref.value
