@@ -860,6 +860,7 @@ feature -- Operations
 			l_date := now + one_month
 			l_query := "delete from METEO.M_Osservazioni_TR where Data_e_ora < '" + l_date.formatted_out (default_date_time_format) + "';"
 			session_control.begin
+			modification.set_query (l_query)
 
 			if modification.is_ok then
 				if modification.is_executable then
