@@ -141,13 +141,13 @@ feature {NONE} -- Initialization
 		do
 			display_line ("{NMARZI} Init preferences ...", true, false)
 
-			create preferences_storage.make_with_location ("/home/buck/.nmarzi/nmarzi.preferences.xml")
+			create preferences_storage.make_with_location ("/root/.nmarzi/nmarzi.preferences.xml")
 			create preferences.make_with_storage (preferences_storage)
 			preferences_manager := preferences.new_manager ("nmarzi")
 			create factory
 
-			sensor_list_file := factory.new_string_preference_value (preferences_manager,  "nmarzi.SensorListFile", "/home/meteo/.nmarzi/sensors.csv")
-			output_dir       := factory.new_string_preference_value (preferences_manager,  "nmarzi.OutputFolder",   "/home/meteo/.nmarzi/out/")
+			sensor_list_file := factory.new_string_preference_value (preferences_manager,  "nmarzi.SensorListFile", "/root/.nmarzi/sensors.csv")
+			output_dir       := factory.new_string_preference_value (preferences_manager,  "nmarzi.OutputFolder",   "/root/.nmarzi/out/")
 			host             := factory.new_string_preference_value (preferences_manager,  "nmarzi.host",           "localhost")
 			port             := factory.new_integer_preference_value (preferences_manager, "nmarzi.port",           9090)
 

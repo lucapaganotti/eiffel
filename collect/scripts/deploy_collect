@@ -11,14 +11,14 @@ FAILURE=1
 
 # usefull local variables for paths and file names
 collect_exec="collect"
-collect_finalized_path="/home/meteo/dev/eiffel/collect/EIFGENs/collect/F_code/"
+collect_finalized_path="/root/dev/eiffel/collect/EIFGENs/collect/F_code/"
 unlogremws_exec="unlogremws"
-unlogremws_finalized_path="/home/meteo/dev/eiffel/unlog_remws/EIFGENs/unlog/F_code/"
+unlogremws_finalized_path="/root/dev/eiffel/unlog_remws/EIFGENs/unlog/F_code/"
 
 deploy_exec_name="remwsgwyd"
 deploy_path="/sbin/"
 remwsgwyd_options_file="remwsgwyd_options"
-remwsgwyd_options_path="/home/meteo/dev/eiffel/collect/scripts/"
+remwsgwyd_options_path="/root/dev/eiffel/collect/scripts/"
 deploy_remwsgwyd_options_file=$deploy_exec_name
 deploy_remwsgwyd_options_path="/etc/sysconfig/"
 restart_remwsgwyd_name="restart_remwsgwyd.sh"

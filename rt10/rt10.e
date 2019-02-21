@@ -54,6 +54,7 @@ feature {NONE} -- Initialization
 			create db_password.make_empty
 			create db.make_empty
 			create collect_host.make_empty
+			create bm_folder.make_empty
 			create results.make (0)
 			create sensors.make (0)
 
@@ -102,6 +103,9 @@ feature {NONE} -- Initialization
 			l_end:       detachable DATE_TIME
 			l_idx:       INTEGER
 			l_sensor_id: INTEGER
+
+			l_m:         INTEGER
+			l_now:       DATE_TIME
 		do
 			sig_ignore (sighup)
 			sig_ignore (sigint)
@@ -136,6 +140,14 @@ feature {NONE} -- Initialization
 			create selection.make
 			create session_control.make
 			session_control.connect
+
+			l_idx := index_of_word_option ("e")
+			if l_idx > 0 then
+				-- must adjust `now' to be at 10 minutes granularity
+				l_m := now.minute - (now.minute \\ 10)
+				create l_now.make (now.year, now.month, now.day, now.hour, l_m, 0)
+				now := l_now
+			end
 
 			l_idx := index_of_word_option ("s")
 			if l_idx > 0 then
@@ -191,7 +203,9 @@ feature {NONE} -- Initialization
 					save_sensor_data (sensors.item)
 
 					-- stampa i dati per il sensore
-					print_data (sensors.item)
+					----------------------------------------------------------------
+					-- DA RIPRISTINARE
+					-- print_data (sensors.item)
 
 					sensors.forth
 				end
@@ -240,8 +254,13 @@ feature {NONE} -- Initialization
 					die (sigkill)
 				elseif is_caught (sigterm) then
 					display_line ("SIGTERM " + sigterm.out + " caught%N", true, true)
+				--elseif is_caught (sigbus) then
+				--	display_line ("SIGBUS " + sigbus.out + " caught%N", true, true)
 				else
-					display_line ("UNKNOWN signal caught%N", true, true)
+					display_line ("UNKNOWN signal caught: " + signal.out + "%N", true, true)
+					if attached meaning (signal) as l_sig_m then
+						display_line ("%T" + l_sig_m + "%N", true, true)
+					end
 				end
 			end
 		end
@@ -508,7 +527,7 @@ feature -- Process
 
 				-- chiedere l'elenco dei sensori
 
-				selection.set_query ("select IDsensore, Destinazione, AggregazioneTemporale, NOMEtipologia from METEO.vw_rt10 order by IDsensore desc;")
+				selection.set_query ("select IDsensore, Destinazione, AggregazioneTemporale, NOMEtipologia from METEO.vw_rt10 order by IDsensore;")
 				selection.execute_query
 
 				-- Processare il risultato della query
@@ -688,8 +707,14 @@ feature -- Operations
 			from sensor.last_dates.start
 			until sensor.last_dates.after
 			loop
+				-- Get data from last received value
 				start_date  := sensor.last_dates.item + ten_minutes
 				end_date := now + check_day_light_time_saving (now) + one_hour
+
+				-- experimental
+				-- start_date := now + check_day_light_time_saving (now)
+				-- end_date   := start_date
+
 
 				create fd.make (6, 1)
 				fd.right_justify
@@ -731,8 +756,8 @@ feature -- Operations
 				if attached response as res and not response.is_empty then
 					realtime_data_res.sensor_data_list.wipe_out
 					realtime_data_res.from_json (res, json_parser)
-					io.put_string ("Found " + realtime_data_res.sensor_data_list.count.out + " sensors list data")
-					io.put_new_line
+					-- io.put_string ("Found " + realtime_data_res.sensor_data_list.count.out + " sensors list data")
+					-- io.put_new_line
 					if realtime_data_res.sensor_data_list.count = 0 then
 						display_line ("No sensor data found for sensor " + sensor.sensor_id.out + " " + sensor.typology + " from " +
 						               start_date.formatted_out (default_date_time_format) + " to " + end_date.formatted_out (default_date_time_format), true, false)
@@ -808,7 +833,11 @@ feature -- Operations
 		local
 			l_query: detachable STRING
 			l_date:  detachable DATE_TIME
+			fd: FORMAT_DOUBLE
+			fi: FORMAT_INTEGER
 		do
+			create fd.make (6, 1)
+			create fi.make (6)
 			from sensor.measures.start
 			until sensor.measures.after
 			loop
@@ -829,9 +858,10 @@ feature -- Operations
 							if modification.is_executable then
 								modification.execute_query
 								session_control.commit
-								display_line ("Inserted measure for sensor id " + sensor.sensor_id.out + " operator " + sensor.operators.i_th (sensor.measures.index).out +
-								               " measure " + sensor.measures.item.item.value.out + " date " + sensor.measures.item.item.date_time, true, false)
-								display_line ("# affected row(s): " + modification.affected_row_count.out, true, false)
+								display_line ("Inserted measure for sensor id " + fi.formatted (sensor.sensor_id) + " operator " + sensor.operators.i_th (sensor.measures.index).out +
+								               " measure " + fd.formatted (sensor.measures.item.item.value) + " date " + sensor.measures.item.item.date_time + "#" +
+								               modification.affected_row_count.out, true, false)
+								--display_line ("# affected row(s): " + modification.affected_row_count.out, true, false)
 							else
 								display_line ("{save_sensor} Query not executable", true, false)
 								--display_line ("Modification ERROR: " + modification.error_message_32, true)
@@ -957,6 +987,8 @@ feature -- Preferences
 			-- Host running collect preference
 	collect_port_pref:  INTEGER_PREFERENCE
 			-- Collect port preference
+	bm_folder_pref:     STRING_PREFERENCE
+			-- Bitmaps folder preference
 	factory:            BASIC_PREFERENCE_FACTORY
 			-- Preferences factory
 
@@ -968,12 +1000,13 @@ feature -- Preferences
 			preference_manager := preferences.new_manager ("rt10")
 
 			create factory
-			host_pref         := factory.new_string_preference_value (preference_manager,  "rt10.host",         "localhost")
-			database_pref     := factory.new_string_preference_value (preference_manager,  "rt10.database",     "METEO")
-			dbusr_pref        := factory.new_string_preference_value (preference_manager,  "rt10.dbusr",        "root")
-			dbpwd_pref        := factory.new_string_preference_value (preference_manager,  "rt10.dbpwd",        "METEO")
-			collect_host_pref := factory.new_string_preference_value (preference_manager,  "rt10.collect_host", "localhost")
-			collect_port_pref := factory.new_integer_preference_value (preference_manager, "rt10.collect_port", 9090)
+			host_pref         := factory.new_string_preference_value  (preference_manager,  "rt10.host",         "localhost")
+			database_pref     := factory.new_string_preference_value  (preference_manager,  "rt10.database",     "METEO")
+			dbusr_pref        := factory.new_string_preference_value  (preference_manager,  "rt10.dbusr",        "root")
+			dbpwd_pref        := factory.new_string_preference_value  (preference_manager,  "rt10.dbpwd",        "METEO")
+			collect_host_pref := factory.new_string_preference_value  (preference_manager,  "rt10.collect_host", "localhost")
+			collect_port_pref := factory.new_integer_preference_value (preference_manager,  "rt10.collect_port", 9090)
+			bm_folder_pref    := factory.new_string_preference_value  (preference_manager,  "rt10.bm_folder",    preferences_folder + "/bm")
 			db_host           := host_pref.value
 			db_user           := dbusr_pref.value
 			db_password       := dbpwd_pref.value
@@ -1031,6 +1064,9 @@ feature -- Implementation
 	collect_host: STRING
 			-- Collect host (IP or name)
 	collect_port: INTEGER
+			-- Collect port
+	bm_folder:    STRING
+			-- Bitmaps folder
 
 	session_control: DB_CONTROL
 			-- Session manager
@@ -1077,9 +1113,9 @@ feature -- Implementation
 			-- Preferences folder
 		once
 			if( home_folder.is_empty ) then
-				create Result.make_from_string("./.rt10")
+				create Result.make_from_string("./." + app_name)
 			else
-				create Result.make_from_string(home_folder + "/.rt10")
+				create Result.make_from_string(home_folder + "/." + app_name)
 			end
 
 		end

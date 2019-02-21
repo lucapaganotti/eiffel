@@ -17,6 +17,12 @@ feature -- Implementation
 	default_date_time_format: STRING  = "yyyy-[0]mm-[0]dd hh:[0]mi:[0]ss"
 			-- Default date time format string
 
+	default_date_format: STRING = "yyyy-[0]mm-[0]dd"
+			-- Default date format string
+
+	defautl_time_format: STRING = "hh:[0]mi:[0]ss"
+			-- Default time format string
+
 	default_gc_monitoring_message_number: INTEGER = 10000
 			-- Default GC monitoring message number
 

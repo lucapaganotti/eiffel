@@ -42,7 +42,8 @@ feature -- Status reporting
 
 feature -- Basic operations
 
-	init_response: detachable RESPONSE_I
+	--init_response: detachable RESPONSE_I
+	init_response: RESPONSE_I
 			-- Create the associated response message
 		deferred
 		end

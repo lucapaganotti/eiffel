@@ -626,7 +626,7 @@ feature -- Basic operations
 								reset_json_parser
 							end
 							log_display ("Received message id: " + msg_id.out, log_debug, true)
-							log_display ("Checking message type ...", log_debug, true)
+							log_display ("Checking message type ... got " + msg_id.out + " msg" , log_debug, true)
 							inspect
 								msg_id
 							when {REQUEST_I}.station_status_list_request_id then

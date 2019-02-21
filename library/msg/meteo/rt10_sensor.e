@@ -41,9 +41,13 @@ feature {NONE} -- Initialization
 			create table.make_empty
 			create operators.make (0)
 			create measures.make (0)
+			--create bitmap
 		end
 
 feature -- Access
+
+	minutes_in_day: INTEGER = 1440
+			-- Minutes in a day
 
 	sensor_id: INTEGER
 			-- Sensor identifier
@@ -61,6 +65,56 @@ feature -- Access
 			-- Applied operators
 	measures:  ARRAYED_LIST[ARRAYED_LIST[MEASURE]]
 			-- Operator related measures
+
+	day_measures_number: INTEGER
+			-- How many values do I get from `Current' sensor in a day?
+
+feature -- Bitmaps
+
+	--bitmap: EV_PIXEL_BUFFER
+			-- bitmaps array
+
+	bitmap_filename (dt: DATE_TIME): STRING
+			-- Build bitmap filename for `Current' sensor
+			-- based upon `dt'
+		require
+			dt_attached: attached dt
+		local
+			l_fid: FORMAT_INTEGER
+		do
+			create l_fid.make (5)
+			l_fid.set_fill ('0')
+
+			Result := "bm_" + l_fid.formatted (sensor_id) + "_" + dt.formatted_out (default_date_format) + ".png"
+		end
+
+	time_to_pixel (dt: DATE_TIME): INTEGER
+			-- Given `dt' get the matching pixel index
+			-- based upon `Current' `time_granularity'
+		require
+			dt_attached: attached dt
+		do
+			Result := (dt.hour * dt.minutes_in_hour + dt.minute) // time_granularity - 1
+		end
+
+	pixel_to_time (p: INTEGER): TIME
+			-- Given pixel index `p' get the matching time
+		local
+			l_minutes: INTEGER
+		do
+			l_minutes := p * time_granularity
+
+			create Result.make (l_minutes // 60, l_minutes \\ 60, 0)
+		end
+
+	init_bitmap
+			-- Init bitmap buffer
+		require
+			valid_day_measures_number: day_measures_number >= 8
+			valid_operators_number: operators.count > 0
+		do
+
+		end
 
 feature -- Status setting
 
@@ -81,6 +135,8 @@ feature -- Status setting
 	set_time_granularity(granularity: INTEGER)
 			-- Sets `time_granularity'
 		do
+			day_measures_number := minutes_in_day // granularity
+
 			if granularity = 1 then
 				time_granularity := one_minute
 			elseif granularity = 5 then

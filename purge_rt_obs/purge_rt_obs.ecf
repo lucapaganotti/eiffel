@@ -36,6 +36,7 @@
 		<library name="process" location="$ISE_LIBRARY\library\process\process-safe.ecf"/>
 		<library name="store" location="$ISE_LIBRARY\library\store\store-safe.ecf"/>
 		<library name="time" location="$ISE_LIBRARY\library\time\time-safe.ecf"/>
+		<library name="vision2" location="$ISE_LIBRARY\library\vision2\vision2-safe.ecf"/>
 		<cluster name="handle" location="\home\buck\dev\eiffel\purge_rt_obs\handle\"/>
 		<cluster name="purge_rt_obs" location=".\">
 			<file_rule>
