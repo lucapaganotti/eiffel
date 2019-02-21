@@ -4,6 +4,7 @@
 
 * Problem definition
 * Decide the language name
+* Tools overview
 * Describe the language
 * Define language syntax
 * Implement an eiffel lexer
@@ -22,6 +23,15 @@ its execution can give usefull results.
 
 The language name will be **NPL**.
 
+### *Tools overview*
+
+For the time being two alternative development paths are feasible:
+
+* use eiffel ecosystem, but publish as open source item
+  * have to acquire knowledge about the tools, but probably the fastest path
+* use C tools like *bison*, *yacc*, *lex*, *flex* 
+  * have to acquire more knowledge about the tools
+
 ### *The NPL language*
 
 *NPL* is a programming language, in order to develop such a language and its 
@@ -34,4 +44,4 @@ recognizing *NPL* source code tokens.
 The set of *NPL* tokens is its *lexical grammar*.
 
 
-
+// vim: set ts=2 number: 
