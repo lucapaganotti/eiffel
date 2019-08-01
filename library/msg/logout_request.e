@@ -142,7 +142,7 @@ feature -- Conversion
 
 feature -- Basic operations
 
-	init_response: detachable RESPONSE_I
+	init_response: RESPONSE_I
 			--
 		do
 			Result := create {LOGOUT_RESPONSE}.make

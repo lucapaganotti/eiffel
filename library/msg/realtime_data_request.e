@@ -251,7 +251,7 @@ feature -- Conversion
 
 feature -- Basic operations
 
-	init_response: detachable RESPONSE_I
+	init_response: RESPONSE_I
 			--
 		do
 			Result := create {REALTIME_DATA_RESPONSE}.make

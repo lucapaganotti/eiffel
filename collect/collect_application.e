@@ -97,6 +97,7 @@ feature {NONE} -- Initialization
 			create content_type.make_empty
 			create token.make
 			create error_message.make_empty
+			create cfg_file_name.make_empty
 
 			read_credentials
 			if attached username and attached password then
@@ -183,13 +184,14 @@ feature -- Usage
 	main_help
 			-- Main help text
 		do
-			print ("collect [-p <port_number>][-l <log_level>][-gcm <message_number>]%N")
+			print ("collect [-p <port_number>][-l <log_level>][-c <configfilepath>][-gcm <message_number>]%N")
 			print ("        [-gcoap <coalesceperiod>][-gcolp <collectionperiod>][-mt <threshold>][-mm <memory>]%N")
 			print ("        [-gct <GC behaviour>][-fst][-t][-u][-v][-syslog][-h][-license]%N%N")
 			print ("%T<port_number>      is the network port on which collect will accept connections%N")
 			print ("%T                     default: 9090%N")
 			print ("%T<log_level>        is the logging level that will be used%N")
 			print ("%T                     default: debug-level%N")
+			print ("%T<configfilename>   is the fie name to config file to be used, it must be in $HOME/.collect%N")
 			print ("%T<message_number>   activates GC monitoring and checks%N")
 			print ("%T                   GC parameters every <message_number> messages%N")
 			print ("%T                     default: 10.000 messages%N")
@@ -281,7 +283,8 @@ feature -- Credentials
 	username:      detachable STRING
 	password:      detachable STRING
 	cfg_file:      PLAIN_TEXT_FILE
-	cfg_file_name: STRING = "credentials.conf"
+	default_cfg_file_name: STRING = "credentials.conf"
+	cfg_file_name: STRING
 
 	set_username (a_username: STRING)
 			-- Sets `username'
@@ -300,7 +303,10 @@ feature -- Credentials
 		do
 			create Result.make_empty
 			if attached home_directory_path as l_home then
-				Result := l_home.out + "/.collect/" + cfg_file_name
+				Result := l_home.out + "/.collect/"
+				if cfg_file_name.is_empty then
+					cfg_file_name := default_cfg_file_name
+				end
 			end
 		end
 
@@ -857,6 +863,10 @@ feature -- Basic operations
 		local
 			idx: INTEGER
 		do
+			idx := index_of_word_option ("c")
+			if idx > 0 then
+				cfg_file_name := argument (idx + 1).to_string_8
+			end
 			idx := index_of_word_option ("p")
 			if idx > 0 then
 				port := argument (idx + 1).to_integer

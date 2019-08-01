@@ -58,6 +58,8 @@ feature {NONE} -- Initialization
 			create results.make (0)
 			create sensors.make (0)
 
+			create preferences_file.make_from_string ("rt10conf.xml")
+
 			create now.make_now
 			create one_month.make (0, 0, -14, 0, 0, 0)
 			create one_week.make (0, 0, -7, 0, 0, 0)
@@ -125,6 +127,25 @@ feature {NONE} -- Initialization
 
 			init
 
+			l_idx := index_of_word_option ("h")
+			if l_idx > 0 then
+				usage
+				die (0)
+			end
+
+			l_idx := index_of_word_option ("e")
+			if l_idx > 0 then
+				-- must adjust `now' to be at 10 minutes granularity
+				l_m := now.minute - (now.minute \\ 10)
+				create l_now.make (now.year, now.month, now.day, now.hour, l_m, 0)
+				now := l_now
+			end
+
+			l_idx := index_of_word_option ("c")
+			if l_idx > 0 then
+				preferences_file := argument (l_idx + 1).to_string_8
+			end
+
 			display_line ("Ten minutes realtime acquisition", true, false)
 			display_line ("Home folder:        " + home_folder, true, false)
 			display_line ("Preferences folder: " + preferences_folder, true, false)
@@ -140,14 +161,6 @@ feature {NONE} -- Initialization
 			create selection.make
 			create session_control.make
 			session_control.connect
-
-			l_idx := index_of_word_option ("e")
-			if l_idx > 0 then
-				-- must adjust `now' to be at 10 minutes granularity
-				l_m := now.minute - (now.minute \\ 10)
-				create l_now.make (now.year, now.month, now.day, now.hour, l_m, 0)
-				now := l_now
-			end
 
 			l_idx := index_of_word_option ("s")
 			if l_idx > 0 then
@@ -958,6 +971,23 @@ feature -- Operations
 			json_parser.reset
 		end
 
+	usage
+			-- `application usage'
+		do
+			print ("ten minutes real-time client%N")
+			print ("Agenzia Regionale per la Protezione Ambientale della Lombardia%N")
+			print ("Autore: Luca Paganotti <luca.paganotti@gmail.com>%N")
+			print ("        Released under GPLv2%N")
+
+			print ("rt10    [-s <sensor id>][-e][-c <configfilepath>][-h]%N%N")
+			print ("%T<sensor id>        is the sensor id to make a request for via collect%N")
+			print ("%T                     optional%N")
+			print ("%T<configfilepath>   is the full file path to config file to be used, it must be in $HOME/.rt10%N")
+			print ("%T                     default: $HOME/.rt10/rt10conf.xml")
+			print ("%T-e                 aligns current time to 10 minutes granularity%N")
+			print ("%T-h                 prints this text%N")
+		end
+
 feature -- dispose
 
 	dispose
@@ -995,9 +1025,9 @@ feature -- Preferences
 	init_preferences
 			-- Loads preferences
 		do
-			create preferences_storage.make_with_location (preferences_folder + "/rt10conf.xml")
+			create preferences_storage.make_with_location (preferences_folder + "/" + preferences_file)
 			create preferences.make_with_storage (preferences_storage)
-			preference_manager := preferences.new_manager ("rt10")
+			preference_manager := preferences.new_manager (app_name)
 
 			create factory
 			host_pref         := factory.new_string_preference_value  (preference_manager,  "rt10.host",         "localhost")
@@ -1119,6 +1149,9 @@ feature -- Implementation
 			end
 
 		end
+
+	preferences_file: STRING
+			-- Preferences file name
 
 	app_name: STRING
 			-- `Current' application name
