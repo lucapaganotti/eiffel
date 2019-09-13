@@ -333,7 +333,7 @@ feature -- Credentials
 			l_path: detachable STRING
 		do
 			if not cfg_file_path.is_empty then
-				l_path := cfg_file_path
+				l_path := cfg_file_path + default_cfg_file_name
 			else
 				l_path := "/etc/collect/credentials.conf"
 			end
@@ -905,6 +905,15 @@ feature -- Basic operations
 		local
 			idx: INTEGER
 		do
+			idx := index_of_word_option ("k")
+			if idx > 0 then
+				existing_token := true
+				token.set_id (argument (idx + 1).out)
+				token.set_expiry (create {DATE_TIME}.make (2100, 12, 31, 23, 59, 59))
+				is_logged_in := true
+				save_last_token
+			end
+
 			idx := index_of_word_option ("t")
 			if idx > 0 then
 				use_testing_ws := true
@@ -1249,6 +1258,11 @@ feature {NONE}-- Attributes
 			-- is collect logged in remws?
 	is_utc_set:   BOOLEAN
 			-- is the running box in UTC?
+	existing_token: BOOLEAN
+			-- service running with -k switch
+			-- a token is passed on the command line
+			-- no need to login
+			-- `last_token_file_path' needs to be updated
 	token:        TOKEN
 			-- the current `TOKEN'
 	log_path:     PATH
