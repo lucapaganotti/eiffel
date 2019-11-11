@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-20-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-20-0 http://www.eiffel.com/developers/xml/configuration-1-20-0.xsd" name="test_awc" uuid="A79828F9-8D52-49E2-BE02-2C13F009AF3D">
+	<target name="test_awc">
+		<root class="AWC_CLIENT" feature="make"/>
+		<file_rule>
+			<exclude>/CVS$</exclude>
+			<exclude>/EIFGENs$</exclude>
+			<exclude>/\.git$</exclude>
+			<exclude>/\.svn$</exclude>
+		</file_rule>
+		<option warning="true" manifest_array_type="mismatch_warning">
+			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
+		</option>
+		<setting name="console_application" value="true"/>
+		<setting name="dead_code_removal" value="feature"/>
+		<capability>
+			<catcall_detection support="none"/>
+			<concurrency support="scoop"/>
+			<void_safety support="all"/>
+		</capability>
+		<variable name="ssl_enabled" value="true"/>
+		<precompile name="base_pre" location="$ISE_PRECOMP\base-scoop-safe.ecf"/>
+		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
+		<library name="net_http_client" location="\home\buck\dev\eiffel\library\ewf\library\network\http_client\net_http_client.ecf"/>
+		<library name="precomp-wsf-mt-safe" location="\home\buck\dev\eiffel\library\ewf\precomp\wsf-mt-safe.ecf"/>
+		<library name="testing" location="$ISE_LIBRARY\library\testing\testing-safe.ecf"/>
+		<library name="time" location="$ISE_LIBRARY\library\time\time.ecf"/>
+		<library name="xml_parser" location="$ISE_LIBRARY\library\text\parser\xml\parser\xml_parser.ecf"/>
+		<cluster name="test_awc" location=".\">
+			<tests name="test" location="\home\buck\dev\eiffel\test_awc\test\"/>
+		</cluster>
+	</target>
+</system>

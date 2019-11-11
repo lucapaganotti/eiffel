@@ -117,6 +117,7 @@ feature -- Conversion
 
 	to_json: STRING
 			-- json representation
+			-- {"header": {"id": 1011},"data": {"outcome": 0,"message": "","tokenid": "A79D8584-A298-45F1-BD8F-B8EB560A50AE","expiry": "2100-12-31 0:00:00"}}
 		do
 			create Result.make_empty
 
@@ -134,12 +135,12 @@ feature -- Conversion
 				Result.append (left_brace)
 				Result.append (double_quotes + json_header_tag + double_quotes + colon + space + left_brace)
 				Result.append (double_quotes + json_id_tag + double_quotes + colon + space + query_token_response_id.out)
-				Result.append (double_quotes + comma)
+				Result.append (right_brace + comma)
 				Result.append (double_quotes + json_data_tag + double_quotes + colon + space + left_brace)
 				Result.append (double_quotes + json_outcome_tag + double_quotes + colon + space + outcome.out)
 				Result.append (comma + double_quotes + json_message_tag + double_quotes + colon + space + double_quotes + message + double_quotes)
 				Result.append (comma + double_quotes + json_tokenid_tag + double_quotes + colon + space + double_quotes + token.id + double_quotes + comma)
-				Result.append (double_quotes + json_expiry_tag + double_quotes + colon + space + token.expiry.formatted_out (default_date_time_format) + double_quotes)
+				Result.append (double_quotes + json_expiry_tag + double_quotes + colon + space + double_quotes + token.expiry.formatted_out (default_date_time_format) + double_quotes)
 				Result.append (right_brace)
 				Result.append (right_brace)
 			end
@@ -160,11 +161,13 @@ feature -- Conversion
 
 	from_json (json: STRING; parser: JSON_PARSER)
 			-- Parse json message
+			-- {"header": {"id": 1011","data": {"outcome": 0,"message": "","tokenid": "E9C77CBB-576B-49D6-843D-36319D36CC73","expiry": 2100-12-31 0:00:00"}}
 		require else
 			json_valid: attached json and then not json.is_empty
 			json_parser_valid: attached parser and then parser.is_valid
 		do
 		 	parser.set_representation (json)
+		 	print (parser.representation)
 			parser.parse_content
 			if parser.is_valid and then attached parser.parsed_json_value as jv then
 				if not (attached {JSON_OBJECT} jv as j_object and then attached {JSON_OBJECT} j_object.item (json_header_tag) as j_header
@@ -198,6 +201,12 @@ feature -- Representation
 			-- Stringrepresentation
 		do
 			create Result.make_empty
+			if not token.id.is_empty then
+				Result.append ("Current token: ********-****-****-****-********" + token.id.tail (4))
+			else
+				Result.append ("Current token: empty !!!")
+			end
+
 		end
 
 feature {NONE} -- Implementation

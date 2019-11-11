@@ -164,7 +164,7 @@ feature -- Conversion
 
 feature -- Basic operations
 
-	init_response: RESPONSE_I
+	init_response: detachable RESPONSE_I
 			--
 		do
 			Result := create {LOGIN_RESPONSE}.make

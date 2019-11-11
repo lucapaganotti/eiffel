@@ -5,7 +5,7 @@ note
 	author      : "$Author Luca Paganotti < luca.paganotti (at) gmail.com > $"
 	date        : "$Date 2017-12-10 19:44:33 (dom 10 dic 2017, 19.44.33, CET) buck $"
 	revision    : "$Revision 48 $"
-	
+
 --| ----------------------------------------------------------------------------
 --| This is the message structure for the query token request message,
 --| for the time being only json is a supported format
@@ -59,7 +59,7 @@ feature -- Access
 	id: INTEGER
 			-- message id
 		do
-			Result := station_list_request_id
+			Result := query_token_request_id
 		end
 
 feature -- Status setting

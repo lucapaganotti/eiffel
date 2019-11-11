@@ -39,4 +39,10 @@ feature
 	msg_xml_parser_failed:         STRING = "XML parser failed"
 			-- xml parser failed error message
 
+	err_request_failure:           INTEGER = 5
+			-- request failure
+
+	msg_request_failure:           STRING ="Request failed"
+			-- request failure message
+
 end
