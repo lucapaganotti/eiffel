@@ -84,8 +84,12 @@ feature {NONE} -- Initialization
 			catch_signals
 
 			init_format_integer
+			init_format_double
 
 			create session.make ("")
+			session.add_header ("content-type", "text/xml;charset=utf-8")
+			--session.add_header ("SOAPAction", a_request.soap_action_header)
+			session.add_header ("Accept-Encoding", "gzip, deflate")
 
 			-- login management
 			is_logged_in := false
@@ -173,6 +177,15 @@ feature {NONE} -- Initialization
 			format_integer.zero_fill
 		ensure
 			format_integer_attached: attached format_integer
+		end
+
+	init_format_double
+			-- Initialize `format_double'
+		do
+			create format_double.make (6, 4)
+			format_double.zero_fill
+		ensure
+			format_double_attached: attached format_double
 		end
 
 feature -- Usage
@@ -498,7 +511,7 @@ feature -- Basic operations
 				log_display ("Resetting JSON parser", log_warning, true)
 				json_parser.reset_reader
 				json_parser.reset
-				log_display ("JSON parser OK", log_warning, true)
+				--log_display ("JSON parser OK", log_warning, true)
 			end
 		end
 
@@ -507,13 +520,21 @@ feature -- Basic operations
 		require
 			json_parser_attached: attached json_parser
 		do
+			if not json_parser.is_valid then
+				reset_json_parser
+			end
 			json_parser.set_representation (json)
 			json_parser.parse_content
-			if json_parser.is_valid and then attached json_parser.parsed_json_value as jv and then
+			if json_parser.is_valid then
+				if  attached json_parser.parsed_json_value as jv and then
 				    attached {JSON_OBJECT} jv as j_object and then attached {JSON_OBJECT} j_object.item (json_header_tag) as j_header
-					and then attached {JSON_NUMBER} j_header.item (json_id_tag) as j_id
-				then
+					and then attached {JSON_NUMBER} j_header.item (json_id_tag) as j_id then
 					Result := j_id.integer_64_item.to_integer
+				else
+					reset_json_parser
+					-- assume a real time data request
+					Result := 10
+				end
 			end
 		end
 
@@ -541,6 +562,7 @@ feature -- Basic operations
 	execute (req: WSF_REQUEST; res: WSF_RESPONSE)
 	    local
 	    	current_time:       detachable DATE_TIME
+	    			-- Current time
 
 			request:            detachable STRING
     				-- Request as string
@@ -559,36 +581,35 @@ feature -- Basic operations
 					-- Message id
 
 		do
-			log_display ("Entering execute ...", log_debug, true)
+			--log_display ("Entering execute ...", log_debug, true)
 			create request.make (req.content_length_value.to_integer_32)
 			create response.make_empty
 			create current_time.make_now
 
-			up_time := current_time.relative_duration (start_time)
+--			up_time := current_time.relative_duration (start_time)
+--			if attached up_time as l_up_time then
+--				log_display("UP TIME: " +
+--								l_up_time.day.out + ":" +
+--								format_integer.formatted (l_up_time.hour) + ":" +
+--								format_integer.formatted (l_up_time.minute) + ":" +
+--								format_integer.formatted (l_up_time.second), log_information, true)
+--			end
 
-			if attached up_time as l_up_time then
-				log_display("UP TIME: " +
-								l_up_time.day.out + ":" +
-								format_integer.formatted (l_up_time.hour) + ":" +
-								format_integer.formatted (l_up_time.minute) + ":" +
-								format_integer.formatted (l_up_time.second), log_information, true)
-			end
-
-			log_display ("Checking UTC settings ...", log_debug, true)
+			--log_display ("Checking UTC settings ...", log_debug, true)
 			if is_utc_set then
-				log_display ("time_offset     : " + one_hour.hour.out, log_debug, true)
+				--log_display ("time_offset     : " + one_hour.hour.out, log_debug, true)
 				current_time := current_time + one_hour
 			end
 
 			token_expired := is_token_expired (current_time)
 
-			log_display ("is logged in    : " + is_logged_in.out, log_debug, true)
-			log_display ("token id        : " + token.id, log_debug, true)
-			log_display ("token expiry    : " + token.expiry.formatted_out (default_date_time_format), log_debug, true)
-			log_display ("current time    : " + current_time.formatted_out (default_date_time_format), log_debug, true)
-			log_display ("is token expired: " + token_expired.out, log_debug, true)
+			--log_display ("is logged in    : " + is_logged_in.out, log_debug, true)
+			--log_display ("token id        : " + token.id, log_debug, true)
+			--log_display ("token expiry    : " + token.expiry.formatted_out (default_date_time_format), log_debug, true)
+			--log_display ("current time    : " + current_time.formatted_out (default_date_time_format), log_debug, true)
+			--log_display ("is token expired: " + token_expired.out, log_debug, true)
 
-			log_display ("Checking token expiration ...", log_debug, true)
+			--log_display ("Checking token expiration ...", log_debug, true)
 			if is_master then
 				if token_expired then
 					sleep (500000000)
@@ -613,9 +634,9 @@ feature -- Basic operations
 
 			if is_logged_in then
 				-- read json input
-				log_display ("Reading JSON input ...", log_debug, true)
+				--log_display ("Reading JSON input ...", log_debug, true)
 				received_bytes := req.input.read_to_string (request, 1, req.content_length_value.to_integer_32)
-				log_display ("Received " + received_bytes.out + " bytes", log_debug, true)
+				--log_display ("Received " + received_bytes.out + " bytes", log_debug, true)
 
 				if attached request as l_req then
 					if not check_json_message (l_req) then
@@ -644,17 +665,23 @@ feature -- Basic operations
 							l_req.fill_character (null_char)
 							l_req.wipe_out
 						else
-							log_display(" <<< " + l_req, log_debug, true)
+							--log_display(" <<< " + l_req, log_debug, true)
 							-- parse the message header
 							msg_id := parse_header (l_req)
+
 							if msg_id = 0 then
 								error_code    := {ERROR_CODES}.err_invalid_json
 								error_message := {ERROR_CODES}.msg_invalid_json
+								log_display("Client error " + l_req, log_warning, true)
 								reset_json_parser
 							end
-							log_display ("Received message id: " + msg_id.out, log_debug, true)
-							log_display ("Checking message type ... got " + msg_id.out + " msg" , log_debug, true)
-							log_display ("Inspecting message type id " + msg_id.out, log_debug, true)
+							--log_display ("Received message id: " + msg_id.out, log_debug, true)
+							--log_display ("Checking message type ... got " + msg_id.out + " msg" , log_debug, true)
+							--log_display ("Inspecting message type id " + msg_id.out, log_debug, true)
+							msg_number := msg_number + 1
+							--log_display ("%T Managed message number " + msg_number.out, log_notice, true)
+
+							--log_display ("Checking message number ...", log_debug, true)
 							inspect
 								msg_id
 							when {REQUEST_I}.station_status_list_request_id then
@@ -767,34 +794,36 @@ feature -- Basic operations
 								req_obj := create {REALTIME_DATA_REQUEST}.make
 								log_display ("req_obj called", log_debug, true)
 								if attached req_obj as myreq then
-									log_display ("req_obj attached as myreq", log_debug, true)
-									log_display ("parse myreq from json detachable STRING request attached as l_req", log_debug, true)
+									--log_display ("req_obj attached as myreq", log_debug, true)
+									--log_display ("parse myreq from json detachable STRING request attached as l_req", log_debug, true)
 									myreq.from_json (l_req, json_parser)
-									log_display ("myreq.from_json called", log_debug, true)
-									log_display ("update myreq with token id", log_debug, true)
+									--log_display ("myreq.from_json called", log_debug, true)
+									--log_display ("update myreq with token id", log_debug, true)
 									myreq.set_token_id (token.id)
-									log_display ("myreq.set_token_id called", log_debug, true)
-									log_display ("do post of myreq", log_debug, true)
+									--log_display ("myreq.set_token_id called", log_debug, true)
+									--log_display ("do post of myreq", log_debug, true)
+
 									res_obj := do_post (myreq)
-									log_display ("res_obj := do_post(myreq) called", log_debug, true)
-									log_display ("verify if res_obj is attached", log_debug, true)
+
+									--log_display ("res_obj := do_post(myreq) called", log_debug, true)
+									--log_display ("verify if res_obj is attached", log_debug, true)
 									if attached res_obj as myres then
-										log_display ("res_obj attached as myres", log_debug, true)
-										log_display ("convert myres.to_json", log_debug, true)
+										--log_display ("res_obj attached as myres", log_debug, true)
+										--log_display ("convert myres.to_json", log_debug, true)
 										response := myres.to_json
-										log_display ("myres.to_json called", log_debug, true)
-										log_display ("Sent message id: " + myres.id.out + " Realtime data", log_information, true)
-										log_display ("Message outcome: " + myres.outcome.out, log_information, true)
-										if attached myres.message as l_message then
-											log_display ("Message message: " + l_message, log_information, true)
-										else
-											log_display ("myres.message not attached, may raise an exception", log_debug, true)
-										end
+										--log_display ("myres.to_json called", log_debug, true)
+										--log_display ("Sent message id: " + myres.id.out + " Realtime data", log_information, true)
+										--log_display ("Message outcome: " + myres.outcome.out, log_information, true)
+										--if attached myres.message as l_message then
+										--	log_display ("Message message: " + l_message, log_information, true)
+										--else
+										--	log_display ("myres.message not attached, may raise an exception", log_warning, true)
+										--end
 									else
-										log_display ("res_obj not attached, may raise an exception ...", log_debug, true)
+										log_display ("res_obj not attached, may raise an exception ...", log_warning, true)
 									end
 								else
-									log_display ("req_obj not attached, may raise an exception ...", log_debug, true)
+									log_display ("req_obj not attached, may raise an exception ...", log_warning, true)
 								end
 							when {REQUEST_I}.query_token_request_id then
 								req_obj := create {QUERY_TOKEN_REQUEST}.make
@@ -826,8 +855,9 @@ feature -- Basic operations
 									end
 								end
 							else
-								log_display ("UNKNOWN message", log_information, true)
+								log_display ("UNKNOWN message id " + msg_id.out, log_warning, true)
 							end
+
 						end
 					end
 				else
@@ -839,22 +869,18 @@ feature -- Basic operations
 					log_display ("Returned HTTP status code: " + {HTTP_STATUS_CODE}.bad_request.out + " Content-Length: " + response.count.out, log_error, true)
 				else
 					res.put_header ({HTTP_STATUS_CODE}.ok, <<["Content-Type", "text/json"], ["Content-Length", response.count.out]>>)
-					log_display ("Returned HTTP status code: " + {HTTP_STATUS_CODE}.ok.out, log_debug, true)
+					--log_display ("Returned HTTP status code: " + {HTTP_STATUS_CODE}.ok.out, log_debug, true)
 				end
 				res.put_string (response)
-				log_display (" >>> " + response, log_information, true)
-
-				msg_number := msg_number + 1
-				log_display ("%T Managed message number " + msg_number.out, log_notice, true)
-
-				log_display ("Checking message number ...", log_debug, true)
+				--log_display (" >>> " + response, log_debug, true)
 
 				if msg_number = {INTEGER}.max_value - 1 then
-					msg_number := 1
-					log_display ("Reset message counter to 1", log_notice, true)
+					msg_number := 0
+					msg_total_time := 0.0
+					--log_display ("Reset message counter to 1", log_notice, true)
 				end
 
-				log_display ("Message number checked", log_debug, true)
+				--log_display ("Message number checked", log_debug, true)
 
 				if (msg_number \\ gc_monitoring_message_number) = 0 then
 					log_gc_parameters
@@ -866,7 +892,7 @@ feature -- Basic operations
 			error_code    := success
 			error_message := ""
 
-			log_display ("Exiting execute ...", log_debug, true)
+			--log_display ("Exiting execute ...", log_debug, true)
 
 		rescue
 			log_display ("EXCEPTION raised", log_error, true)
@@ -1148,10 +1174,16 @@ feature {NONE} -- Network IO
 			l_context: detachable HTTP_CLIENT_REQUEST_CONTEXT
 			l_res: detachable HTTP_CLIENT_RESPONSE
 		do
-			session.headers.wipe_out
-			session.add_header ("content-type", "text/xml;charset=utf-8")
-			session.add_header ("SOAPAction", a_request.soap_action_header)
-			session.add_header ("Accept-Encoding", "gzip, deflate")
+			--session.headers.wipe_out
+			if session.headers.count /= 3 then
+				session.headers.wipe_out
+				session.add_header ("content-type", "text/xml;charset=utf-8")
+				session.add_header ("SOAPAction", a_request.soap_action_header)
+				session.add_header ("Accept-Encoding", "gzip, deflate")
+			else
+				session.headers.replace (a_request.soap_action_header, "SOAPAction")
+				check session.headers.replaced end
+			end
 			if use_testing_ws then
 				l_res := session.post (a_request.ws_test_url, l_context, a_request.to_xml)
 			else
@@ -1175,11 +1207,27 @@ feature {NONE} -- Network IO
 			xml_parser_attached: attached xml_parser
 		local
 			l_xml_str: detachable STRING
+			received_time:      DATE_TIME
+	    	sent_to_rem_time:   DATE_TIME
+
+	    	serving_time:       detachable DATE_TIME_DURATION
+	    			-- Message serving time
+
+			msg_mean_time:      DOUBLE
 		do
 			Result    := a_request.init_response
+			create sent_to_rem_time.make_now
 			l_xml_str := post (a_request)
-
-			log_display(" <<< " + l_xml_str, log_debug, true)
+			create received_time.make_now
+			serving_time := received_time.relative_duration (sent_to_rem_time)
+			msg_total_time := msg_total_time + serving_time.fine_seconds_count
+			msg_mean_time := msg_total_time / msg_number.to_real
+			if attached serving_time then
+				log_display ("@ MSG " + msg_number.out + " serving time is " + format_double.formatted(serving_time.fine_seconds_count) +
+				                        " total time is " + format_double.formatted(msg_total_time) +
+				                        " avg time is " + format_double.formatted (msg_mean_time) + " seconds", log_notice, true)
+			end
+			--log_display(" <<< " + l_xml_str, log_debug, true)
 
 			if attached Result as l_result then
 				if error_code = 0 then
@@ -1317,7 +1365,7 @@ feature {NONE} -- Login management
 			l_session.add_header ("content-type", "text/json;charset=utf-8")
 			l_session.add_header ("Accept-Encoding", "gzip, deflate")
 
-			l_res := session.post ("http://" + master_address + ":" + master_port.out, l_context, qt_req.to_json)
+			l_res := l_session.post ("http://" + master_address + ":" + master_port.out, l_context, qt_req.to_json)
 
 			if attached l_res as res then
 				if attached res.body as body then
@@ -1371,6 +1419,7 @@ feature {NONE}-- Attributes
 			-- the logger
 	msg_number:   INTEGER
 			-- parsed messages number
+	msg_total_time:     DOUBLE
 	is_gc_monitoring_active: BOOLEAN
 			-- log/display gc parameters
 	gc_monitoring_message_number: INTEGER
@@ -1378,7 +1427,7 @@ feature {NONE}-- Attributes
 			-- if `is_gc_monitoring_active' is true
 	start_time: DATE_TIME
 			-- Application start date time
-	up_time: detachable DATE_TIME_DURATION
+	--up_time: detachable DATE_TIME_DURATION
 			-- Global applcation up time
 	use_syslog: BOOLEAN
 			-- Use syslog utilities
@@ -1402,6 +1451,8 @@ feature -- Parsing
 feature {NONE} -- Formatting
 
 	format_integer: FORMAT_INTEGER
+
+	format_double:  FORMAT_DOUBLE
 
 feature {NONE} -- License
 

@@ -141,7 +141,8 @@ feature {NONE} -- Initialization
 		do
 			display_line ("{NMARZI} Init preferences ...", true, false)
 
-			create preferences_storage.make_with_location ("/root/.nmarzi/nmarzi.preferences.xml")
+			-- create preferences_storage.make_with_location ("/root/.nmarzi/nmarzi.preferences.xml")
+			create preferences_storage.make_with_location ("/home/buck/.nmarzi/nmarzi.preferences.xml")
 			create preferences.make_with_storage (preferences_storage)
 			preferences_manager := preferences.new_manager ("nmarzi")
 			create factory

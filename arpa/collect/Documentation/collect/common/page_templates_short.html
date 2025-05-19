@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 15.01.9.6535 GPL Edition - linux-x86-64">
+<meta name="description" content="Summary description for {PAGE_TEMPLATES}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>page_templates Contracts</TITLE>
+<LINK REL="stylesheet" HREF="../../default.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<pre><FORM ONSUBMIT="go_to('../../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="page_templates_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="page_templates_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="page_templates.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="page_templates_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="page_templates_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="page_templates"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;Summary description for </SPAN><SPAN CLASS="esymbol">{</SPAN><A CLASS="eclass" HREF="../../collect/common/page_templates_short.html">PAGE_TEMPLATES</A><SPAN CLASS="esymbol">}</SPAN><SPAN CLASS="estring">.&quot;</SPAN>
+	<SPAN CLASS="eitag">author</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Date$&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Revision$&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> <SPAN CLASS="ekeyword">interface</SPAN>
+	<A CLASS="eclass" HREF="../../collect/common/page_templates_short.html">PAGE_TEMPLATES</A>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<SPAN CLASS="nefeature">default_create</SPAN>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> Implementation</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	main_static_page: STRING = &quot;[</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&lt;html&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&nbsp;&lt;header&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COLLECT</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&nbsp;&nbsp;&lt;/title&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&lt;/header&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&lt;body&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is collect main page&lt;/h1&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;An HTML static page&lt;/h2&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Using the nino connector&lt;/p&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An attempt to use EWF for something usefull and in the meantime learn it</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &nbsp;&nbsp;&lt;/body&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">	 &lt;/html&gt;</SPAN>
+<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> &nbsp;&nbsp;&nbsp;]&quot;</SPAN>
+
+	<A NAME="f_main_template"></A><A CLASS="efeature" HREF="../../collect/common/page_templates_short.html#f_main_template">Main_template</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">STRING_8</SPAN> <SPAN CLASS="esymbol">=</SPAN> &quot;[
+		 &lt;html&gt; 
+		   &lt;header&gt;
+		    &lt;title&gt;
+		      COLLECT
+		    &lt;/title&gt;
+		  &lt;/header&gt;
+		  &lt;body&gt;
+		    &lt;h1&gt;This is collect main page&lt;/h1&gt;
+		    &lt;h2&gt;An HTML dynamic page&lt;/h2&gt;
+		    &lt;p&gt;Using the nino connector&lt;/p&gt;
+		    &lt;p&gt;
+		      An attempt to use EWF for something usefull and in the meantime learn it
+		    &lt;/p&gt;
+		    &lt;p&gt;Server URL: $url&lt;/p&gt;
+		    &lt;p&gt;Content type: $ctype&lt;/p&gt;
+		  &lt;/body&gt;
+		&lt;/html&gt;
+	]<SPAN CLASS="estring">&quot;</SPAN>
+	
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../../collect/common/page_templates_short.html">PAGE_TEMPLATES</A><FORM ONSUBMIT="go_to('../../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="page_templates_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="page_templates_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="page_templates.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="page_templates_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="page_templates_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="page_templates"></TD>
+</TR></TABLE></FORM></pre>
+<P ALIGN="CENTER"> &#045;&#045; Generated by ISE Eiffel &#045;&#045; 
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+

@@ -12,7 +12,7 @@
 		<library name="http" location="$ISE_LIBRARY\contrib\library\network\protocol\http\http-safe.ecf"/>
 		<library name="http_client" location="$ISE_LIBRARY\contrib\library\network\http_client\http_client-safe.ecf"/>
 		<library name="json" location="$ISE_LIBRARY\contrib\library\text\parser\json\library\json-safe.ecf"/>
-		<library name="msg" location="\home\buck\dev\eiffel\library\msg\msg.ecf"/>
+		<library name="msg" location="\home\buck\dev\eiffel\arpa\library\msg\msg.ecf"/>
 		<library name="preferences_xml" location="$ISE_LIBRARY\library\preferences\preferences_xml-safe.ecf"/>
 		<library name="process" location="$ISE_LIBRARY\library\process\process-safe.ecf"/>
 		<library name="time" location="$ISE_LIBRARY\library\time\time-safe.ecf"/>

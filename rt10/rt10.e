@@ -108,6 +108,9 @@ feature {NONE} -- Initialization
 
 			l_m:         INTEGER
 			l_now:       DATE_TIME
+			l_curt:      detachable DATE_TIME
+			l_maxt:      detachable DATE_TIME_DURATION
+
 		do
 			sig_ignore (sighup)
 			sig_ignore (sigint)
@@ -204,6 +207,25 @@ feature {NONE} -- Initialization
 				from sensors.start
 				until sensors.after
 				loop
+					create l_curt.make_now
+
+					if attached l_curt as curt then
+						l_maxt := l_curt.relative_duration (l_start)
+						if attached l_maxt as maxt then
+							if maxt.time.minute > instances * 10 then
+								display_line ("WARNING: rt10 must die due to excessive duration", true, true)
+								sensors.wipe_out
+								selection.clear_all
+								selection.terminate
+								selection.reset
+								modification.clear_all
+								modification.reset
+								session_control.disconnect
+								die (-1)
+							end
+						end
+					end
+
 					-- determinare l'ultimo dato acquisito per il sensore (es. 9104)
 					get_last_dates (sensors.item)
 
@@ -587,6 +609,8 @@ feature -- Process
 						end
 						selection.forth
 					end
+
+					shuffle_sensors
 
 					selection.clear_all
 					selection.terminate
@@ -1005,6 +1029,8 @@ feature -- Preferences
 			-- Preference manager
 	preferences_storage: PREFERENCES_STORAGE_DEFAULT
 			-- Preferences storage
+	instances_pref:     INTEGER_PREFERENCE
+			-- Maximum concurrent instances preference
 	host_pref:          STRING_PREFERENCE
 			-- Host preference
 	database_pref:      STRING_PREFERENCE
@@ -1030,6 +1056,7 @@ feature -- Preferences
 			preference_manager := preferences.new_manager (app_name)
 
 			create factory
+			instances_pref    := factory.new_integer_preference_value (preference_manager,  "rt10.instances",    3)
 			host_pref         := factory.new_string_preference_value  (preference_manager,  "rt10.host",         "localhost")
 			database_pref     := factory.new_string_preference_value  (preference_manager,  "rt10.database",     "METEO")
 			dbusr_pref        := factory.new_string_preference_value  (preference_manager,  "rt10.dbusr",        "root")
@@ -1037,6 +1064,7 @@ feature -- Preferences
 			collect_host_pref := factory.new_string_preference_value  (preference_manager,  "rt10.collect_host", "localhost")
 			collect_port_pref := factory.new_integer_preference_value (preference_manager,  "rt10.collect_port", 9090)
 			bm_folder_pref    := factory.new_string_preference_value  (preference_manager,  "rt10.bm_folder",    preferences_folder + "/bm")
+			instances         := instances_pref.value
 			db_host           := host_pref.value
 			db_user           := dbusr_pref.value
 			db_password       := dbpwd_pref.value
@@ -1080,9 +1108,52 @@ feature -- Messages
 	                   ]"
 		end
 
+feature -- Transformation
+
+	shuffle_sensors
+			-- shuffle `sensors' container
+		local
+			i:   DOUBLE
+			idx: INTEGER
+			s:   INTEGER
+			t:   TIME
+			g:   RANDOM
+			r:   DOUBLE
+			ss:  ARRAYED_LIST[RT10_SENSOR]
+		do
+			create ss.make (0)
+			create t.make_now
+			s := t.hour
+			s := s * 60 + t.minute
+			s := s * 60 + t.second
+			s := s * 1000 + t.milli_second
+			create g.set_seed (s)
+
+			from
+			until sensors.count = 0
+			loop
+				g.forth
+				r   := g.double_item
+				i   := (sensors.count * r)
+				idx := i.floor
+				if idx = 0 and sensors.count > 0 then
+					idx := 1
+				end
+				ss.extend (sensors.at (idx))
+				sensors.go_i_th (idx)
+				sensors.remove
+
+				sensors.start
+			end
+
+			sensors := ss
+		end
+
 
 feature -- Implementation
 
+	instances:    INTEGER
+			-- Maximum instances number
 	db_host:      STRING
 			-- Database host
 	db_user:      STRING

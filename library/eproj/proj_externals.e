@@ -171,6 +171,6 @@ feature -- Context externals
 		external
 			"C inline use %"proj_api.h%""
 		alias
-			"pj_set_fileapi($ctx, $fileapi)"
+			"pj_ctx_set_fileapi($ctx, $fileapi)"
 		end
 end

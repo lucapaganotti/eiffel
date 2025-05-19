@@ -1,0 +1,157 @@
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="ISE EiffelStudio version 15.01.9.6535 GPL Edition - linux-x86-64">
+<meta name="description" content="nmarzi application root class"/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<TITLE>nmarzi_application Contracts</TITLE>
+<LINK REL="stylesheet" HREF="../default.css" TYPE="text/css">
+<SCRIPT TYPE="text/javascript" SRC="../goto.html"></SCRIPT>
+</HEAD>
+<BODY>
+<P ALIGN="CENTER">Automatic generation produced by ISE Eiffel</P>
+<pre><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="nmarzi_application_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="nmarzi_application_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="nmarzi_application.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="nmarzi_application_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="nmarzi_application_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="nmarzi_application"></TD>
+</TR></TABLE></FORM><SPAN CLASS="ekeyword">note</SPAN>
+	<SPAN CLASS="eitag">description</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;nmarzi</SPAN><SPAN CLASS="estring"> </SPAN><SPAN CLASS="estring">application</SPAN><SPAN CLASS="estring"> </SPAN><SPAN CLASS="estring">root</SPAN><SPAN CLASS="estring"> </SPAN><SPAN CLASS="estring">class&quot;</SPAN>
+	<SPAN CLASS="eitag">date</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Date$&quot;</SPAN>
+	<SPAN CLASS="eitag">revision</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="estring">&quot;$Revision$&quot;</SPAN>
+
+<SPAN CLASS="ekeyword">class</SPAN> <SPAN CLASS="ekeyword">interface</SPAN>
+	<A CLASS="eclass" HREF="../nmarzi/nmarzi_application_short.html">NMARZI_APPLICATION</A>
+
+<SPAN CLASS="ekeyword">create</SPAN> 
+	<A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_make">make</A>
+
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Initialization</SPAN>
+
+	<A NAME="f_init"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_init">init</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">general</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">initialization</SPAN>
+
+	<A NAME="f_init_preferences"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_init_preferences">init_preferences</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Init</SPAN><SPAN CLASS="ecomment"> </SPAN><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_preferences">preferences</A><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">object</SPAN>
+
+	<A NAME="f_init_sensors_list"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_init_sensors_list">init_sensors_list</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Initialize</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">sensors</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">list</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">from</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">file</SPAN>
+
+	<A NAME="f_init_default_sensors_list"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_init_default_sensors_list">init_default_sensors_list</A>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Default</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">sensors</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">list</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Operations</SPAN>
+
+	<A NAME="f_post"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_post">post</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">msg</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">STRING_8</SPAN><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">STRING_8</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Posts</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">a</SPAN><SPAN CLASS="ecomment"> </SPAN>`msg'
+
+	<A NAME="f_ask_sensor"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_ask_sensor">ask_sensor</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sensor</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../nmarzi/sensor_parameters_short.html">SENSOR_PARAMETERS</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">start</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">DATE_TIME</SPAN><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">finish</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">DATE_TIME</SPAN><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">last24</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">BOOLEAN</SPAN><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">ARRAYED_LIST</SPAN> <SPAN CLASS="esymbol">[</SPAN><SPAN CLASS="neclass">STRING_8</SPAN><SPAN CLASS="esymbol">]</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Ask</SPAN><SPAN CLASS="ecomment"> </SPAN>`sensor'<SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">data</SPAN>
+
+	<A NAME="f_make_output_filepath"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_make_output_filepath">make_output_filepath</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sensor</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../nmarzi/sensor_parameters_short.html">SENSOR_PARAMETERS</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">last24</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">BOOLEAN</SPAN><SPAN CLASS="esymbol">)</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">STRING_8</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">format</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">output</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">file</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">name</SPAN>
+
+	<A NAME="f_make_file"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_make_file">make_file</A> <SPAN CLASS="esymbol">(</SPAN><SPAN CLASS="elocal">sensor</SPAN><SPAN CLASS="esymbol">:</SPAN> <A CLASS="eclass" HREF="../nmarzi/sensor_parameters_short.html">SENSOR_PARAMETERS</A><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">data</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">ARRAYED_LIST</SPAN> <SPAN CLASS="esymbol">[</SPAN><SPAN CLASS="neclass">STRING_8</SPAN><SPAN CLASS="esymbol">]</SPAN><SPAN CLASS="esymbol">;</SPAN> <SPAN CLASS="elocal">last24</SPAN><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">BOOLEAN</SPAN><SPAN CLASS="esymbol">)</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Writes</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">sensor</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">data</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">on</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">disk</SPAN>
+
+	<A NAME="f_write_files"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_write_files">write_files</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">BOOLEAN</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Write</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">output</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">text</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">files</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Messages</SPAN>
+
+	<A NAME="f_realtime_data_res"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_realtime_data_res">realtime_data_res</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">REALTIME_DATA_RESPONSE</SPAN>
+
+	<A NAME="f_realtime_data_request_nmarzi_template"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_realtime_data_request_nmarzi_template">Realtime_data_request_nmarzi_template</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">STRING_8</SPAN> <SPAN CLASS="esymbol">=</SPAN> &quot;[
+				{
+		          &quot;header&quot;: {
+		          &quot;id&quot;: 10
+		        },
+		        &quot;data&quot;: {
+		          &quot;sensors_list&quot;: [ {
+		                              &quot;sensor_id&quot;: $sensor,
+		                              &quot;function_id&quot;: $function,
+		                              &quot;operator_id&quot;: $operator,
+		                              &quot;granularity&quot;: $granularity,
+		                              &quot;start&quot;: &quot;$start&quot;,
+		                              &quot;finish&quot;: &quot;$finish&quot;
+		                            } ]
+		                }
+				}
+	]<SPAN CLASS="estring">&quot;</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Preferences</SPAN>
+
+	<A NAME="f_output_dir"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_output_dir">output_dir</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">STRING_PREFERENCE</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">&lt;sensor_id&gt;_R</SPAN><SPAN CLASS="ecomment">.</SPAN><SPAN CLASS="ecomment">txt</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">files</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">output</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">directory</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment">sensors_list:</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">ARRAY_PREFERENCE</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">sensors</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">id</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">list</SPAN>
+
+	<A NAME="f_sensor_list_file"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_sensor_list_file">sensor_list_file</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">STRING_PREFERENCE</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">sensors</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">list</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">file</SPAN>
+
+	<A NAME="f_host"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_host">host</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">STRING_PREFERENCE</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Host</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">to</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">connect</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">IP</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">or</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">name</SPAN>
+
+	<A NAME="f_port"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_port">port</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">INTEGER_PREFERENCE</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Host</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">port</SPAN>
+
+	<A NAME="f_preferences"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_preferences">preferences</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">PREFERENCES</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_preferences">preferences</A><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">object</SPAN>
+
+	<A NAME="f_preferences_manager"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_preferences_manager">preferences_manager</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">PREFERENCE_MANAGER</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Preference</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">manager</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">object</SPAN>
+
+	<A NAME="f_preferences_storage"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_preferences_storage">preferences_storage</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">PREFERENCES_STORAGE_DEFAULT</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Preferences</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">storage</SPAN>
+	
+<SPAN CLASS="ekeyword">feature</SPAN> <SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">Implementation</SPAN>
+
+	<A NAME="f_response"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_response">response</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">STRING_8</SPAN>
+
+	<A NAME="f_curl_easy"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_curl_easy">Curl_easy</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">CURL_EASY_EXTERNALS</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">cURL</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">easy</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">externals</SPAN>
+
+	<A NAME="f_curl"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_curl">Curl</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">CURL_EXTERNALS</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">cURL</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">externals</SPAN>
+
+	<A NAME="f_curl_handle"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_curl_handle">curl_handle</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">POINTER</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">cURL</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">handle</SPAN>
+
+	<A NAME="f_curl_buffer"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_curl_buffer">curl_buffer</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">CURL_STRING</SPAN>
+			<SPAN CLASS="ecomment">--</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">response</SPAN><SPAN CLASS="ecomment"> </SPAN><SPAN CLASS="ecomment">contents</SPAN>
+
+	<A NAME="f_one_week"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_one_week">one_week</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">DATE_TIME_DURATION</SPAN>
+
+	<A NAME="f_one_day"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_one_day">one_day</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">DATE_TIME_DURATION</SPAN>
+
+	<A NAME="f_one_hour"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_one_hour">one_hour</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">DATE_TIME_DURATION</SPAN>
+
+	<A NAME="f_two_hours"></A><A CLASS="efeature" HREF="../nmarzi/nmarzi_application_short.html#f_two_hours">two_hours</A><SPAN CLASS="esymbol">:</SPAN> <SPAN CLASS="neclass">DATE_TIME_DURATION</SPAN>
+	
+<SPAN CLASS="ekeyword">end</SPAN> <SPAN CLASS="ecomment">--</SPAN> <SPAN CLASS="ecomment">class </SPAN><A CLASS="eclass" HREF="../nmarzi/nmarzi_application_short.html">NMARZI_APPLICATION</A><FORM ONSUBMIT="go_to('../',this.c.value);return false;">
+<TABLE CELLSPACING="5" CELLPADDING="4"><TR>
+<TD CLASS="link1"><A CLASS="link1" HREF="../class_list.html">Classes</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_list.html">Clusters</A></TD>
+<TD CLASS="link1"><A CLASS="link1" HREF="../cluster_hierarchy.html">Cluster hierarchy</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="nmarzi_application_chart.html">Chart</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="nmarzi_application_links.html">Relations</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="nmarzi_application.html">Text</A></TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="nmarzi_application_flat.html">Flat</A></TD>
+<TD CLASS="nolink2">Contracts</TD>
+<TD CLASS="link2"><A CLASS="link2" HREF="nmarzi_application_flatshort.html">Flat contracts</A></TD>
+<TD CLASS="link2">Go to: <INPUT NAME="c" VALUE="nmarzi_application"></TD>
+</TR></TABLE></FORM></pre>
+<P ALIGN="CENTER"> &#045;&#045; Generated by ISE Eiffel &#045;&#045; 
+<BR>For more details: <A HREF="http://www.eiffel.com">www.eiffel.com</A></P>
+</BODY>
+</HTML>
+
