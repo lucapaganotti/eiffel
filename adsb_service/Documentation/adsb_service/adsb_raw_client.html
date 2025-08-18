@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {ADSB_RAW_CLIENT}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>adsb_raw_client Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="adsb_raw_client_chart.html">Chart</a>
+<a class="nav class" href="adsb_raw_client_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="adsb_raw_client_flat.html">Flat</a>
+<a class="nav class" href="adsb_raw_client_short.html">Contracts</a>
+<a class="nav class" href="adsb_raw_client_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="adsb_raw_client"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/adsb_raw_client.html">ADSB_RAW_CLIENT</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../adsb_service/adsb_raw_client.html">ADSB_RAW_CLIENT</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../adsb_service/adsb_client.html">ADSB_CLIENT</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../adsb_service/adsb_raw_client.html#f_make_client">make_client</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make_client"></a><a class="efeature" href="../adsb_service/adsb_raw_client.html#f_make_client">make_client</a> <span class="esymbol">(</span><span class="elocal">h</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">;</span> <span class="elocal">p</span><span class="esymbol">,</span> <span class="elocal">t</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">l</span><span class="esymbol">:</span> <span class="neclass">LOG_LOGGING_FACILITY</span><span class="esymbol">;</span> <span class="elocal">tp</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">af</span><span class="esymbol">:</span> <span class="neclass">INET_ADDRESS_FACTORY</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">af</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_now">now</a><span class="edot">.</span><span class="nefeature">make_now</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_last_check">last_check</a><span class="edot">.</span><span class="nefeature">make_now</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_format_double">format_double</a><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">10</span><span class="esymbol">,</span> <span class="enumber">2</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_means">means</a><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+			<a class="efeature" href="../adsb_service/adsb_client.html#f_host">host</a> <span class="esymbol">:=</span> <span class="elocal">h</span>
+			<a class="efeature" href="../adsb_service/adsb_raw_client.html#f_raw_port">raw_port</a> <span class="esymbol">:=</span> <span class="elocal">p</span>
+			<a class="efeature" href="../adsb_service/adsb_client.html#f_to">to</a> <span class="esymbol">:=</span> <span class="elocal">t</span>
+			<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a> <span class="esymbol">:=</span> <span class="elocal">l</span>
+			<a class="efeature" href="../adsb_service/adsb_client.html#f_tracks_path">tracks_path</a> <span class="esymbol">:=</span> <span class="elocal">tp</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_auth_token">auth_token</a><span class="edot">.</span><a class="efeature" href="../adsb_service/auth_token.html#f_make">make</a>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_routes_url">routes_url</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_pj4geo">pj4geo</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_ref_arpt">ref_arpt</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_pj4proj">pj4proj</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_mrt">mrt</a><span class="edot">.</span><a class="efeature" href="../adsb_service/point.html#f_make">make</a>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">af</span><span class="edot">.</span><span class="nefeature">create_from_name</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_client.html#f_host">host</a><span class="esymbol">)</span> <span class="ekeyword">as</span> l_peer_address <span class="ekeyword">then</span>
+				<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.make_client &quot; <span class="esymbol">+</span> <span class="elocal">l_peer_address</span><span class="edot">.</span><span class="nefeature">out</span> <span class="esymbol">+</span> &quot; reachable&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../adsb_service/adsb_network_stream_socket.html">ADSB_NETWORK_STREAM_SOCKET</a><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_socket">socket</a> <span class="ekeyword">as</span> l_sock <span class="ekeyword">then</span>
+					<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.make_client socket &quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_host">host</a> <span class="esymbol">+</span> &quot;:&quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_raw_client.html#f_raw_port">raw_port</a><span class="edot">.</span><span class="nefeature">out</span> <span class="esymbol">+</span> &quot; created&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.make_client Network could be down or host unreachable&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Operations</span>
+
+	<a name="f_start"></a><a class="efeature" href="../adsb_service/adsb_raw_client.html#f_start">start</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">af</span><span class="esymbol">:</span> <span class="neclass">INET_ADDRESS_FACTORY</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.start&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">af</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">af</span><span class="edot">.</span><span class="nefeature">create_from_name</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_client.html#f_host">host</a><span class="esymbol">)</span> <span class="ekeyword">as</span> l_peer_address <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_socket">socket</a><span class="edot">.</span><span class="nefeature">make_client_by_address_and_port</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_peer_address</span><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_raw_client.html#f_raw_port">raw_port</a><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../adsb_service/adsb_network_stream_socket.html">ADSB_NETWORK_STREAM_SOCKET</a><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_socket">socket</a> <span class="ekeyword">as</span> l_sock <span class="ekeyword">then</span>
+					<span class="elocal">l_sock</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_network_stream_socket.html#f_set_sock_opt_recv_buffer_size">set_sock_opt_recv_buffer_size</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">10</span> <span class="esymbol">*</span> <span class="enumber">1024</span> <span class="esymbol">*</span> <span class="enumber">1024</span><span class="esymbol">)</span><span class="esymbol">;</span>
+					<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">set_linger_on</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">5</span><span class="esymbol">)</span><span class="esymbol">;</span>
+					<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">set_default_timeout</span><span class="esymbol">;</span>
+					<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">set_recv_timeout_ns</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">One_second_in_nanoseconds</span><span class="esymbol">)</span><span class="esymbol">;</span>
+					<span class="elocal">l_sock</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_network_stream_socket.html#f_set_sock_opt_keep_alive_on">set_sock_opt_keep_alive_on</a><span class="esymbol">;</span>
+					<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">connect</span>
+					<span class="ekeyword">if</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">is_connected</span> <span class="ekeyword">then</span>
+						<a class="efeature" href="../adsb_service/adsb_client.html#f_running">running</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span><span class="esymbol">;</span>
+						<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.start socket &quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_host">host</a> <span class="esymbol">+</span> &quot;:&quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_raw_client.html#f_raw_port">raw_port</a><span class="edot">.</span><span class="nefeature">out</span> <span class="esymbol">+</span> &quot; connected&quot;<span class="esymbol">)</span>
+						<a class="efeature" href="../adsb_service/adsb_raw_client.html#f_process">process</a>
+						<a class="efeature" href="../adsb_service/adsb_raw_client.html#f_stop">stop</a>
+						<a class="efeature" href="../adsb_service/adsb_client.html#f_last_check">last_check</a> <span class="esymbol">:=</span> <span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><span class="neclass">DATE_TIME</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">make_now</span> <span class="ekeyword">end</span>
+					<span class="ekeyword">else</span>
+						<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_error</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.start unable to connect to host: &quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_host">host</a> <span class="esymbol">+</span> &quot; on port &quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_raw_client.html#f_raw_port">raw_port</a><span class="edot">.</span><span class="nefeature">out</span><span class="esymbol">)</span>
+						<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="enumber">5</span> <span class="esymbol">*</span> <span class="enumber">1000</span> <span class="esymbol">*</span> <span class="enumber">1000000</span><span class="edot">.</span><span class="nefeature">to_integer_64</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_error</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.start unable to resolve hostname: &quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_host">host</a><span class="esymbol">)</span>
+				<a class="efeature" href="../adsb_service/adsb_client.html#f_last_check">last_check</a> <span class="esymbol">:=</span> <span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><span class="neclass">DATE_TIME</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">make_now</span> <span class="ekeyword">end</span>
+				<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="enumber">10</span> <span class="esymbol">*</span> <span class="enumber">1000</span> <span class="esymbol">*</span> <span class="enumber">1000000</span><span class="edot">.</span><span class="nefeature">to_integer_64</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_stop"></a><a class="efeature" href="../adsb_service/adsb_raw_client.html#f_stop">stop</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.stop&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../adsb_service/adsb_network_stream_socket.html">ADSB_NETWORK_STREAM_SOCKET</a><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_socket">socket</a> <span class="ekeyword">as</span> l_sock <span class="ekeyword">then</span>
+				<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">cleanup</span><span class="esymbol">;</span>
+				<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">dispose</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.stop socket disposed&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../adsb_service/adsb_client.html#f_running">running</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_process"></a><a class="efeature" href="../adsb_service/adsb_raw_client.html#f_process">process</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_delta_t</span><span class="esymbol">:</span> <span class="neclass">INTERVAL</span> <span class="esymbol">[</span><span class="neclass">DATE_TIME</span><span class="esymbol">]</span>
+			<span class="elocal">l_str_msg</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.process&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../adsb_service/adsb_network_stream_socket.html">ADSB_NETWORK_STREAM_SOCKET</a><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_socket">socket</a> <span class="ekeyword">as</span> l_sock <span class="ekeyword">then</span>
+				<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.process begins acquisition&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">from</span>
+				<span class="ekeyword">until</span>
+					<span class="ekeyword">not</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">exists</span> <span class="ekeyword">or</span> <span class="ekeyword">not</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">is_connected</span>
+				<span class="ekeyword">loop</span>
+					<span class="ekeyword">if</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">exists</span> <span class="ekeyword">and then</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">is_connected</span> <span class="ekeyword">and then</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">is_readable</span> <span class="ekeyword">then</span>
+						<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">read_line</span>
+						<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_now">now</a><span class="edot">.</span><span class="nefeature">make_now</span>
+						<span class="elocal">l_str_msg</span> <span class="esymbol">:=</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">last_string</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">not</span> <span class="elocal">l_str_msg</span><span class="edot">.</span><span class="nefeature">is_empty</span> <span class="ekeyword">then</span>
+							<span class="elocal">l_str_msg</span><span class="edot">.</span><span class="nefeature">prune_all_leading</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'*'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_str_msg</span><span class="edot">.</span><span class="nefeature">prune_all_trailing</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">';'</span><span class="esymbol">)</span>
+							<span class="ekeyword">if</span> <span class="elocal">l_str_msg</span><span class="edot">.</span><span class="nefeature">count</span> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../adsb_service/raw_msg_constants.html">RAW_MSG_CONSTANTS</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../adsb_service/raw_msg_constants.html#f_short_hex_msg_length">short_hex_msg_length</a> <span class="ekeyword">or</span> <span class="elocal">l_str_msg</span><span class="edot">.</span><span class="nefeature">count</span> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../adsb_service/raw_msg_constants.html">RAW_MSG_CONSTANTS</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../adsb_service/raw_msg_constants.html#f_long_hex_msg_length">long_hex_msg_length</a> <span class="ekeyword">then</span>
+								<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_raw_client.html#f_msg">msg</a><span class="edot">.</span><a class="efeature" href="../adsb_service/raw_text_msg.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_str_msg</span><span class="esymbol">)</span>
+								<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../adsb_service/raw_text_msg.html">RAW_TEXT_MSG</a><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/adsb_raw_client.html#f_msg">msg</a> <span class="ekeyword">as</span> l_msg <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;&lt;&lt; [ &quot; <span class="esymbol">+</span> <span class="elocal">l_str_msg</span><span class="edot">.</span><span class="nefeature">count</span><span class="edot">.</span><span class="nefeature">out</span> <span class="esymbol">+</span> &quot;] &quot; <span class="esymbol">+</span> <span class="elocal">l_msg</span><span class="edot">.</span><a class="efeature" href="../adsb_service/raw_text_msg.html#f_out">out</a><span class="esymbol">)</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+						<span class="ekeyword">end</span>
+						<span class="ekeyword">create</span> <span class="elocal">l_delta_t</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_client.html#f_last_check">last_check</a><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_now">now</a><span class="esymbol">)</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">DATE_TIME_DURATION</span><span class="esymbol">}</span> <span class="elocal">l_delta_t</span><span class="edot">.</span><span class="nefeature">duration</span> <span class="ekeyword">as</span> l_d <span class="ekeyword">then</span>
+							<span class="elocal">l_d</span><span class="edot">.</span><span class="nefeature">set_origin_date_time</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><span class="neclass">DATE_TIME</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1970</span><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span> <span class="ekeyword">end</span><span class="esymbol">)</span>
+							<span class="ekeyword">if</span> <span class="elocal">l_d</span><span class="edot">.</span><span class="nefeature">seconds_count</span> <span class="esymbol">&gt;</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_to">to</a><span class="edot">.</span><span class="nefeature">to_integer_64</span> <span class="ekeyword">then</span>
+								<a class="efeature" href="../adsb_service/adsb_client.html#f_clean_map">clean_map</a>
+								<a class="efeature" href="../adsb_service/adsb_client.html#f_last_check">last_check</a> <span class="esymbol">:=</span> <span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><span class="neclass">DATE_TIME</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">make_now</span> <span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">if</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">was_error</span> <span class="ekeyword">or</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">network</span> <span class="ekeyword">or</span> <span class="ekeyword">not</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">is_connected</span> <span class="ekeyword">or</span> <span class="ekeyword">not</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_is_endpoint_reachable">is_endpoint_reachable</a> <span class="ekeyword">or</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">expired_socket</span> <span class="ekeyword">or</span> <span class="ekeyword">not</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">exists</span> <span class="ekeyword">then</span>
+							<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.process sockect not readable&quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+							<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.process acquisition socket has error &quot; <span class="esymbol">+</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">error_number</span><span class="edot">.</span><span class="nefeature">out</span> <span class="esymbol">+</span> &quot; - &quot; <span class="esymbol">+</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">error</span><span class="esymbol">)</span><span class="esymbol">;</span>
+							<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.process close and cleanup socket&quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">cleanup</span><span class="esymbol">;</span>
+							<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">dispose</span>
+						<span class="ekeyword">else</span>
+							<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="enumber">100</span> <span class="esymbol">*</span> <span class="enumber">1000000</span><span class="edot">.</span><span class="nefeature">to_integer_64</span><span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../adsb_service/adsb_network_stream_socket.html">ADSB_NETWORK_STREAM_SOCKET</a><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/adsb_client.html#f_socket">socket</a> <span class="ekeyword">as</span> l_sock <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">was_error</span> <span class="ekeyword">then</span>
+					<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.process acquisition socket has some error, try a restart&quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+					<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.process acquisition socket has error &quot; <span class="esymbol">+</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">error_number</span><span class="edot">.</span><span class="nefeature">out</span> <span class="esymbol">+</span> &quot; - &quot; <span class="esymbol">+</span> <span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">error</span><span class="esymbol">)</span><span class="esymbol">;</span>
+					<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.process close and cleanup socket&quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+					<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">cleanup</span><span class="esymbol">;</span>
+					<span class="elocal">l_sock</span><span class="edot">.</span><span class="nefeature">dispose</span>
+					<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="enumber">100</span> <span class="esymbol">*</span> <span class="enumber">1000000</span><span class="edot">.</span><span class="nefeature">to_integer_64</span><span class="esymbol">)</span><span class="esymbol">;</span>
+					<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_SBS_CLIENT}.process retry&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">retry</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_error</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_RAW_CLIENT}.process socket is a bad state, quit processing&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_msg"></a><a class="efeature" href="../adsb_service/adsb_raw_client.html#f_msg">msg</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../adsb_service/raw_text_msg.html">RAW_TEXT_MSG</a>
+
+	<a name="f_raw_port"></a><a class="efeature" href="../adsb_service/adsb_raw_client.html#f_raw_port">raw_port</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Commands</span>
+
+	<a name="f_set_port"></a><a class="efeature" href="../adsb_service/adsb_raw_client.html#f_set_port">set_port</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/adsb_raw_client.html#f_raw_port">raw_port</a> <span class="esymbol">:=</span> <span class="elocal">p</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/adsb_raw_client.html">ADSB_RAW_CLIENT</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="adsb_raw_client_chart.html">Chart</a>
+<a class="nav class" href="adsb_raw_client_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="adsb_raw_client_flat.html">Flat</a>
+<a class="nav class" href="adsb_raw_client_short.html">Contracts</a>
+<a class="nav class" href="adsb_raw_client_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="adsb_raw_client"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

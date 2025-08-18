@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {POINT}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>point Flat contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="point_chart.html">Chart</a>
+<a class="nav class" href="point_links.html">Relations</a>
+<a class="nav class" href="point.html">Text</a>
+<a class="nav class" href="point_flat.html">Flat</a>
+<a class="nav class" href="point_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="point"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a>
+
+<span class="ekeyword">create</span> 
+	<a name="f_make"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_make">make</a>
+
+	<a name="f_make_from_coordinates"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_make_from_coordinates">make_from_coordinates</a> <span class="esymbol">(</span><span class="elocal">ax</span><span class="esymbol">,</span> <span class="elocal">ay</span><span class="esymbol">,</span> <span class="elocal">az</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_arc_cosine"></a><span class="nefeature">arc_cosine</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Trigonometric arccosine of radian </span><span class="equoted">v</span>
+			<span class="ecomment">--</span><span class="ecomment"> in the range [0, pi].</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_arc_sine"></a><span class="nefeature">arc_sine</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Trigonometric arcsine of radian </span><span class="equoted">v</span>
+			<span class="ecomment">--</span><span class="ecomment"> in the range [-pi/2, +pi/2].</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_arc_tangent"></a><span class="nefeature">arc_tangent</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Trigonometric arctangent of radian </span><span class="equoted">v</span>
+			<span class="ecomment">--</span><span class="ecomment"> in the range [-pi/2, +pi/2].</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_ceiling"></a><span class="nefeature">ceiling</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Least integral greater than or equal to </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_cosine"></a><span class="nefeature">cosine</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Trigonometric cosine of radian </span><span class="equoted">v</span><span class="ecomment"> approximated</span>
+			<span class="ecomment">--</span><span class="ecomment"> in the range [-pi/4, +pi/4].</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_dabs"></a><span class="nefeature">dabs</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Absolute of </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_euler"></a><span class="nefeature">Euler</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span> <span class="esymbol">=</span> <span class="enumber">2.7182818284590452353602874713526625</span>
+			<span class="ecomment">--</span><span class="ecomment"> Logarithm base</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">MATH_CONST</span><span class="ecomment">)</span>
+
+	<a name="f_exp"></a><span class="nefeature">exp</span> <span class="esymbol">(</span><span class="elocal">x</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Exponential of </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_floor"></a><span class="nefeature">floor</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Greatest integral less than or equal to </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_generating_type"></a><span class="nefeature">generating_type</span><span class="esymbol">:</span> <span class="neclass">TYPE</span> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_generator"></a><span class="nefeature">generator</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">is_empty</span>
+
+	<a name="f_log"></a><span class="nefeature">log</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Natural logarithm of </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_log10"></a><span class="nefeature">log10</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Base 10 logarithm of </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_log_2"></a><span class="nefeature">log_2</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Base 2 logarithm of </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_pi"></a><span class="nefeature">Pi</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span> <span class="esymbol">=</span> <span class="enumber">3.1415926535897932384626433832795029</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">MATH_CONST</span><span class="ecomment">)</span>
+
+	<a name="f_pi_2"></a><span class="nefeature">Pi_2</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span> <span class="esymbol">=</span> <span class="enumber">1.5707963267948966192313216916397514</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">MATH_CONST</span><span class="ecomment">)</span>
+
+	<a name="f_pi_4"></a><span class="nefeature">Pi_4</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span> <span class="esymbol">=</span> <span class="enumber">0.7853981633974483096156608458198757</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">MATH_CONST</span><span class="ecomment">)</span>
+
+	<a name="f_sine"></a><span class="nefeature">sine</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Trigonometric sine of radian </span><span class="equoted">v</span><span class="ecomment"> approximated</span>
+			<span class="ecomment">--</span><span class="ecomment"> in range [-pi/4, +pi/4].</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_sqrt"></a><span class="nefeature">sqrt</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Square root of </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_sqrt2"></a><span class="nefeature">Sqrt2</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span> <span class="esymbol">=</span> <span class="enumber">1.4142135623730950488016887242096981</span>
+			<span class="ecomment">--</span><span class="ecomment"> Square root of 2</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">MATH_CONST</span><span class="ecomment">)</span>
+
+	<a name="f_tangent"></a><span class="nefeature">tangent</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+			<span class="ecomment">--</span><span class="ecomment"> Trigonometric tangent of radian </span><span class="equoted">v</span><span class="ecomment"> approximated</span>
+			<span class="ecomment">--</span><span class="ecomment"> in range [-pi/4, +pi/4].</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">DOUBLE_MATH</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">DOUBLE_MATH</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_x"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_x">x</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_y"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_y">y</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_z"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_z">z</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <span class="nefeature">deep_equal</span> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <span class="nefeature">standard_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <span class="ekeyword">implies</span> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <span class="ekeyword">implies</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="ekeyword">and</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <span class="ekeyword">implies</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and then</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">same_type</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="nefeature">deep_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <span class="nefeature">equal</span> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <span class="ekeyword">or else</span> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <span class="ekeyword">and then</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <span class="nefeature">is_deep_equal</span> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><span class="esymbol">≡≡≡</span><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <span class="ekeyword">implies</span> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="nefeature">same_type</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="elocal">other</span><span class="edot">.</span><span class="nefeature">is_deep_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_is_equal"></a><span class="nefeature">is_equal</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <span class="ekeyword">implies</span> <span class="ekeyword">Result</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <span class="nefeature">standard_equal</span> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <span class="ekeyword">or else</span> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <span class="ekeyword">and then</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <span class="nefeature">standard_is_equal</span> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><span class="esymbol">≜</span><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="nefeature">same_type</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="elocal">other</span><span class="edot">.</span><span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><span class="nefeature">conforms_to</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="neclass">ANY</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_same_type"></a><span class="nefeature">same_type</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="neclass">ANY</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="nefeature">conforms_to</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <span class="ekeyword">and</span> <span class="elocal">other</span><span class="edot">.</span><span class="nefeature">conforms_to</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_copy"></a><span class="nefeature">copy</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <span class="nefeature">same_type</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <span class="nefeature">deep_copy</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><span class="ecomment">`</span><span class="nefeature">copy</span><span class="ecomment">`</span><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><span class="ecomment">`</span><span class="nefeature">deep_twin</span><span class="ecomment">`</span><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <span class="nefeature">deep_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <span class="nefeature">deep_twin</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <span class="nefeature">deep_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <span class="nefeature">standard_copy</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <span class="nefeature">same_type</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <span class="nefeature">standard_twin</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <span class="nefeature">standard_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <span class="nefeature">twin</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><span class="nefeature">twin</span><span class="ecomment">`</span><span class="ecomment"> calls </span><span class="ecomment">`</span><span class="nefeature">copy</span><span class="ecomment">`</span><span class="ecomment">; to change copying/twinning semantics, redefine </span><span class="ecomment">`</span><span class="nefeature">copy</span><span class="ecomment">`</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <span class="nefeature">default</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <span class="nefeature">default_pointer</span><span class="esymbol">:</span> <span class="neclass">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><span class="ecomment">`</span><span class="nefeature">default</span><span class="ecomment">`</span><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_default_rescue"></a><span class="nefeature">default_rescue</span>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <span class="nefeature">do_nothing</span>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Commands</span>
+
+	<a name="f_distance"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_distance">distance</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">;</span> <span class="elocal">d3</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_from_wkt"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_from_wkt">from_wkt</a> <span class="esymbol">(</span><span class="elocal">wkt</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+
+	<a name="f_setx"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_setx">setx</a> <span class="esymbol">(</span><span class="elocal">ax</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span>
+
+	<a name="f_sety"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_sety">sety</a> <span class="esymbol">(</span><span class="elocal">ay</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span>
+
+	<a name="f_setz"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_setz">setz</a> <span class="esymbol">(</span><span class="elocal">az</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span>
+
+	<a name="f_to_wkt"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_to_wkt">to_wkt</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_transform"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_transform">transform</a> <span class="esymbol">(</span><span class="elocal">pj4src</span><span class="esymbol">,</span> <span class="elocal">pj4dst</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><span class="nefeature">Io</span><span class="esymbol">:</span> <span class="neclass">STD_FILES</span>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_out"></a><span class="nefeature">out</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_print"></a><span class="nefeature">print</span> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <span class="nefeature">tagged_out</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><span class="nefeature">Operating_environment</span><span class="esymbol">:</span> <span class="neclass">OPERATING_ENVIRONMENT</span>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status</span>
+
+	<a name="f_is_valid"></a><a class="efeature" href="../adsb_service/point_flatshort.html#f_is_valid">is_valid</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+	
+<span class="ekeyword">invariant</span>
+		<span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <span class="nefeature">conforms_to</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/point_flatshort.html">POINT</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="point_chart.html">Chart</a>
+<a class="nav class" href="point_links.html">Relations</a>
+<a class="nav class" href="point.html">Text</a>
+<a class="nav class" href="point_flat.html">Flat</a>
+<a class="nav class" href="point_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="point"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {RAW_UTILS}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>raw_utils Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="raw_utils_chart.html">Chart</a>
+<a class="nav class" href="raw_utils_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="raw_utils_flat.html">Flat</a>
+<a class="nav class" href="raw_utils_short.html">Contracts</a>
+<a class="nav class" href="raw_utils_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="raw_utils"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/raw_utils.html">RAW_UTILS</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../adsb_service/raw_utils.html">RAW_UTILS</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../adsb_service/raw_utils.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../adsb_service/raw_utils.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Operations</span>
+
+	<a name="f_bin2int"></a><a class="efeature" href="../adsb_service/raw_utils.html#f_bin2int">bin2int</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <span class="esymbol">=</span> <span class="elocal">t</span><span class="edot">.</span><span class="nefeature">count</span>
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <span class="esymbol">+</span> <span class="esymbol">(</span><span class="elocal">t</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span><span class="edot">.</span><span class="nefeature">out</span><span class="edot">.</span><span class="nefeature">to_integer</span> <span class="esymbol">*</span> <a class="efeature" href="../adsb_service/raw_utils.html#f_pow">pow</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">2.0</span><span class="esymbol">,</span> <span class="elocal">i</span><span class="edot">.</span><span class="nefeature">to_double</span><span class="esymbol">)</span><span class="edot">.</span><span class="nefeature">truncated_to_integer</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Externals</span>
+
+	<a name="f_pow"></a><a class="efeature" href="../adsb_service/raw_utils.html#f_pow">pow</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">,</span> <span class="elocal">e</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+		<span class="ekeyword">external</span>
+			&quot;C signature (double, double): double use &lt;math.h&gt;&quot;
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/raw_utils.html">RAW_UTILS</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="raw_utils_chart.html">Chart</a>
+<a class="nav class" href="raw_utils_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="raw_utils_flat.html">Flat</a>
+<a class="nav class" href="raw_utils_short.html">Contracts</a>
+<a class="nav class" href="raw_utils_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="raw_utils"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

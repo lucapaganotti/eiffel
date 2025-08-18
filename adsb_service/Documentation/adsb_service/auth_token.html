@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {AUTH_TOKEN}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>auth_token Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="auth_token_chart.html">Chart</a>
+<a class="nav class" href="auth_token_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="auth_token_flat.html">Flat</a>
+<a class="nav class" href="auth_token_short.html">Contracts</a>
+<a class="nav class" href="auth_token_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="auth_token"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/auth_token.html">AUTH_TOKEN</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../adsb_service/auth_token.html">AUTH_TOKEN</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../adsb_service/auth_token.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../adsb_service/auth_token.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/auth_token.html#f_token">token</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/auth_token.html#f_expiry">expiry</a><span class="edot">.</span><span class="nefeature">make_now</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_with_params"></a><a class="efeature" href="../adsb_service/auth_token.html#f_make_with_params">make_with_params</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">;</span> <span class="elocal">e</span><span class="esymbol">:</span> <span class="neclass">DATE_TIME</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/auth_token.html#f_token">token</a> <span class="esymbol">:=</span> <span class="elocal">t</span>
+			<a class="efeature" href="../adsb_service/auth_token.html#f_expiry">expiry</a> <span class="esymbol">:=</span> <span class="elocal">e</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_token"></a><a class="efeature" href="../adsb_service/auth_token.html#f_token">token</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_expiry"></a><a class="efeature" href="../adsb_service/auth_token.html#f_expiry">expiry</a><span class="esymbol">:</span> <span class="neclass">DATE_TIME</span>
+
+	<a name="f_is_expired"></a><a class="efeature" href="../adsb_service/auth_token.html#f_is_expired">is_expired</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">now</span><span class="esymbol">:</span> <span class="neclass">DATE_TIME</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">now</span><span class="edot">.</span><span class="nefeature">make_now</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">now</span> <span class="esymbol">&gt;</span> <a class="efeature" href="../adsb_service/auth_token.html#f_expiry">expiry</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Commands</span>
+
+	<a name="f_set_token"></a><a class="efeature" href="../adsb_service/auth_token.html#f_set_token">set_token</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">t_attached</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="elocal">t</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/auth_token.html#f_token">token</a> <span class="esymbol">:=</span> <span class="elocal">t</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">token_set</span><span class="esymbol">:</span> <a class="efeature" href="../adsb_service/auth_token.html#f_token">token</a><span class="edot">.</span><span class="nefeature">is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_expiry"></a><a class="efeature" href="../adsb_service/auth_token.html#f_set_expiry">set_expiry</a> <span class="esymbol">(</span><span class="elocal">e</span><span class="esymbol">:</span> <span class="neclass">DATE_TIME</span><span class="esymbol">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">e_attached</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="elocal">e</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/auth_token.html#f_expiry">expiry</a> <span class="esymbol">:=</span> <span class="elocal">e</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">expiry_set</span><span class="esymbol">:</span> <a class="efeature" href="../adsb_service/auth_token.html#f_expiry">expiry</a> <span class="esymbol">=</span> <span class="elocal">e</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/auth_token.html">AUTH_TOKEN</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="auth_token_chart.html">Chart</a>
+<a class="nav class" href="auth_token_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="auth_token_flat.html">Flat</a>
+<a class="nav class" href="auth_token_short.html">Contracts</a>
+<a class="nav class" href="auth_token_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="auth_token"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

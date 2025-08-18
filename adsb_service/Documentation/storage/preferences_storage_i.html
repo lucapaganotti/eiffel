@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Interface to preference storage implementation which provides access to the underlying data store. If you wish to store preference values in a data store implement this class."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="status" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2015, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>preferences_storage_i Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="preferences_storage_i_chart.html">Chart</a>
+<a class="nav class" href="preferences_storage_i_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="preferences_storage_i_flat.html">Flat</a>
+<a class="nav class" href="preferences_storage_i_short.html">Contracts</a>
+<a class="nav class" href="preferences_storage_i_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="preferences_storage_i"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Interface to preference storage implementation which provides access to the underlying data store.</span>
+		<span class="estring">If you wish to store preference values in a data store implement this class.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> 
+	<a class="eclass" href="../storage/preferences_storage_i.html">PREFERENCES_STORAGE_I</a>
+
+<span class="ekeyword">inherit</span>
+	<span class="neclass">PREFERENCE_EXPORTER</span>
+
+	<a class="eclass" href="../preferences/preferences_versions.html">PREFERENCES_VERSIONS</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make_empty"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_make_empty">make_empty</a>
+			<span class="ecomment">--</span><span class="ecomment"> Create preferences storage.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Location to store preferences will be generated based on name of application.</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">default_version</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a><span class="edot">.</span><span class="nefeature">same_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../preferences/preferences_versions.html#f_default_version">default_version</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_versioned"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_make_versioned">make_versioned</a> <span class="esymbol">(</span><span class="elocal">a_version</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="ekeyword">like</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create preferences storage with </span><span class="equoted">a_version</span><span class="ecomment"> as </span><span class="ecomment">`</span><a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a><span class="ecomment">`</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Location to store preferences will be generated based on name of application.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Redefine </span><span class="ecomment">`</span><a class="efeature" href="../storage/preferences_storage_i.html#f_make_empty">make_empty</a><span class="ecomment">`</span><span class="ecomment"> to change behavior.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_version_not_void</span><span class="esymbol">:</span> <span class="elocal">a_version</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_version_valid</span><span class="esymbol">:</span> <a class="efeature" href="../preferences/preferences_versions.html#f_valid_version">valid_version</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_version</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../storage/preferences_storage_i.html#f_make_empty">make_empty</a>
+			<a class="efeature" href="../storage/preferences_storage_i.html#f_internal_version">internal_version</a> <span class="esymbol">:=</span> <span class="elocal">a_version</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">version_set</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a> <span class="esymbol">=</span> <span class="elocal">a_version</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_with_location"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_make_with_location">make_with_location</a> <span class="esymbol">(</span><span class="elocal">a_location</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create preference storage in the at location </span><span class="equoted">a_location</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Try to read preference at </span><span class="equoted">a_location</span><span class="ecomment"> if it exists, if not create new one.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Preferences will be stored in </span><span class="equoted">a_location</span><span class="ecomment"> between sessions, which is the</span>
+			<span class="ecomment">--</span><span class="ecomment"> path to either:</span>
+			<span class="ecomment">--</span><span class="ecomment">		* the root registry key where preferences are stored,</span>
+			<span class="ecomment">--</span><span class="ecomment">		* or the file where preferences are stored,</span>
+			<span class="ecomment">--</span><span class="ecomment"> depending on which storage is chosen (registry or xml ... ).</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">location_not_void</span><span class="esymbol">:</span> <span class="elocal">a_location</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">location_not_empty</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <span class="elocal">a_location</span><span class="edot">.</span><span class="nefeature">is_empty</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_session_values">session_values</a><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">5</span><span class="esymbol">)</span>
+			<a class="efeature" href="../storage/preferences_storage_i.html#f_location">location</a> <span class="esymbol">:=</span> <span class="elocal">a_location</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">location_set</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_location">location</a> <span class="esymbol">=</span> <span class="elocal">a_location</span>
+			<span class="etag">default_version</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a><span class="edot">.</span><span class="nefeature">same_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../preferences/preferences_versions.html#f_default_version">default_version</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_with_location_and_version"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_make_with_location_and_version">make_with_location_and_version</a> <span class="esymbol">(</span><span class="elocal">a_location</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">;</span> <span class="elocal">a_version</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="ekeyword">like</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create preference storage in the at location </span><span class="equoted">a_location</span><span class="ecomment"> with </span><span class="equoted">a_version</span><span class="ecomment"> as </span><span class="ecomment">`</span><a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a><span class="ecomment">`</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Try to read preference at </span><span class="equoted">a_location</span><span class="ecomment"> if it exists, if not create new one.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Preferences will be stored in </span><span class="equoted">a_location</span><span class="ecomment"> between sessions, which is the</span>
+			<span class="ecomment">--</span><span class="ecomment"> path to either:</span>
+			<span class="ecomment">--</span><span class="ecomment">		* the root registry key where preferences are stored,</span>
+			<span class="ecomment">--</span><span class="ecomment">		* or the file where preferences are stored,</span>
+			<span class="ecomment">--</span><span class="ecomment"> depending on which storage is chosen (registry or xml ... ).</span>
+			<span class="ecomment">--</span><span class="ecomment"> Redefine </span><span class="ecomment">`</span><a class="efeature" href="../storage/preferences_storage_i.html#f_make_with_location">make_with_location</a><span class="ecomment">`</span><span class="ecomment"> to change behavior.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">location_not_void</span><span class="esymbol">:</span> <span class="elocal">a_location</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">location_not_empty</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <span class="elocal">a_location</span><span class="edot">.</span><span class="nefeature">is_empty</span>
+			<span class="etag">a_version_not_void</span><span class="esymbol">:</span> <span class="elocal">a_version</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_version_valid</span><span class="esymbol">:</span> <a class="efeature" href="../preferences/preferences_versions.html#f_valid_version">valid_version</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_version</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../storage/preferences_storage_i.html#f_make_with_location">make_with_location</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_location</span><span class="esymbol">)</span>
+			<a class="efeature" href="../storage/preferences_storage_i.html#f_internal_version">internal_version</a> <span class="esymbol">:=</span> <span class="elocal">a_version</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">location_set</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_location">location</a> <span class="esymbol">=</span> <span class="elocal">a_location</span>
+			<span class="etag">version_set</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a> <span class="esymbol">=</span> <span class="elocal">a_version</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../preferences/preferences.html">PREFERENCES</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_initialize_with_preferences"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_initialize_with_preferences">initialize_with_preferences</a> <span class="esymbol">(</span><span class="elocal">a_preferences</span><span class="esymbol">:</span> <a class="eclass" href="../preferences/preferences.html">PREFERENCES</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize current with </span><span class="equoted">a_preferences</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_initialized</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_initialized">initialized</a>
+			<span class="etag">preferences_is_void</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_preferences">preferences</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_preferences_not_void</span><span class="esymbol">:</span> <span class="elocal">a_preferences</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../storage/preferences_storage_i.html#f_initialized">initialized</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="efeature" href="../storage/preferences_storage_i.html#f_preferences">preferences</a> <span class="esymbol">:=</span> <span class="elocal">a_preferences</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">preferences_assigned_and_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_preferences">preferences</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and then</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_preferences">preferences</a> <span class="esymbol">=</span> <span class="elocal">a_preferences</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_initialized"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_initialized">initialized</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> is Current initialized with preferences ?</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../preferences/preferences.html">PREFERENCES</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Query</span>
+
+	<a name="f_has_preference"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_has_preference">has_preference</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Does the underlying store contain a preference with </span><span class="equoted">a_name</span><span class="ecomment">?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_initialized">initialized</a>
+			<span class="etag">name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">name_not_empty</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <span class="elocal">a_name</span><span class="edot">.</span><span class="nefeature">is_empty</span>
+			<span class="etag">name_is_valid_string_8</span><span class="esymbol">:</span> <span class="elocal">a_name</span><span class="edot">.</span><span class="nefeature">is_valid_as_string_8</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_get_preference_value"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_get_preference_value">get_preference_value</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="ecomment">--</span><span class="ecomment"> Retrieve the preference string value from the underlying store.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_initialized">initialized</a>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_exists"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_exists">exists</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Does storage exists ?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_initialized">initialized</a>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_version"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a><span class="esymbol">:</span> <span class="neclass">IMMUTABLE_STRING_32</span>
+			<span class="ecomment">--</span><span class="ecomment"> Format version.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_internal_version">internal_version</a> <span class="ekeyword">as</span> l_version <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_version</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../preferences/preferences_versions.html#f_default_version">default_version</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../preferences/preferences.html">PREFERENCES</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_location"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_location">location</a><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span>
+			<span class="ecomment">--</span><span class="ecomment"> The actual location of the underlying preference (filename, registry key, etc).</span>
+
+	<a name="f_session_values"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_session_values">session_values</a><span class="esymbol">:</span> <span class="neclass">STRING_TABLE</span> <span class="esymbol">[</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Hash of user-defined values which have been loaded.</span>
+
+	<a name="f_preferences"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_preferences">preferences</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../preferences/preferences.html">PREFERENCES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Actual preferences</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../preferences/preferences.html">PREFERENCES</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Save</span>
+
+	<a name="f_save_preferences"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_save_preferences">save_preferences</a> <span class="esymbol">(</span><span class="elocal">a_preferences</span><span class="esymbol">:</span> <span class="neclass">ARRAYED_LIST</span> <span class="esymbol">[</span><span class="neclass">PREFERENCE</span><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">a_save_modified_values_only</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Save all preferences in </span><span class="equoted">a_preferences</span><span class="ecomment"> to storage device.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_save_modified_values_only</span><span class="ecomment"> then only preferences whose value is different</span>
+			<span class="ecomment">--</span><span class="ecomment"> from the default one are saved, otherwise all preferences are saved.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_initialized">initialized</a>
+			<span class="etag">argument_preferences_not_void</span><span class="esymbol">:</span> <span class="elocal">a_preferences</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">a_preferences</span><span class="edot">.</span><span class="nefeature">start</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">a_preferences</span><span class="edot">.</span><span class="nefeature">after</span>
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">not</span> <span class="elocal">a_save_modified_values_only</span> <span class="ekeyword">or else</span> <span class="ekeyword">not</span> <span class="elocal">a_preferences</span><span class="edot">.</span><span class="nefeature">item</span><span class="edot">.</span><span class="nefeature">is_default_value</span> <span class="ekeyword">then</span>
+					<a class="efeature" href="../storage/preferences_storage_i.html#f_save_preference">save_preference</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_preferences</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<a class="efeature" href="../storage/preferences_storage_i.html#f_remove_preference">remove_preference</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_preferences</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span><span class="esymbol">;</span>
+				<span class="elocal">a_preferences</span><span class="edot">.</span><span class="nefeature">forth</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_save_preference"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_save_preference">save_preference</a> <span class="esymbol">(</span><span class="elocal">a_preference</span><span class="esymbol">:</span> <span class="neclass">PREFERENCE</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Save </span><span class="equoted">a_preference</span><span class="ecomment"> to underlying data store</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_initialized">initialized</a>
+			<span class="etag">agument_preference_not_void</span><span class="esymbol">:</span> <span class="elocal">a_preference</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">preference_saved</span><span class="esymbol">:</span> <span class="ekeyword">True</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_remove_preference"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_remove_preference">remove_preference</a> <span class="esymbol">(</span><span class="elocal">a_preference</span><span class="esymbol">:</span> <span class="neclass">PREFERENCE</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove </span><span class="equoted">preference</span><span class="ecomment"> from storage device.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_initialized">initialized</a>
+			<span class="etag">argument_preference_not_void</span><span class="esymbol">:</span> <span class="elocal">a_preference</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_internal_version"></a><a class="efeature" href="../storage/preferences_storage_i.html#f_internal_version">internal_version</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a>
+			<span class="ecomment">--</span><span class="ecomment"> Storage for </span><span class="ecomment">`</span><a class="efeature" href="../storage/preferences_storage_i.html#f_version">version</a><span class="ecomment">`</span><span class="ecomment"> if specified.</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">preferences_not_void_when_initialized</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_initialized">initialized</a> <span class="ekeyword">implies</span> <a class="efeature" href="../storage/preferences_storage_i.html#f_preferences">preferences</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2015, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../storage/preferences_storage_i.html">PREFERENCES_STORAGE_I</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="preferences_storage_i_chart.html">Chart</a>
+<a class="nav class" href="preferences_storage_i_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="preferences_storage_i_flat.html">Flat</a>
+<a class="nav class" href="preferences_storage_i_short.html">Contracts</a>
+<a class="nav class" href="preferences_storage_i_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="preferences_storage_i"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

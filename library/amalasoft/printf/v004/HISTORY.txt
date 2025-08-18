@@ -1,0 +1,25 @@
+History
+
+004 03-Dec-2008
+    Fixed missing support for 64 bit integer params.
+
+003 21-Apr-2008
+    Changed type of args to FINITE to allow arg list to be original ARRAY,
+    as well as other common structures, like LINKED_LISTs.
+    Reformatted for consistency with other common Eiffel libraries.
+    Changed license terms to Eiffel Forum License v2
+
+002 05-February-2007
+    Removed preconditions in front-end routines (printf, fprintf, etc)
+    that raised exceptions on Void argument lists.  Now a Void arg list
+    is replaced by an empty, non-Void one before calling the lower level
+    routines.
+    Updated the readme.txt file
+
+20-Jan-2007
+    Reworked floating point representation; now the fp value is broken
+    into parts first, then the parts are formatted.
+    Floats now can be zero-padded (only ints could be before)
+
+07-Jan-2007
+    First publicly available version

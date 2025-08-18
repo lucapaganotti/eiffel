@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {SBS_MSG}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>sbs_msg Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="sbs_msg_links.html">Relations</a>
+<a class="nav class" href="sbs_msg.html">Text</a>
+<a class="nav class" href="sbs_msg_flat.html">Flat</a>
+<a class="nav class" href="sbs_msg_short.html">Contracts</a>
+<a class="nav class" href="sbs_msg_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="sbs_msg"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../adsb_service/sbs_msg_chart.html">SBS_MSG</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../adsb_service/index.html">adsb_service</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/sbs_msg_chart.html">SBS_MSG</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_make">make</a><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_make_from_string">make_from_string</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../adsb_service/sbs_msg_constants_chart.html">SBS_MSG_CONSTANTS</a>
+
+<span class="ekeyword">Queries</span>
+	<span title="`acft_id' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_acft_id">acft_id</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`addr' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_addr">addr</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`alert' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_alert">alert</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`altitude' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_altitude">altitude</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`callsign' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_callsign">callsign</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`emergency' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_emergency">emergency</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`flight_id' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_flight_id">flight_id</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`format_double' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_format_double">format_double</a><span class="esymbol">:</span> <span class="neclass">FORMAT_DOUBLE</span></span>
+	<span title="`ground_speed' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_ground_speed">ground_speed</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span></span>
+	<span title="`is_airborne_position' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_is_airborne_position">is_airborne_position</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_identification' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_is_identification">is_identification</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_surface_position' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_is_surface_position">is_surface_position</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_valid' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_is_valid">is_valid</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_velocity' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_is_velocity">is_velocity</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`latitude' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_latitude">latitude</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span></span>
+	<span title="`longitude' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_longitude">longitude</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span></span>
+	<span title="`on_ground' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_on_ground">on_ground</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`out' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_out">out</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`session_id' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_session_id">session_id</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`spi' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_spi">spi</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`squawk' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_squawk">squawk</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`timestamp_gen' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_timestamp_gen">timestamp_gen</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">DATE_TIME</span></span>
+	<span title="`timestamp_log' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_timestamp_log">timestamp_log</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">DATE_TIME</span></span>
+	<span title="`track_angle' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_track_angle">track_angle</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span></span>
+	<span title="`tx_type' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`type' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_type">type</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`vertical_rate' is declared in `Current'"><a class="efeature" href="../adsb_service/sbs_msg.html#f_vertical_rate">vertical_rate</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="sbs_msg_links.html">Relations</a>
+<a class="nav class" href="sbs_msg.html">Text</a>
+<a class="nav class" href="sbs_msg_flat.html">Flat</a>
+<a class="nav class" href="sbs_msg_short.html">Contracts</a>
+<a class="nav class" href="sbs_msg_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="sbs_msg"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

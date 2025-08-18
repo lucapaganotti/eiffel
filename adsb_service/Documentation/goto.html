@@ -1,0 +1,69 @@
+<!--
+	classList = new Array (
+		"ADSB_CLIENT",
+		"ADSB_NETWORK_STREAM_SOCKET",
+		"ADSB_RAW_CLIENT",
+		"ADSB_SBS_CLIENT",
+		"ADSB_SERVICE_APPLICATION",
+		"AUTH_TOKEN",
+		"BASE_RAW_TEXT_MSG",
+		"HEX_TO_BIN_MAP",
+		"MEAN",
+		"MEAN_CONSTANTS",
+		"POINT",
+		"POSITION",
+		"PREFERENCES",
+		"PREFERENCES_STORAGE_DEFAULT",
+		"PREFERENCES_STORAGE_I",
+		"PREFERENCES_STORAGE_XML",
+		"PREFERENCES_VERSIONS",
+		"PREFERENCE_MANAGER",
+		"RAW_MSG_CONSTANTS",
+		"RAW_TEXT_MSG",
+		"RAW_UTILS",
+		"SBS_MSG",
+		"SBS_MSG_CONSTANTS"
+	);
+
+	locationList = new Array (
+		"adsb_service/adsb_client_chart.html",
+		"adsb_service/adsb_network_stream_socket_chart.html",
+		"adsb_service/adsb_raw_client_chart.html",
+		"adsb_service/adsb_sbs_client_chart.html",
+		"adsb_service/adsb_service_application_chart.html",
+		"adsb_service/auth_token_chart.html",
+		"adsb_service/base_raw_text_msg_chart.html",
+		"adsb_service/hex_to_bin_map_chart.html",
+		"adsb_service/mean_chart.html",
+		"adsb_service/mean_constants_chart.html",
+		"adsb_service/point_chart.html",
+		"adsb_service/position_chart.html",
+		"preferences/preferences_chart.html",
+		"storage/pref_default_storage_xml/preferences_storage_default_chart.html",
+		"storage/preferences_storage_i_chart.html",
+		"storage/preferences_storage_xml_chart.html",
+		"preferences/preferences_versions_chart.html",
+		"preferences/preference_manager_chart.html",
+		"adsb_service/raw_msg_constants_chart.html",
+		"adsb_service/raw_text_msg_chart.html",
+		"adsb_service/raw_utils_chart.html",
+		"adsb_service/sbs_msg_chart.html",
+		"adsb_service/sbs_msg_constants_chart.html"
+	);
+
+	function indexOfClass (name) {
+		for (i = 0; i < classList.length; i++) {
+			if (name == classList[i]) return i;
+		}
+		return -1;
+	};
+
+	function go_to (baseLocation, className) {
+		var index = indexOfClass (className.toUpperCase ());
+		if (index >= 0) {
+			window.location = baseLocation + locationList[index];
+		} else {
+			alert ("Class " + className.toUpperCase () + " does not exist in system");
+		}
+	}
+// -->

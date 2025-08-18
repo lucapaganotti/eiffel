@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {ADSB_SBS_CLIENT}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>adsb_sbs_client Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="adsb_sbs_client_links.html">Relations</a>
+<a class="nav class" href="adsb_sbs_client.html">Text</a>
+<a class="nav class" href="adsb_sbs_client_flat.html">Flat</a>
+<a class="nav class" href="adsb_sbs_client_short.html">Contracts</a>
+<a class="nav class" href="adsb_sbs_client_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="adsb_sbs_client"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../adsb_service/adsb_sbs_client_chart.html">ADSB_SBS_CLIENT</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../adsb_service/index.html">adsb_service</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/adsb_sbs_client_chart.html">ADSB_SBS_CLIENT</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../adsb_service/adsb_sbs_client.html#f_make_client">make_client</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../adsb_service/adsb_client_chart.html">ADSB_CLIENT</a><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`auth_token' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_auth_token">auth_token</a><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/auth_token_chart.html">AUTH_TOKEN</a></span>
+	<span title="`distance_threshold' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_distance_threshold">distance_threshold</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`format_double' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_format_double">format_double</a><span class="esymbol">:</span> <span class="neclass">FORMAT_DOUBLE</span></span>
+	<span title="`host' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_host">host</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`is_endpoint_reachable' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_is_endpoint_reachable">is_endpoint_reachable</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`last_check' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_last_check">last_check</a><span class="esymbol">:</span> <span class="neclass">DATE_TIME</span></span>
+	<span title="`logger' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_logger">logger</a><span class="esymbol">:</span> <span class="neclass">LOG_LOGGING_FACILITY</span></span>
+	<span title="`means' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_means">means</a><span class="esymbol">:</span> <span class="neclass">HASH_TABLE</span> <span class="esymbol">[</span><a class="eclass" href="../adsb_service/mean_chart.html">MEAN</a><span class="esymbol">,</span> <span class="neclass">STRING_8</span><span class="esymbol">]</span></span>
+	<span title="`mrt' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_mrt">mrt</a><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_chart.html">POINT</a></span>
+	<span title="`msg' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_sbs_client.html#f_msg">msg</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../adsb_service/sbs_msg_chart.html">SBS_MSG</a></span>
+	<span title="`now' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_now">now</a><span class="esymbol">:</span> <span class="neclass">DATE_TIME</span></span>
+	<span title="`pj4geo' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_pj4geo">pj4geo</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`pj4proj' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_pj4proj">pj4proj</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`ref_arpt' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_ref_arpt">ref_arpt</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`routes_url' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_routes_url">routes_url</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`running' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_running">running</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`sbs_port' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_sbs_client.html#f_sbs_port">sbs_port</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`socket' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_socket">socket</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../adsb_service/adsb_network_stream_socket_chart.html">ADSB_NETWORK_STREAM_SOCKET</a></span>
+	<span title="`to' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_to">to</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`tracks_path' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_tracks_path">tracks_path</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`clean_map' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_clean_map">clean_map</a></span>
+	<span title="`process' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_sbs_client.html#f_process">process</a></span>
+	<span title="`set_auth_token' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_auth_token">set_auth_token</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/auth_token_chart.html">AUTH_TOKEN</a><span class="esymbol">)</span></span>
+	<span title="`set_distance_threshold' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_distance_threshold">set_distance_threshold</a> <span class="esymbol">(</span><span class="elocal">d</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_host' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_host">set_host</a> <span class="esymbol">(</span><span class="elocal">h</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`set_means' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_means">set_means</a> <span class="esymbol">(</span><span class="elocal">m</span><span class="esymbol">:</span> <span class="neclass">HASH_TABLE</span> <span class="esymbol">[</span><a class="eclass" href="../adsb_service/mean_chart.html">MEAN</a><span class="esymbol">,</span> <span class="neclass">STRING_8</span><span class="esymbol">]</span><span class="esymbol">)</span></span>
+	<span title="`set_mrt' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_mrt">set_mrt</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point_chart.html">POINT</a><span class="esymbol">)</span></span>
+	<span title="`set_pj4geo' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_pj4geo">set_pj4geo</a> <span class="esymbol">(</span><span class="elocal">pj</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`set_pj4proj' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_pj4proj">set_pj4proj</a> <span class="esymbol">(</span><span class="elocal">pj</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`set_port' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_sbs_client.html#f_set_port">set_port</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_reference_airport' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_reference_airport">set_reference_airport</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`set_routes_url' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_routes_url">set_routes_url</a> <span class="esymbol">(</span><span class="elocal">u</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`set_timeout' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_timeout">set_timeout</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_tracks_path' was declared in ADSB_CLIENT"><a class="efeature" href="../adsb_service/adsb_client.html#f_set_tracks_path">set_tracks_path</a> <span class="esymbol">(</span><span class="elocal">tp</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`start' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_sbs_client.html#f_start">start</a></span>
+	<span title="`stop' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_sbs_client.html#f_stop">stop</a></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="adsb_sbs_client_links.html">Relations</a>
+<a class="nav class" href="adsb_sbs_client.html">Text</a>
+<a class="nav class" href="adsb_sbs_client_flat.html">Flat</a>
+<a class="nav class" href="adsb_sbs_client_short.html">Contracts</a>
+<a class="nav class" href="adsb_sbs_client_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="adsb_sbs_client"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

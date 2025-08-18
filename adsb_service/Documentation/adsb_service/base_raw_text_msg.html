@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {BASE_RAW_TEXT_MSG}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>base_raw_text_msg Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="base_raw_text_msg_chart.html">Chart</a>
+<a class="nav class" href="base_raw_text_msg_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="base_raw_text_msg_flat.html">Flat</a>
+<a class="nav class" href="base_raw_text_msg_short.html">Contracts</a>
+<a class="nav class" href="base_raw_text_msg_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="base_raw_text_msg"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/base_raw_text_msg.html">BASE_RAW_TEXT_MSG</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../adsb_service/base_raw_text_msg.html">BASE_RAW_TEXT_MSG</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../adsb_service/raw_msg_constants.html">RAW_MSG_CONSTANTS</a>
+
+	<a class="eclass" href="../adsb_service/raw_utils.html">RAW_UTILS</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_make_from_string">make_from_string</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make_from_string"></a><a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_make_from_string">make_from_string</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">t_attached</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="elocal">t</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_hmap">hmap</a><span class="edot">.</span><a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_make_map">make_map</a>
+			<span class="ekeyword">if</span> <span class="elocal">t</span><span class="edot">.</span><span class="nefeature">has</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/raw_msg_constants.html#f_asterisk">Asterisk</a><span class="esymbol">)</span> <span class="ekeyword">then</span>
+				<span class="elocal">t</span><span class="edot">.</span><span class="nefeature">prune_all_leading</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/raw_msg_constants.html#f_asterisk">Asterisk</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <span class="elocal">t</span><span class="edot">.</span><span class="nefeature">has</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/raw_msg_constants.html#f_semicolon">Semicolon</a><span class="esymbol">)</span> <span class="ekeyword">then</span>
+				<span class="elocal">t</span><span class="edot">.</span><span class="nefeature">prune_all_trailing</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/raw_msg_constants.html#f_semicolon">Semicolon</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_text">text</a> <span class="esymbol">:=</span> <span class="elocal">t</span>
+			<span class="ekeyword">check</span>
+				<a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_text">text</a><span class="edot">.</span><span class="nefeature">count</span> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/raw_msg_constants.html#f_short_hex_msg_length">Short_hex_msg_length</a> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_text">text</a><span class="edot">.</span><span class="nefeature">count</span> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/raw_msg_constants.html#f_long_hex_msg_length">Long_hex_msg_length</a>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_bin_text">bin_text</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_to_bin">to_bin</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">text_set</span><span class="esymbol">:</span> <a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_text">text</a> <span class="esymbol">=</span> <span class="elocal">t</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_text"></a><a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_text">text</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span> <span class="ekeyword">assign</span> <a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_set_text">set_text</a>
+
+	<a name="f_bin_text"></a><a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_bin_text">bin_text</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_hmap"></a><a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_hmap">hmap</a><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/hex_to_bin_map.html">HEX_TO_BIN_MAP</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Commands</span>
+
+	<a name="f_set_text"></a><a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_set_text">set_text</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">t_attached</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="elocal">t</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_text">text</a> <span class="esymbol">:=</span> <span class="elocal">t</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">text_set</span><span class="esymbol">:</span> <a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_text">text</a> <span class="esymbol">=</span> <span class="elocal">t</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Operations</span>
+
+	<a name="f_to_bin"></a><a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_to_bin">to_bin</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_text">text</a><span class="edot">.</span><span class="nefeature">count</span>
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_hmap">hmap</a><span class="edot">.</span><a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_text">text</a><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_i <span class="ekeyword">then</span>
+					<a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_bin_text">bin_text</a><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_i</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">check</span>
+				<a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_bin_text">bin_text</a><span class="edot">.</span><span class="nefeature">count</span> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/raw_msg_constants.html#f_short_bin_msg_length">Short_bin_msg_length</a> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/base_raw_text_msg.html#f_bin_text">bin_text</a><span class="edot">.</span><span class="nefeature">count</span> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/raw_msg_constants.html#f_long_bin_msg_length">Long_bin_msg_length</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/base_raw_text_msg.html">BASE_RAW_TEXT_MSG</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="base_raw_text_msg_chart.html">Chart</a>
+<a class="nav class" href="base_raw_text_msg_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="base_raw_text_msg_flat.html">Flat</a>
+<a class="nav class" href="base_raw_text_msg_short.html">Contracts</a>
+<a class="nav class" href="base_raw_text_msg_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="base_raw_text_msg"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

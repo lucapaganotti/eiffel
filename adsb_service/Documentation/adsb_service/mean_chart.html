@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {MEAN}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>mean Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="mean_links.html">Relations</a>
+<a class="nav class" href="mean.html">Text</a>
+<a class="nav class" href="mean_flat.html">Flat</a>
+<a class="nav class" href="mean_short.html">Contracts</a>
+<a class="nav class" href="mean_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="mean"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../adsb_service/mean_chart.html">MEAN</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../adsb_service/index.html">adsb_service</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/mean_chart.html">MEAN</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../adsb_service/mean.html#f_make">make</a>
+
+<span class="ekeyword">Ancestors</span>
+	<span class="neclass">CURL_CODES</span>
+	<span class="neclass">CURL_EASY_EXTERNALS</span>
+	<span class="neclass">CURL_EXTERNALS</span>
+	<span class="neclass">CURL_OPT_CONSTANTS</span>
+	<span class="neclass">LOG_PRIORITY_CONSTANTS</span>
+	<a class="eclass" href="../adsb_service/mean_constants_chart.html">MEAN_CONSTANTS</a>
+
+<span class="ekeyword">Queries</span>
+	<span title="`addr' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_addr">addr</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`auth_token' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_auth_token">auth_token</a><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/auth_token_chart.html">AUTH_TOKEN</a></span>
+	<span title="`callsign' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_callsign">callsign</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`curl_easy_cleanup_ptr' was declared in CURL_EASY_EXTERNALS"><span class="nefeature">curl_easy_cleanup_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_easy_getinfo_ptr' was declared in CURL_EASY_EXTERNALS"><span class="nefeature">curl_easy_getinfo_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_easy_init_ptr' was declared in CURL_EASY_EXTERNALS"><span class="nefeature">curl_easy_init_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_easy_perform_ptr' was declared in CURL_EASY_EXTERNALS"><span class="nefeature">curl_easy_perform_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_easy_setopt_ptr' was declared in CURL_EASY_EXTERNALS"><span class="nefeature">curl_easy_setopt_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_easy_strerror_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_easy_strerror_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_formadd_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_formadd_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_formfree_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_formfree_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_function' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">curl_function</span><span class="esymbol">:</span> <span class="neclass">CURL_FUNCTION</span></span>
+	<span title="`curl_global_cleanup_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_global_cleanup_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_global_init_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_global_init_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_http_version_1_0' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_http_version_1_0</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_http_version_1_1' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_http_version_1_1</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_http_version_none' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_http_version_none</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_ipresolve_v4' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_ipresolve_v4</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_ipresolve_v6' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_ipresolve_v6</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_ipresolve_whatever' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_ipresolve_whatever</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_mime_addpart' was declared in CURL_EXTERNALS_I"><span class="nefeature">curl_mime_addpart</span> <span class="esymbol">(</span><span class="elocal">a_curl_mime</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_mime_addpart_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_mime_addpart_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_mime_data' was declared in CURL_EXTERNALS_I"><span class="nefeature">curl_mime_data</span> <span class="esymbol">(</span><span class="elocal">a_curl_mime</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_inline_html</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span><span class="esymbol">;</span> <span class="elocal">a_size</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_mime_data_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_mime_data_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_mime_filedata' was declared in CURL_EXTERNALS_I"><span class="nefeature">curl_mime_filedata</span> <span class="esymbol">(</span><span class="elocal">a_mime_part</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_filename</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_mime_filedata_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_mime_filedata_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_mime_free_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_mime_free_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_mime_headers' was declared in CURL_EXTERNALS_I"><span class="nefeature">curl_mime_headers</span> <span class="esymbol">(</span><span class="elocal">a_mime_part</span><span class="esymbol">,</span> <span class="elocal">a_headers</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_take_ownership</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_mime_headers_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_mime_headers_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_mime_init' was declared in CURL_EXTERNALS_I"><span class="nefeature">curl_mime_init</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_mime_init_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_mime_init_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_mime_subparts' was declared in CURL_EXTERNALS_I"><span class="nefeature">curl_mime_subparts</span> <span class="esymbol">(</span><span class="elocal">a_curl_mime_part</span><span class="esymbol">,</span> <span class="elocal">a_subpart</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_mime_subparts_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_mime_subparts_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_mime_type' was declared in CURL_EXTERNALS_I"><span class="nefeature">curl_mime_type</span> <span class="esymbol">(</span><span class="elocal">a_curl_mime</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_type</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_mime_type_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_mime_type_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_slist_append_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_slist_append_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_slist_free_all_ptr' was declared in CURL_EXTERNALS"><span class="nefeature">curl_slist_free_all_ptr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`curl_sslversion_default' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_sslversion_default</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_sslversion_sslv2' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_sslversion_sslv2</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_sslversion_sslv3' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_sslversion_sslv3</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_sslversion_tlsv1' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_sslversion_tlsv1</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_sslversion_tlsv1_2' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_sslversion_tlsv1_2</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_sslversion_tlsv1_3' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_sslversion_tlsv1_3</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curl_zero_terminated' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curl_zero_terminated</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlauth_any' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlauth_any</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlauth_anysafe' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlauth_anysafe</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlauth_basic' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlauth_basic</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlauth_digest' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlauth_digest</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlauth_none' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlauth_none</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_aborted_by_callback' was declared in CURL_CODES"><span class="nefeature">Curle_aborted_by_callback</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_bad_content_encoding' was declared in CURL_CODES"><span class="nefeature">Curle_bad_content_encoding</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_bad_download_resume' was declared in CURL_CODES"><span class="nefeature">Curle_bad_download_resume</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_bad_function_argument' was declared in CURL_CODES"><span class="nefeature">Curle_bad_function_argument</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_conv_failed' was declared in CURL_CODES"><span class="nefeature">Curle_conv_failed</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_conv_reqd' was declared in CURL_CODES"><span class="nefeature">Curle_conv_reqd</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_couldnt_connect' was declared in CURL_CODES"><span class="nefeature">Curle_couldnt_connect</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_couldnt_resolve_host' was declared in CURL_CODES"><span class="nefeature">Curle_couldnt_resolve_host</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_couldnt_resolve_proxy' was declared in CURL_CODES"><span class="nefeature">Curle_couldnt_resolve_proxy</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_failed_init' was declared in CURL_CODES"><span class="nefeature">Curle_failed_init</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_file_couldnt_read_file' was declared in CURL_CODES"><span class="nefeature">Curle_file_couldnt_read_file</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_filesize_exceeded' was declared in CURL_CODES"><span class="nefeature">Curle_filesize_exceeded</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ftp_cant_get_host' was declared in CURL_CODES"><span class="nefeature">Curle_ftp_cant_get_host</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ftp_couldnt_retr_file' was declared in CURL_CODES"><span class="nefeature">Curle_ftp_couldnt_retr_file</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ftp_couldnt_set_type' was declared in CURL_CODES"><span class="nefeature">Curle_ftp_couldnt_set_type</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ftp_couldnt_use_rest' was declared in CURL_CODES"><span class="nefeature">Curle_ftp_couldnt_use_rest</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ftp_port_failed' was declared in CURL_CODES"><span class="nefeature">Curle_ftp_port_failed</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ftp_weird_227_format' was declared in CURL_CODES"><span class="nefeature">Curle_ftp_weird_227_format</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ftp_weird_pass_reply' was declared in CURL_CODES"><span class="nefeature">Curle_ftp_weird_pass_reply</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ftp_weird_pasv_reply' was declared in CURL_CODES"><span class="nefeature">Curle_ftp_weird_pasv_reply</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ftp_weird_server_reply' was declared in CURL_CODES"><span class="nefeature">Curle_ftp_weird_server_reply</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_function_not_found' was declared in CURL_CODES"><span class="nefeature">Curle_function_not_found</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_got_nothing' was declared in CURL_CODES"><span class="nefeature">Curle_got_nothing</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_http_post_error' was declared in CURL_CODES"><span class="nefeature">Curle_http_post_error</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_http_returned_error' was declared in CURL_CODES"><span class="nefeature">Curle_http_returned_error</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_interface_failed' was declared in CURL_CODES"><span class="nefeature">Curle_interface_failed</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ldap_cannot_bind' was declared in CURL_CODES"><span class="nefeature">Curle_ldap_cannot_bind</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ldap_invalid_url' was declared in CURL_CODES"><span class="nefeature">Curle_ldap_invalid_url</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ldap_search_failed' was declared in CURL_CODES"><span class="nefeature">Curle_ldap_search_failed</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_login_denied' was declared in CURL_CODES"><span class="nefeature">Curle_login_denied</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete10' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete10</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete12' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete12</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete16' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete16</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete20' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete20</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete24' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete24</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete29' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete29</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete32' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete32</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete4' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete4</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete40' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete40</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete44' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete44</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete46' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete46</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete50' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete50</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_obsolete57' was declared in CURL_CODES"><span class="nefeature">Curle_obsolete57</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ok' was declared in CURL_CODES"><span class="nefeature">Curle_ok</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_operation_timedout' was declared in CURL_CODES"><span class="nefeature">Curle_operation_timedout</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_out_of_memory' was declared in CURL_CODES"><span class="nefeature">Curle_out_of_memory</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_partial_file' was declared in CURL_CODES"><span class="nefeature">Curle_partial_file</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_quote_error' was declared in CURL_CODES"><span class="nefeature">Curle_quote_error</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_range_error' was declared in CURL_CODES"><span class="nefeature">Curle_range_error</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_read_error' was declared in CURL_CODES"><span class="nefeature">Curle_read_error</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_recv_error' was declared in CURL_CODES"><span class="nefeature">Curle_recv_error</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_remote_access_denied' was declared in CURL_CODES"><span class="nefeature">Curle_remote_access_denied</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_remote_disk_full' was declared in CURL_CODES"><span class="nefeature">Curle_remote_disk_full</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_remote_file_exists' was declared in CURL_CODES"><span class="nefeature">Curle_remote_file_exists</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_remote_file_not_found' was declared in CURL_CODES"><span class="nefeature">Curle_remote_file_not_found</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_send_error' was declared in CURL_CODES"><span class="nefeature">Curle_send_error</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_send_fail_rewind' was declared in CURL_CODES"><span class="nefeature">Curle_send_fail_rewind</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssh' was declared in CURL_CODES"><span class="nefeature">Curle_ssh</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssl_cacert' was declared in CURL_CODES"><span class="nefeature">Curle_ssl_cacert</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssl_cacert_badfile' was declared in CURL_CODES"><span class="nefeature">Curle_ssl_cacert_badfile</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssl_certproblem' was declared in CURL_CODES"><span class="nefeature">Curle_ssl_certproblem</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssl_cipher' was declared in CURL_CODES"><span class="nefeature">Curle_ssl_cipher</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssl_connect_error' was declared in CURL_CODES"><span class="nefeature">Curle_ssl_connect_error</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssl_engine_initfailed' was declared in CURL_CODES"><span class="nefeature">Curle_ssl_engine_initfailed</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssl_engine_notfound' was declared in CURL_CODES"><span class="nefeature">Curle_ssl_engine_notfound</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssl_engine_setfailed' was declared in CURL_CODES"><span class="nefeature">Curle_ssl_engine_setfailed</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssl_peer_certificate' was declared in CURL_CODES"><span class="nefeature">Curle_ssl_peer_certificate</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_ssl_shutdown_failed' was declared in CURL_CODES"><span class="nefeature">Curle_ssl_shutdown_failed</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_telnet_option_syntax' was declared in CURL_CODES"><span class="nefeature">Curle_telnet_option_syntax</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_tftp_illegal' was declared in CURL_CODES"><span class="nefeature">Curle_tftp_illegal</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_tftp_nosuchuser' was declared in CURL_CODES"><span class="nefeature">Curle_tftp_nosuchuser</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_tftp_notfound' was declared in CURL_CODES"><span class="nefeature">Curle_tftp_notfound</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_tftp_perm' was declared in CURL_CODES"><span class="nefeature">Curle_tftp_perm</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_tftp_unknownid' was declared in CURL_CODES"><span class="nefeature">Curle_tftp_unknownid</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_too_many_redirects' was declared in CURL_CODES"><span class="nefeature">Curle_too_many_redirects</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_unknown_telnet_option' was declared in CURL_CODES"><span class="nefeature">Curle_unknown_telnet_option</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_unsupported_protocol' was declared in CURL_CODES"><span class="nefeature">Curle_unsupported_protocol</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_upload_failed' was declared in CURL_CODES"><span class="nefeature">Curle_upload_failed</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_url_malformat' was declared in CURL_CODES"><span class="nefeature">Curle_url_malformat</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_use_ssl_failed' was declared in CURL_CODES"><span class="nefeature">Curle_use_ssl_failed</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curle_write_error' was declared in CURL_CODES"><span class="nefeature">Curle_write_error</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_autoreferer' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_autoreferer</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_buffersize' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_buffersize</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_cainfo' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_cainfo</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_capath' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_capath</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_connect_only' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_connect_only</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_connect_timeout' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_connect_timeout</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_connecttimeout' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_connecttimeout</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_cookie' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_cookie</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_cookiefile' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_cookiefile</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_cookiejar' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_cookiejar</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_cookielist' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_cookielist</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_cookiesession' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_cookiesession</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_crlf' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_crlf</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_customrequest' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_customrequest</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_debugfunction' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_debugfunction</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_egdsocket' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_egdsocket</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_encoding' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_encoding</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_filetime' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_filetime</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_followlocation' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_followlocation</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_forbid_reuse' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_forbid_reuse</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_fresh_connect' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_fresh_connect</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_header' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_header</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_headerdata' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_headerdata</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_http_content_decoding' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_http_content_decoding</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_http_version' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_http_version</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_httpauth' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_httpauth</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_httpget' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_httpget</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_httpheader' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_httpheader</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_httppost' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_httppost</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_httpproxytunnel' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_httpproxytunnel</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_ignore_content_length' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_ignore_content_length</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_infilesize' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_infilesize</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_infilesize_large' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_infilesize_large</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_interface' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_interface</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_ipresolve' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_ipresolve</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_keypasswd' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_keypasswd</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_krblevel' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_krblevel</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_localport' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_localport</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_localportrange' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_localportrange</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_low_speed_limit' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_low_speed_limit</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_low_speed_time' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_low_speed_time</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_mail_from' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_mail_from</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_mail_rcpt' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_mail_rcpt</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_max_recv_speed_large' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_max_recv_speed_large</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_max_send_speed_large' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_max_send_speed_large</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_maxconnects' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_maxconnects</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_maxfilesize' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_maxfilesize</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_maxfilesize_large' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_maxfilesize_large</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_maxredirs' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_maxredirs</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_mimepost' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_mimepost</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_nobody' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_nobody</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_noprogress' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_noprogress</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_nosignal' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_nosignal</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_port' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_port</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_post' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_post</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_postfields' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_postfields</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_postfieldsize' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_postfieldsize</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_postfieldsize_large' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_postfieldsize_large</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_progressdata' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_progressdata</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_progressfunction' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_progressfunction</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_proxy' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_proxy</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_proxyauth' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_proxyauth</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_proxyport' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_proxyport</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_proxytype' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_proxytype</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_proxyuserpwd' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_proxyuserpwd</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_put' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_put</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_random_file' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_random_file</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_readdata' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_readdata</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_readfunction' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_readfunction</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_referer' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_referer</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_resume_from' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_resume_from</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_resume_from_large' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_resume_from_large</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_ssh_auth_types' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_ssh_auth_types</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_ssh_private_keyfile' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_ssh_private_keyfile</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_ssh_public_keyfile' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_ssh_public_keyfile</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_ssl_cipher_list' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_ssl_cipher_list</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_ssl_sessionid_cache' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_ssl_sessionid_cache</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_ssl_verifyhost' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_ssl_verifyhost</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_ssl_verifypeer' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_ssl_verifypeer</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_sslcert' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_sslcert</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_sslcerttype' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_sslcerttype</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_sslengine' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_sslengine</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_sslengine_default' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_sslengine_default</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_sslkey' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_sslkey</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_sslkeytype' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_sslkeytype</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_sslversion' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_sslversion</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_tcp_keepalive' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_tcp_keepalive</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_tcp_nodelay' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_tcp_nodelay</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_timecondition' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_timecondition</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_timeout' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_timeout</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_timeout_ms' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_timeout_ms</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_timevalue' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_timevalue</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_transfertext' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_transfertext</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_unrestricted_auth' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_unrestricted_auth</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_upload' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_upload</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_url' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_url</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_use_ssl' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_use_ssl</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_useragent' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_useragent</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_userpwd' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_userpwd</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_verbose' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_verbose</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_writedata' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_writedata</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_writefunction' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_writefunction</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlopt_writeheader' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlopt_writeheader</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlusessl_all' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlusessl_all</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlusessl_control' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlusessl_control</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlusessl_none' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlusessl_none</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`curlusessl_try' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">curlusessl_try</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`dest' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_dest">dest</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`eiffelcurle_error_occurred' was declared in CURL_CODES"><span class="nefeature">Eiffelcurle_error_occurred</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`error_message' was declared in CURL_EXTERNALS_I"><span class="nefeature">error_message</span> <span class="esymbol">(</span><span class="elocal">a_code</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_32</span></span>
+	<span title="`getinfo' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">getinfo</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_info</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">a_data</span><span class="esymbol">:</span> <span class="neclass">CELL</span> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`ground_speed' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_ground_speed">ground_speed</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span></span>
+	<span title="`init' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">init</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`is_api_available' was declared in CURL_DYNAMIC_EXTERNALS_I"><span class="nefeature">is_api_available</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_directed' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_is_directed">is_directed</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_routed' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_is_routed">is_routed</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_valid' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">is_valid</span> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`last_logged' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_last_logged">last_logged</a><span class="esymbol">:</span> <span class="neclass">DATE_TIME</span></span>
+	<span title="`libcurl_version' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">libcurl_version</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`libcurl_version_major' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">libcurl_version_major</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`libcurl_version_minor' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">libcurl_version_minor</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`libcurl_version_patch' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">libcurl_version_patch</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`libcurl_version_pointer' was declared in CURL_OPT_CONSTANTS"><span class="nefeature">libcurl_version_pointer</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`logger' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_logger">logger</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">LOG_LOGGING_FACILITY</span></span>
+	<span title="`make_file_name' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_make_file_name">make_file_name</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`out' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_out">out</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`perform' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">perform</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`pos' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_pos">pos</a><span class="esymbol">:</span> <span class="neclass">ARRAYED_LIST</span> <span class="esymbol">[</span><a class="eclass" href="../adsb_service/position_chart.html">POSITION</a><span class="esymbol">]</span></span>
+	<span title="`ref_arpt' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_ref_arpt">ref_arpt</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`routes_url' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_routes_url">routes_url</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`slist_append' was declared in CURL_EXTERNALS_I"><span class="nefeature">slist_append</span> <span class="esymbol">(</span><span class="elocal">a_list</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_string</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">POINTER</span></span>
+	<span title="`source' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_source">source</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`track_angle' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_track_angle">track_angle</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span></span>
+	<span title="`tracks_path' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_tracks_path">tracks_path</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`type' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_type">type</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`vertical_rate' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_vertical_rate">vertical_rate</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`write' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_write">write</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`cleanup' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">cleanup</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span></span>
+	<span title="`curl_mime_free' was declared in CURL_EXTERNALS_I"><span class="nefeature">curl_mime_free</span> <span class="esymbol">(</span><span class="elocal">a_mime</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span></span>
+	<span title="`formadd_string_string' was declared in CURL_EXTERNALS_I"><span class="nefeature">formadd_string_string</span> <span class="esymbol">(</span><span class="elocal">a_form</span><span class="esymbol">,</span> <span class="elocal">a_last_pointer</span><span class="esymbol">:</span> <span class="neclass">CURL_FORM</span><span class="esymbol">;</span> <span class="elocal">a_arg_1</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">a_arg_1_value</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">;</span> <span class="elocal">a_arg_2</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">a_arg_2_value</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">;</span> <span class="elocal">a_arg_3</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`global_cleanup' was declared in CURL_EXTERNALS_I"><span class="nefeature">global_cleanup</span></span>
+	<span title="`global_init' was declared in CURL_EXTERNALS_I"><span class="nefeature">global_init</span></span>
+	<span title="`scan' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_scan">scan</a></span>
+	<span title="`set_auth_token' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_set_auth_token">set_auth_token</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/auth_token_chart.html">AUTH_TOKEN</a><span class="esymbol">)</span></span>
+	<span title="`set_callsign' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_set_callsign">set_callsign</a> <span class="esymbol">(</span><span class="elocal">cs</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`set_curl_function' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">set_curl_function</span> <span class="esymbol">(</span><span class="elocal">a_curl_function</span><span class="esymbol">:</span> <span class="neclass">CURL_FUNCTION</span><span class="esymbol">)</span></span>
+	<span title="`set_debug_function' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">set_debug_function</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span></span>
+	<span title="`set_ground_speed' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_set_ground_speed">set_ground_speed</a> <span class="esymbol">(</span><span class="elocal">gs</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span></span>
+	<span title="`set_last_logged' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_set_last_logged">set_last_logged</a> <span class="esymbol">(</span><span class="elocal">ll</span><span class="esymbol">:</span> <span class="neclass">DATE_TIME</span><span class="esymbol">)</span></span>
+	<span title="`set_logger' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_set_logger">set_logger</a> <span class="esymbol">(</span><span class="elocal">l</span><span class="esymbol">:</span> <span class="neclass">LOG_LOGGING_FACILITY</span><span class="esymbol">)</span></span>
+	<span title="`set_progress_function' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">set_progress_function</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span></span>
+	<span title="`set_read_function' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">set_read_function</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span></span>
+	<span title="`set_reference_airport' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_set_reference_airport">set_reference_airport</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`set_routes_url' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_set_routes_url">set_routes_url</a> <span class="esymbol">(</span><span class="elocal">u</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`set_track_angle' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_set_track_angle">set_track_angle</a> <span class="esymbol">(</span><span class="elocal">ta</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span></span>
+	<span title="`set_tracks_path' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_set_tracks_path">set_tracks_path</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`set_vertical_rate' is declared in `Current'"><a class="efeature" href="../adsb_service/mean.html#f_set_vertical_rate">set_vertical_rate</a> <span class="esymbol">(</span><span class="elocal">vr</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_write_function' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">set_write_function</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span></span>
+	<span title="`setopt_curl_string' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">setopt_curl_string</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_opt</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">a_curl_string</span><span class="esymbol">:</span> <span class="neclass">CURL_STRING</span><span class="esymbol">)</span></span>
+	<span title="`setopt_file' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">setopt_file</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_opt</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">a_file</span><span class="esymbol">:</span> <span class="neclass">FILE</span><span class="esymbol">)</span></span>
+	<span title="`setopt_form' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">setopt_form</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_opt</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">a_form</span><span class="esymbol">:</span> <span class="neclass">CURL_FORM</span><span class="esymbol">)</span></span>
+	<span title="`setopt_integer' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">setopt_integer</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_opt</span><span class="esymbol">,</span> <span class="elocal">a_integer</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`setopt_mime' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">setopt_mime</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_opt</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">a_mime</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span></span>
+	<span title="`setopt_slist' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">setopt_slist</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_opt</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">a_curl_slist</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span></span>
+	<span title="`setopt_string' was declared in CURL_EASY_EXTERNALS_I"><span class="nefeature">setopt_string</span> <span class="esymbol">(</span><span class="elocal">a_curl_handle</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">;</span> <span class="elocal">a_opt</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">a_string</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span></span>
+	<span title="`slist_free_all' was declared in CURL_EXTERNALS_I"><span class="nefeature">slist_free_all</span> <span class="esymbol">(</span><span class="elocal">a_curl_slist</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="mean_links.html">Relations</a>
+<a class="nav class" href="mean.html">Text</a>
+<a class="nav class" href="mean_flat.html">Flat</a>
+<a class="nav class" href="mean_short.html">Contracts</a>
+<a class="nav class" href="mean_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="mean"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

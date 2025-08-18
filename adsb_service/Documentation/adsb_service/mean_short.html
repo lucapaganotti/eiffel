@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {MEAN}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>mean Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="mean_chart.html">Chart</a>
+<a class="nav class" href="mean_links.html">Relations</a>
+<a class="nav class" href="mean.html">Text</a>
+<a class="nav class" href="mean_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="mean_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="mean"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/mean_short.html">MEAN</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../adsb_service/mean_short.html">MEAN</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../adsb_service/mean_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_addr"></a><a class="efeature" href="../adsb_service/mean_short.html#f_addr">addr</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_callsign"></a><a class="efeature" href="../adsb_service/mean_short.html#f_callsign">callsign</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_source"></a><a class="efeature" href="../adsb_service/mean_short.html#f_source">source</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_dest"></a><a class="efeature" href="../adsb_service/mean_short.html#f_dest">dest</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_type"></a><a class="efeature" href="../adsb_service/mean_short.html#f_type">type</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_pos"></a><a class="efeature" href="../adsb_service/mean_short.html#f_pos">pos</a><span class="esymbol">:</span> <span class="neclass">ARRAYED_LIST</span> <span class="esymbol">[</span><a class="eclass" href="../adsb_service/position_short.html">POSITION</a><span class="esymbol">]</span>
+
+	<a name="f_ground_speed"></a><a class="efeature" href="../adsb_service/mean_short.html#f_ground_speed">ground_speed</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_track_angle"></a><a class="efeature" href="../adsb_service/mean_short.html#f_track_angle">track_angle</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_vertical_rate"></a><a class="efeature" href="../adsb_service/mean_short.html#f_vertical_rate">vertical_rate</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_last_logged"></a><a class="efeature" href="../adsb_service/mean_short.html#f_last_logged">last_logged</a><span class="esymbol">:</span> <span class="neclass">DATE_TIME</span>
+
+	<a name="f_ref_arpt"></a><a class="efeature" href="../adsb_service/mean_short.html#f_ref_arpt">ref_arpt</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_auth_token"></a><a class="efeature" href="../adsb_service/mean_short.html#f_auth_token">auth_token</a><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/auth_token_short.html">AUTH_TOKEN</a>
+
+	<a name="f_tracks_path"></a><a class="efeature" href="../adsb_service/mean_short.html#f_tracks_path">tracks_path</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_routes_url"></a><a class="efeature" href="../adsb_service/mean_short.html#f_routes_url">routes_url</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_logger"></a><a class="efeature" href="../adsb_service/mean_short.html#f_logger">logger</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">LOG_LOGGING_FACILITY</span>
+
+	<a name="f_is_routed"></a><a class="efeature" href="../adsb_service/mean_short.html#f_is_routed">is_routed</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+
+	<a name="f_is_directed"></a><a class="efeature" href="../adsb_service/mean_short.html#f_is_directed">is_directed</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Commands</span>
+
+	<a name="f_set_callsign"></a><a class="efeature" href="../adsb_service/mean_short.html#f_set_callsign">set_callsign</a> <span class="esymbol">(</span><span class="elocal">cs</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+
+	<a name="f_set_ground_speed"></a><a class="efeature" href="../adsb_service/mean_short.html#f_set_ground_speed">set_ground_speed</a> <span class="esymbol">(</span><span class="elocal">gs</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span>
+
+	<a name="f_set_track_angle"></a><a class="efeature" href="../adsb_service/mean_short.html#f_set_track_angle">set_track_angle</a> <span class="esymbol">(</span><span class="elocal">ta</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span>
+
+	<a name="f_set_vertical_rate"></a><a class="efeature" href="../adsb_service/mean_short.html#f_set_vertical_rate">set_vertical_rate</a> <span class="esymbol">(</span><span class="elocal">vr</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span>
+
+	<a name="f_set_last_logged"></a><a class="efeature" href="../adsb_service/mean_short.html#f_set_last_logged">set_last_logged</a> <span class="esymbol">(</span><span class="elocal">ll</span><span class="esymbol">:</span> <span class="neclass">DATE_TIME</span><span class="esymbol">)</span>
+
+	<a name="f_set_auth_token"></a><a class="efeature" href="../adsb_service/mean_short.html#f_set_auth_token">set_auth_token</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/auth_token_short.html">AUTH_TOKEN</a><span class="esymbol">)</span>
+
+	<a name="f_set_tracks_path"></a><a class="efeature" href="../adsb_service/mean_short.html#f_set_tracks_path">set_tracks_path</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+
+	<a name="f_set_routes_url"></a><a class="efeature" href="../adsb_service/mean_short.html#f_set_routes_url">set_routes_url</a> <span class="esymbol">(</span><span class="elocal">u</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+
+	<a name="f_set_reference_airport"></a><a class="efeature" href="../adsb_service/mean_short.html#f_set_reference_airport">set_reference_airport</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+
+	<a name="f_set_logger"></a><a class="efeature" href="../adsb_service/mean_short.html#f_set_logger">set_logger</a> <span class="esymbol">(</span><span class="elocal">l</span><span class="esymbol">:</span> <span class="neclass">LOG_LOGGING_FACILITY</span><span class="esymbol">)</span>
+
+	<a name="f_write"></a><a class="efeature" href="../adsb_service/mean_short.html#f_write">write</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> write </span><span class="equoted">Current</span><span class="ecomment"> as a json object</span>
+
+	<a name="f_scan"></a><a class="efeature" href="../adsb_service/mean_short.html#f_scan">scan</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_make_file_name"></a><a class="efeature" href="../adsb_service/mean_short.html#f_make_file_name">make_file_name</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> IO</span>
+
+	<a name="f_out"></a><a class="efeature" href="../adsb_service/mean_short.html#f_out">out</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/mean_short.html">MEAN</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="mean_chart.html">Chart</a>
+<a class="nav class" href="mean_links.html">Relations</a>
+<a class="nav class" href="mean.html">Text</a>
+<a class="nav class" href="mean_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="mean_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="mean"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

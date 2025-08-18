@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Interface to preference storage implementation which provides access to the underlying data store. If you wish to store preference values in a data store implement this class."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="status" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2015, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>preferences_storage_i Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="preferences_storage_i_chart.html">Chart</a>
+<a class="nav class" href="preferences_storage_i_links.html">Relations</a>
+<a class="nav class" href="preferences_storage_i.html">Text</a>
+<a class="nav class" href="preferences_storage_i_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="preferences_storage_i_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="preferences_storage_i"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Interface to preference storage implementation which provides access to the underlying data store.</span>
+		<span class="estring">If you wish to store preference values in a data store implement this class.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../storage/preferences_storage_i_short.html">PREFERENCES_STORAGE_I</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_version"></a><a class="efeature" href="../storage/preferences_storage_i_short.html#f_version">version</a><span class="esymbol">:</span> <span class="neclass">IMMUTABLE_STRING_32</span>
+			<span class="ecomment">--</span><span class="ecomment"> Format version.</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i_short.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">preferences_not_void_when_initialized</span><span class="esymbol">:</span> <a class="efeature" href="../storage/preferences_storage_i_short.html#f_initialized">initialized</a> <span class="ekeyword">implies</span> <a class="efeature" href="../storage/preferences_storage_i_short.html#f_preferences">preferences</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2015, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../storage/preferences_storage_i_short.html">PREFERENCES_STORAGE_I</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="preferences_storage_i_chart.html">Chart</a>
+<a class="nav class" href="preferences_storage_i_links.html">Relations</a>
+<a class="nav class" href="preferences_storage_i.html">Text</a>
+<a class="nav class" href="preferences_storage_i_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="preferences_storage_i_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="preferences_storage_i"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

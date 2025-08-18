@@ -10,7 +10,7 @@ class
 inherit
 	POINT
 	redefine
-		make, make_from_coordinates, out
+		make, make_from_coordinates, out, distance
 	end
 
 create
@@ -89,6 +89,16 @@ feature -- Commands
 			vr := r
 		end
 
+	distance (other: like Current d3: BOOLEAN): DOUBLE
+			--
+		do
+			if d3 then
+				Result := sqrt (pow (x - other.x, 2.0) + pow (y - other.y, 2.0) + pow (z - other.z, 2.0))
+			else
+				Result := sqrt (pow (x - other.x, 2.0) + pow (y - other.y, 2.0))
+			end
+		end
+
 feature -- IO
 
 	out: STRING
@@ -101,6 +111,14 @@ feature -- IO
 			create fd.make (6, 2)
 			Result := fd_coord.formatted (x) + " " + fd_coord.formatted (y) + " " + fd.formatted (z) + " " +
 			          fd.formatted (gs) + " " + fd.formatted (trk) + " " + vr.out
+		end
+
+feature -- Conversion
+
+	to_point: POINT
+			--
+		do
+			create Result.make_from_coordinates (x, y, z)
 		end
 
 end

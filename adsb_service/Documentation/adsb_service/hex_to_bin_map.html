@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {HEX_TO_BIN_MAP}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>hex_to_bin_map Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="hex_to_bin_map_chart.html">Chart</a>
+<a class="nav class" href="hex_to_bin_map_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="hex_to_bin_map_flat.html">Flat</a>
+<a class="nav class" href="hex_to_bin_map_short.html">Contracts</a>
+<a class="nav class" href="hex_to_bin_map_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="hex_to_bin_map"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/hex_to_bin_map.html">HEX_TO_BIN_MAP</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../adsb_service/hex_to_bin_map.html">HEX_TO_BIN_MAP</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_make_map">make_map</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make_map"></a><a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_make_map">make_map</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_init">Init</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_init"></a><a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_init">Init</a>
+		<span class="ekeyword">once</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;0000&quot;<span class="esymbol">,</span> <span class="echar">'0'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;0001&quot;<span class="esymbol">,</span> <span class="echar">'1'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;0010&quot;<span class="esymbol">,</span> <span class="echar">'2'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;0011&quot;<span class="esymbol">,</span> <span class="echar">'3'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;0100&quot;<span class="esymbol">,</span> <span class="echar">'4'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;0101&quot;<span class="esymbol">,</span> <span class="echar">'5'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;0110&quot;<span class="esymbol">,</span> <span class="echar">'6'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;0111&quot;<span class="esymbol">,</span> <span class="echar">'7'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;1000&quot;<span class="esymbol">,</span> <span class="echar">'8'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;1001&quot;<span class="esymbol">,</span> <span class="echar">'9'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;1010&quot;<span class="esymbol">,</span> <span class="echar">'A'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;1011&quot;<span class="esymbol">,</span> <span class="echar">'B'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;1100&quot;<span class="esymbol">,</span> <span class="echar">'C'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;1101&quot;<span class="esymbol">,</span> <span class="echar">'D'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;1110&quot;<span class="esymbol">,</span> <span class="echar">'E'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="edot">.</span><span class="nefeature">extend</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;1111&quot;<span class="esymbol">,</span> <span class="echar">'F'</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_map"></a><a class="efeature" href="../adsb_service/hex_to_bin_map.html#f_map">map</a><span class="esymbol">:</span> <span class="neclass">HASH_TABLE</span> <span class="esymbol">[</span><span class="neclass">STRING_8</span><span class="esymbol">,</span> <span class="neclass">CHARACTER_8</span><span class="esymbol">]</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/hex_to_bin_map.html">HEX_TO_BIN_MAP</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="hex_to_bin_map_chart.html">Chart</a>
+<a class="nav class" href="hex_to_bin_map_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="hex_to_bin_map_flat.html">Flat</a>
+<a class="nav class" href="hex_to_bin_map_short.html">Contracts</a>
+<a class="nav class" href="hex_to_bin_map_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="hex_to_bin_map"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

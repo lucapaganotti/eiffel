@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-23-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-23-0 http://www.eiffel.com/developers/xml/configuration-1-23-0.xsd" name="test_parser" uuid="5232B9E8-BC36-432F-A84C-F5E854DF6BA1">
+	<target name="test_parser">
+		<root class="TEST_PARSER" feature="make"/>
+		<file_rule>
+			<exclude>/EIFGENs$</exclude>
+			<exclude>/\..*$</exclude>
+		</file_rule>
+		<option warning="true">
+			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
+		</option>
+		<setting name="console_application" value="true"/>
+		<precompile name="base_pre" location="$ISE_PRECOMP\base-scoop-safe.ecf"/>
+		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
+		<library name="lex" location="$ISE_LIBRARY\library\lex\lex.ecf"/>
+		<library name="parse" location="$ISE_LIBRARY\library\parse\parse.ecf"/>
+		<cluster name="test_parser" location=".\" recursive="true">
+			<option debug="false">
+				<debug name="lex_output" enabled="false"/>
+			</option>
+		</cluster>
+	</target>
+</system>

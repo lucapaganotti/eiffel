@@ -36,6 +36,23 @@ feature -- Main externals
 			"pj_free($pj)"
 		end
 
+	c_pj_is_latlong (pj: POINTER): BOOLEAN
+			-- int PROJ_DLL pj_is_latlong(projPJ)
+		external
+			"C inline use %"proj_api.h%""
+		alias
+			"pj_is_latlong($pj)"
+		end
+
+	c_pj_is_geocent (pj: POINTER): BOOLEAN
+			-- int PROJ_DLL pj_is_geocent(projPJ);
+		external
+			"C inline use %"proj_api.h%""
+		alias
+			"pj_is_geocent($pj)"
+		end
+
+
 	c_pj_transform (src, dst: POINTER; cnt: INTEGER; offset: INTEGER; x, y, z: POINTER): INTEGER
 			-- int pj_transform( projPJ src, projPJ dst, long point_count, int point_offset, double *x, double *y, double *z )
 		external

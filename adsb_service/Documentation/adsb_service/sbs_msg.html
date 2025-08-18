@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {SBS_MSG}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>sbs_msg Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="sbs_msg_chart.html">Chart</a>
+<a class="nav class" href="sbs_msg_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="sbs_msg_flat.html">Flat</a>
+<a class="nav class" href="sbs_msg_short.html">Contracts</a>
+<a class="nav class" href="sbs_msg_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="sbs_msg"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/sbs_msg.html">SBS_MSG</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../adsb_service/sbs_msg.html">SBS_MSG</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../adsb_service/sbs_msg_constants.html">SBS_MSG_CONSTANTS</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../adsb_service/sbs_msg.html#f_out">out</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../adsb_service/sbs_msg.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../adsb_service/sbs_msg.html#f_make_from_string">make_from_string</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_format_double">format_double</a><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">10</span><span class="esymbol">,</span> <span class="enumber">5</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_string"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_make_from_string">make_from_string</a> <span class="esymbol">(</span><span class="elocal">txt</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_fields</span><span class="esymbol">:</span> <span class="neclass">LIST</span> <span class="esymbol">[</span><span class="neclass">STRING_8</span><span class="esymbol">]</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_format_double">format_double</a><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">10</span><span class="esymbol">,</span> <span class="enumber">5</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">txt</span> <span class="ekeyword">as</span> l_txt <span class="ekeyword">then</span>
+				<span class="elocal">l_fields</span> <span class="esymbol">:=</span> <span class="elocal">l_txt</span><span class="edot">.</span><span class="nefeature">split</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">','</span><span class="edot">.</span><span class="nefeature">to_character_32</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">count</span> <span class="esymbol">=</span> <span class="enumber">22</span> <span class="ekeyword">and then</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_mt <span class="ekeyword">then</span>
+					<a class="efeature" href="../adsb_service/sbs_msg.html#f_type">type</a> <span class="esymbol">:=</span> <span class="elocal">l_mt</span>
+					<span class="ekeyword">if</span> <span class="elocal">l_mt</span><span class="edot">.</span><span class="nefeature">is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_msg_type">Sbs_msg_type</a><span class="esymbol">)</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">2</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_st <span class="ekeyword">then</span>
+							<a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a> <span class="esymbol">:=</span> <span class="elocal">l_st</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+						<span class="ekeyword">end</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">3</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_sid <span class="ekeyword">then</span>
+							<a class="efeature" href="../adsb_service/sbs_msg.html#f_session_id">session_id</a> <span class="esymbol">:=</span> <span class="elocal">l_sid</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+						<span class="ekeyword">end</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">4</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_aid <span class="ekeyword">then</span>
+							<a class="efeature" href="../adsb_service/sbs_msg.html#f_acft_id">acft_id</a> <span class="esymbol">:=</span> <span class="elocal">l_aid</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+						<span class="ekeyword">end</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">5</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_addr <span class="ekeyword">then</span>
+							<a class="efeature" href="../adsb_service/sbs_msg.html#f_addr">addr</a> <span class="esymbol">:=</span> <span class="elocal">l_addr</span>
+						<span class="ekeyword">end</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">6</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_fid <span class="ekeyword">then</span>
+							<a class="efeature" href="../adsb_service/sbs_msg.html#f_flight_id">flight_id</a> <span class="esymbol">:=</span> <span class="elocal">l_fid</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+						<span class="ekeyword">end</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">7</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_dtgen <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">8</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_tgen <span class="ekeyword">then</span>
+							<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_timestamp_gen">timestamp_gen</a><span class="edot">.</span><span class="nefeature">make_from_string</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_dtgen</span> <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a> <span class="esymbol">+</span> <span class="elocal">l_tgen</span><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs1_datetime_format_code">Sbs1_datetime_format_code</a><span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">9</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_dtlog <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">10</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_tlog <span class="ekeyword">then</span>
+							<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_timestamp_log">timestamp_log</a><span class="edot">.</span><span class="nefeature">make_from_string</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_dtlog</span> <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a> <span class="esymbol">+</span> <span class="elocal">l_tlog</span><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs1_datetime_format_code">Sbs1_datetime_format_code</a><span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+						<span class="ekeyword">inspect</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a>
+						<span class="ekeyword">when</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_identification">Sbs_tx_type_identification</a> <span class="ekeyword">then</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">11</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_cs <span class="ekeyword">then</span>
+								<a class="efeature" href="../adsb_service/sbs_msg.html#f_callsign">callsign</a> <span class="esymbol">:=</span> <span class="elocal">l_cs</span>
+							<span class="ekeyword">end</span>
+						<span class="ekeyword">when</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_surface_position">Sbs_tx_type_surface_position</a> <span class="ekeyword">then</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">13</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_gs <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_gs</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_ground_speed">ground_speed</a> <span class="esymbol">:=</span> <span class="elocal">l_gs</span><span class="edot">.</span><span class="nefeature">to_double</span>
+								<span class="ekeyword">else</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_ground_speed">ground_speed</a> <span class="esymbol">:=</span> <span class="enumber">0.0</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">14</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_trk <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_trk</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_track_angle">track_angle</a> <span class="esymbol">:=</span> <span class="elocal">l_trk</span><span class="edot">.</span><span class="nefeature">to_double</span>
+								<span class="ekeyword">else</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_track_angle">track_angle</a> <span class="esymbol">:=</span> <span class="enumber">0.0</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">15</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_lat <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_lat</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_latitude">latitude</a> <span class="esymbol">:=</span> <span class="elocal">l_lat</span><span class="edot">.</span><span class="nefeature">to_double</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">16</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_lon <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_lon</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_longitude">longitude</a> <span class="esymbol">:=</span> <span class="elocal">l_lon</span><span class="edot">.</span><span class="nefeature">to_double</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">12</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_alt <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_alt</span><span class="edot">.</span><span class="nefeature">is_integer</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_altitude">altitude</a> <span class="esymbol">:=</span> <span class="elocal">l_alt</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">22</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_og <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_og</span><span class="edot">.</span><span class="nefeature">is_integer</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_on_ground">on_ground</a> <span class="esymbol">:=</span> <span class="elocal">l_og</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+								<span class="ekeyword">else</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_on_ground">on_ground</a> <span class="esymbol">:=</span> <span class="enumber">0</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+						<span class="ekeyword">when</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_airborne_position">Sbs_tx_type_airborne_position</a> <span class="ekeyword">then</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">15</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_lat <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_lat</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_latitude">latitude</a> <span class="esymbol">:=</span> <span class="elocal">l_lat</span><span class="edot">.</span><span class="nefeature">to_double</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">16</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_lon <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_lon</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_longitude">longitude</a> <span class="esymbol">:=</span> <span class="elocal">l_lon</span><span class="edot">.</span><span class="nefeature">to_double</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">12</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_alt <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_alt</span><span class="edot">.</span><span class="nefeature">is_integer</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_altitude">altitude</a> <span class="esymbol">:=</span> <span class="elocal">l_alt</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">19</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_alrt <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_alrt</span><span class="edot">.</span><span class="nefeature">is_integer</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_alert">alert</a> <span class="esymbol">:=</span> <span class="elocal">l_alrt</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+								<span class="ekeyword">else</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_alert">alert</a> <span class="esymbol">:=</span> <span class="enumber">0</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">20</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_emg <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_emg</span><span class="edot">.</span><span class="nefeature">is_integer</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_emergency">emergency</a> <span class="esymbol">:=</span> <span class="elocal">l_emg</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+								<span class="ekeyword">else</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_emergency">emergency</a> <span class="esymbol">:=</span> <span class="enumber">0</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">21</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_spi <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_spi</span><span class="edot">.</span><span class="nefeature">is_integer</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_spi">spi</a> <span class="esymbol">:=</span> <span class="elocal">l_spi</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+								<span class="ekeyword">else</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_spi">spi</a> <span class="esymbol">:=</span> <span class="enumber">0</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">22</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_og <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_og</span><span class="edot">.</span><span class="nefeature">is_integer</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_on_ground">on_ground</a> <span class="esymbol">:=</span> <span class="elocal">l_og</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+								<span class="ekeyword">else</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_on_ground">on_ground</a> <span class="esymbol">:=</span> <span class="enumber">0</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+						<span class="ekeyword">when</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_velocity">Sbs_tx_type_velocity</a> <span class="ekeyword">then</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">13</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_gs <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_gs</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_ground_speed">ground_speed</a> <span class="esymbol">:=</span> <span class="elocal">l_gs</span><span class="edot">.</span><span class="nefeature">to_double</span>
+								<span class="ekeyword">else</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_ground_speed">ground_speed</a> <span class="esymbol">:=</span> <span class="enumber">0.0</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">14</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_trk <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_trk</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_track_angle">track_angle</a> <span class="esymbol">:=</span> <span class="elocal">l_trk</span><span class="edot">.</span><span class="nefeature">to_double</span>
+								<span class="ekeyword">else</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_track_angle">track_angle</a> <span class="esymbol">:=</span> <span class="enumber">0.0</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">l_fields</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">17</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_vr <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_vr</span><span class="edot">.</span><span class="nefeature">is_integer</span> <span class="ekeyword">then</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_vertical_rate">vertical_rate</a> <span class="esymbol">:=</span> <span class="elocal">l_vr</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+								<span class="ekeyword">else</span>
+									<a class="efeature" href="../adsb_service/sbs_msg.html#f_vertical_rate">vertical_rate</a> <span class="esymbol">:=</span> <span class="enumber">0</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+						<span class="ekeyword">when</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_surveillance_alt">Sbs_tx_type_surveillance_alt</a> <span class="ekeyword">then</span>
+						<span class="ekeyword">when</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_surveillance_id">Sbs_tx_type_surveillance_id</a> <span class="ekeyword">then</span>
+						<span class="ekeyword">when</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_air_to_air">Sbs_tx_type_air_to_air</a> <span class="ekeyword">then</span>
+						<span class="ekeyword">when</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_all_call_reply">Sbs_tx_type_all_call_reply</a> <span class="ekeyword">then</span>
+						<span class="ekeyword">else</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> classification</span>
+
+	<a name="f_is_identification"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_is_identification">is_identification</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_identification">Sbs_tx_type_identification</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_surface_position"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_is_surface_position">is_surface_position</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_surface_position">Sbs_tx_type_surface_position</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_airborne_position"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_is_airborne_position">is_airborne_position</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_airborne_position">Sbs_tx_type_airborne_position</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_velocity"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_is_velocity">is_velocity</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_velocity">Sbs_tx_type_velocity</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_valid"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_is_valid">is_valid</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_type">type</a> <span class="ekeyword">as</span> l_t <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_t</span><span class="edot">.</span><span class="nefeature">is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_msg_type">Sbs_msg_type</a><span class="esymbol">)</span> <span class="ekeyword">and</span> <span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_identification">Sbs_tx_type_identification</a> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_surface_position">Sbs_tx_type_surface_position</a> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_airborne_position">Sbs_tx_type_airborne_position</a> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a> <span class="esymbol">=</span> <a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs_tx_type_velocity">Sbs_tx_type_velocity</a><span class="esymbol">)</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> IO</span>
+
+	<a name="f_out"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_out">out</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_na</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_type">type</a> <span class="ekeyword">as</span> l_t <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_t</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_not_assigned">Not_assigned</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a><span class="edot">.</span><span class="nefeature">out</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_addr">addr</a> <span class="ekeyword">as</span> l_addr <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_addr</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_not_assigned">Not_assigned</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">DATE_TIME</span><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_timestamp_gen">timestamp_gen</a> <span class="ekeyword">as</span> l_dtgen <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_dtgen</span><span class="edot">.</span><span class="nefeature">formatted_out</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs1_datetime_format_code">Sbs1_datetime_format_code</a><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_not_assigned">Not_assigned</a><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">DATE_TIME</span><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_timestamp_log">timestamp_log</a> <span class="ekeyword">as</span> l_dtlog <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_dtlog</span><span class="edot">.</span><span class="nefeature">formatted_out</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_sbs1_datetime_format_code">Sbs1_datetime_format_code</a><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_not_assigned">Not_assigned</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/sbs_msg.html#f_callsign">callsign</a> <span class="ekeyword">as</span> l_cs <span class="ekeyword">then</span>
+				<span class="elocal">l_cs</span><span class="edot">.</span><span class="nefeature">resize</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">l_cs</span><span class="edot">.</span><span class="nefeature">right_justify</span><span class="esymbol">;</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_cs</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_na</span><span class="edot">.</span><span class="nefeature">make_empty</span><span class="esymbol">;</span>
+				<span class="elocal">l_na</span><span class="edot">.</span><span class="nefeature">resize</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">6</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">l_na</span><span class="edot">.</span><span class="nefeature">fill_blank</span><span class="esymbol">;</span>
+				<span class="elocal">l_na</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_not_assigned">Not_assigned</a><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">l_na</span><span class="edot">.</span><span class="nefeature">right_justify</span><span class="esymbol">;</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_na</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_format_double">format_double</a><span class="edot">.</span><span class="nefeature">formatted</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_ground_speed">ground_speed</a><span class="esymbol">)</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_format_double">format_double</a><span class="edot">.</span><span class="nefeature">formatted</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_track_angle">track_angle</a><span class="esymbol">)</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_format_double">format_double</a><span class="edot">.</span><span class="nefeature">formatted</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_longitude">longitude</a><span class="esymbol">)</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_format_double">format_double</a><span class="edot">.</span><span class="nefeature">formatted</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_latitude">latitude</a><span class="esymbol">)</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_altitude">altitude</a><span class="edot">.</span><span class="nefeature">out</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg_constants.html#f_str_space">Str_space</a><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/sbs_msg.html#f_on_ground">on_ground</a><span class="edot">.</span><span class="nefeature">out</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Attributes</span>
+
+	<a name="f_type"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_type">type</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_tx_type"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_tx_type">tx_type</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_session_id"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_session_id">session_id</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_acft_id"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_acft_id">acft_id</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_addr"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_addr">addr</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_flight_id"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_flight_id">flight_id</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_timestamp_gen"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_timestamp_gen">timestamp_gen</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">DATE_TIME</span>
+
+	<a name="f_timestamp_log"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_timestamp_log">timestamp_log</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">DATE_TIME</span>
+
+	<a name="f_callsign"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_callsign">callsign</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_altitude"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_altitude">altitude</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_ground_speed"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_ground_speed">ground_speed</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_track_angle"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_track_angle">track_angle</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_latitude"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_latitude">latitude</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_longitude"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_longitude">longitude</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_vertical_rate"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_vertical_rate">vertical_rate</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_squawk"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_squawk">squawk</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_alert"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_alert">alert</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_emergency"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_emergency">emergency</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_spi"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_spi">spi</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_on_ground"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_on_ground">on_ground</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_format_double"></a><a class="efeature" href="../adsb_service/sbs_msg.html#f_format_double">format_double</a><span class="esymbol">:</span> <span class="neclass">FORMAT_DOUBLE</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/sbs_msg.html">SBS_MSG</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="sbs_msg_chart.html">Chart</a>
+<a class="nav class" href="sbs_msg_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="sbs_msg_flat.html">Flat</a>
+<a class="nav class" href="sbs_msg_short.html">Contracts</a>
+<a class="nav class" href="sbs_msg_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="sbs_msg"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

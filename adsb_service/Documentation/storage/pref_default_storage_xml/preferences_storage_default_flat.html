@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="XML based preferences storage implementation."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="status" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2010, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>preferences_storage_default Flat</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="preferences_storage_default_chart.html">Chart</a>
+<a class="nav class" href="preferences_storage_default_links.html">Relations</a>
+<a class="nav class" href="preferences_storage_default.html">Text</a>
+<span class="nav class selected">Flat</span>
+<a class="nav class" href="preferences_storage_default_short.html">Contracts</a>
+<a class="nav class" href="preferences_storage_default_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="preferences_storage_default"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;XML based preferences storage implementation.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_make_empty">make_empty</a><span class="esymbol">,</span>
+	<a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_make_versioned">make_versioned</a><span class="esymbol">,</span>
+	<a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_make_with_location">make_with_location</a><span class="esymbol">,</span>
+	<a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_make_with_location_and_version">make_with_location_and_version</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_default_create"></a><span class="nefeature">default_create</span>
+			<span class="ecomment">--</span><span class="ecomment"> Process instances of classes with no creation clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_empty"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_make_empty">make_empty</a>
+			<span class="ecomment">--</span><span class="ecomment"> Create preferences storage in XML file. &nbsp;File will be created based on name of application.</span>
+			<span class="ecomment">--</span><span class="ecomment"> For operating systems which support it it will stored in the users home directory. &nbsp;For operating</span>
+			<span class="ecomment">--</span><span class="ecomment"> systems that do not support home directories it will be stored in the current working directory.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_loc</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">PATH</span>
+			<span class="elocal">l_exec</span><span class="esymbol">:</span> <span class="neclass">EXECUTION_ENVIRONMENT</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_exec</span>
+			<span class="ekeyword">if</span> <span class="nefeature">Operating_environment</span><span class="edot">.</span><span class="nefeature">home_directory_supported</span> <span class="ekeyword">then</span>
+				<span class="elocal">l_loc</span> <span class="esymbol">:=</span> <span class="elocal">l_exec</span><span class="edot">.</span><span class="nefeature">Home_directory_path</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_loc</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">create</span> <span class="elocal">l_loc</span><span class="edot">.</span><span class="nefeature">make_current</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<span class="elocal">l_loc</span> <span class="esymbol">:=</span> <span class="elocal">l_exec</span><span class="edot">.</span><span class="nefeature">current_working_path</span>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_make_with_location">make_with_location</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_loc</span><span class="edot">.</span><span class="nefeature">extended</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;stored_preferences.xml&quot;<span class="esymbol">)</span><span class="edot">.</span><span class="nefeature">name</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">default_version</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a><span class="edot">.</span><span class="nefeature">same_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../preferences/preferences_versions_flat.html#f_default_version">default_version</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_versioned"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_make_versioned">make_versioned</a> <span class="esymbol">(</span><span class="elocal">a_version</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="ekeyword">like</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create preferences storage with </span><span class="equoted">a_version</span><span class="ecomment"> as </span><span class="ecomment">`</span><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a><span class="ecomment">`</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Location to store preferences will be generated based on name of application.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Redefine </span><span class="ecomment">`</span><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_make_empty">make_empty</a><span class="ecomment">`</span><span class="ecomment"> to change behavior.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">a_version_not_void</span><span class="esymbol">:</span> <span class="elocal">a_version</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_version_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../preferences/preferences_versions_flat.html#f_valid_version">valid_version</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_version</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_make_empty">make_empty</a>
+			<a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_internal_version">internal_version</a> <span class="esymbol">:=</span> <span class="elocal">a_version</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">version_set</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a> <span class="esymbol">=</span> <span class="elocal">a_version</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_with_location"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_make_with_location">make_with_location</a> <span class="esymbol">(</span><span class="elocal">a_location</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create preference storage in the XML file at location </span><span class="equoted">a_location</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If file does not exist create new one.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">location_not_void</span><span class="esymbol">:</span> <span class="elocal">a_location</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">location_not_empty</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <span class="elocal">a_location</span><span class="edot">.</span><span class="nefeature">is_empty</span>
+		<span class="ekeyword">do</span>
+			<a class="ekeyword" href="../../storage/preferences_storage_i_flat.html#f_make_with_location">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_location</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_xml_structure">xml_structure</a><span class="edot">.</span><span class="nefeature">make_with_root_named</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;EIFFEL_DOCUMENT&quot;<span class="edot">.</span><span class="nefeature">as_string_32</span><span class="esymbol">,</span> <span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><span class="neclass">XML_NAMESPACE</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">make_default</span> <span class="ekeyword">end</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">location_set</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a> <span class="esymbol">=</span> <span class="elocal">a_location</span>
+			<span class="etag">default_version</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a><span class="edot">.</span><span class="nefeature">same_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../preferences/preferences_versions_flat.html#f_default_version">default_version</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_with_location_and_version"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_make_with_location_and_version">make_with_location_and_version</a> <span class="esymbol">(</span><span class="elocal">a_location</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">;</span> <span class="elocal">a_version</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="ekeyword">like</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create preference storage in the at location </span><span class="equoted">a_location</span><span class="ecomment"> with </span><span class="equoted">a_version</span><span class="ecomment"> as </span><span class="ecomment">`</span><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a><span class="ecomment">`</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Try to read preference at </span><span class="equoted">a_location</span><span class="ecomment"> if it exists, if not create new one.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Preferences will be stored in </span><span class="equoted">a_location</span><span class="ecomment"> between sessions, which is the</span>
+			<span class="ecomment">--</span><span class="ecomment"> path to either:</span>
+			<span class="ecomment">--</span><span class="ecomment">		* the root registry key where preferences are stored,</span>
+			<span class="ecomment">--</span><span class="ecomment">		* or the file where preferences are stored,</span>
+			<span class="ecomment">--</span><span class="ecomment"> depending on which storage is chosen (registry or xml ... ).</span>
+			<span class="ecomment">--</span><span class="ecomment"> Redefine </span><span class="ecomment">`</span><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_make_with_location">make_with_location</a><span class="ecomment">`</span><span class="ecomment"> to change behavior.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">location_not_void</span><span class="esymbol">:</span> <span class="elocal">a_location</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">location_not_empty</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <span class="elocal">a_location</span><span class="edot">.</span><span class="nefeature">is_empty</span>
+			<span class="etag">a_version_not_void</span><span class="esymbol">:</span> <span class="elocal">a_version</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_version_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../preferences/preferences_versions_flat.html#f_valid_version">valid_version</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_version</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_make_with_location">make_with_location</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_location</span><span class="esymbol">)</span>
+			<a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_internal_version">internal_version</a> <span class="esymbol">:=</span> <span class="elocal">a_version</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">location_set</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a> <span class="esymbol">=</span> <span class="elocal">a_location</span>
+			<span class="etag">version_set</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a> <span class="esymbol">=</span> <span class="elocal">a_version</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../../preferences/preferences_flat.html">PREFERENCES</a><span class="esymbol">}</span><span class="esymbol">{</span><a class="eclass" href="../../preferences/preferences_flat.html">PREFERENCES</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_initialize_with_preferences"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_initialize_with_preferences">initialize_with_preferences</a> <span class="esymbol">(</span><span class="elocal">a_preferences</span><span class="esymbol">:</span> <a class="eclass" href="../../preferences/preferences_flat.html">PREFERENCES</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize current with </span><span class="equoted">a_preferences</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">not_initialized</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_initialized">initialized</a>
+			<span class="etag">preferences_is_void</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_preferences">preferences</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_preferences_not_void</span><span class="esymbol">:</span> <span class="elocal">a_preferences</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="ekeyword" href="../../storage/preferences_storage_i_flat.html#f_initialize_with_preferences">Precursor</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_preferences</span><span class="esymbol">)</span>
+			<a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_extract_preferences_from_file">extract_preferences_from_file</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">preferences_assigned_and_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_preferences">preferences</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and then</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_preferences">preferences</a> <span class="esymbol">=</span> <span class="elocal">a_preferences</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../../preferences/preferences_flat.html">PREFERENCES</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_initialized"></a><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_initialized">initialized</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> is Current initialized with preferences ?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_default_version"></a><a class="efeature" href="../../preferences/preferences_versions_flat.html#f_default_version">default_version</a><span class="esymbol">:</span> <span class="neclass">IMMUTABLE_STRING_32</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default version if none specified.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../preferences/preferences_versions_flat.html">PREFERENCES_VERSIONS</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../preferences/preferences_versions_flat.html#f_version_1_0">Version_1_0</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_generating_type"></a><span class="nefeature">generating_type</span><span class="esymbol">:</span> <span class="neclass">TYPE</span> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_generator"></a><span class="nefeature">generator</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">is_empty</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_version"></a><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a><span class="esymbol">:</span> <span class="neclass">IMMUTABLE_STRING_32</span>
+			<span class="ecomment">--</span><span class="ecomment"> Format version.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_internal_version">internal_version</a> <span class="ekeyword">as</span> l_version <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_version</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../preferences/preferences_versions_flat.html#f_default_version">default_version</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_version_1_0"></a><a class="efeature" href="../../preferences/preferences_versions_flat.html#f_version_1_0">Version_1_0</a><span class="esymbol">:</span> <span class="neclass">IMMUTABLE_STRING_32</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../preferences/preferences_versions_flat.html">PREFERENCES_VERSIONS</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make_from_string_general</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;1.0&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_version_2_0"></a><a class="efeature" href="../../preferences/preferences_versions_flat.html#f_version_2_0">Version_2_0</a><span class="esymbol">:</span> <span class="neclass">IMMUTABLE_STRING_32</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../preferences/preferences_versions_flat.html">PREFERENCES_VERSIONS</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make_from_string_general</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;2.0&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../../preferences/preferences_flat.html">PREFERENCES</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_location"></a><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span>
+			<span class="ecomment">--</span><span class="ecomment"> The actual location of the underlying preference (filename, registry key, etc).</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a><span class="ecomment">)</span>
+
+	<a name="f_preferences"></a><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_preferences">preferences</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../preferences/preferences_flat.html">PREFERENCES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Actual preferences</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a><span class="ecomment">)</span>
+
+	<a name="f_session_values"></a><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_session_values">session_values</a><span class="esymbol">:</span> <span class="neclass">STRING_TABLE</span> <span class="esymbol">[</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Hash of user-defined values which have been loaded.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <span class="nefeature">deep_equal</span> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and then</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">is_deep_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <span class="nefeature">standard_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <span class="ekeyword">implies</span> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <span class="ekeyword">implies</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="ekeyword">and</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <span class="ekeyword">implies</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and then</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">same_type</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="nefeature">deep_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <span class="nefeature">equal</span> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and then</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <span class="ekeyword">or else</span> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <span class="ekeyword">and then</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <span class="nefeature">is_deep_equal</span> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><span class="esymbol">≡≡≡</span><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <span class="ekeyword">implies</span> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="nefeature">same_type</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="elocal">other</span><span class="edot">.</span><span class="nefeature">is_deep_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_equal"></a><span class="nefeature">is_equal</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <span class="ekeyword">implies</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <span class="nefeature">standard_equal</span> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and then</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <span class="ekeyword">or else</span> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <span class="ekeyword">and then</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <span class="nefeature">standard_is_equal</span> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><span class="esymbol">≜</span><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="nefeature">same_type</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="ekeyword">implies</span> <span class="elocal">other</span><span class="edot">.</span><span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><span class="nefeature">conforms_to</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="neclass">ANY</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_same_type"></a><span class="nefeature">same_type</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="neclass">ANY</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="nefeature">conforms_to</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <span class="ekeyword">and</span> <span class="elocal">other</span><span class="edot">.</span><span class="nefeature">conforms_to</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_valid_version"></a><a class="efeature" href="../../preferences/preferences_versions_flat.html#f_valid_version">valid_version</a> <span class="esymbol">(</span><span class="elocal">a_version</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">IMMUTABLE_STRING_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_version</span><span class="ecomment"> a supported version?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../preferences/preferences_versions_flat.html">PREFERENCES_VERSIONS</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">a_version</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">and then</span> <span class="esymbol">(</span><span class="elocal">a_version</span><span class="edot">.</span><span class="nefeature">same_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../preferences/preferences_versions_flat.html#f_version_1_0">Version_1_0</a><span class="esymbol">)</span> <span class="ekeyword">or</span> <span class="elocal">a_version</span><span class="edot">.</span><span class="nefeature">same_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../preferences/preferences_versions_flat.html#f_version_2_0">Version_2_0</a><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_clone"></a><span class="ekeyword">frozen</span> <span class="nefeature">clone</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void; otherwise new object</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to </span><span class="equoted">other</span>
+			<span class="ecomment">--</span>
+			<span class="ecomment">--</span><span class="ecomment"> For non-void </span><span class="equoted">other</span><span class="ecomment">, </span><span class="ecomment">`</span><span class="nefeature">clone</span><span class="ecomment">`</span><span class="ecomment"> calls </span><span class="ecomment">`</span><span class="nefeature">copy</span><span class="ecomment">`</span><span class="ecomment">;</span>
+			<span class="ecomment">--</span><span class="ecomment"> to change copying/cloning semantics, redefine </span><span class="ecomment">`</span><span class="nefeature">copy</span><span class="ecomment">`</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><span class="nefeature">twin</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_copy"></a><span class="nefeature">copy</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <span class="nefeature">same_type</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_clone"></a><span class="ekeyword">frozen</span> <span class="nefeature">deep_clone</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `deep_twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void: otherwise, new object structure</span>
+			<span class="ecomment">--</span><span class="ecomment"> recursively duplicated from the one attached to </span><span class="equoted">other</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><span class="nefeature">deep_twin</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <span class="nefeature">deep_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <span class="nefeature">deep_copy</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><span class="ecomment">`</span><span class="nefeature">copy</span><span class="ecomment">`</span><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><span class="ecomment">`</span><span class="nefeature">deep_twin</span><span class="ecomment">`</span><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">copy</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="edot">.</span><span class="nefeature">deep_twin</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <span class="nefeature">deep_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <span class="nefeature">deep_twin</span><span class="esymbol">:</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <span class="nefeature">deep_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_clone"></a><span class="ekeyword">frozen</span> <span class="nefeature">standard_clone</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `standard_twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void; otherwise new object</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><span class="nefeature">standard_twin</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <span class="nefeature">standard_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <span class="nefeature">standard_copy</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <span class="nefeature">same_type</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <span class="nefeature">standard_twin</span><span class="esymbol">:</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <span class="nefeature">standard_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <span class="nefeature">twin</span><span class="esymbol">:</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">`</span><span class="nefeature">twin</span><span class="ecomment">`</span><span class="ecomment"> calls </span><span class="ecomment">`</span><span class="nefeature">copy</span><span class="ecomment">`</span><span class="ecomment">; to change copying/twinning semantics, redefine </span><span class="ecomment">`</span><span class="nefeature">copy</span><span class="ecomment">`</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_as_attached"></a><span class="ekeyword">frozen</span> <span class="nefeature">as_attached</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a>
+		<span class="ekeyword">obsolete</span> &quot;Remove calls to this feature. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Attached version of Current.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Can be used during transitional period to convert</span>
+			<span class="ecomment">--</span><span class="ecomment"> non-void-safe classes to void-safe ones.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <span class="nefeature">default</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <span class="nefeature">default_pointer</span><span class="esymbol">:</span> <span class="neclass">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><span class="ecomment">`</span><span class="nefeature">default</span><span class="ecomment">`</span><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_rescue"></a><span class="nefeature">default_rescue</span>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <span class="nefeature">do_nothing</span>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_amp_string"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_amp_string">Amp_string</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append_character</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_amp_char">Amp_char</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_escape_xml"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_escape_xml">escape_xml</a> <span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span><span class="ecomment"> Escape xml entities in </span><span class="equoted">a_string</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a>
+			<span class="etag">a_string_not_void</span><span class="esymbol">:</span> <span class="elocal">a_string</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_xml_utilities">Xml_utilities</a><span class="edot">.</span><span class="nefeature">escaped_xml</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a>
+			<span class="etag">result_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_extract_preferences_from_file"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_extract_preferences_from_file">extract_preferences_from_file</a>
+			<span class="ecomment">--</span><span class="ecomment"> Extract from the </span><span class="equoted">file</span><span class="ecomment"> the saved preference values.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a>
+			<span class="etag">location_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">parser</span><span class="esymbol">:</span> <span class="neclass">XML_STOPPABLE_PARSER</span>
+			<span class="elocal">l_file</span><span class="esymbol">:</span> <span class="neclass">PLAIN_TEXT_FILE</span>
+			<span class="elocal">l_tree</span><span class="esymbol">:</span> <span class="neclass">XML_CALLBACKS_DOCUMENT</span>
+			<span class="elocal">l_resolver</span><span class="esymbol">:</span> <span class="neclass">XML_NAMESPACE_RESOLVER</span>
+			<span class="elocal">l_root_element</span><span class="esymbol">:</span> <span class="neclass">XML_ELEMENT</span>
+			<span class="elocal">t_preference</span><span class="esymbol">,</span> <span class="elocal">t_name</span><span class="esymbol">,</span> <span class="elocal">t_value</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">parser</span><span class="edot">.</span><span class="nefeature">make</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_tree</span><span class="edot">.</span><span class="nefeature">make_null</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_resolver</span><span class="edot">.</span><span class="nefeature">set_next</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_tree</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="elocal">parser</span><span class="edot">.</span><span class="nefeature">set_callbacks</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_resolver</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">make_with_name</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">exists</span> <span class="ekeyword">and then</span> <span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">is_readable</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_safe_open_read">safe_open_read</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_file</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">is_open_read</span> <span class="ekeyword">then</span>
+					<span class="elocal">parser</span><span class="edot">.</span><span class="nefeature">parse_from_file</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_file</span><span class="esymbol">)</span><span class="esymbol">;</span>
+					<span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">close</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">not</span> <span class="elocal">parser</span><span class="edot">.</span><span class="nefeature">error_occurred</span> <span class="ekeyword">and then</span> <span class="esymbol">(</span><span class="ekeyword">attached</span> <span class="elocal">l_tree</span><span class="edot">.</span><span class="nefeature">document</span> <span class="ekeyword">as</span> l_xml_structure<span class="esymbol">)</span> <span class="ekeyword">then</span>
+						<a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_xml_structure">xml_structure</a> <span class="esymbol">:=</span> <span class="elocal">l_xml_structure</span>
+						<span class="ekeyword">from</span>
+							<span class="elocal">t_preference</span> <span class="esymbol">:=</span> &quot;PREFERENCE&quot;
+							<span class="elocal">t_name</span> <span class="esymbol">:=</span> &quot;NAME&quot;
+							<span class="elocal">t_value</span> <span class="esymbol">:=</span> &quot;VALUE&quot;
+							<span class="elocal">l_root_element</span> <span class="esymbol">:=</span> <span class="elocal">l_xml_structure</span><span class="edot">.</span><span class="nefeature">root_element</span><span class="esymbol">;</span>
+							<span class="elocal">l_root_element</span><span class="edot">.</span><span class="nefeature">start</span>
+						<span class="ekeyword">until</span>
+							<span class="elocal">l_root_element</span><span class="edot">.</span><span class="nefeature">after</span>
+						<span class="ekeyword">loop</span>
+							<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">XML_ELEMENT</span><span class="esymbol">}</span> <span class="elocal">l_root_element</span><span class="edot">.</span><span class="nefeature">item_for_iteration</span> <span class="ekeyword">as</span> node <span class="ekeyword">then</span>
+								<span class="ekeyword">if</span> <span class="elocal">node</span><span class="edot">.</span><span class="nefeature">has_same_name</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t_preference</span><span class="esymbol">)</span> <span class="ekeyword">and then</span> <span class="ekeyword">attached</span> <span class="elocal">node</span><span class="edot">.</span><span class="nefeature">attribute_by_name</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t_name</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_pref_name <span class="ekeyword">and then</span> <span class="ekeyword">attached</span> <span class="elocal">node</span><span class="edot">.</span><span class="nefeature">attribute_by_name</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t_value</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_pref_value <span class="ekeyword">then</span>
+									<a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_session_values">session_values</a><span class="edot">.</span><span class="nefeature">put</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_pref_value</span><span class="edot">.</span><span class="nefeature">value</span><span class="esymbol">,</span> <span class="elocal">l_pref_name</span><span class="edot">.</span><span class="nefeature">value</span><span class="esymbol">)</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span><span class="esymbol">;</span>
+							<span class="elocal">l_root_element</span><span class="edot">.</span><span class="nefeature">forth</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;refactor_fixme&quot;<span class="esymbol">)</span>
+							<span class="nefeature">fixme</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Add code to let callers know that XML file was invalid&quot;<span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;refactor_fixme&quot;<span class="esymbol">)</span>
+						<span class="nefeature">fixme</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Add code to let callers that we could not open preference file&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;refactor_fixme&quot;<span class="esymbol">)</span>
+					<span class="nefeature">fixme</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Add code to let callers that preference file can not be read&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_gt_string"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_gt_string">Gt_string</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append_character</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_gt_char">Gt_char</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_internal_version"></a><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_internal_version">internal_version</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a>
+			<span class="ecomment">--</span><span class="ecomment"> Storage for </span><span class="ecomment">`</span><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_version">version</a><span class="ecomment">`</span><span class="ecomment"> if specified.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a><span class="ecomment">)</span>
+
+	<a name="f_lt_string"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_lt_string">Lt_string</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append_character</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_lt_char">Lt_char</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_quot_string"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_quot_string">Quot_string</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">append_character</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_quot_char">Quot_char</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_safe_open_read"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_safe_open_read">safe_open_read</a> <span class="esymbol">(</span><span class="elocal">a_file</span><span class="esymbol">:</span> <span class="neclass">FILE</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Safely open </span><span class="equoted">a_file</span><span class="ecomment"> with read mode.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a>
+			<span class="etag">a_file_not_void</span><span class="esymbol">:</span> <span class="elocal">a_file</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_file_closed</span><span class="esymbol">:</span> <span class="elocal">a_file</span><span class="edot">.</span><span class="nefeature">is_closed</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">retried</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">not</span> <span class="elocal">retried</span> <span class="ekeyword">then</span>
+				<span class="elocal">a_file</span><span class="edot">.</span><span class="nefeature">open_read</span>
+			<span class="ekeyword">elseif</span> <span class="ekeyword">not</span> <span class="elocal">a_file</span><span class="edot">.</span><span class="nefeature">is_closed</span> <span class="ekeyword">then</span>
+				<span class="elocal">a_file</span><span class="edot">.</span><span class="nefeature">close</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">not</span> <span class="elocal">retried</span> <span class="ekeyword">then</span>
+				<span class="elocal">retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+				<span class="ekeyword">retry</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_safe_open_write"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_safe_open_write">safe_open_write</a> <span class="esymbol">(</span><span class="elocal">a_file</span><span class="esymbol">:</span> <span class="neclass">FILE</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Safely open </span><span class="equoted">a_file</span><span class="ecomment"> with write mode.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a>
+			<span class="etag">a_file_not_void</span><span class="esymbol">:</span> <span class="elocal">a_file</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_file_closed</span><span class="esymbol">:</span> <span class="elocal">a_file</span><span class="edot">.</span><span class="nefeature">is_closed</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">retried</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">not</span> <span class="elocal">retried</span> <span class="ekeyword">then</span>
+				<span class="elocal">a_file</span><span class="edot">.</span><span class="nefeature">open_write</span>
+			<span class="ekeyword">elseif</span> <span class="ekeyword">not</span> <span class="elocal">a_file</span><span class="edot">.</span><span class="nefeature">is_closed</span> <span class="ekeyword">then</span>
+				<span class="elocal">a_file</span><span class="edot">.</span><span class="nefeature">close</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">not</span> <span class="elocal">retried</span> <span class="ekeyword">then</span>
+				<span class="elocal">retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+				<span class="ekeyword">retry</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_xml_structure"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_xml_structure">xml_structure</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">XML_DOCUMENT</span>
+			<span class="ecomment">--</span><span class="ecomment"> XML structure built from parsing of </span><span class="equoted">file</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Filters</span>
+
+	<a name="f_new_document_builder"></a><span class="nefeature">new_document_builder</span><span class="esymbol">:</span> <span class="neclass">XML_CALLBACKS_DOCUMENT</span>
+			<span class="ecomment">--</span><span class="ecomment"> New tree construction filter</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><span class="esymbol">{</span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="esymbol">}</span><span class="ecomment"> as synonym of </span><span class="ecomment">`</span><span class="nefeature">new_tree_builder</span><span class="ecomment">`</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make_null</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">tree_builder_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_new_namespace_resolver"></a><span class="nefeature">new_namespace_resolver</span><span class="esymbol">:</span> <span class="neclass">XML_NAMESPACE_RESOLVER</span>
+			<span class="ecomment">--</span><span class="ecomment"> New namespace resolver</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make_null</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">namespace_resolver_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_new_null"></a><span class="nefeature">new_null</span><span class="esymbol">:</span> <span class="neclass">XML_CALLBACKS_NULL</span>
+			<span class="ecomment">--</span><span class="ecomment"> New null callback consumer</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">null_callback_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_new_tree_builder"></a><span class="nefeature">new_tree_builder</span><span class="esymbol">:</span> <span class="neclass">XML_CALLBACKS_DOCUMENT</span>
+			<span class="ecomment">--</span><span class="ecomment"> New tree construction filter</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><span class="esymbol">{</span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="esymbol">}</span><span class="ecomment"> as synonym of </span><span class="ecomment">`</span><span class="nefeature">new_document_builder</span><span class="ecomment">`</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make_null</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">tree_builder_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Filters to implement</span>
+
+	<a name="f_new_content_concatenator"></a><span class="nefeature">new_content_concatenator</span><span class="esymbol">:</span> <span class="neclass">XML_CONTENT_CONCATENATOR</span>
+			<span class="ecomment">--</span><span class="ecomment"> New content concatenation filter.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make_null</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">content_concatenator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_new_indent_pretty_print"></a><span class="nefeature">new_indent_pretty_print</span><span class="esymbol">:</span> <span class="neclass">XML_INDENT_PRETTY_PRINT_FILTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Indenting pretty print filter</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make_null</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">indent_pretty_print_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_new_pretty_print"></a><span class="nefeature">new_pretty_print</span><span class="esymbol">:</span> <span class="neclass">XML_PRETTY_PRINT_FILTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> New pretty printer (to standard io)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make_null</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">pretty_print_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_new_xmlns_generator"></a><span class="nefeature">new_xmlns_generator</span><span class="esymbol">:</span> <span class="neclass">XML_XMLNS_GENERATOR</span>
+			<span class="ecomment">--</span><span class="ecomment"> New xmlns: generator (opposite of namespace resolver)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make_null</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">xmlns_generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Markers</span>
+
+	<a name="f_fixme"></a><span class="nefeature">fixme</span> <span class="esymbol">(</span><span class="elocal">comment</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Mark code that has to be &quot;fixed&quot; with </span><span class="equoted">comment</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">REFACTORING_HELPER</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">REFACTORING_HELPER</span>
+			<span class="etag">comment_not_void</span><span class="esymbol">:</span> <span class="elocal">comment</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;refactor_fixme&quot;<span class="esymbol">)</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">Error</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;FIXME: &quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">Error</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">comment</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">Error</span><span class="edot">.</span><span class="nefeature">put_new_line</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">REFACTORING_HELPER</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_to_implement"></a><span class="nefeature">to_implement</span> <span class="esymbol">(</span><span class="elocal">comment</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Mark code that has to be &quot;implemented&quot; with </span><span class="equoted">comment</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">REFACTORING_HELPER</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">REFACTORING_HELPER</span>
+			<span class="etag">comment_not_void</span><span class="esymbol">:</span> <span class="elocal">comment</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;refactor_fixme&quot;<span class="esymbol">)</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">Error</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;TO_BE_IMPLEMENTED: &quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">Error</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">comment</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">Error</span><span class="edot">.</span><span class="nefeature">put_new_line</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">REFACTORING_HELPER</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_to_implement_assertion"></a><span class="nefeature">to_implement_assertion</span> <span class="esymbol">(</span><span class="elocal">comment</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Mark assertion that has to be &quot;implemented&quot; with </span><span class="equoted">comment</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">REFACTORING_HELPER</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">REFACTORING_HELPER</span>
+			<span class="etag">comment_not_void</span><span class="esymbol">:</span> <span class="elocal">comment</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;refactor_fixme&quot;<span class="esymbol">)</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">Error</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;ASSERTION_TO_BE_IMPLEMENTED: &quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">Error</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">comment</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">Error</span><span class="edot">.</span><span class="nefeature">put_new_line</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">REFACTORING_HELPER</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><span class="nefeature">Io</span><span class="esymbol">:</span> <span class="neclass">STD_FILES</span>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="esymbol">;</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">set_output_default</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_out"></a><span class="nefeature">out</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="nefeature">tagged_out</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_print"></a><span class="nefeature">print</span> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">s</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">o</span> <span class="ekeyword">then</span>
+				<span class="elocal">s</span> <span class="esymbol">:=</span> <span class="elocal">o</span><span class="edot">.</span><span class="nefeature">out</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">s</span> <span class="ekeyword">as</span> s32 <span class="ekeyword">then</span>
+					<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">put_string_32</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s32</span><span class="esymbol">)</span>
+				<span class="ekeyword">elseif</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_8</span><span class="esymbol">}</span> <span class="elocal">s</span> <span class="ekeyword">as</span> s8 <span class="ekeyword">then</span>
+					<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s8</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">put_string_32</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><span class="nefeature">as_string_32</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <span class="nefeature">tagged_out</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Pipes</span>
+
+	<a name="f_callbacks_pipe"></a><span class="nefeature">callbacks_pipe</span> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="neclass">ARRAY</span> <span class="esymbol">[</span><span class="neclass">XML_CALLBACKS_FILTER</span><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">XML_CALLBACKS</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make a pipe,</span>
+			<span class="ecomment">--</span><span class="ecomment"> eg &lt;&lt; new_tag_checker, new_pretty_print &gt;&gt;</span>
+			<span class="ecomment">--</span><span class="ecomment"> return first item of pipe.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">a_not_void</span><span class="esymbol">:</span> <span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">a_not_empty</span><span class="esymbol">:</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">count</span> <span class="esymbol">&gt;</span> <span class="enumber">0</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">nb</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+		<span class="ekeyword">do</span>
+			<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">lower</span>
+			<span class="elocal">nb</span> <span class="esymbol">:=</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">upper</span>
+			<span class="ekeyword">from</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <span class="esymbol">&gt;=</span> <span class="elocal">nb</span>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">a</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span><span class="edot">.</span><span class="nefeature">set_next</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span> <span class="esymbol">+</span> <span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">)</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <span class="esymbol">+</span> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="edot">.</span><span class="nefeature">lower</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">pipe_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_callbacks_pipe"></a><span class="nefeature">standard_callbacks_pipe</span> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="neclass">ARRAY</span> <span class="esymbol">[</span><span class="neclass">XML_CALLBACKS_FILTER</span><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">XML_CALLBACKS</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add elements to standard validation pipe, which</span>
+			<span class="ecomment">--</span><span class="ecomment"> begins with:</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;namespace resolver -&gt; stop on error</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">a_not_void</span><span class="esymbol">:</span> <span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">a_last</span><span class="esymbol">:</span> <span class="neclass">XML_CALLBACKS_FILTER</span>
+		<span class="ekeyword">do</span>
+			<span class="elocal">a_last</span> <span class="esymbol">:=</span> <span class="nefeature">new_namespace_resolver</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="nefeature">callbacks_pipe</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">&lt;&lt;</span><span class="elocal">a_last</span><span class="esymbol">&gt;&gt;</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span><span class="edot">.</span><span class="nefeature">count</span> <span class="esymbol">&gt;</span> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<span class="elocal">a_last</span><span class="edot">.</span><span class="nefeature">set_next</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="nefeature">callbacks_pipe</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">XML_CALLBACKS_FILTER_FACTORY</span>
+			<span class="etag">pipe_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><span class="nefeature">Operating_environment</span><span class="esymbol">:</span> <span class="neclass">OPERATING_ENVIRONMENT</span>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../../preferences/preferences_flat.html">PREFERENCES</a><span class="esymbol">}</span><span class="esymbol">{</span><a class="eclass" href="../../preferences/preferences_flat.html">PREFERENCES</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Resource Management</span>
+
+	<a name="f_exists"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_exists">exists</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Does storage exists ?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_initialized">initialized</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">u</span><span class="esymbol">:</span> <span class="neclass">FILE_UTILITIES</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">u</span><span class="edot">.</span><span class="nefeature">file_exists</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_get_preference_value"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_get_preference_value">get_preference_value</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="ecomment">--</span><span class="ecomment"> Retrieve the preference string value from the underlying store.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_initialized">initialized</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_session_values">session_values</a><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_preference"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_has_preference">has_preference</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Does the underlying store contain a preference with </span><span class="equoted">a_name</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_initialized">initialized</a>
+			<span class="etag">name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">name_not_empty</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <span class="elocal">a_name</span><span class="edot">.</span><span class="nefeature">is_empty</span>
+			<span class="etag">name_is_valid_string_8</span><span class="esymbol">:</span> <span class="elocal">a_name</span><span class="edot">.</span><span class="nefeature">is_valid_as_string_8</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_session_values">session_values</a><span class="edot">.</span><span class="nefeature">has</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_remove_preference"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_remove_preference">remove_preference</a> <span class="esymbol">(</span><span class="elocal">a_preference</span><span class="esymbol">:</span> <span class="neclass">PREFERENCE</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove </span><span class="equoted">preference</span><span class="ecomment"> from storage device.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_initialized">initialized</a>
+			<span class="etag">argument_preference_not_void</span><span class="esymbol">:</span> <span class="elocal">a_preference</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_save_preference"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_save_preference">save_preference</a> <span class="esymbol">(</span><span class="elocal">a_preference</span><span class="esymbol">:</span> <span class="neclass">PREFERENCE</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Save </span><span class="equoted">a_preference</span><span class="ecomment"> to the file on disk.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_initialized">initialized</a>
+			<span class="etag">agument_preference_not_void</span><span class="esymbol">:</span> <span class="elocal">a_preference</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_preferences">preferences</a> <span class="ekeyword">as</span> l_preferences <span class="ekeyword">then</span>
+				<a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_save_preferences">save_preferences</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_preferences</span><span class="edot">.</span><a class="efeature" href="../../preferences/preferences_flat.html#f_preferences">preferences</a><span class="edot">.</span><span class="nefeature">linear_representation</span><span class="esymbol">,</span> <span class="ekeyword">True</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">preference_saved</span><span class="esymbol">:</span> <span class="ekeyword">True</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_save_preferences"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_save_preferences">save_preferences</a> <span class="esymbol">(</span><span class="elocal">a_preferences</span><span class="esymbol">:</span> <span class="neclass">ARRAYED_LIST</span> <span class="esymbol">[</span><span class="neclass">PREFERENCE</span><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">a_save_modified_values_only</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Save all preferences in </span><span class="equoted">a_preferences</span><span class="ecomment"> to storage device.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_save_modified_values_only</span><span class="ecomment"> then only preferences whose value is different</span>
+			<span class="ecomment">--</span><span class="ecomment"> from the default one are saved, otherwise all preferences are saved.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+			<span class="etag">initialized</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_initialized">initialized</a>
+			<span class="etag">argument_preferences_not_void</span><span class="esymbol">:</span> <span class="elocal">a_preferences</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_preference</span><span class="esymbol">:</span> <span class="neclass">PREFERENCE</span>
+			<span class="elocal">l_file</span><span class="esymbol">:</span> <span class="neclass">PLAIN_TEXT_FILE</span>
+			<span class="elocal">pref_string1</span><span class="esymbol">,</span> <span class="elocal">pref_string2</span><span class="esymbol">,</span> <span class="elocal">pref_string3</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+		<span class="ekeyword">do</span>
+			<span class="elocal">pref_string1</span> <span class="esymbol">:=</span> &quot;%N%T&lt;PREFERENCE NAME=%&quot;&quot;
+			<span class="elocal">pref_string2</span> <span class="esymbol">:=</span> &quot;%&quot; VALUE=%&quot;&quot;
+			<span class="elocal">pref_string3</span> <span class="esymbol">:=</span> &quot;%&quot;/&gt;&quot;
+			<span class="ekeyword">create</span> <span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">make_with_name</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a><span class="esymbol">)</span>
+			<a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_safe_open_write">safe_open_write</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_file</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">is_open_write</span> <span class="ekeyword">then</span>
+				<span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;&lt;EIFFEL_DOCUMENT&gt;&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">from</span>
+					<span class="elocal">a_preferences</span><span class="edot">.</span><span class="nefeature">start</span>
+				<span class="ekeyword">until</span>
+					<span class="elocal">a_preferences</span><span class="edot">.</span><span class="nefeature">after</span>
+				<span class="ekeyword">loop</span>
+					<span class="elocal">l_preference</span> <span class="esymbol">:=</span> <span class="elocal">a_preferences</span><span class="edot">.</span><span class="nefeature">item</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">not</span> <span class="elocal">a_save_modified_values_only</span> <span class="ekeyword">or else</span> <span class="ekeyword">not</span> <span class="elocal">l_preference</span><span class="edot">.</span><span class="nefeature">is_default_value</span> <span class="ekeyword">then</span>
+						<span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pref_string1</span><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_escape_xml">escape_xml</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_preference</span><span class="edot">.</span><span class="nefeature">name</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pref_string2</span><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_escape_xml">escape_xml</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_preference</span><span class="edot">.</span><span class="nefeature">text_value</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pref_string3</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span><span class="esymbol">;</span>
+					<span class="elocal">a_preferences</span><span class="edot">.</span><span class="nefeature">forth</span>
+				<span class="ekeyword">end</span><span class="esymbol">;</span>
+				<span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;%N&lt;/EIFFEL_DOCUMENT&gt;&quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">l_file</span><span class="edot">.</span><span class="nefeature">close</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;refactor_fixme&quot;<span class="esymbol">)</span>
+					<span class="nefeature">fixme</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Add code to let callers that `preferences' could not be saved&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Retrieval</span>
+
+	<a name="f_internal_correct_mismatch"></a><span class="ekeyword">frozen</span> <span class="nefeature">internal_correct_mismatch</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called from runtime to perform a proper dynamic dispatch on </span><span class="equoted">correct_mismatch</span>
+			<span class="ecomment">--</span><span class="ecomment"> from MISMATCH_CORRECTOR.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">ANY</span><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_msg</span><span class="esymbol">:</span> <span class="neclass">STRING_32</span>
+			<span class="elocal">l_exc</span><span class="esymbol">:</span> <span class="neclass">EXCEPTIONS</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">MISMATCH_CORRECTOR</span><span class="esymbol">}</span> <span class="ekeyword">Current</span> <span class="ekeyword">as</span> l_corrector <span class="ekeyword">then</span>
+				<span class="elocal">l_corrector</span><span class="edot">.</span><span class="nefeature">correct_mismatch</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_msg</span><span class="edot">.</span><span class="nefeature">make_from_string</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Mismatch: &quot;<span class="edot">.</span><span class="nefeature">as_string_32</span><span class="esymbol">)</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_exc</span><span class="esymbol">;</span>
+				<span class="elocal">l_msg</span><span class="edot">.</span><span class="nefeature">append</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="nefeature">generating_type</span><span class="edot">.</span><span class="nefeature">name_32</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">l_exc</span><span class="edot">.</span><span class="nefeature">raise_retrieval_exception</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_msg</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> XML markup and entities constants</span>
+
+	<a name="f_amp_char"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_amp_char">Amp_char</a><span class="esymbol">:</span> <span class="neclass">CHARACTER_8</span> <span class="esymbol">=</span> <span class="echar">'&#38;'</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+
+	<a name="f_amp_entity"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_amp_entity">Amp_entity</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span> <span class="esymbol">=</span> &quot;&#38;amp;&quot;
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+
+	<a name="f_gt_char"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_gt_char">Gt_char</a><span class="esymbol">:</span> <span class="neclass">CHARACTER_8</span> <span class="esymbol">=</span> <span class="echar">'&gt;'</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+
+	<a name="f_gt_entity"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_gt_entity">Gt_entity</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span> <span class="esymbol">=</span> &quot;&#38;gt;&quot;
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+
+	<a name="f_lt_char"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_lt_char">Lt_char</a><span class="esymbol">:</span> <span class="neclass">CHARACTER_8</span> <span class="esymbol">=</span> <span class="echar">'&lt;'</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+
+	<a name="f_lt_entity"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_lt_entity">Lt_entity</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span> <span class="esymbol">=</span> &quot;&#38;lt;&quot;
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+
+	<a name="f_quot_char"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_quot_char">Quot_char</a><span class="esymbol">:</span> <span class="neclass">CHARACTER_8</span> <span class="esymbol">=</span> <span class="echar">'&quot;'</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+
+	<a name="f_quot_entity"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_quot_entity">Quot_entity</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span> <span class="esymbol">=</span> &quot;&#38;quot;&quot;
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+
+	<a name="f_xml_utilities"></a><a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_xml_utilities">Xml_utilities</a><span class="esymbol">:</span> <span class="neclass">XML_UTILITIES</span>
+			<span class="ecomment">--</span><span class="ecomment"> XML utilities</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_xml_flat.html">PREFERENCES_STORAGE_XML</a>
+	<span class="etag">has_session_values</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_session_values">session_values</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">has_xml_structure</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_xml_flat.html#f_xml_structure">xml_structure</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../storage/preferences_storage_i_flat.html">PREFERENCES_STORAGE_I</a>
+	<span class="etag">has_location</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_location">location</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">preferences_not_void_when_initialized</span><span class="esymbol">:</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_initialized">initialized</a> <span class="ekeyword">implies</span> <a class="efeature" href="../../storage/preferences_storage_i_flat.html#f_preferences">preferences</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">ANY</span>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <span class="nefeature">standard_is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <span class="nefeature">conforms_to</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2010, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../storage/pref_default_storage_xml/preferences_storage_default_flat.html">PREFERENCES_STORAGE_DEFAULT</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="preferences_storage_default_chart.html">Chart</a>
+<a class="nav class" href="preferences_storage_default_links.html">Relations</a>
+<a class="nav class" href="preferences_storage_default.html">Text</a>
+<span class="nav class selected">Flat</span>
+<a class="nav class" href="preferences_storage_default_short.html">Contracts</a>
+<a class="nav class" href="preferences_storage_default_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="preferences_storage_default"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {ADSB_NETWORK_STREAM_SOCKET}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>adsb_network_stream_socket Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="adsb_network_stream_socket_links.html">Relations</a>
+<a class="nav class" href="adsb_network_stream_socket.html">Text</a>
+<a class="nav class" href="adsb_network_stream_socket_flat.html">Flat</a>
+<a class="nav class" href="adsb_network_stream_socket_short.html">Contracts</a>
+<a class="nav class" href="adsb_network_stream_socket_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="adsb_network_stream_socket"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../adsb_service/adsb_network_stream_socket_chart.html">ADSB_NETWORK_STREAM_SOCKET</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../adsb_service/index.html">adsb_service</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/adsb_network_stream_socket_chart.html">ADSB_NETWORK_STREAM_SOCKET</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <span class="nefeature">make</span><span class="esymbol">,</span> <span class="nefeature">make_client_by_address_and_port</span>
+
+<span class="ekeyword">Ancestors</span>
+	<span class="neclass">NETWORK_STREAM_SOCKET</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`accept_timeout' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">accept_timeout</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`accepted' was declared in STREAM_SOCKET"><span class="nefeature">accepted</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">]</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../adsb_service/adsb_network_stream_socket_chart.html">ADSB_NETWORK_STREAM_SOCKET</a></span>
+	<span title="`address' was declared in SOCKET"><span class="nefeature">address</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <span class="nefeature">address_type</span><span class="esymbol">]</span> <span class="ekeyword">detachable</span> <span class="neclass">NETWORK_SOCKET_ADDRESS</span></span>
+	<span title="`address_in_use' was declared in SOCKET_RESOURCES"><span class="nefeature">address_in_use</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`address_not_readable' was declared in SOCKET_RESOURCES"><span class="nefeature">address_not_readable</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`address_type' was declared in NETWORK_SOCKET"><span class="nefeature">address_type</span><span class="esymbol">:</span> <span class="neclass">NETWORK_SOCKET_ADDRESS</span></span>
+	<span title="`already_bound' was declared in SOCKET_RESOURCES"><span class="nefeature">already_bound</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`assertion_violation' was declared in EXCEPTIONS"><span class="nefeature">assertion_violation</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`bad_socket_handle' was declared in SOCKET_RESOURCES"><span class="nefeature">bad_socket_handle</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`boolean_bits' was declared in PLATFORM"><span class="nefeature">boolean_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`boolean_bytes' was declared in PLATFORM"><span class="nefeature">boolean_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`bytes_read' was declared in IO_MEDIUM"><span class="nefeature">bytes_read</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`c_msgdontroute' was declared in SOCKET_RESOURCES"><span class="nefeature">c_msgdontroute</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`c_oobmsg' was declared in SOCKET_RESOURCES"><span class="nefeature">c_oobmsg</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`c_peekmsg' was declared in SOCKET_RESOURCES"><span class="nefeature">c_peekmsg</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`character_32_bits' was declared in PLATFORM"><span class="nefeature">Character_32_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`character_32_bytes' was declared in PLATFORM"><span class="nefeature">Character_32_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`character_8_bits' was declared in PLATFORM"><span class="nefeature">Character_8_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`character_8_bytes' was declared in PLATFORM"><span class="nefeature">Character_8_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`check_instruction' was declared in EXCEP_CONST"><span class="nefeature">Check_instruction</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`class_invariant' was declared in EXCEP_CONST"><span class="nefeature">Class_invariant</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`class_name' was declared in EXCEPTIONS"><span class="nefeature">class_name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`com_exception' was declared in EXCEP_CONST"><span class="nefeature">Com_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`connect_in_progress' was declared in SOCKET_RESOURCES"><span class="nefeature">connect_in_progress</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`connect_timeout' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">connect_timeout</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`connection_refused' was declared in SOCKET_RESOURCES"><span class="nefeature">connection_refused</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`create_any_local' was declared in INET_ADDRESS_FACTORY"><span class="nefeature">create_any_local</span><span class="esymbol">:</span> <span class="neclass">INET_ADDRESS</span></span>
+	<span title="`create_from_address' was declared in INET_ADDRESS_FACTORY"><span class="nefeature">create_from_address</span> <span class="esymbol">(</span><span class="elocal">address</span><span class="esymbol">:</span> <span class="neclass">ARRAY</span> <span class="esymbol">[</span><span class="neclass">NATURAL_8</span><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">INET_ADDRESS</span></span>
+	<span title="`create_from_name' was declared in INET_ADDRESS_FACTORY"><span class="nefeature">create_from_name</span> <span class="esymbol">(</span><span class="elocal">hostname</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">INET_ADDRESS</span></span>
+	<span title="`create_from_sockaddr' was declared in INET_ADDRESS_FACTORY"><span class="nefeature">create_from_sockaddr</span> <span class="esymbol">(</span><span class="elocal">sockaddr</span><span class="esymbol">:</span> <span class="neclass">POINTER</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">INET_ADDRESS</span></span>
+	<span title="`create_localhost' was declared in INET_ADDRESS_FACTORY"><span class="nefeature">create_localhost</span><span class="esymbol">:</span> <span class="neclass">INET_ADDRESS</span></span>
+	<span title="`create_loopback' was declared in INET_ADDRESS_FACTORY"><span class="nefeature">create_loopback</span><span class="esymbol">:</span> <span class="neclass">INET_ADDRESS</span></span>
+	<span title="`create_on_deferred' was declared in EXCEP_CONST"><span class="nefeature">Create_on_deferred</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`debug_enabled' was declared in SOCKET"><span class="nefeature">debug_enabled</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`descriptor' was declared in NETWORK_SOCKET"><span class="nefeature">descriptor</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`descriptor_available' was declared in SOCKET"><span class="nefeature">descriptor_available</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`developer_exception' was declared in EXCEP_CONST"><span class="nefeature">Developer_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`developer_exception_name' was declared in EXCEPTIONS"><span class="nefeature">developer_exception_name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`dollar_applied_to_melted_feature' was declared in EXCEP_CONST"><span class="nefeature">Dollar_applied_to_melted_feature</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`dtable_full' was declared in SOCKET_RESOURCES"><span class="nefeature">dtable_full</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`eiffel_runtime_fatal_error' was declared in EXCEP_CONST"><span class="nefeature">Eiffel_runtime_fatal_error</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`eiffel_runtime_panic' was declared in EXCEP_CONST"><span class="nefeature">Eiffel_runtime_panic</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`error' was declared in SOCKET"><span class="nefeature">error</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`error_number' was declared in SOCKET_RESOURCES"><span class="nefeature">error_number</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`exception' was declared in EXCEPTIONS"><span class="nefeature">exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`exception_in_signal_handler' was declared in EXCEP_CONST"><span class="nefeature">Exception_in_signal_handler</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`exception_manager' was declared in EXCEPTION_MANAGER_FACTORY"><span class="nefeature">Exception_manager</span><span class="esymbol">:</span> <span class="neclass">EXCEPTION_MANAGER</span></span>
+	<span title="`exception_trace' was declared in EXCEPTIONS"><span class="nefeature">exception_trace</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`exists' was declared in NETWORK_SOCKET"><span class="nefeature">exists</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`expired_socket' was declared in SOCKET_RESOURCES"><span class="nefeature">expired_socket</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`extendible' was declared in SOCKET"><span class="nefeature">extendible</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`external_exception' was declared in EXCEP_CONST"><span class="nefeature">External_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`family' was declared in SOCKET"><span class="nefeature">family</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`floating_point_exception' was declared in EXCEP_CONST"><span class="nefeature">Floating_point_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`get_sock_opt_int' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_network_stream_socket.html#f_get_sock_opt_int">get_sock_opt_int</a> <span class="esymbol">(</span><span class="elocal">fdesc</span><span class="esymbol">,</span> <span class="elocal">level</span><span class="esymbol">,</span> <span class="elocal">opt</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`group_id' was declared in SOCKET"><span class="nefeature">group_id</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`has_delay' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">has_delay</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`has_exception_state' was declared in NETWORK_SOCKET"><span class="nefeature">has_exception_state</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`incorrect_inspect_value' was declared in EXCEP_CONST"><span class="nefeature">Incorrect_inspect_value</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`integer_16_bits' was declared in PLATFORM"><span class="nefeature">Integer_16_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`integer_16_bytes' was declared in PLATFORM"><span class="nefeature">Integer_16_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`integer_32_bits' was declared in PLATFORM"><span class="nefeature">Integer_32_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`integer_32_bytes' was declared in PLATFORM"><span class="nefeature">Integer_32_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`integer_64_bits' was declared in PLATFORM"><span class="nefeature">Integer_64_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`integer_64_bytes' was declared in PLATFORM"><span class="nefeature">Integer_64_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`integer_8_bits' was declared in PLATFORM"><span class="nefeature">Integer_8_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`integer_8_bytes' was declared in PLATFORM"><span class="nefeature">Integer_8_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`invalid_address' was declared in SOCKET_RESOURCES"><span class="nefeature">invalid_address</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`invalid_socket_handle' was declared in SOCKET_RESOURCES"><span class="nefeature">invalid_socket_handle</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`io_exception' was declared in EXCEP_CONST"><span class="nefeature">Io_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`is_64_bits' was declared in PLATFORM"><span class="nefeature">is_64_bits</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_blocking' was declared in SOCKET"><span class="nefeature">is_blocking</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_bound' was declared in NETWORK_SOCKET"><span class="nefeature">is_bound</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_closed' was declared in NETWORK_SOCKET"><span class="nefeature">is_closed</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_connected' was declared in NETWORK_SOCKET"><span class="nefeature">is_connected</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_created' was declared in NETWORK_SOCKET"><span class="nefeature">is_created</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_default_timeout' was declared in NETWORK_SOCKET"><span class="nefeature">is_default_timeout</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_developer_exception' was declared in EXCEPTIONS"><span class="nefeature">is_developer_exception</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_developer_exception_of_name' was declared in EXCEPTIONS"><span class="nefeature">is_developer_exception_of_name</span> <span class="esymbol">(</span><span class="elocal">name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_dotnet' was declared in PLATFORM"><span class="nefeature">is_dotnet</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_executable' was declared in SOCKET"><span class="nefeature">is_executable</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_group_id' was declared in SOCKET"><span class="nefeature">is_group_id</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_ipv4_stack_preferred' was declared in INET_PROPERTIES"><span class="nefeature">is_ipv4_stack_preferred</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_ipv6_available' was declared in INET_PROPERTIES"><span class="nefeature">is_ipv6_available</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_linger_on' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">is_linger_on</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_little_endian' was declared in PLATFORM"><span class="nefeature">Is_little_endian</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_mac' was declared in PLATFORM"><span class="nefeature">is_mac</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_open_read' was declared in SOCKET"><span class="nefeature">is_open_read</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_open_write' was declared in SOCKET"><span class="nefeature">is_open_write</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_out_of_band_inline' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">is_out_of_band_inline</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_plain_text' was declared in IO_MEDIUM"><span class="nefeature">is_plain_text</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_process_id' was declared in SOCKET"><span class="nefeature">is_process_id</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_readable' was declared in SOCKET"><span class="nefeature">is_readable</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_scoop_capable' was declared in PLATFORM"><span class="nefeature">is_scoop_capable</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_signal' was declared in EXCEPTIONS"><span class="nefeature">is_signal</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_socket_stream' was declared in SOCKET"><span class="nefeature">is_socket_stream</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_system_exception' was declared in EXCEPTIONS"><span class="nefeature">is_system_exception</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_thread_capable' was declared in PLATFORM"><span class="nefeature">is_thread_capable</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_unix' was declared in PLATFORM"><span class="nefeature">is_unix</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_valid_family' was declared in NETWORK_SOCKET"><span class="nefeature">is_valid_family</span> <span class="esymbol">(</span><span class="elocal">addr</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">attached</span> <span class="ekeyword">like</span> <span class="nefeature">address</span><span class="esymbol">]</span> <span class="ekeyword">attached</span> <span class="neclass">NETWORK_SOCKET_ADDRESS</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_valid_peer_address' was declared in NETWORK_SOCKET"><span class="nefeature">is_valid_peer_address</span> <span class="esymbol">(</span><span class="elocal">addr</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">attached</span> <span class="ekeyword">separate</span> <span class="ekeyword">like</span> <span class="nefeature">address</span><span class="esymbol">]</span> <span class="ekeyword">attached</span> <span class="ekeyword">separate</span> <span class="neclass">NETWORK_SOCKET_ADDRESS</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_valid_timeout_ns' was declared in SOCKET_TIMEOUT_UTILITIES"><span class="nefeature">is_valid_timeout_ns</span> <span class="esymbol">(</span><span class="elocal">ns</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_vms' was declared in PLATFORM"><span class="nefeature">is_vms</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_vxworks' was declared in PLATFORM"><span class="nefeature">is_vxworks</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_windows' was declared in PLATFORM"><span class="nefeature">is_windows</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`is_writable' was declared in SOCKET"><span class="nefeature">is_writable</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`last_boolean' was declared in SOCKET"><span class="nefeature">last_boolean</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`last_character' was declared in IO_MEDIUM"><span class="nefeature">last_character</span><span class="esymbol">:</span> <span class="neclass">CHARACTER_8</span></span>
+	<span title="`last_double' was declared in IO_MEDIUM"><span class="nefeature">last_double</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span></span>
+	<span title="`last_integer' was declared in IO_MEDIUM"><span class="nefeature">last_integer</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`last_integer_16' was declared in IO_MEDIUM"><span class="nefeature">last_integer_16</span><span class="esymbol">:</span> <span class="neclass">INTEGER_16</span></span>
+	<span title="`last_integer_32' was declared in IO_MEDIUM"><span class="nefeature">last_integer_32</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`last_integer_64' was declared in IO_MEDIUM"><span class="nefeature">last_integer_64</span><span class="esymbol">:</span> <span class="neclass">INTEGER_64</span></span>
+	<span title="`last_integer_8' was declared in IO_MEDIUM"><span class="nefeature">last_integer_8</span><span class="esymbol">:</span> <span class="neclass">INTEGER_8</span></span>
+	<span title="`last_natural' was declared in IO_MEDIUM"><span class="nefeature">last_natural</span><span class="esymbol">:</span> <span class="neclass">NATURAL_32</span></span>
+	<span title="`last_natural_16' was declared in IO_MEDIUM"><span class="nefeature">last_natural_16</span><span class="esymbol">:</span> <span class="neclass">NATURAL_16</span></span>
+	<span title="`last_natural_32' was declared in IO_MEDIUM"><span class="nefeature">last_natural_32</span><span class="esymbol">:</span> <span class="neclass">NATURAL_32</span></span>
+	<span title="`last_natural_64' was declared in IO_MEDIUM"><span class="nefeature">last_natural_64</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span></span>
+	<span title="`last_natural_8' was declared in IO_MEDIUM"><span class="nefeature">last_natural_8</span><span class="esymbol">:</span> <span class="neclass">NATURAL_8</span></span>
+	<span title="`last_real' was declared in IO_MEDIUM"><span class="nefeature">last_real</span><span class="esymbol">:</span> <span class="neclass">REAL_32</span></span>
+	<span title="`last_real_32' was declared in IO_MEDIUM"><span class="nefeature">last_real_32</span><span class="esymbol">:</span> <span class="neclass">REAL_32</span></span>
+	<span title="`last_real_64' was declared in IO_MEDIUM"><span class="nefeature">last_real_64</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span></span>
+	<span title="`last_string' was declared in IO_MEDIUM"><span class="nefeature">last_string</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`lastchar' was declared in IO_MEDIUM"><span class="nefeature">lastchar</span><span class="esymbol">:</span> <span class="neclass">CHARACTER_8</span></span>
+	<span title="`lastdouble' was declared in IO_MEDIUM"><span class="nefeature">lastdouble</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span></span>
+	<span title="`lastint' was declared in IO_MEDIUM"><span class="nefeature">lastint</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`lastreal' was declared in IO_MEDIUM"><span class="nefeature">lastreal</span><span class="esymbol">:</span> <span class="neclass">REAL_32</span></span>
+	<span title="`laststring' was declared in IO_MEDIUM"><span class="nefeature">laststring</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <span class="nefeature">last_string</span><span class="esymbol">]</span> <span class="neclass">STRING_8</span></span>
+	<span title="`linger_time' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">linger_time</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`loop_invariant' was declared in EXCEP_CONST"><span class="nefeature">Loop_invariant</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`loop_variant' was declared in EXCEP_CONST"><span class="nefeature">Loop_variant</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`max_timeout_ns_value' was declared in SOCKET_TIMEOUT_UTILITIES"><span class="nefeature">Max_timeout_ns_value</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span></span>
+	<span title="`maximum_seg_size' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">maximum_seg_size</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`meaning' was declared in EXCEPTIONS"><span class="nefeature">meaning</span> <span class="esymbol">(</span><span class="elocal">except</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`name' was declared in SOCKET"><span class="nefeature">name</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span></span>
+	<span title="`nanoseconds_to_seconds' was declared in SOCKET_TIMEOUT_UTILITIES"><span class="nefeature">nanoseconds_to_seconds</span> <span class="esymbol">(</span><span class="elocal">ns</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`natural_16_bits' was declared in PLATFORM"><span class="nefeature">Natural_16_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`natural_16_bytes' was declared in PLATFORM"><span class="nefeature">Natural_16_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`natural_32_bits' was declared in PLATFORM"><span class="nefeature">Natural_32_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`natural_32_bytes' was declared in PLATFORM"><span class="nefeature">Natural_32_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`natural_64_bits' was declared in PLATFORM"><span class="nefeature">Natural_64_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`natural_64_bytes' was declared in PLATFORM"><span class="nefeature">Natural_64_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`natural_8_bits' was declared in PLATFORM"><span class="nefeature">Natural_8_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`natural_8_bytes' was declared in PLATFORM"><span class="nefeature">Natural_8_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`network' was declared in SOCKET_RESOURCES"><span class="nefeature">network</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`no_buffers' was declared in SOCKET_RESOURCES"><span class="nefeature">no_buffers</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`no_more_memory' was declared in EXCEP_CONST"><span class="nefeature">No_more_memory</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`no_permission' was declared in SOCKET_RESOURCES"><span class="nefeature">no_permission</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`not_connected' was declared in SOCKET_RESOURCES"><span class="nefeature">not_connected</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`number_of_codes' was declared in EXCEP_CONST"><span class="nefeature">Number_of_codes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`old_exception' was declared in EXCEP_CONST"><span class="nefeature">Old_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`one_second_in_nanoseconds' was declared in SOCKET_TIMEOUT_UTILITIES"><span class="nefeature">One_second_in_nanoseconds</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span></span>
+	<span title="`operating_system_exception' was declared in EXCEP_CONST"><span class="nefeature">Operating_system_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`original_class_name' was declared in EXCEPTIONS"><span class="nefeature">original_class_name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`original_exception' was declared in EXCEPTIONS"><span class="nefeature">original_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`original_recipient_name' was declared in EXCEPTIONS"><span class="nefeature">original_recipient_name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`original_tag_name' was declared in EXCEPTIONS"><span class="nefeature">original_tag_name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`out_of_memory' was declared in EXCEP_CONST"><span class="nefeature">Out_of_memory</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`peer_address' was declared in SOCKET"><span class="nefeature">peer_address</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <span class="nefeature">address</span><span class="esymbol">]</span> <span class="ekeyword">detachable</span> <span class="neclass">NETWORK_SOCKET_ADDRESS</span></span>
+	<span title="`pointer_bits' was declared in PLATFORM"><span class="nefeature">pointer_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`pointer_bytes' was declared in PLATFORM"><span class="nefeature">pointer_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`port' was declared in NETWORK_SOCKET"><span class="nefeature">port</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`postcondition' was declared in EXCEP_CONST"><span class="nefeature">Postcondition</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`precondition' was declared in EXCEP_CONST"><span class="nefeature">Precondition</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`process_id' was declared in SOCKET"><span class="nefeature">process_id</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`protected_address' was declared in SOCKET_RESOURCES"><span class="nefeature">protected_address</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`protocol' was declared in SOCKET"><span class="nefeature">protocol</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`protocol_not_supported' was declared in SOCKET_RESOURCES"><span class="nefeature">protocol_not_supported</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`read' was declared in SOCKET"><span class="nefeature">read</span> <span class="esymbol">(</span><span class="elocal">size</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">PACKET</span></span>
+	<span title="`readable' was declared in SOCKET"><span class="nefeature">readable</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`ready_for_reading' was declared in NETWORK_SOCKET"><span class="nefeature">ready_for_reading</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`ready_for_writing' was declared in NETWORK_SOCKET"><span class="nefeature">ready_for_writing</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`real_32_bits' was declared in PLATFORM"><span class="nefeature">Real_32_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`real_32_bytes' was declared in PLATFORM"><span class="nefeature">Real_32_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`real_64_bits' was declared in PLATFORM"><span class="nefeature">Real_64_bits</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`real_64_bytes' was declared in PLATFORM"><span class="nefeature">Real_64_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`receive' was declared in SOCKET"><span class="nefeature">receive</span> <span class="esymbol">(</span><span class="elocal">size</span><span class="esymbol">,</span> <span class="elocal">flags</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">PACKET</span></span>
+	<span title="`receive_buf_size' was declared in SOCKET"><span class="nefeature">receive_buf_size</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`recipient_name' was declared in EXCEPTIONS"><span class="nefeature">recipient_name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`recv_timeout_ns' was declared in NETWORK_SOCKET"><span class="nefeature">recv_timeout_ns</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span></span>
+	<span title="`rescue_exception' was declared in EXCEP_CONST"><span class="nefeature">Rescue_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`resumption_failed' was declared in EXCEP_CONST"><span class="nefeature">Resumption_failed</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`retrieve_exception' was declared in EXCEP_CONST"><span class="nefeature">Retrieve_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`retrieved' was declared in SOCKET"><span class="nefeature">retrieved</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">ANY</span></span>
+	<span title="`reuse_address' was declared in NETWORK_SOCKET"><span class="nefeature">reuse_address</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`route_enabled' was declared in SOCKET"><span class="nefeature">route_enabled</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`routine_failure' was declared in EXCEP_CONST"><span class="nefeature">Routine_failure</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`runtime_check_exception' was declared in EXCEP_CONST"><span class="nefeature">Runtime_check_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`runtime_io_exception' was declared in EXCEP_CONST"><span class="nefeature">Runtime_io_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`seconds_to_nanoseconds' was declared in SOCKET_TIMEOUT_UTILITIES"><span class="nefeature">seconds_to_nanoseconds</span> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span></span>
+	<span title="`send_buf_size' was declared in SOCKET"><span class="nefeature">send_buf_size</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`send_timeout_ns' was declared in NETWORK_SOCKET"><span class="nefeature">send_timeout_ns</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span></span>
+	<span title="`serialization_exception' was declared in EXCEP_CONST"><span class="nefeature">Serialization_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`signal_exception' was declared in EXCEP_CONST"><span class="nefeature">Signal_exception</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`socket_family_not_supported' was declared in SOCKET_RESOURCES"><span class="nefeature">socket_family_not_supported</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`socket_in_use' was declared in SOCKET_RESOURCES"><span class="nefeature">socket_in_use</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`socket_ok' was declared in SOCKET"><span class="nefeature">socket_ok</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`socket_would_block' was declared in SOCKET_RESOURCES"><span class="nefeature">socket_would_block</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`support_storable' was declared in STREAM_SOCKET"><span class="nefeature">Support_storable</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`tag_name' was declared in EXCEPTIONS"><span class="nefeature">tag_name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">STRING_8</span></span>
+	<span title="`timeout_ns' was declared in NETWORK_SOCKET"><span class="nefeature">timeout_ns</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span></span>
+	<span title="`type' was declared in SOCKET"><span class="nefeature">type</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`valid_code' was declared in EXCEP_CONST"><span class="nefeature">valid_code</span> <span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`void_assigned_to_expanded' was declared in EXCEP_CONST"><span class="nefeature">Void_assigned_to_expanded</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`void_call_target' was declared in EXCEP_CONST"><span class="nefeature">Void_call_target</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span></span>
+	<span title="`was_error' was declared in SOCKET"><span class="nefeature">was_error</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+	<span title="`zero_option' was declared in SOCKET_RESOURCES"><span class="nefeature">zero_option</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`accept' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_network_stream_socket.html#f_accept">accept</a></span>
+	<span title="`accept_to' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">accept_to</span> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">separate</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">]</span> <span class="ekeyword">separate</span> <a class="eclass" href="../adsb_service/adsb_network_stream_socket_chart.html">ADSB_NETWORK_STREAM_SOCKET</a><span class="esymbol">)</span></span>
+	<span title="`basic_store' was declared in SOCKET"><span class="nefeature">basic_store</span> <span class="esymbol">(</span><span class="elocal">object</span><span class="esymbol">:</span> <span class="neclass">ANY</span><span class="esymbol">)</span></span>
+	<span title="`bind' was declared in NETWORK_SOCKET"><span class="nefeature">bind</span></span>
+	<span title="`catch' was declared in EXCEPTIONS"><span class="nefeature">catch</span> <span class="esymbol">(</span><span class="elocal">code</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`cleanup' was declared in SOCKET"><span class="nefeature">cleanup</span></span>
+	<span title="`close' was declared in SOCKET"><span class="nefeature">close</span></span>
+	<span title="`close_socket' was declared in NETWORK_SOCKET"><span class="nefeature">close_socket</span></span>
+	<span title="`connect' was declared in NETWORK_SOCKET"><span class="nefeature">connect</span></span>
+	<span title="`die' was declared in EXCEPTIONS"><span class="nefeature">die</span> <span class="esymbol">(</span><span class="elocal">code</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`disable_debug' was declared in SOCKET"><span class="nefeature">disable_debug</span></span>
+	<span title="`dispose' was declared in IO_MEDIUM"><span class="nefeature">dispose</span></span>
+	<span title="`do_not_reuse_address' was declared in NETWORK_SOCKET"><span class="nefeature">do_not_reuse_address</span></span>
+	<span title="`do_not_route' was declared in SOCKET"><span class="nefeature">do_not_route</span></span>
+	<span title="`enable_debug' was declared in SOCKET"><span class="nefeature">enable_debug</span></span>
+	<span title="`general_store' was declared in SOCKET"><span class="nefeature">general_store</span> <span class="esymbol">(</span><span class="elocal">object</span><span class="esymbol">:</span> <span class="neclass">ANY</span><span class="esymbol">)</span></span>
+	<span title="`ignore' was declared in EXCEPTIONS"><span class="nefeature">ignore</span> <span class="esymbol">(</span><span class="elocal">code</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`independent_store' was declared in SOCKET"><span class="nefeature">independent_store</span> <span class="esymbol">(</span><span class="elocal">object</span><span class="esymbol">:</span> <span class="neclass">ANY</span><span class="esymbol">)</span></span>
+	<span title="`listen' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">listen</span> <span class="esymbol">(</span><span class="elocal">queue</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`make' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">make</span></span>
+	<span title="`make_client_by_address_and_port' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">make_client_by_address_and_port</span> <span class="esymbol">(</span><span class="elocal">a_peer_address</span><span class="esymbol">:</span> <span class="neclass">INET_ADDRESS</span><span class="esymbol">;</span> <span class="elocal">a_peer_port</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`make_client_by_port' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">make_client_by_port</span> <span class="esymbol">(</span><span class="elocal">a_peer_port</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">;</span> <span class="elocal">a_peer_host</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`make_loopback_server_by_port' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">make_loopback_server_by_port</span> <span class="esymbol">(</span><span class="elocal">a_port</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`make_server_by_address_and_port' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">make_server_by_address_and_port</span> <span class="esymbol">(</span><span class="elocal">a_address</span><span class="esymbol">:</span> <span class="neclass">INET_ADDRESS</span><span class="esymbol">;</span> <span class="elocal">a_port</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`make_server_by_port' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">make_server_by_port</span> <span class="esymbol">(</span><span class="elocal">a_port</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`make_socket' was declared in NETWORK_SOCKET"><span class="nefeature">make_socket</span></span>
+	<span title="`message_on_failure' was declared in EXCEPTIONS"><span class="nefeature">message_on_failure</span></span>
+	<span title="`new_line' was declared in SOCKET"><span class="nefeature">new_line</span></span>
+	<span title="`no_message_on_failure' was declared in EXCEPTIONS"><span class="nefeature">no_message_on_failure</span></span>
+	<span title="`put_boolean' was declared in SOCKET"><span class="nefeature">put_boolean</span> <span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span><span class="esymbol">)</span></span>
+	<span title="`put_character' was declared in SOCKET"><span class="nefeature">put_character</span> <span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">:</span> <span class="neclass">CHARACTER_8</span><span class="esymbol">)</span></span>
+	<span title="`put_double' was declared in SOCKET"><span class="nefeature">put_double</span> <span class="esymbol">(</span><span class="elocal">d</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span></span>
+	<span title="`put_integer' was declared in SOCKET"><span class="nefeature">put_integer</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`put_integer_16' was declared in SOCKET"><span class="nefeature">put_integer_16</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">INTEGER_16</span><span class="esymbol">)</span></span>
+	<span title="`put_integer_32' was declared in SOCKET"><span class="nefeature">put_integer_32</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`put_integer_64' was declared in SOCKET"><span class="nefeature">put_integer_64</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">INTEGER_64</span><span class="esymbol">)</span></span>
+	<span title="`put_integer_8' was declared in SOCKET"><span class="nefeature">put_integer_8</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">INTEGER_8</span><span class="esymbol">)</span></span>
+	<span title="`put_managed_pointer' was declared in SOCKET"><span class="nefeature">put_managed_pointer</span> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <span class="neclass">MANAGED_POINTER</span><span class="esymbol">;</span> <span class="elocal">start_pos</span><span class="esymbol">,</span> <span class="elocal">nb_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`put_natural' was declared in SOCKET"><span class="nefeature">put_natural</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">NATURAL_32</span><span class="esymbol">)</span></span>
+	<span title="`put_natural_16' was declared in SOCKET"><span class="nefeature">put_natural_16</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">NATURAL_16</span><span class="esymbol">)</span></span>
+	<span title="`put_natural_32' was declared in SOCKET"><span class="nefeature">put_natural_32</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">NATURAL_32</span><span class="esymbol">)</span></span>
+	<span title="`put_natural_64' was declared in SOCKET"><span class="nefeature">put_natural_64</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span><span class="esymbol">)</span></span>
+	<span title="`put_natural_8' was declared in SOCKET"><span class="nefeature">put_natural_8</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">NATURAL_8</span><span class="esymbol">)</span></span>
+	<span title="`put_new_line' was declared in SOCKET"><span class="nefeature">put_new_line</span></span>
+	<span title="`put_real' was declared in SOCKET"><span class="nefeature">put_real</span> <span class="esymbol">(</span><span class="elocal">r</span><span class="esymbol">:</span> <span class="neclass">REAL_32</span><span class="esymbol">)</span></span>
+	<span title="`put_real_32' was declared in SOCKET"><span class="nefeature">put_real_32</span> <span class="esymbol">(</span><span class="elocal">r</span><span class="esymbol">:</span> <span class="neclass">REAL_32</span><span class="esymbol">)</span></span>
+	<span title="`put_real_64' was declared in SOCKET"><span class="nefeature">put_real_64</span> <span class="esymbol">(</span><span class="elocal">d</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span></span>
+	<span title="`put_separate_managed_pointer' was declared in SOCKET"><span class="nefeature">put_separate_managed_pointer</span> <span class="esymbol">(</span><span class="elocal">a_pointer</span><span class="esymbol">:</span> <span class="ekeyword">separate</span> <span class="neclass">MANAGED_POINTER</span><span class="esymbol">;</span> <span class="elocal">start_pos</span><span class="esymbol">,</span> <span class="elocal">a_byte_count</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`put_string' was declared in SOCKET"><span class="nefeature">put_string</span> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`putbool' was declared in SOCKET"><span class="nefeature">putbool</span> <span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span><span class="esymbol">)</span></span>
+	<span title="`putchar' was declared in SOCKET"><span class="nefeature">putchar</span> <span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">:</span> <span class="neclass">CHARACTER_8</span><span class="esymbol">)</span></span>
+	<span title="`putdouble' was declared in SOCKET"><span class="nefeature">putdouble</span> <span class="esymbol">(</span><span class="elocal">d</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span></span>
+	<span title="`putint' was declared in SOCKET"><span class="nefeature">putint</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`putreal' was declared in SOCKET"><span class="nefeature">putreal</span> <span class="esymbol">(</span><span class="elocal">r</span><span class="esymbol">:</span> <span class="neclass">REAL_32</span><span class="esymbol">)</span></span>
+	<span title="`putstring' was declared in SOCKET"><span class="nefeature">putstring</span> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <span class="neclass">READABLE_STRING_8</span><span class="esymbol">)</span></span>
+	<span title="`raise' was declared in EXCEPTIONS"><span class="nefeature">raise</span> <span class="esymbol">(</span><span class="elocal">name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span></span>
+	<span title="`raise_retrieval_exception' was declared in EXCEPTIONS"><span class="nefeature">raise_retrieval_exception</span> <span class="esymbol">(</span><span class="elocal">name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_GENERAL</span><span class="esymbol">)</span></span>
+	<span title="`read_boolean' was declared in SOCKET"><span class="nefeature">read_boolean</span></span>
+	<span title="`read_character' was declared in SOCKET"><span class="nefeature">read_character</span></span>
+	<span title="`read_double' was declared in SOCKET"><span class="nefeature">read_double</span></span>
+	<span title="`read_integer' was declared in SOCKET"><span class="nefeature">read_integer</span></span>
+	<span title="`read_integer_16' was declared in SOCKET"><span class="nefeature">read_integer_16</span></span>
+	<span title="`read_integer_32' was declared in SOCKET"><span class="nefeature">read_integer_32</span></span>
+	<span title="`read_integer_64' was declared in SOCKET"><span class="nefeature">read_integer_64</span></span>
+	<span title="`read_integer_8' was declared in SOCKET"><span class="nefeature">read_integer_8</span></span>
+	<span title="`read_line' was declared in SOCKET"><span class="nefeature">read_line</span></span>
+	<span title="`read_line_thread_aware' was declared in IO_MEDIUM"><span class="nefeature">read_line_thread_aware</span></span>
+	<span title="`read_line_until' was declared in SOCKET"><span class="nefeature">read_line_until</span> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`read_natural' was declared in SOCKET"><span class="nefeature">read_natural</span></span>
+	<span title="`read_natural_16' was declared in SOCKET"><span class="nefeature">read_natural_16</span></span>
+	<span title="`read_natural_32' was declared in SOCKET"><span class="nefeature">read_natural_32</span></span>
+	<span title="`read_natural_64' was declared in SOCKET"><span class="nefeature">read_natural_64</span></span>
+	<span title="`read_natural_8' was declared in SOCKET"><span class="nefeature">read_natural_8</span></span>
+	<span title="`read_real' was declared in SOCKET"><span class="nefeature">read_real</span></span>
+	<span title="`read_real_32' was declared in SOCKET"><span class="nefeature">read_real_32</span></span>
+	<span title="`read_real_64' was declared in SOCKET"><span class="nefeature">read_real_64</span></span>
+	<span title="`read_stream' was declared in SOCKET"><span class="nefeature">read_stream</span> <span class="esymbol">(</span><span class="elocal">nb_char</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`read_stream_thread_aware' was declared in IO_MEDIUM"><span class="nefeature">read_stream_thread_aware</span> <span class="esymbol">(</span><span class="elocal">nb_char</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`read_to_managed_pointer' was declared in SOCKET"><span class="nefeature">read_to_managed_pointer</span> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <span class="neclass">MANAGED_POINTER</span><span class="esymbol">;</span> <span class="elocal">start_pos</span><span class="esymbol">,</span> <span class="elocal">nb_bytes</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`read_to_separate_managed_pointer' was declared in SOCKET"><span class="nefeature">read_to_separate_managed_pointer</span> <span class="esymbol">(</span><span class="elocal">a_pointer</span><span class="esymbol">:</span> <span class="ekeyword">separate</span> <span class="neclass">MANAGED_POINTER</span><span class="esymbol">;</span> <span class="elocal">start_pos</span><span class="esymbol">,</span> <span class="elocal">a_byte_count</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`readbool' was declared in SOCKET"><span class="nefeature">readbool</span></span>
+	<span title="`readchar' was declared in SOCKET"><span class="nefeature">readchar</span></span>
+	<span title="`readdouble' was declared in SOCKET"><span class="nefeature">readdouble</span></span>
+	<span title="`readint' was declared in SOCKET"><span class="nefeature">readint</span></span>
+	<span title="`readline' was declared in SOCKET"><span class="nefeature">readline</span></span>
+	<span title="`readreal' was declared in SOCKET"><span class="nefeature">readreal</span></span>
+	<span title="`readstream' was declared in SOCKET"><span class="nefeature">readstream</span> <span class="esymbol">(</span><span class="elocal">nb_char</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`route' was declared in SOCKET"><span class="nefeature">route</span></span>
+	<span title="`send' was declared in SOCKET"><span class="nefeature">send</span> <span class="esymbol">(</span><span class="elocal">a_packet</span><span class="esymbol">:</span> <span class="neclass">PACKET</span><span class="esymbol">;</span> <span class="elocal">flags</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_accept_timeout' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">set_accept_timeout</span> <span class="esymbol">(</span><span class="elocal">a_timeout_ms</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_address' was declared in SOCKET"><span class="nefeature">set_address</span> <span class="esymbol">(</span><span class="elocal">addr</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <span class="nefeature">address</span><span class="esymbol">]</span> <span class="ekeyword">detachable</span> <span class="neclass">NETWORK_SOCKET_ADDRESS</span><span class="esymbol">)</span></span>
+	<span title="`set_blocking' was declared in NETWORK_SOCKET"><span class="nefeature">set_blocking</span></span>
+	<span title="`set_connect_timeout' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">set_connect_timeout</span> <span class="esymbol">(</span><span class="elocal">a_timeout_ms</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_default_timeout' was declared in NETWORK_SOCKET"><span class="nefeature">set_default_timeout</span></span>
+	<span title="`set_delay' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">set_delay</span></span>
+	<span title="`set_ipv4_stack_preferred' was declared in INET_PROPERTIES"><span class="nefeature">set_ipv4_stack_preferred</span> <span class="esymbol">(</span><span class="elocal">preference</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span><span class="esymbol">)</span></span>
+	<span title="`set_linger_off' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">set_linger_off</span></span>
+	<span title="`set_linger_on' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">set_linger_on</span> <span class="esymbol">(</span><span class="elocal">time</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_nodelay' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">set_nodelay</span></span>
+	<span title="`set_non_blocking' was declared in NETWORK_SOCKET"><span class="nefeature">set_non_blocking</span></span>
+	<span title="`set_out_of_band_inline' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">set_out_of_band_inline</span></span>
+	<span title="`set_out_of_band_not_inline' was declared in NETWORK_STREAM_SOCKET"><span class="nefeature">set_out_of_band_not_inline</span></span>
+	<span title="`set_owner' was declared in SOCKET"><span class="nefeature">set_owner</span> <span class="esymbol">(</span><span class="elocal">own</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_peer_address' was declared in SOCKET"><span class="nefeature">set_peer_address</span> <span class="esymbol">(</span><span class="elocal">addr</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">separate</span> <span class="ekeyword">like</span> <span class="nefeature">address</span><span class="esymbol">]</span> <span class="ekeyword">detachable</span> <span class="ekeyword">separate</span> <span class="neclass">NETWORK_SOCKET_ADDRESS</span><span class="esymbol">)</span></span>
+	<span title="`set_receive_buf_size' was declared in SOCKET"><span class="nefeature">set_receive_buf_size</span> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_recv_timeout_ns' was declared in NETWORK_SOCKET"><span class="nefeature">set_recv_timeout_ns</span> <span class="esymbol">(</span><span class="elocal">a_timeout_nanoseconds</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span><span class="esymbol">)</span></span>
+	<span title="`set_reuse_address' was declared in NETWORK_SOCKET"><span class="nefeature">set_reuse_address</span></span>
+	<span title="`set_send_buf_size' was declared in SOCKET"><span class="nefeature">set_send_buf_size</span> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_send_timeout_ns' was declared in NETWORK_SOCKET"><span class="nefeature">set_send_timeout_ns</span> <span class="esymbol">(</span><span class="elocal">a_timeout_nanoseconds</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span><span class="esymbol">)</span></span>
+	<span title="`set_sock_opt_keep_alive_off' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_network_stream_socket.html#f_set_sock_opt_keep_alive_off">set_sock_opt_keep_alive_off</a></span>
+	<span title="`set_sock_opt_keep_alive_on' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_network_stream_socket.html#f_set_sock_opt_keep_alive_on">set_sock_opt_keep_alive_on</a></span>
+	<span title="`set_sock_opt_recv_buffer_size' is declared in `Current'"><a class="efeature" href="../adsb_service/adsb_network_stream_socket.html#f_set_sock_opt_recv_buffer_size">set_sock_opt_recv_buffer_size</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span><span class="esymbol">)</span></span>
+	<span title="`set_timeout_ns' was declared in NETWORK_SOCKET"><span class="nefeature">set_timeout_ns</span> <span class="esymbol">(</span><span class="elocal">a_timeout_nanoseconds</span><span class="esymbol">:</span> <span class="neclass">NATURAL_64</span><span class="esymbol">)</span></span>
+	<span title="`write' was declared in SOCKET"><span class="nefeature">write</span> <span class="esymbol">(</span><span class="elocal">a_packet</span><span class="esymbol">:</span> <span class="neclass">PACKET</span><span class="esymbol">)</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="adsb_network_stream_socket_links.html">Relations</a>
+<a class="nav class" href="adsb_network_stream_socket.html">Text</a>
+<a class="nav class" href="adsb_network_stream_socket_flat.html">Flat</a>
+<a class="nav class" href="adsb_network_stream_socket_short.html">Contracts</a>
+<a class="nav class" href="adsb_network_stream_socket_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="adsb_network_stream_socket"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

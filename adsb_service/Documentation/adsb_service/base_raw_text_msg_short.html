@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {BASE_RAW_TEXT_MSG}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>base_raw_text_msg Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="base_raw_text_msg_chart.html">Chart</a>
+<a class="nav class" href="base_raw_text_msg_links.html">Relations</a>
+<a class="nav class" href="base_raw_text_msg.html">Text</a>
+<a class="nav class" href="base_raw_text_msg_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="base_raw_text_msg_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="base_raw_text_msg"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/base_raw_text_msg_short.html">BASE_RAW_TEXT_MSG</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../adsb_service/base_raw_text_msg_short.html">BASE_RAW_TEXT_MSG</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../adsb_service/base_raw_text_msg_short.html#f_make_from_string">make_from_string</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_text"></a><a class="efeature" href="../adsb_service/base_raw_text_msg_short.html#f_text">text</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span> <span class="ekeyword">assign</span> <a class="efeature" href="../adsb_service/base_raw_text_msg_short.html#f_set_text">set_text</a>
+
+	<a name="f_bin_text"></a><a class="efeature" href="../adsb_service/base_raw_text_msg_short.html#f_bin_text">bin_text</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_hmap"></a><a class="efeature" href="../adsb_service/base_raw_text_msg_short.html#f_hmap">hmap</a><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/hex_to_bin_map_short.html">HEX_TO_BIN_MAP</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Commands</span>
+
+	<a name="f_set_text"></a><a class="efeature" href="../adsb_service/base_raw_text_msg_short.html#f_set_text">set_text</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">t_attached</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="elocal">t</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">text_set</span><span class="esymbol">:</span> <a class="efeature" href="../adsb_service/base_raw_text_msg_short.html#f_text">text</a> <span class="esymbol">=</span> <span class="elocal">t</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/base_raw_text_msg_short.html">BASE_RAW_TEXT_MSG</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="base_raw_text_msg_chart.html">Chart</a>
+<a class="nav class" href="base_raw_text_msg_links.html">Relations</a>
+<a class="nav class" href="base_raw_text_msg.html">Text</a>
+<a class="nav class" href="base_raw_text_msg_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="base_raw_text_msg_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="base_raw_text_msg"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

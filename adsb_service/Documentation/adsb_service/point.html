@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Summary description for {POINT}."/>
+<meta name="author" content=""/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>point Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="point_chart.html">Chart</a>
+<a class="nav class" href="point_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="point_flat.html">Flat</a>
+<a class="nav class" href="point_short.html">Contracts</a>
+<a class="nav class" href="point_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="point"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Summary description for </span><span class="esymbol">{</span><a class="eclass" href="../adsb_service/point.html">POINT</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../adsb_service/point.html">POINT</a>
+
+<span class="ekeyword">inherit</span>
+	<span class="neclass">DOUBLE_MATH</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../adsb_service/point.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../adsb_service/point.html#f_make_from_coordinates">make_from_coordinates</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../adsb_service/point.html#f_make">make</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/point.html#f_x">x</a> <span class="esymbol">:=</span> <span class="enumber">0.0</span>
+			<a class="efeature" href="../adsb_service/point.html#f_y">y</a> <span class="esymbol">:=</span> <span class="enumber">0.0</span>
+			<a class="efeature" href="../adsb_service/point.html#f_z">z</a> <span class="esymbol">:=</span> <span class="enumber">0.0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_coordinates"></a><a class="efeature" href="../adsb_service/point.html#f_make_from_coordinates">make_from_coordinates</a> <span class="esymbol">(</span><span class="elocal">ax</span><span class="esymbol">,</span> <span class="elocal">ay</span><span class="esymbol">,</span> <span class="elocal">az</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/point.html#f_x">x</a> <span class="esymbol">:=</span> <span class="elocal">ax</span>
+			<a class="efeature" href="../adsb_service/point.html#f_y">y</a> <span class="esymbol">:=</span> <span class="elocal">ay</span>
+			<a class="efeature" href="../adsb_service/point.html#f_z">z</a> <span class="esymbol">:=</span> <span class="elocal">az</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_x"></a><a class="efeature" href="../adsb_service/point.html#f_x">x</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_y"></a><a class="efeature" href="../adsb_service/point.html#f_y">y</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+
+	<a name="f_z"></a><a class="efeature" href="../adsb_service/point.html#f_z">z</a><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status</span>
+
+	<a name="f_is_valid"></a><a class="efeature" href="../adsb_service/point.html#f_is_valid">is_valid</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">not</span> <span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_x">x</a><span class="edot">.</span><span class="nefeature">is_nan</span> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/point.html#f_x">x</a><span class="edot">.</span><span class="nefeature">is_negative_infinity</span> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/point.html#f_x">x</a><span class="edot">.</span><span class="nefeature">is_positive_infinity</span><span class="esymbol">)</span> <span class="ekeyword">and</span> <span class="ekeyword">not</span> <span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_y">y</a><span class="edot">.</span><span class="nefeature">is_nan</span> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/point.html#f_y">y</a><span class="edot">.</span><span class="nefeature">is_negative_infinity</span> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/point.html#f_y">y</a><span class="edot">.</span><span class="nefeature">is_positive_infinity</span><span class="esymbol">)</span> <span class="ekeyword">and</span> <span class="ekeyword">not</span> <span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_z">z</a><span class="edot">.</span><span class="nefeature">is_nan</span> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/point.html#f_z">z</a><span class="edot">.</span><span class="nefeature">is_negative_infinity</span> <span class="ekeyword">or</span> <a class="efeature" href="../adsb_service/point.html#f_z">z</a><span class="edot">.</span><span class="nefeature">is_positive_infinity</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Commands</span>
+
+	<a name="f_setx"></a><a class="efeature" href="../adsb_service/point.html#f_setx">setx</a> <span class="esymbol">(</span><span class="elocal">ax</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/point.html#f_x">x</a> <span class="esymbol">:=</span> <span class="elocal">ax</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_sety"></a><a class="efeature" href="../adsb_service/point.html#f_sety">sety</a> <span class="esymbol">(</span><span class="elocal">ay</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/point.html#f_y">y</a> <span class="esymbol">:=</span> <span class="elocal">ay</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_setz"></a><a class="efeature" href="../adsb_service/point.html#f_setz">setz</a> <span class="esymbol">(</span><span class="elocal">az</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/point.html#f_z">z</a> <span class="esymbol">:=</span> <span class="elocal">az</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_transform"></a><a class="efeature" href="../adsb_service/point.html#f_transform">transform</a> <span class="esymbol">(</span><span class="elocal">pj4src</span><span class="esymbol">,</span> <span class="elocal">pj4dst</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">pj_const</span><span class="esymbol">:</span> <span class="neclass">PROJ_CONSTANTS</span>
+			<span class="elocal">pj</span><span class="esymbol">:</span> <span class="neclass">PROJ_EXTERNALS</span>
+			<span class="elocal">pjsrc</span><span class="esymbol">:</span> <span class="neclass">POINTER</span>
+			<span class="elocal">pjdst</span><span class="esymbol">:</span> <span class="neclass">POINTER</span>
+			<span class="elocal">px</span><span class="esymbol">,</span> <span class="elocal">py</span><span class="esymbol">,</span> <span class="elocal">pz</span><span class="esymbol">:</span> <span class="neclass">MANAGED_POINTER</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">pj_const</span>
+			<span class="ekeyword">create</span> <span class="elocal">pj</span>
+			<span class="elocal">pjsrc</span> <span class="esymbol">:=</span> <span class="elocal">pj</span><span class="edot">.</span><span class="nefeature">c_pj_init_plus</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pj4src</span><span class="edot">.</span><span class="nefeature">area</span><span class="edot">.</span><span class="nefeature">base_address</span><span class="esymbol">)</span>
+			<span class="elocal">pjdst</span> <span class="esymbol">:=</span> <span class="elocal">pj</span><span class="edot">.</span><span class="nefeature">c_pj_init_plus</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pj4dst</span><span class="edot">.</span><span class="nefeature">area</span><span class="edot">.</span><span class="nefeature">base_address</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">px</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">8</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">py</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">8</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">pz</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">8</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">pj</span><span class="edot">.</span><span class="nefeature">c_pj_is_latlong</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pjsrc</span><span class="esymbol">)</span> <span class="ekeyword">and</span> <span class="elocal">pj</span><span class="edot">.</span><span class="nefeature">c_pj_is_geocent</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pjdst</span><span class="esymbol">)</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../adsb_service/point.html#f_x">x</a> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/point.html#f_x">x</a> <span class="esymbol">*</span> <span class="elocal">pj_const</span><span class="edot">.</span><span class="nefeature">pj_deg_to_rad</span>
+				<a class="efeature" href="../adsb_service/point.html#f_y">y</a> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/point.html#f_y">y</a> <span class="esymbol">*</span> <span class="elocal">pj_const</span><span class="edot">.</span><span class="nefeature">pj_deg_to_rad</span><span class="esymbol">;</span>
+				<span class="elocal">px</span><span class="edot">.</span><span class="nefeature">put_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_x">x</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">py</span><span class="edot">.</span><span class="nefeature">put_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_y">y</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">pz</span><span class="edot">.</span><span class="nefeature">put_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_z">z</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">pj</span><span class="edot">.</span><span class="nefeature">c_pj_transform</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pjsrc</span><span class="esymbol">,</span> <span class="elocal">pjdst</span><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="elocal">px</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol">,</span> <span class="elocal">py</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol">,</span> <span class="elocal">pz</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol">)</span>
+				<a class="efeature" href="../adsb_service/point.html#f_x">x</a> <span class="esymbol">:=</span> <span class="elocal">px</span><span class="edot">.</span><span class="nefeature">read_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+				<a class="efeature" href="../adsb_service/point.html#f_y">y</a> <span class="esymbol">:=</span> <span class="elocal">py</span><span class="edot">.</span><span class="nefeature">read_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+				<a class="efeature" href="../adsb_service/point.html#f_z">z</a> <span class="esymbol">:=</span> <span class="elocal">pz</span><span class="edot">.</span><span class="nefeature">read_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">px</span><span class="edot">.</span><span class="nefeature">dispose</span><span class="esymbol">;</span>
+				<span class="elocal">py</span><span class="edot">.</span><span class="nefeature">dispose</span><span class="esymbol">;</span>
+				<span class="elocal">pz</span><span class="edot">.</span><span class="nefeature">dispose</span>
+			<span class="ekeyword">elseif</span> <span class="elocal">pj</span><span class="edot">.</span><span class="nefeature">c_pj_is_geocent</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pjsrc</span><span class="esymbol">)</span> <span class="ekeyword">and</span> <span class="elocal">pj</span><span class="edot">.</span><span class="nefeature">c_pj_is_latlong</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pjdst</span><span class="esymbol">)</span> <span class="ekeyword">then</span>
+				<span class="elocal">px</span><span class="edot">.</span><span class="nefeature">put_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_x">x</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">py</span><span class="edot">.</span><span class="nefeature">put_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_y">y</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">pz</span><span class="edot">.</span><span class="nefeature">put_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_z">z</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">pj</span><span class="edot">.</span><span class="nefeature">c_pj_transform</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pjdst</span><span class="esymbol">,</span> <span class="elocal">pjsrc</span><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="elocal">px</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol">,</span> <span class="elocal">py</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol">,</span> <span class="elocal">pz</span><span class="edot">.</span><span class="nefeature">item</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">px</span><span class="edot">.</span><span class="nefeature">put_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">px</span><span class="edot">.</span><span class="nefeature">read_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span> <span class="esymbol">*</span> <span class="elocal">pj_const</span><span class="edot">.</span><span class="nefeature">pj_rad_to_deg</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">py</span><span class="edot">.</span><span class="nefeature">put_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">py</span><span class="edot">.</span><span class="nefeature">read_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span> <span class="esymbol">*</span> <span class="elocal">pj_const</span><span class="edot">.</span><span class="nefeature">pj_rad_to_deg</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+				<a class="efeature" href="../adsb_service/point.html#f_x">x</a> <span class="esymbol">:=</span> <span class="elocal">px</span><span class="edot">.</span><span class="nefeature">read_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+				<a class="efeature" href="../adsb_service/point.html#f_y">y</a> <span class="esymbol">:=</span> <span class="elocal">py</span><span class="edot">.</span><span class="nefeature">read_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+				<a class="efeature" href="../adsb_service/point.html#f_z">z</a> <span class="esymbol">:=</span> <span class="elocal">pz</span><span class="edot">.</span><span class="nefeature">read_real_64</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span><span class="esymbol">;</span>
+			<span class="elocal">pj</span><span class="edot">.</span><span class="nefeature">c_pj_free</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pjsrc</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="elocal">pj</span><span class="edot">.</span><span class="nefeature">c_pj_free</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pjdst</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_distance"></a><a class="efeature" href="../adsb_service/point.html#f_distance">distance</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">;</span> <span class="elocal">d3</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">d3</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="nefeature">sqrt</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_pow">pow</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_x">x</a> <span class="esymbol">-</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../adsb_service/point.html#f_x">x</a><span class="esymbol">,</span> <span class="enumber">2.0</span><span class="esymbol">)</span> <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/point.html#f_pow">pow</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_y">y</a> <span class="esymbol">-</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../adsb_service/point.html#f_y">y</a><span class="esymbol">,</span> <span class="enumber">2.0</span><span class="esymbol">)</span> <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/point.html#f_pow">pow</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_z">z</a> <span class="esymbol">-</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../adsb_service/point.html#f_z">z</a><span class="esymbol">,</span> <span class="enumber">2.0</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="nefeature">sqrt</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_pow">pow</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_x">x</a> <span class="esymbol">-</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../adsb_service/point.html#f_x">x</a><span class="esymbol">,</span> <span class="enumber">2.0</span><span class="esymbol">)</span> <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/point.html#f_pow">pow</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/point.html#f_y">y</a> <span class="esymbol">-</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../adsb_service/point.html#f_y">y</a><span class="esymbol">,</span> <span class="enumber">2.0</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_to_wkt"></a><a class="efeature" href="../adsb_service/point.html#f_to_wkt">to_wkt</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;POINT(&quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/point.html#f_x">x</a><span class="edot">.</span><span class="nefeature">out</span> <span class="esymbol">+</span> &quot; &quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/point.html#f_y">y</a><span class="edot">.</span><span class="nefeature">out</span> <span class="esymbol">+</span> &quot; &quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/point.html#f_z">z</a><span class="edot">.</span><span class="nefeature">out</span> <span class="esymbol">+</span> &quot;)&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_from_wkt"></a><a class="efeature" href="../adsb_service/point.html#f_from_wkt">from_wkt</a> <span class="esymbol">(</span><span class="elocal">wkt</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">text</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="elocal">tokens</span><span class="esymbol">:</span> <span class="neclass">LIST</span> <span class="esymbol">[</span><span class="neclass">STRING_8</span><span class="esymbol">]</span>
+		<span class="ekeyword">do</span>
+			<span class="elocal">text</span> <span class="esymbol">:=</span> <span class="elocal">wkt</span><span class="esymbol">;</span>
+			<span class="elocal">text</span><span class="edot">.</span><span class="nefeature">prune_all</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'('</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="elocal">text</span><span class="edot">.</span><span class="nefeature">prune_all</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">')'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<span class="elocal">text</span><span class="edot">.</span><span class="nefeature">replace_substring_all</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;POINT&quot;<span class="esymbol">,</span> &quot;&quot;<span class="esymbol">)</span>
+			<span class="elocal">tokens</span> <span class="esymbol">:=</span> <span class="elocal">text</span><span class="edot">.</span><span class="nefeature">split</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">' '</span><span class="edot">.</span><span class="nefeature">to_character_32</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">tokens</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_x <span class="ekeyword">and then</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">tokens</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">2</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_y <span class="ekeyword">and then</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">tokens</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">3</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_z <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_x</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+					<a class="efeature" href="../adsb_service/point.html#f_x">x</a> <span class="esymbol">:=</span> <span class="elocal">l_x</span><span class="edot">.</span><span class="nefeature">to_double</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_y</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+					<a class="efeature" href="../adsb_service/point.html#f_y">y</a> <span class="esymbol">:=</span> <span class="elocal">l_y</span><span class="edot">.</span><span class="nefeature">to_double</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_z</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+					<a class="efeature" href="../adsb_service/point.html#f_z">z</a> <span class="esymbol">:=</span> <span class="elocal">l_z</span><span class="edot">.</span><span class="nefeature">to_double</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> 
+
+	<a name="f_pow"></a><a class="efeature" href="../adsb_service/point.html#f_pow">pow</a> <span class="esymbol">(</span><span class="elocal">base</span><span class="esymbol">,</span> <span class="elocal">exponent</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">REAL_64</span>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;math.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;pow($base, $exponent)&quot;
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/point.html">POINT</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="point_chart.html">Chart</a>
+<a class="nav class" href="point_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="point_flat.html">Flat</a>
+<a class="nav class" href="point_short.html">Contracts</a>
+<a class="nav class" href="point_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="point"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

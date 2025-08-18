@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="adsb_service application root class"/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>adsb_service_application Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="adsb_service_application_chart.html">Chart</a>
+<a class="nav class" href="adsb_service_application_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="adsb_service_application_flat.html">Flat</a>
+<a class="nav class" href="adsb_service_application_short.html">Contracts</a>
+<a class="nav class" href="adsb_service_application_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="adsb_service_application"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;adsb_service application root class&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../adsb_service/adsb_service_application.html">ADSB_SERVICE_APPLICATION</a>
+
+<span class="ekeyword">inherit</span>
+	<span class="neclass">ARGUMENTS_32</span>
+
+	<span class="neclass">LOG_PRIORITY_CONSTANTS</span>
+
+	<span class="neclass">CURL_EXTERNALS</span>
+
+	<span class="neclass">CURL_EASY_EXTERNALS</span>
+
+	<span class="neclass">CURL_OPT_CONSTANTS</span>
+
+	<span class="neclass">CURL_CODES</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../adsb_service/adsb_service_application.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Init	ialization</span>
+
+	<a name="f_init_log"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_init_log">init_log</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_log_path">log_path</a><span class="edot">.</span><span class="nefeature">make_from_string</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;/home/buck/adsb_service.log&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_log_writer">log_writer</a><span class="edot">.</span><span class="nefeature">make_at_location</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_log_path">log_path</a><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/adsb_service_application.html#f_log_writer">log_writer</a><span class="edot">.</span><span class="nefeature">enable_information_log_level</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/adsb_service_application.html#f_log_writer">log_writer</a><span class="edot">.</span><span class="nefeature">set_max_file_size</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">(</span><span class="enumber">1024</span> <span class="esymbol">*</span> <span class="enumber">1024</span> <span class="esymbol">*</span> <span class="enumber">100</span><span class="esymbol">)</span><span class="edot">.</span><span class="nefeature">to_natural_64</span><span class="esymbol">)</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/adsb_service_application.html#f_log_writer">log_writer</a><span class="edot">.</span><span class="nefeature">set_max_backup_count</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">5</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol">;</span>
+			<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">register_log_writer</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_log_writer">log_writer</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_load_preferences"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_load_preferences">load_preferences</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">ph</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">pp</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">pap</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">pt</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">ptp</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">pau</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">pu</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">pw</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">pru</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">pjlatlon</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">pjproj</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">mrtstr</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">distthres</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">refarpt</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">READABLE_STRING_32</span>
+			<span class="elocal">tokens</span><span class="esymbol">:</span> <span class="neclass">LIST</span> <span class="esymbol">[</span><span class="neclass">STRING_8</span><span class="esymbol">]</span>
+			<span class="elocal">mrtbuf</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="elocal">tout</span><span class="esymbol">:</span> <span class="neclass">INTEGER_64</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs_storage">prefs_storage</a><span class="edot">.</span><a class="efeature" href="../storage/preferences_storage_xml.html#f_make_with_location">make_with_location</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;/home/buck/adsb_service.xml&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_make_with_storage">make_with_storage</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs_storage">prefs_storage</a><span class="esymbol">)</span>
+			<a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs_manager">prefs_manager</a> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_new_manager">new_manager</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;adsb&quot;<span class="esymbol">)</span>
+			<span class="elocal">ph</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;host&quot;<span class="esymbol">)</span>
+			<span class="elocal">pp</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;port&quot;<span class="esymbol">)</span>
+			<span class="elocal">pap</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;adsbproto&quot;<span class="esymbol">)</span>
+			<span class="elocal">pt</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;timeout&quot;<span class="esymbol">)</span>
+			<span class="elocal">ptp</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;trackspath&quot;<span class="esymbol">)</span>
+			<span class="elocal">pau</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;authurl&quot;<span class="esymbol">)</span>
+			<span class="elocal">pu</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;authusr&quot;<span class="esymbol">)</span>
+			<span class="elocal">pw</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;authpwd&quot;<span class="esymbol">)</span>
+			<span class="elocal">pru</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;routesurl&quot;<span class="esymbol">)</span>
+			<span class="elocal">pjlatlon</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;pj4geo&quot;<span class="esymbol">)</span>
+			<span class="elocal">pjproj</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;pj4proj&quot;<span class="esymbol">)</span>
+			<span class="elocal">mrtstr</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;mrt&quot;<span class="esymbol">)</span>
+			<span class="elocal">distthres</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;distance_threshold&quot;<span class="esymbol">)</span>
+			<span class="elocal">refarpt</span> <span class="esymbol">:=</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="edot">.</span><a class="efeature" href="../preferences/preferences.html#f_get_preference_value_direct">get_preference_value_direct</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;refarpt&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">ph</span> <span class="ekeyword">as</span> l_ph <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">pp</span> <span class="ekeyword">as</span> l_pp <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">pap</span> <span class="ekeyword">as</span> l_pap <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">pt</span> <span class="ekeyword">as</span> l_pt <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">ptp</span> <span class="ekeyword">as</span> l_ptp <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">pau</span> <span class="ekeyword">as</span> l_pau <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">pu</span> <span class="ekeyword">as</span> l_pu <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">pw</span> <span class="ekeyword">as</span> l_pw <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">pru</span> <span class="ekeyword">as</span> l_pru <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">pjlatlon</span> <span class="ekeyword">as</span> l_pjlatlon <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">pjproj</span> <span class="ekeyword">as</span> l_pjproj <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">mrtstr</span> <span class="ekeyword">as</span> l_mrtstr <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">distthres</span> <span class="ekeyword">as</span> l_dist <span class="ekeyword">and</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">READABLE_STRING_32</span><span class="esymbol">}</span> <span class="elocal">refarpt</span> <span class="ekeyword">as</span> l_arpt <span class="ekeyword">then</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;host:               &quot; <span class="esymbol">+</span> <span class="elocal">l_ph</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;port:               &quot; <span class="esymbol">+</span> <span class="elocal">l_pp</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;adsb protocol:      &quot; <span class="esymbol">+</span> <span class="elocal">l_pap</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;timeout:            &quot; <span class="esymbol">+</span> <span class="elocal">l_pt</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;tracks path:        &quot; <span class="esymbol">+</span> <span class="elocal">l_ptp</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;auth url:           &quot; <span class="esymbol">+</span> <span class="elocal">l_pau</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;auth usr:           &quot; <span class="esymbol">+</span> <span class="elocal">l_pu</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;auth pwd:           ******&quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;routes url:         &quot; <span class="esymbol">+</span> <span class="elocal">l_pru</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;pj4 geo:            &quot; <span class="esymbol">+</span> <span class="elocal">l_pjlatlon</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;pj4 proj:           &quot; <span class="esymbol">+</span> <span class="elocal">l_pjproj</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;mrt:                &quot; <span class="esymbol">+</span> <span class="elocal">l_mrtstr</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;distance threshold: &quot; <span class="esymbol">+</span> <span class="elocal">l_dist</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;reference airport:  &quot; <span class="esymbol">+</span> <span class="elocal">l_arpt</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">)</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_host">host</a> <span class="esymbol">:=</span> <span class="elocal">l_ph</span><span class="edot">.</span><span class="nefeature">to_string_8</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_port">port</a> <span class="esymbol">:=</span> <span class="elocal">l_pp</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_adsb_proto">adsb_proto</a> <span class="esymbol">:=</span> <span class="elocal">l_pap</span><span class="edot">.</span><span class="nefeature">to_string_8</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_timeout">timeout</a> <span class="esymbol">:=</span> <span class="elocal">l_pt</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_tracks_path">tracks_path</a> <span class="esymbol">:=</span> <span class="elocal">l_ptp</span><span class="edot">.</span><span class="nefeature">to_string_8</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_url">auth_url</a> <span class="esymbol">:=</span> <span class="elocal">l_pau</span><span class="edot">.</span><span class="nefeature">to_string_8</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_usr">auth_usr</a> <span class="esymbol">:=</span> <span class="elocal">l_pu</span><span class="edot">.</span><span class="nefeature">to_string_8</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_pwd">auth_pwd</a> <span class="esymbol">:=</span> <span class="elocal">l_pw</span><span class="edot">.</span><span class="nefeature">to_string_8</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_routes_url">routes_url</a> <span class="esymbol">:=</span> <span class="elocal">l_pru</span><span class="edot">.</span><span class="nefeature">to_string_8</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_pj4geo">pj4geo</a> <span class="esymbol">:=</span> <span class="elocal">l_pjlatlon</span><span class="edot">.</span><span class="nefeature">to_string_8</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_pj4proj">pj4proj</a> <span class="esymbol">:=</span> <span class="elocal">l_pjproj</span><span class="edot">.</span><span class="nefeature">to_string_8</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_distance_threshold">distance_threshold</a> <span class="esymbol">:=</span> <span class="elocal">l_dist</span><span class="edot">.</span><span class="nefeature">to_integer</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_ref_arpt">ref_arpt</a> <span class="esymbol">:=</span> <span class="elocal">l_arpt</span><span class="edot">.</span><span class="nefeature">to_string_8</span>
+				<span class="elocal">mrtbuf</span> <span class="esymbol">:=</span> <span class="elocal">l_mrtstr</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="esymbol">;</span>
+				<span class="elocal">mrtbuf</span><span class="edot">.</span><span class="nefeature">prune_all</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'('</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">mrtbuf</span><span class="edot">.</span><span class="nefeature">prune_all</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">')'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="elocal">mrtbuf</span><span class="edot">.</span><span class="nefeature">replace_substring_all</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;POINT&quot;<span class="esymbol">,</span> &quot;&quot;<span class="esymbol">)</span>
+				<span class="elocal">tokens</span> <span class="esymbol">:=</span> <span class="elocal">mrtbuf</span><span class="edot">.</span><span class="nefeature">to_string_8</span><span class="edot">.</span><span class="nefeature">split</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">' '</span><span class="edot">.</span><span class="nefeature">to_character_32</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">tokens</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_x <span class="ekeyword">and then</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">tokens</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">2</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_y <span class="ekeyword">and then</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="neclass">STRING_8</span><span class="esymbol">}</span> <span class="elocal">tokens</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">3</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_z <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="elocal">l_x</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+						<a class="efeature" href="../adsb_service/adsb_service_application.html#f_mrt">mrt</a><span class="edot">.</span><a class="efeature" href="../adsb_service/point.html#f_setx">setx</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_x</span><span class="edot">.</span><span class="nefeature">to_double</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+					<span class="ekeyword">if</span> <span class="elocal">l_y</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+						<a class="efeature" href="../adsb_service/adsb_service_application.html#f_mrt">mrt</a><span class="edot">.</span><a class="efeature" href="../adsb_service/point.html#f_sety">sety</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_y</span><span class="edot">.</span><span class="nefeature">to_double</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+					<span class="ekeyword">if</span> <span class="elocal">l_z</span><span class="edot">.</span><span class="nefeature">is_double</span> <span class="ekeyword">then</span>
+						<a class="efeature" href="../adsb_service/adsb_service_application.html#f_mrt">mrt</a><span class="edot">.</span><a class="efeature" href="../adsb_service/point.html#f_setz">setz</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_z</span><span class="edot">.</span><span class="nefeature">to_double</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">not</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_retrieve_auth_token">retrieve_auth_token</a> <span class="ekeyword">then</span>
+					<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_SERVICE_APPLICATION}.load_preferences unable to retrieve auth_token, retry in a few seconds&quot;<span class="esymbol">)</span>
+					<span class="elocal">tout</span> <span class="esymbol">:=</span> <span class="enumber">10</span> <span class="esymbol">*</span> <span class="enumber">1000</span> <span class="esymbol">*</span> <span class="enumber">1000000</span><span class="edot">.</span><span class="nefeature">to_integer_64</span>
+					<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="elocal">tout</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">else</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">put_string</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;FATAL: preferences file not found&quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+				<span class="nefeature">Io</span><span class="edot">.</span><span class="nefeature">put_new_line</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Run application.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">af</span><span class="esymbol">:</span> <span class="neclass">INET_ADDRESS_FACTORY</span>
+			<span class="elocal">tout</span><span class="esymbol">:</span> <span class="neclass">INTEGER_64</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../adsb_service/adsb_service_application.html#f_init_log">init_log</a>
+			<span class="ekeyword">create</span> <span class="elocal">af</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_host">host</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_adsb_proto">adsb_proto</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_tracks_path">tracks_path</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_url">auth_url</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_usr">auth_usr</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_pwd">auth_pwd</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="edot">.</span><a class="efeature" href="../adsb_service/auth_token.html#f_make">make</a>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_routes_url">routes_url</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_pj4geo">pj4geo</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_pj4proj">pj4proj</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_ref_arpt">ref_arpt</a><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_mrt">mrt</a><span class="edot">.</span><a class="efeature" href="../adsb_service/point.html#f_make">make</a>
+			<span class="elocal">tout</span> <span class="esymbol">:=</span> <span class="enumber">10</span> <span class="esymbol">*</span> <span class="enumber">1000</span> <span class="esymbol">*</span> <span class="enumber">1000000</span><span class="edot">.</span><span class="nefeature">to_integer_64</span>
+			<span class="ekeyword">from</span>
+			<span class="ekeyword">until</span>
+				<span class="ekeyword">not</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_load_preferences">load_preferences</a>
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">from</span>
+				<span class="ekeyword">until</span>
+					<span class="ekeyword">False</span>
+				<span class="ekeyword">loop</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">af</span><span class="edot">.</span><span class="nefeature">create_from_name</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_host">host</a><span class="esymbol">)</span> <span class="ekeyword">as</span> l_peer_address <span class="ekeyword">then</span>
+						<span class="ekeyword">if</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_adsb_proto">adsb_proto</a><span class="edot">.</span><span class="nefeature">is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;SBS&quot;<span class="esymbol">)</span> <span class="ekeyword">then</span>
+							<a class="efeature" href="../adsb_service/adsb_service_application.html#f_run_sbs">run_sbs</a>
+						<span class="ekeyword">else</span>
+							<a class="efeature" href="../adsb_service/adsb_service_application.html#f_run_raw">run_raw</a>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">else</span>
+						<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_SERVICE_APPLICATION}.make Network could be down or host unreachable&quot;<span class="esymbol">)</span><span class="esymbol">;</span>
+						<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_error</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_SERVICE_APPLICATION}.make &quot; <span class="esymbol">+</span> <span class="elocal">af</span><span class="edot">.</span><span class="nefeature">error_number</span><span class="edot">.</span><span class="nefeature">out</span> <span class="esymbol">+</span> &quot; - &quot; <span class="esymbol">+</span> <span class="elocal">af</span><span class="edot">.</span><span class="nefeature">error</span><span class="esymbol">)</span>
+						<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="elocal">tout</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span><span class="esymbol">;</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_SERVICE_APPLICATION}.make preferences not loaded, retry in a few seconds&quot;<span class="esymbol">)</span>
+				<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="elocal">tout</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_retrieve_auth_token"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_retrieve_auth_token">retrieve_auth_token</a><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">postfields</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="elocal">res</span><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+			<span class="elocal">slist</span><span class="esymbol">:</span> <span class="neclass">POINTER</span>
+			<span class="elocal">useragent</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="elocal">tk</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="elocal">data</span><span class="esymbol">:</span> <span class="neclass">CURL_STRING</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">create</span> <span class="elocal">tk</span><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <span class="elocal">data</span><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="ekeyword">create</span> <span class="elocal">postfields</span><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="elocal">postfields</span> <span class="esymbol">:=</span> &quot;{%&quot;user%&quot;: %&quot;&quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_usr">auth_usr</a> <span class="esymbol">+</span> &quot;%&quot;,%&quot;password%&quot;: %&quot;&quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_pwd">auth_pwd</a> <span class="esymbol">+</span> &quot;%&quot;}&quot;
+			<span class="ekeyword">create</span> <span class="elocal">useragent</span><span class="edot">.</span><span class="nefeature">make_empty</span>
+			<span class="elocal">useragent</span> <span class="esymbol">:=</span> &quot;adsb service&quot;
+			<span class="ekeyword">if</span> <span class="nefeature">is_api_available</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a> <span class="esymbol">:=</span> <span class="nefeature">init</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">not</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="edot">.</span><span class="nefeature">is_default_pointer</span> <span class="ekeyword">then</span>
+					<span class="nefeature">setopt_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">,</span> <span class="nefeature">curlopt_url</span><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_url">auth_url</a><span class="esymbol">)</span>
+					<span class="elocal">slist</span> <span class="esymbol">:=</span> <span class="nefeature">slist_append</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">slist</span><span class="esymbol">,</span> &quot;Accept:&quot;<span class="esymbol">)</span>
+					<span class="elocal">slist</span> <span class="esymbol">:=</span> <span class="nefeature">slist_append</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">slist</span><span class="esymbol">,</span> &quot;Content-Type: application/json&quot;<span class="esymbol">)</span>
+					<span class="nefeature">setopt_slist</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">,</span> <span class="nefeature">curlopt_httpheader</span><span class="esymbol">,</span> <span class="elocal">slist</span><span class="esymbol">)</span>
+					<span class="nefeature">setopt_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">,</span> <span class="nefeature">curlopt_postfields</span><span class="esymbol">,</span> <span class="elocal">postfields</span><span class="esymbol">)</span>
+					<span class="nefeature">setopt_integer</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">,</span> <span class="nefeature">curlopt_ssl_verifypeer</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+					<span class="nefeature">setopt_integer</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">,</span> <span class="nefeature">curlopt_ssl_verifyhost</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+					<span class="nefeature">setopt_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">,</span> <span class="nefeature">curlopt_useragent</span><span class="esymbol">,</span> <span class="elocal">useragent</span><span class="esymbol">)</span>
+					<span class="nefeature">setopt_integer</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">,</span> <span class="nefeature">curlopt_fresh_connect</span><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">)</span>
+					<span class="nefeature">setopt_integer</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">,</span> <span class="nefeature">curlopt_forbid_reuse</span><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">)</span>
+					<span class="nefeature">setopt_integer</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">,</span> <span class="nefeature">curlopt_buffersize</span><span class="esymbol">,</span> <span class="enumber">1024</span><span class="esymbol">)</span>
+					<span class="nefeature">set_write_function</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">)</span>
+					<span class="nefeature">setopt_curl_string</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">,</span> <span class="nefeature">curlopt_writedata</span><span class="esymbol">,</span> <span class="elocal">data</span><span class="esymbol">)</span>
+					<span class="elocal">res</span> <span class="esymbol">:=</span> <span class="nefeature">perform</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">)</span>
+					<span class="ekeyword">if</span> <span class="elocal">res</span> <span class="esymbol">/=</span> <span class="nefeature">Curle_ok</span> <span class="ekeyword">then</span>
+						<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_error</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;cURL error &quot; <span class="esymbol">+</span> <span class="elocal">res</span><span class="edot">.</span><span class="nefeature">out</span><span class="esymbol">)</span>
+					<span class="ekeyword">else</span>
+						<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;auth token request response: &quot; <span class="esymbol">+</span> <span class="elocal">data</span><span class="esymbol">)</span>
+						<span class="elocal">tk</span> <span class="esymbol">:=</span> <span class="elocal">data</span><span class="edot">.</span><span class="nefeature">split</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">':'</span><span class="edot">.</span><span class="nefeature">to_character_32</span><span class="esymbol">)</span><span class="edot">.</span><span class="nefeature">at</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">2</span><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">tk</span><span class="edot">.</span><span class="nefeature">prune_all</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'&quot;'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">tk</span><span class="edot">.</span><span class="nefeature">prune_all</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'}'</span><span class="esymbol">)</span><span class="esymbol">;</span>
+						<a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="edot">.</span><a class="efeature" href="../adsb_service/auth_token.html#f_set_token">set_token</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">tk</span><span class="esymbol">)</span><span class="esymbol">;</span>
+						<a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="edot">.</span><a class="efeature" href="../adsb_service/auth_token.html#f_set_expiry">set_expiry</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><span class="neclass">DATE_TIME</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">make_now</span> <span class="ekeyword">end</span> <span class="ekeyword">end</span> <span class="esymbol">+</span> <span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><span class="neclass">DATE_TIME_DURATION</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">make_definite</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span> <span class="ekeyword">end</span><span class="esymbol">)</span><span class="esymbol">;</span>
+						<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_information</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;auth token: &quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="edot">.</span><a class="efeature" href="../adsb_service/auth_token.html#f_token">token</a> <span class="esymbol">+</span> &quot; - &quot; <span class="esymbol">+</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="edot">.</span><a class="efeature" href="../adsb_service/auth_token.html#f_expiry">expiry</a><span class="edot">.</span><span class="nefeature">formatted_out</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;yyyy/[0]mm/[0]dd [0]hh:[0]mi:[0]ss.ff3&quot;<span class="esymbol">)</span><span class="esymbol">)</span>
+						<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="nefeature">cleanup</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_run_sbs"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_run_sbs">run_sbs</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">tout</span><span class="esymbol">:</span> <span class="neclass">INTEGER_64</span>
+		<span class="ekeyword">do</span>
+			<span class="elocal">tout</span> <span class="esymbol">:=</span> <span class="enumber">10</span> <span class="esymbol">*</span> <span class="enumber">1000</span> <span class="esymbol">*</span> <span class="enumber">1000000</span><span class="edot">.</span><span class="nefeature">to_integer_64</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_sbs_client">sbs_client</a><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_sbs_client.html#f_make_client">make_client</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_host">host</a><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_port">port</a><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_timeout">timeout</a><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_tracks_path">tracks_path</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../adsb_service/adsb_sbs_client.html">ADSB_SBS_CLIENT</a><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_sbs_client">sbs_client</a> <span class="ekeyword">as</span> l_sbs_client <span class="ekeyword">then</span>
+				<span class="ekeyword">from</span>
+				<span class="ekeyword">until</span>
+					<span class="ekeyword">False</span>
+				<span class="ekeyword">loop</span>
+					<span class="ekeyword">if</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="edot">.</span><a class="efeature" href="../adsb_service/auth_token.html#f_is_expired">is_expired</a> <span class="ekeyword">then</span>
+						<span class="ekeyword">if</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_retrieve_auth_token">retrieve_auth_token</a> <span class="ekeyword">then</span>
+							<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_auth_token">set_auth_token</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_routes_url">set_routes_url</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_routes_url">routes_url</a><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_reference_airport">set_reference_airport</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_ref_arpt">ref_arpt</a><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_mrt">set_mrt</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_mrt">mrt</a><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_distance_threshold">set_distance_threshold</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_distance_threshold">distance_threshold</a><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_sbs_client.html#f_start">start</a>
+						<span class="ekeyword">else</span>
+							<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_SERVICE_APPLICATION}.make unable to retrieve auth_token, retry in a few seconds&quot;<span class="esymbol">)</span>
+							<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="elocal">tout</span><span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">else</span>
+						<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_auth_token">set_auth_token</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_routes_url">set_routes_url</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_routes_url">routes_url</a><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_reference_airport">set_reference_airport</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_ref_arpt">ref_arpt</a><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_mrt">set_mrt</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_mrt">mrt</a><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_distance_threshold">set_distance_threshold</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_distance_threshold">distance_threshold</a><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_sbs_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_sbs_client.html#f_start">start</a>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_SERVICE_APPLICATION}.make Unable to create SBS client&quot;<span class="esymbol">)</span>
+				<span class="elocal">tout</span> <span class="esymbol">:=</span> <span class="enumber">2</span> <span class="esymbol">*</span> <span class="enumber">1000</span> <span class="esymbol">*</span> <span class="enumber">1000000</span><span class="edot">.</span><span class="nefeature">to_integer_64</span>
+				<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="elocal">tout</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_run_raw"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_run_raw">run_raw</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">tout</span><span class="esymbol">:</span> <span class="neclass">INTEGER_64</span>
+		<span class="ekeyword">do</span>
+			<span class="elocal">tout</span> <span class="esymbol">:=</span> <span class="enumber">10</span> <span class="esymbol">*</span> <span class="enumber">1000</span> <span class="esymbol">*</span> <span class="enumber">1000000</span><span class="edot">.</span><span class="nefeature">to_integer_64</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_raw_client">raw_client</a><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_raw_client.html#f_make_client">make_client</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_host">host</a><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_port">port</a><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_timeout">timeout</a><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="esymbol">,</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_tracks_path">tracks_path</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../adsb_service/adsb_raw_client.html">ADSB_RAW_CLIENT</a><span class="esymbol">}</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_raw_client">raw_client</a> <span class="ekeyword">as</span> l_raw_client <span class="ekeyword">then</span>
+				<span class="ekeyword">from</span>
+				<span class="ekeyword">until</span>
+					<span class="ekeyword">False</span>
+				<span class="ekeyword">loop</span>
+					<span class="ekeyword">if</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="edot">.</span><a class="efeature" href="../adsb_service/auth_token.html#f_is_expired">is_expired</a> <span class="ekeyword">then</span>
+						<span class="ekeyword">if</span> <a class="efeature" href="../adsb_service/adsb_service_application.html#f_retrieve_auth_token">retrieve_auth_token</a> <span class="ekeyword">then</span>
+							<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_auth_token">set_auth_token</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_routes_url">set_routes_url</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_routes_url">routes_url</a><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_reference_airport">set_reference_airport</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_ref_arpt">ref_arpt</a><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_mrt">set_mrt</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_mrt">mrt</a><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_distance_threshold">set_distance_threshold</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_distance_threshold">distance_threshold</a><span class="esymbol">)</span><span class="esymbol">;</span>
+							<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_raw_client.html#f_start">start</a>
+						<span class="ekeyword">else</span>
+							<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_SERVICE_APPLICATION}.make unable to retrieve auth_token, retry in a few seconds&quot;<span class="esymbol">)</span>
+							<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="elocal">tout</span><span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">else</span>
+						<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_auth_token">set_auth_token</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_routes_url">set_routes_url</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_routes_url">routes_url</a><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_reference_airport">set_reference_airport</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_ref_arpt">ref_arpt</a><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_mrt">set_mrt</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_mrt">mrt</a><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_client.html#f_set_distance_threshold">set_distance_threshold</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../adsb_service/adsb_service_application.html#f_distance_threshold">distance_threshold</a><span class="esymbol">)</span><span class="esymbol">;</span>
+						<span class="elocal">l_raw_client</span><span class="edot">.</span><a class="efeature" href="../adsb_service/adsb_raw_client.html#f_start">start</a>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="edot">.</span><span class="nefeature">write_warning</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;{ADSB_SERVICE_APPLICATION}.make Unable to create RAW client&quot;<span class="esymbol">)</span>
+				<span class="elocal">tout</span> <span class="esymbol">:=</span> <span class="enumber">2</span> <span class="esymbol">*</span> <span class="enumber">1000</span> <span class="esymbol">*</span> <span class="enumber">1000000</span><span class="edot">.</span><span class="nefeature">to_integer_64</span>
+				<span class="esymbol">{</span><span class="neclass">EXECUTION_ENVIRONMENT</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">sleep</span> <span class="esymbol">(</span><span class="elocal">tout</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_host"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_host">host</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_port"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_port">port</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_adsb_proto"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_adsb_proto">adsb_proto</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_timeout"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_timeout">timeout</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_tracks_path"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_tracks_path">tracks_path</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_mrt"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_mrt">mrt</a><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/point.html">POINT</a>
+
+	<a name="f_distance_threshold"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_distance_threshold">distance_threshold</a><span class="esymbol">:</span> <span class="neclass">INTEGER_32</span>
+
+	<a name="f_log_path"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_log_path">log_path</a><span class="esymbol">:</span> <span class="neclass">PATH</span>
+
+	<a name="f_log_writer"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_log_writer">log_writer</a><span class="esymbol">:</span> <span class="neclass">LOG_ROLLING_WRITER_FILE</span>
+
+	<a name="f_logger"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_logger">logger</a><span class="esymbol">:</span> <span class="neclass">LOG_LOGGING_FACILITY</span>
+
+	<a name="f_sbs_client"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_sbs_client">sbs_client</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../adsb_service/adsb_sbs_client.html">ADSB_SBS_CLIENT</a>
+
+	<a name="f_raw_client"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_raw_client">raw_client</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../adsb_service/adsb_raw_client.html">ADSB_RAW_CLIENT</a>
+
+	<a name="f_prefs_storage"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs_storage">prefs_storage</a><span class="esymbol">:</span> <a class="eclass" href="../storage/preferences_storage_xml.html">PREFERENCES_STORAGE_XML</a>
+
+	<a name="f_prefs_manager"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs_manager">prefs_manager</a><span class="esymbol">:</span> <a class="eclass" href="../preferences/preference_manager.html">PREFERENCE_MANAGER</a>
+
+	<a name="f_prefs"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_prefs">prefs</a><span class="esymbol">:</span> <a class="eclass" href="../preferences/preferences.html">PREFERENCES</a>
+
+	<a name="f_auth_url"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_url">auth_url</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_auth_usr"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_usr">auth_usr</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_auth_pwd"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_pwd">auth_pwd</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_auth_token"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_auth_token">auth_token</a><span class="esymbol">:</span> <a class="eclass" href="../adsb_service/auth_token.html">AUTH_TOKEN</a>
+
+	<a name="f_routes_url"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_routes_url">routes_url</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_pj4geo"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_pj4geo">pj4geo</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_pj4proj"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_pj4proj">pj4proj</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_ref_arpt"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_ref_arpt">ref_arpt</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+
+	<a name="f_curl_handle"></a><a class="efeature" href="../adsb_service/adsb_service_application.html#f_curl_handle">curl_handle</a><span class="esymbol">:</span> <span class="neclass">POINTER</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../adsb_service/adsb_service_application.html">ADSB_SERVICE_APPLICATION</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="adsb_service_application_chart.html">Chart</a>
+<a class="nav class" href="adsb_service_application_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="adsb_service_application_flat.html">Flat</a>
+<a class="nav class" href="adsb_service_application_short.html">Contracts</a>
+<a class="nav class" href="adsb_service_application_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="adsb_service_application"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

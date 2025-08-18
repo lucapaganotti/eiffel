@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - linux-x86-64">
+<meta name="description" content="Manager of related preference values."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="status" content="See notice at end of class."/>
+<meta name="date" content="$Date$"/>
+<meta name="revision" content="$Revision$"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2010, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>preference_manager Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="preference_manager_chart.html">Chart</a>
+<a class="nav class" href="preference_manager_links.html">Relations</a>
+<a class="nav class" href="preference_manager.html">Text</a>
+<a class="nav class" href="preference_manager_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="preference_manager_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="preference_manager"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Manager of related preference values.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../preferences/preference_manager_short.html">PREFERENCE_MANAGER</a>
+
+<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../preferences/preferences_short.html">PREFERENCES</a><span class="esymbol">}</span>
+	<a class="efeature" href="../preferences/preference_manager_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_namespace"></a><a class="efeature" href="../preferences/preference_manager_short.html#f_namespace">namespace</a><span class="esymbol">:</span> <span class="neclass">STRING_8</span>
+			<span class="ecomment">--</span><span class="ecomment"> Name for this manager.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Query</span>
+
+	<a name="f_known_preference"></a><a class="efeature" href="../preferences/preference_manager_short.html#f_known_preference">known_preference</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <span class="neclass">STRING_8</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">BOOLEAN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is the preference with </span><span class="equoted">a_name</span><span class="ecomment"> in the system?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">name_not_empty</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <span class="elocal">a_name</span><span class="edot">.</span><span class="nefeature">is_empty</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">has_preferences</span><span class="esymbol">:</span> <a class="efeature" href="../preferences/preference_manager_short.html#f_preferences">preferences</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">has_namespace</span><span class="esymbol">:</span> <a class="efeature" href="../preferences/preference_manager_short.html#f_namespace">namespace</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">namespace_valid</span><span class="esymbol">:</span> <span class="ekeyword">not</span> <a class="efeature" href="../preferences/preference_manager_short.html#f_namespace">namespace</a><span class="edot">.</span><span class="nefeature">is_empty</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2010, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../preferences/preference_manager_short.html">PREFERENCE_MANAGER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="preference_manager_chart.html">Chart</a>
+<a class="nav class" href="preference_manager_links.html">Relations</a>
+<a class="nav class" href="preference_manager.html">Text</a>
+<a class="nav class" href="preference_manager_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="preference_manager_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="preference_manager"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+
